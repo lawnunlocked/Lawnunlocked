@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LawnUnlocked — Your Personalized Lawn Care Plan</title>
+  <link rel="preconnect" href="https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Ffonts.googleapis.com%2F&data=05%7C02%7Cryan.mcdonald2%40fmr.com%7C77c9e5ca641e4687978f08de76336322%7C7521acbca68c41e5a9751cf83066dd19%7C0%7C0%7C639078160281647010%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C40000%7C%7C%7C&sdata=H0nAzSv4MqYudOMb8C6m%2Ft2ClF3%2Bu9FR5YQguJdyB7E%3D&reserved=0" />
+  <link rel="preconnect" href="https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Ffonts.gstatic.com%2F&data=05%7C02%7Cryan.mcdonald2%40fmr.com%7C77c9e5ca641e4687978f08de76336322%7C7521acbca68c41e5a9751cf83066dd19%7C0%7C0%7C639078160281681500%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C40000%7C%7C%7C&sdata=x3QR9wIAd1%2BsXzkTkfHKyVVbtzUx96T%2FeTfiZr6VOxM%3D&reserved=0" crossorigin />
+  <link href="https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DPlayfair%2BDisplay%3Awght%40700%3B900%26family%3DDM%2BSans%3Awght%40300%3B400%3B500%26display%3Dswap&data=05%7C02%7Cryan.mcdonald2%40fmr.com%7C77c9e5ca641e4687978f08de76336322%7C7521acbca68c41e5a9751cf83066dd19%7C0%7C0%7C639078160281703548%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C40000%7C%7C%7C&sdata=f4pWOJGy8VITwCPWvavGVsPwu0EGkFuO5O4Tzj0CfIQ%3D&reserved=0" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+```
+:root {
+  --green: #3d7a3a;
+  --green-light: #52a34e;
+  --green-pale: #e8f5e7;
+  --black: #111;
+  --white: #fff;
+  --gray: #f5f5f3;
+  --mid: #888;
+  --border: #e0e0dc;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 2.5rem;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 900;
+  color: var(--black); text-decoration: none;
+  letter-spacing: -0.03em;
+}
+.logo span { color: var(--green); }
+nav a.cta-nav {
+  background: var(--green); color: var(--white);
+  padding: 0.55rem 1.3rem; border-radius: 6px;
+  text-decoration: none; font-weight: 500; font-size: 0.9rem;
+  transition: background 0.2s;
+}
+nav a.cta-nav:hover { background: var(--green-light); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 2.5rem 5rem;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: #ffffff;
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.03;
+  background-image: linear-gradient(var(--black) 1px, transparent 1px),
+    linear-gradient(90deg, var(--black) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 680px;
+}
+.hero-tag {
+  display: inline-block;
+  background: var(--green-pale); color: var(--green);
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.35rem 0.9rem;
+  border-radius: 100px; border: 1px solid #b6dcb2;
+  margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900; line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
+}
+.hero h1 em {
+  font-style: normal; color: var(--green);
+  position: relative;
+}
+.hero h1 em::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+  background: var(--green); border-radius: 2px;
+  transform: scaleX(0); transform-origin: left;
+  animation: underlineIn 0.5s 0.8s forwards;
+}
+.hero p {
+  font-size: 1.15rem; color: #222; font-weight: 400;
+  max-width: 520px; margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp 0.6s 0.35s forwards;
+}
+.hero-actions {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.6s 0.45s forwards;
+}
+.btn-primary {
+  background: var(--green); color: var(--white);
+  padding: 0.85rem 2rem; border-radius: 8px;
+  font-size: 1rem; font-weight: 500; text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
+.btn-secondary {
+  background: transparent; color: var(--black);
+  padding: 0.85rem 2rem; border-radius: 8px;
+  font-size: 1rem; font-weight: 500; text-decoration: none;
+  border: 1.5px solid var(--border);
+  transition: border-color 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-secondary:hover { border-color: var(--green); transform: translateY(-2px); }
+
+.hero-stats {
+  display: flex; gap: 3rem; margin-top: 4rem;
+  opacity: 0; animation: fadeUp 0.6s 0.55s forwards;
+}
+.stat-item { }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700; color: var(--black);
+  line-height: 1;
+}
+.stat-label { font-size: 0.82rem; color: var(--mid); margin-top: 0.2rem; }
+
+/* ── HOW IT WORKS ── */
+.how {
+  padding: 6rem 2.5rem;
+  background: var(--gray);
+  border-top: 1px solid var(--border);
+}
+.section-label {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--green);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 3.5rem; max-width: 480px;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem; max-width: 1000px;
+}
+.step {
+  background: var(--white); border-radius: 12px;
+  padding: 2rem; border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.step:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+.step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 900; color: var(--green-pale);
+  line-height: 1; margin-bottom: 1rem;
+}
+.step h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
+.step p { font-size: 0.88rem; color: #555; font-weight: 300; }
+
+/* ── QUIZ SECTION ── */
+.quiz-section {
+  padding: 6rem 2.5rem;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+.quiz-wrapper {
+  max-width: 720px; margin: 0 auto;
+}
+.quiz-header { text-align: center; margin-bottom: 3rem; }
+.quiz-header .section-label { justify-content: center; display: block; }
+
+/* Progress */
+.progress-bar {
+  height: 4px; background: var(--border); border-radius: 2px;
+  margin-bottom: 2.5rem; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: var(--green); border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.progress-text {
+  text-align: right; font-size: 0.8rem; color: var(--mid);
+  margin-bottom: 0.5rem;
+}
+
+/* Question */
+.question-card {
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 16px; padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+}
+.question-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700;
+  margin-bottom: 0.5rem; line-height: 1.3;
+}
+.question-card .sub {
+  font-size: 0.88rem; color: var(--mid); margin-bottom: 2rem;
+}
+
+/* Options */
+.options { display: grid; gap: 0.75rem; }
+.option {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem; border-radius: 10px;
+  border: 1.5px solid var(--border); cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: var(--white);
+}
+.option:hover { border-color: var(--green); background: var(--green-pale); }
+.option.selected { border-color: var(--green); background: var(--green-pale); }
+.option-icon { font-size: 1.4rem; width: 2rem; text-align: center; flex-shrink: 0; }
+.option-text { font-size: 0.95rem; font-weight: 400; }
+
+/* Text input */
+.text-input {
+  width: 100%; padding: 0.9rem 1.2rem;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  font-family: 'DM Sans', sans-serif; font-size: 1rem;
+  outline: none; transition: border-color 0.2s;
+  background: var(--white);
+}
+.text-input:focus { border-color: var(--green); }
+
+/* Soil test upload area */
+.soil-options { display: grid; gap: 1rem; }
+.soil-opt {
+  padding: 1.25rem; border-radius: 10px;
+  border: 1.5px solid var(--border); cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.soil-opt:hover { border-color: var(--green); background: var(--green-pale); }
+.soil-opt.selected { border-color: var(--green); background: var(--green-pale); }
+.soil-opt h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.25rem; }
+.soil-opt p { font-size: 0.82rem; color: var(--mid); }
+#soilUploadArea { margin-top: 1rem; display: none; }
+.upload-zone {
+  border: 2px dashed var(--border); border-radius: 10px;
+  padding: 2rem; text-align: center; cursor: pointer;
+  transition: border-color 0.2s;
+}
+.upload-zone:hover { border-color: var(--green); }
+.upload-zone p { font-size: 0.88rem; color: var(--mid); margin-top: 0.5rem; }
+#soilFileInput { display: none; }
+#soilManualArea { margin-top: 1rem; display: none; }
+.soil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
+.soil-field label { font-size: 0.78rem; color: var(--mid); display: block; margin-bottom: 0.3rem; }
+
+/* Nav buttons */
+.quiz-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 2rem;
+}
+.btn-back {
+  background: none; border: 1.5px solid var(--border);
+  color: var(--black); padding: 0.7rem 1.5rem;
+  border-radius: 8px; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; transition: border-color 0.2s;
+}
+.btn-back:hover { border-color: var(--green); }
+.btn-next {
+  background: var(--green); color: var(--white);
+  border: none; padding: 0.7rem 2rem;
+  border-radius: 8px; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-next:hover { background: var(--green-light); transform: translateY(-1px); }
+.btn-next:disabled { background: var(--border); color: var(--mid); cursor: not-allowed; transform: none; }
+
+/* Results */
+#resultsPanel { display: none; }
+.results-header { text-align: center; margin-bottom: 3rem; }
+.results-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;
+}
+.results-header p { color: var(--mid); }
+
+.loading-state { text-align: center; padding: 3rem; }
+.spinner {
+  width: 40px; height: 40px; border: 3px solid var(--border);
+  border-top-color: var(--green); border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1.5rem;
+}
+.loading-state p { color: var(--mid); font-size: 0.95rem; }
+
+.product-grid { display: grid; gap: 1.25rem; }
+.product-card {
+  border: 1.5px solid var(--border); border-radius: 12px;
+  padding: 1.5rem; transition: box-shadow 0.2s;
+}
+.product-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.product-priority {
+  display: inline-block; font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.25rem 0.7rem; border-radius: 100px;
+  margin-bottom: 0.75rem;
+}
+.priority-high { background: #fff3e0; color: #e65100; }
+.priority-medium { background: var(--green-pale); color: var(--green); }
+.priority-low { background: #f5f5f5; color: #666; }
+.product-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem; }
+.product-card .why { font-size: 0.87rem; color: #555; margin-bottom: 1rem; }
+.product-card .how { font-size: 0.82rem; color: var(--mid); margin-bottom: 1.25rem; font-style: italic; }
+.btn-amazon {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: #FF9900; color: var(--black);
+  padding: 0.55rem 1.25rem; border-radius: 7px;
+  text-decoration: none; font-size: 0.88rem; font-weight: 500;
+  transition: background 0.2s;
+}
+.btn-amazon:hover { background: #e68a00; }
+
+.disclaimer {
+  margin-top: 2rem; padding: 1rem 1.25rem;
+  background: var(--gray); border-radius: 8px;
+  font-size: 0.8rem; color: var(--mid); line-height: 1.5;
+}
+
+.restart-btn {
+  display: block; margin: 2rem auto 0; background: none;
+  border: 1.5px solid var(--border); padding: 0.7rem 1.5rem;
+  border-radius: 8px; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; transition: border-color 0.2s;
+}
+.restart-btn:hover { border-color: var(--green); }
+
+/* ── MAGAZINE RESULTS ── */
+.plan-hero {
+  background: var(--black); color: var(--white);
+  border-radius: 16px; padding: 2.5rem;
+  margin-bottom: 2rem; position: relative; overflow: hidden;
+}
+.plan-hero::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, var(--green) 0%, transparent 70%);
+  opacity: 0.3;
+}
+.plan-hero-tag {
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--green-light); font-weight: 500; margin-bottom: 0.75rem;
+}
+.plan-hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem;
+}
+.plan-hero p { font-size: 0.9rem; color: #aaa; line-height: 1.6; }
+.plan-hero-stats {
+  display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap;
+}
+.plan-stat {
+  background: rgba(255,255,255,0.07); border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+.plan-stat-val { font-size: 1.1rem; font-weight: 700; color: var(--green-light); }
+.plan-stat-label { font-size: 0.72rem; color: #888; margin-top: 0.1rem; }
+
+/* Season tabs */
+.season-tabs {
+  display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;
+}
+.season-tab {
+  padding: 0.55rem 1.2rem; border-radius: 100px;
+  border: 1.5px solid var(--border); cursor: pointer;
+  font-size: 0.85rem; font-weight: 500; background: var(--white);
+  transition: all 0.2s; white-space: nowrap;
+}
+.season-tab:hover { border-color: var(--green); }
+.season-tab.active {
+  background: var(--green); color: var(--white); border-color: var(--green);
+}
+
+/* Care sections */
+.care-section { margin-bottom: 2rem; }
+.care-section-header {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.25rem; padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+.care-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.care-section-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem; font-weight: 700;
+}
+.care-section-header .care-season-badge {
+  margin-left: auto; font-size: 0.72rem; font-weight: 500;
+  padding: 0.25rem 0.7rem; border-radius: 100px;
+  background: var(--green-pale); color: var(--green);
+  letter-spacing: 0.05em; white-space: nowrap;
+}
+
+/* Info cards inside sections */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.info-card {
+  background: var(--gray); border-radius: 12px; padding: 1.25rem;
+  border: 1px solid var(--border);
+}
+.info-card.highlight {
+  background: var(--green-pale); border-color: #b6dcb2;
+}
+.info-card.warning {
+  background: #fff8e6; border-color: #ffe082;
+}
+.info-card.full { grid-column: 1 / -1; }
+.info-card h4 { font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--black); }
+.info-card p { font-size: 0.83rem; color: #444; line-height: 1.5; }
+.info-card .big-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700; color: var(--green);
+  line-height: 1; margin-bottom: 0.25rem;
+}
+
+/* Checklist */
+.checklist { display: grid; gap: 0.6rem; }
+.check-item {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  padding: 0.85rem 1rem; background: var(--white);
+  border: 1px solid var(--border); border-radius: 10px;
+  cursor: pointer; transition: background 0.15s;
+}
+.check-item:hover { background: var(--green-pale); }
+.check-item.done { opacity: 0.5; text-decoration: line-through; }
+.check-box {
+  width: 20px; height: 20px; border-radius: 5px;
+  border: 2px solid var(--border); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; transition: all 0.15s; margin-top: 1px;
+}
+.check-item.done .check-box { background: var(--green); border-color: var(--green); color: white; }
+.check-text { font-size: 0.88rem; line-height: 1.4; }
+.check-season { font-size: 0.72rem; color: var(--mid); margin-top: 0.2rem; }
+
+/* Product cards - new style */
+.product-list { display: grid; gap: 1rem; }
+.product-item {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1.25rem; border: 1.5px solid var(--border);
+  border-radius: 12px; background: var(--white);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.product-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: #c8e6c9; }
+.product-item-icon {
+  width: 52px; height: 52px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; flex-shrink: 0;
+}
+.product-item-body { flex: 1; min-width: 0; }
+.product-item-body h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+.product-item-body p { font-size: 0.82rem; color: #555; margin-bottom: 0.75rem; line-height: 1.4; }
+.product-item-meta { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+.meta-chip {
+  font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 100px;
+  background: var(--gray); color: #555; font-weight: 500;
+}
+
+@media (max-width: 500px) {
+  .info-grid { grid-template-columns: 1fr; }
+  .info-card.full { grid-column: 1; }
+  .plan-hero { padding: 1.5rem; }
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black); color: #aaa;
+  padding: 3rem 2.5rem; text-align: center;
+}
+footer .logo { color: var(--white); }
+footer p { font-size: 0.82rem; margin-top: 1rem; }
+footer a { color: #aaa; text-decoration: none; }
+footer a:hover { color: var(--white); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes underlineIn {
+  to { transform: scaleX(1); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+  nav { padding: 1rem 1.25rem; }
+  .hero { padding: 7rem 1.25rem 4rem; }
+  .hero-stats { gap: 2rem; }
+  .how, .quiz-section { padding: 4rem 1.25rem; }
+  .question-card { padding: 1.5rem; }
+  .soil-grid { grid-template-columns: 1fr; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <a href="#" class="logo">Lawn<span>Unlocked</span></a>
+  <a href="#quiz" class="cta-nav">Get My Plan →</a>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <span class="hero-tag">🌿 AI-Powered Lawn Advice</span>
+    <h1>Stop guessing.<br/>Start growing <em>smarter</em>.</h1>
+    <p>Answer a few questions about your lawn, and we'll recommend the exact products you need — no private labels, no markups, just honest advice backed by real data.</p>
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;max-width:460px;margin-bottom:1rem;opacity:0;animation:fadeUp 0.6s 0.45s forwards;">
+      <input type="text" id="heroZip" maxlength="5" placeholder="Enter your ZIP code"
+        style="flex:1;min-width:160px;padding:0.85rem 1.25rem;border:2px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;transition:border-color 0.2s;"
+        onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"
+        onkeydown="if(event.key==='Enter') startWithZip()"
+      />
+      <button onclick="startWithZip()" style="background:var(--green);color:white;border:none;padding:0.85rem 1.75rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:background 0.2s;white-space:nowrap;"
+        onmouseover="this.style.background='var(--green-light)'" onmouseout="this.style.background='var(--green)'">
+        Get My Free Plan →
+      </button>
+    </div>
+    <p style="font-size:0.78rem;color:var(--mid);margin-bottom:2rem;opacity:0;animation:fadeUp 0.6s 0.5s forwards;">Free, no signup required. Takes 2 minutes.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">Free</div>
+        <div class="stat-label">Always, no signup</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2 min</div>
+        <div class="stat-label">To get your plan</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Unbiased advice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="how" id="how">
+  <div class="section-label">How It Works</div>
+  <h2 class="section-title">Your lawn plan in three simple steps</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Tell us about your lawn</h3>
+      <p>Answer a short quiz about your location, grass type, and current lawn conditions. Takes about 2 minutes.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Upload your soil test (optional)</h3>
+      <p>Have a soil test? Upload it for a hyper-personalized plan. No test? No problem — we'll work with what you have.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Get your exact product list</h3>
+      <p>We recommend the specific products you need, available on Amazon. No guesswork. No wasted money.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+
+<section class="quiz-section" id="quiz">
+  <div class="quiz-wrapper">
+    <div class="quiz-header">
+      <span class="section-label">Your Free Lawn Plan</span>
+      <h2 class="section-title" style="max-width:100%;text-align:center;">Let's build your personalized plan</h2>
+    </div>
+
+```
+<div id="quizPanel">
+  <div class="progress-text" id="progressText">Question 1 of 9</div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:11%"></div></div>
+
+  <div class="question-card" id="questionCard">
+    <!-- Dynamically rendered -->
+  </div>
+
+  <div class="quiz-nav">
+    <button class="btn-back" id="btnBack" onclick="goBack()" style="visibility:hidden">← Back</button>
+    <button class="btn-next" id="btnNext" onclick="goNext()">Continue →</button>
+  </div>
+</div>
+
+<div id="resultsPanel">
+  <div id="loadingState" class="loading-state">
+    <div class="spinner"></div>
+    <p>Building your personalized lawn guide…</p>
+  </div>
+  <div id="planContent" style="display:none"></div>
+  <button class="restart-btn" id="restartBtn" onclick="restartQuiz()" style="display:none">← Start Over</button>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <a href="#" class="logo">Lawn<span style="color:var(--green)">Unlocked</span></a>
+  <p>Honest lawn advice. No nonsense. No markups.<br/>
+  <a href="#">Privacy Policy</a> · <a href="#">Affiliate Disclosure</a></p>
+  <p style="margin-top:1.5rem;font-size:0.75rem">© 2026 LawnUnlocked. As an Amazon Associate we earn from qualifying purchases.</p>
+</footer>
+
+<script>
+  // ── QUIZ DATA ──────────────────────────────────────────────
+  const questions = [
+    {
+      id: 'zip',
+      type: 'text',
+      title: 'What\'s your ZIP code?',
+      sub: 'This helps us tailor recommendations to your climate zone and grass type.',
+      placeholder: 'e.g. 30301',
+      key: 'zip'
+    },
+    {
+      id: 'grassType',
+      type: 'options',
+      title: 'What type of grass do you have?',
+      sub: 'Not sure? Choose "I\'m not sure" and we\'ll factor in your location.',
+      key: 'grassType',
+      options: [
+        { icon: '🌿', text: 'Bermuda' },
+        { icon: '🍀', text: 'Fescue (Tall or Fine)' },
+        { icon: '🌱', text: 'Zoysia' },
+        { icon: '🌾', text: 'St. Augustine' },
+        { icon: '🟢', text: 'Kentucky Bluegrass' },
+        { icon: '❓', text: 'I\'m not sure' },
+      ]
+    },
+    {
+      id: 'lawnSize',
+      type: 'options',
+      title: 'How big is your lawn?',
+      sub: 'Approximate is fine — this helps us recommend the right product quantities.',
+      key: 'lawnSize',
+      options: [
+        { icon: '🏠', text: 'Small (under 2,000 sq ft)' },
+        { icon: '🏡', text: 'Medium (2,000–5,000 sq ft)' },
+        { icon: '🌄', text: 'Large (5,000–10,000 sq ft)' },
+        { icon: '🏞️', text: 'Very Large (10,000+ sq ft)' },
+      ]
+    },
+    {
+      id: 'sunExposure',
+      type: 'options',
+      title: 'How much sun does your lawn get?',
+      sub: 'On a typical sunny day.',
+      key: 'sunExposure',
+      options: [
+        { icon: '☀️', text: 'Full sun (6+ hours)' },
+        { icon: '⛅', text: 'Partial sun (3–6 hours)' },
+        { icon: '🌥️', text: 'Mostly shade (under 3 hours)' },
+        { icon: '🔀', text: 'Mix of sun and shade' },
+      ]
+    },
+    {
+      id: 'problems',
+      type: 'multi',
+      title: 'What lawn problems are you dealing with?',
+      sub: 'Select all that apply.',
+      key: 'problems',
+      options: [
+        { icon: '🟡', text: 'Yellowing or thin grass' },
+        { icon: '🌿', text: 'Weeds taking over' },
+        { icon: '🐛', text: 'Pests or grubs' },
+        { icon: '🦠', text: 'Disease or fungus patches' },
+        { icon: '🏜️', text: 'Bare or patchy spots' },
+        { icon: '💚', text: 'Just want it to look greener' },
+      ]
+    },
+    {
+      id: 'lastFertilized',
+      type: 'options',
+      title: 'When did you last fertilize?',
+      sub: 'Best guess is fine.',
+      key: 'lastFertilized',
+      options: [
+        { icon: '📅', text: 'Within the last month' },
+        { icon: '🗓️', text: '1–3 months ago' },
+        { icon: '📆', text: '3–6 months ago' },
+        { icon: '❌', text: 'Never or can\'t remember' },
+      ]
+    },
+    {
+      id: 'budget',
+      type: 'options',
+      title: 'What\'s your budget for lawn products?',
+      sub: 'We\'ll keep recommendations within your range.',
+      key: 'budget',
+      options: [
+        { icon: '💵', text: 'Under $50' },
+        { icon: '💴', text: '$50–$100' },
+        { icon: '💰', text: '$100–$200' },
+        { icon: '🏆', text: 'Whatever it takes to get results' },
+      ]
+    },
+    {
+      id: 'goal',
+      type: 'multi',
+      title: 'What are your lawn goals this season?',
+      sub: 'Select all that apply.',
+      key: 'goal',
+      options: [
+        { icon: '🌱', text: 'Fix the obvious problems' },
+        { icon: '💚', text: 'Get it thick and green' },
+        { icon: '🏆', text: 'Best lawn on the block' },
+        { icon: '🌿', text: 'Low maintenance, just healthy' },
+      ]
+    },
+    {
+      id: 'soilTest',
+      type: 'soil',
+      title: 'Do you have a soil test result?',
+      sub: 'A soil test gives us precise data for better recommendations. No test? No problem — we\'ll still build you a great plan.',
+      key: 'soilTest'
+    }
+  ];
+
+  let current = 0;
+  let answers = {};
+
+  // ── RENDER ────────────────────────────────────────────────
+  function render() {
+    const q = questions[current];
+    const card = document.getElementById('questionCard');
+    const total = questions.length;
+
+    // Progress
+    document.getElementById('progressText').textContent = `Question ${current + 1} of ${total}`;
+    document.getElementById('progressFill').style.width = `${((current + 1) / total) * 100}%`;
+
+    // Back button
+    document.getElementById('btnBack').style.visibility = current > 0 ? 'visible' : 'hidden';
+
+    // Next button
+    const nextBtn = document.getElementById('btnNext');
+    nextBtn.textContent = current === total - 1 ? 'Get My Plan →' : 'Continue →';
+
+    // Build card
+    if (q.type === 'options') {
+      card.innerHTML = `
+        <h2>${q.title}</h2>
+        <p class="sub">${q.sub}</p>
+        <div class="options" id="optionsContainer">
+          ${q.options.map((o, i) => `
+            <div class="option${answers[q.key] === o.text ? ' selected' : ''}" onclick="selectOption('${q.key}', '${o.text.replace(/'/g,"\\'")}', this)">
+              <span class="option-icon">${o.icon}</span>
+              <span class="option-text">${o.text}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    } else if (q.type === 'multi') {
+      const selected = answers[q.key] || [];
+      card.innerHTML = `
+        <h2>${q.title}</h2>
+        <p class="sub">${q.sub}</p>
+        <div class="options" id="optionsContainer">
+          ${q.options.map((o) => `
+            <div class="option${selected.includes(o.text) ? ' selected' : ''}" onclick="toggleMulti('${q.key}', '${o.text.replace(/'/g,"\\'")}', this)">
+              <span class="option-icon">${o.icon}</span>
+              <span class="option-text">${o.text}</span>
+              <span class="option-check" style="margin-left:auto;font-size:1rem">${selected.includes(o.text) ? '✅' : ''}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    } else if (q.type === 'text') {
+      card.innerHTML = `
+        <h2>${q.title}</h2>
+        <p class="sub">${q.sub}</p>
+        <input type="text" class="text-input" id="textInput"
+          placeholder="${q.placeholder}"
+          value="${answers[q.key] || ''}"
+          oninput="answers['${q.key}'] = this.value"
+          onkeydown="if(event.key==='Enter') goNext()"
+        />
+      `;
+      setTimeout(() => document.getElementById('textInput')?.focus(), 50);
+    } else if (q.type === 'soil') {
+      const saved = answers['soilTest'] || {};
+      card.innerHTML = `
+        <h2>${q.title}</h2>
+        <p class="sub">${q.sub}</p>
+        <div class="soil-options">
+          <div class="soil-opt${saved.type === 'upload' ? ' selected' : ''}" id="soilOptUpload" onclick="selectSoilType('upload')">
+            <h4>📄 Yes — I'll upload my soil test PDF or photo</h4>
+            <p>Get the most precise recommendations based on your actual soil data</p>
+          </div>
+          <div id="soilUploadArea">
+            <div class="upload-zone" onclick="document.getElementById('soilFileInput').click()">
+              <div style="font-size:2rem">📎</div>
+              <p>${saved.fileName || 'Click to upload your soil test (PDF, JPG, PNG)'}</p>
+            </div>
+            <input type="file" id="soilFileInput" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileUpload(this)" />
+          </div>
+          <div class="soil-opt${saved.type === 'manual' ? ' selected' : ''}" id="soilOptManual" onclick="selectSoilType('manual')">
+            <h4>🔢 Yes — I'll enter my soil test numbers manually</h4>
+            <p>Type in the key values from your soil test report</p>
+          </div>
+          <div id="soilManualArea">
+            <p style="font-size:0.82rem;color:var(--mid);margin-bottom:0.5rem">Enter what you have — leave blank if not listed</p>
+            <div class="soil-grid">
+              ${[['pH','pH (e.g. 6.2)'],['nitrogen','Nitrogen (N)'],['phosphorus','Phosphorus (P)'],['potassium','Potassium (K)'],['organicMatter','Organic Matter %'],['calcium','Calcium']].map(([k,label]) => `
+                <div class="soil-field">
+                  <label>${label}</label>
+                  <input type="text" class="text-input" style="padding:0.65rem 0.9rem;font-size:0.88rem"
+                    placeholder="—"
+                    value="${(saved.values && saved.values[k]) || ''}"
+                    oninput="updateSoilManual('${k}', this.value)"
+                  />
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          <div class="soil-opt${saved.type === 'none' ? ' selected' : ''}" id="soilOptNone" onclick="selectSoilType('none')">
+            <h4>❌ No — skip this and use my quiz answers only</h4>
+            <p>We'll still build you a solid plan based on your location and lawn profile</p>
+          </div>
+          <div style="background:var(--green-pale);border:1.5px solid #b6dcb2;border-radius:10px;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+            <div>
+              <p style="font-size:0.85rem;font-weight:500;color:var(--black);margin-bottom:0.2rem">🧪 Don't have a soil test yet?</p>
+              <p style="font-size:0.78rem;color:#555;">A ~$15 kit from Amazon gives you precise data for much better recommendations.</p>
+            </div>
+            <a href="https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.amazon.com%2Fs%3Ftag%3DYOURTAG-20%26k%3Dsoil%2Btest%2Bkit%2Blawn&data=05%7C02%7Cryan.mcdonald2%40fmr.com%7C77c9e5ca641e4687978f08de76336322%7C7521acbca68c41e5a9751cf83066dd19%7C0%7C0%7C639078160281720134%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C40000%7C%7C%7C&sdata=yKf2B25wGiSCoTqs1oNOMAsx8VUj5GdpAy568hnrkzs%3D&reserved=0" target="_blank" rel="noopener"
+              style="background:var(--green);color:white;padding:0.5rem 1.1rem;border-radius:7px;text-decoration:none;font-size:0.82rem;font-weight:500;white-space:nowrap;"
+              onmouseover="this.style.background='#52a34e'" onmouseout="this.style.background='#3d7a3a'">
+              Get a Soil Test Kit →
+            </a>
+          </div>
+        </div>
+      `;
+      // Restore UI state
+      if (saved.type === 'upload') document.getElementById('soilUploadArea').style.display = 'block';
+      if (saved.type === 'manual') document.getElementById('soilManualArea').style.display = 'block';
+    }
+  }
+
+  function selectOption(key, value, el) {
+    answers[key] = value;
+    document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  function toggleMulti(key, value, el) {
+    if (!answers[key]) answers[key] = [];
+    const idx = answers[key].indexOf(value);
+    if (idx === -1) {
+      answers[key].push(value);
+      el.classList.add('selected');
+      el.querySelector('.option-check').textContent = '✅';
+    } else {
+      answers[key].splice(idx, 1);
+      el.classList.remove('selected');
+      el.querySelector('.option-check').textContent = '';
+    }
+  }
+
+  function selectSoilType(type) {
+    if (!answers['soilTest']) answers['soilTest'] = {};
+    answers['soilTest'].type = type;
+    ['upload','manual','none'].forEach(t => {
+      document.getElementById(`soilOpt${t.charAt(0).toUpperCase()+t.slice(1)}`)?.classList.remove('selected');
+    });
+    document.getElementById(`soilOpt${type.charAt(0).toUpperCase()+type.slice(1)}`)?.classList.add('selected');
+    document.getElementById('soilUploadArea').style.display = type === 'upload' ? 'block' : 'none';
+    document.getElementById('soilManualArea').style.display = type === 'manual' ? 'block' : 'none';
+  }
+
+  function handleFileUpload(input) {
+    const file = input.files[0];
+    if (!file) return;
+    if (!answers['soilTest']) answers['soilTest'] = {};
+    answers['soilTest'].fileName = file.name;
+    answers['soilTest'].file = file;
+    document.querySelector('#soilUploadArea .upload-zone p').textContent = '✅ ' + file.name;
+  }
+
+  function updateSoilManual(key, value) {
+    if (!answers['soilTest']) answers['soilTest'] = {};
+    if (!answers['soilTest'].values) answers['soilTest'].values = {};
+    answers['soilTest'].values[key] = value;
+  }
+
+  function goNext() {
+    const q = questions[current];
+    // Validation
+    if (q.type === 'text' && !answers[q.key]?.trim()) {
+      document.getElementById('textInput')?.focus();
+      return;
+    }
+    if (q.type === 'options' && !answers[q.key]) return;
+    if (q.type === 'multi' && (!answers[q.key] || answers[q.key].length === 0)) return;
+    if (current < questions.length - 1) {
+      current++;
+      render();
+      document.getElementById('questionCard').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+      showResults();
+    }
+  }
+
+  function goBack() {
+    if (current > 0) { current--; render(); }
+  }
+
+  // ── RESULTS ───────────────────────────────────────────────
+  async function showResults() {
+    document.getElementById('quizPanel').style.display = 'none';
+    document.getElementById('resultsPanel').style.display = 'block';
+    document.getElementById('loadingState').style.display = 'block';
+    document.getElementById('planContent').style.display = 'none';
+    document.getElementById('restartBtn').style.display = 'none';
+    document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+
+    const soilData = answers.soilTest || {};
+    let soilSummary = 'No soil test provided.';
+    if (soilData.type === 'manual' && soilData.values) {
+      const vals = Object.entries(soilData.values).filter(([,v]) => v).map(([k,v]) => `${k}: ${v}`).join(', ');
+      soilSummary = vals ? `Soil test values: ${vals}` : 'No soil values entered.';
+    } else if (soilData.type === 'upload' && soilData.fileName) {
+      soilSummary = `Soil test file uploaded: ${soilData.fileName}.`;
+    }
+
+    const prompt = `You are LawnUnlocked, a knowledgeable lawn care advisor. Based on the lawn profile below, generate a comprehensive seasonal lawn care guide. Return ONLY a valid JSON object — no markdown, no explanation.
+
+Lawn Profile:
+- ZIP: ${answers.zip || 'Unknown'}
+- Grass Type: ${answers.grassType || 'Unknown'}
+- Lawn Size: ${answers.lawnSize || 'Unknown'}
+- Sun: ${answers.sunExposure || 'Unknown'}
+- Problems: ${Array.isArray(answers.problems) ? answers.problems.join(', ') : (answers.problems || 'Unknown')}
+- Last Fertilized: ${answers.lastFertilized || 'Unknown'}
+- Budget: ${answers.budget || 'Unknown'}
+- Goals: ${Array.isArray(answers.goal) ? answers.goal.join(', ') : (answers.goal || 'Unknown')}
+- ${soilSummary}
+
+Return this exact JSON structure:
+{
+  "summary": "2 sentence overview of this lawn's situation and main priorities",
+  "grassProfile": {
+    "type": "confirmed or estimated grass type",
+    "mowingHeight": "e.g. 3–3.5 inches",
+    "scalping": "yes/no and when (e.g. early spring before green-up)",
+    "mowingFrequency": "e.g. every 5–7 days in growing season"
+  },
+  "seasons": {
+    "spring": {
+      "focus": "1 sentence seasonal focus",
+      "mowing": "mowing guidance for this season",
+      "fertilizing": "fertilizer timing and type for this season",
+      "watering": "watering guidance",
+      "weedPest": "weed/pest actions this season",
+      "aeration": "aerate or dethatch? when and why or why not"
+    },
+    "summer": {
+      "focus": "1 sentence seasonal focus",
+      "mowing": "mowing guidance",
+      "fertilizing": "fertilizer guidance or hold off note",
+      "watering": "watering guidance (more critical in summer)",
+      "weedPest": "weed/pest actions",
+      "aeration": "aeration note"
+    },
+    "fall": {
+      "focus": "1 sentence seasonal focus",
+      "mowing": "mowing guidance",
+      "fertilizing": "fertilizer timing — most important season for most grasses",
+      "watering": "watering guidance",
+      "weedPest": "pre-emergent or other actions",
+      "aeration": "best time for most grasses — detail here"
+    },
+    "winter": {
+      "focus": "1 sentence seasonal focus",
+      "mowing": "final mow guidance",
+      "fertilizing": "winterizer or hold off",
+      "watering": "watering note",
+      "weedPest": "dormant season notes",
+      "aeration": "not recommended or prep note"
+    }
+  },
+  "checklist": [
+    {"task": "task description", "season": "Spring/Summer/Fall/Winter", "priority": "high/medium/low"},
+    {"task": "...", "season": "...", "priority": "..."}
+  ],
+  "products": [
+    {
+      "name": "specific real Amazon product name",
+      "category": "fertilizer/weed-control/seed/soil/pest-control/fungicide/tool",
+      "why": "1 sentence why this lawn needs it",
+      "applicationRate": "specific amount for their lawn size",
+      "bestTiming": "when to apply",
+      "amazonSearch": "Amazon search string"
+    }
+  ]
+}
+
+Include 6–8 checklist items covering all seasons. Include 4–5 products. Be specific to the grass type and region.`;
+
+    try {
+      const response = await fetch('https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fapi.anthropic.com%2Fv1%2Fmessages&data=05%7C02%7Cryan.mcdonald2%40fmr.com%7C77c9e5ca641e4687978f08de76336322%7C7521acbca68c41e5a9751cf83066dd19%7C0%7C0%7C639078160281737903%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C40000%7C%7C%7C&sdata=yNRVNGd%2FLv8NqsKdMvPuqLptmCObFWCXQxsKFCz5fCU%3D&reserved=0', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 2000,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+      const data = await response.json();
+      const text = data.content.map(i => i.text || '').join('');
+      const clean = text.replace(/```json|```/g, '').trim();
+      renderPlan(JSON.parse(clean));
+    } catch (err) {
+      renderPlan(getFallbackPlan());
+    }
+  }
+
+  function getFallbackPlan() {
+    const grass = answers.grassType || 'your grass type';
+    const size = answers.lawnSize || 'Medium (2,000–5,000 sq ft)';
+    return {
+      summary: `Your ${grass} lawn has been analyzed based on your location and goals. Focus on a consistent fertilizer schedule and addressing the problems you identified to see significant improvement this season.`,
+      grassProfile: {
+        type: grass,
+        mowingHeight: "3–3.5 inches",
+        scalping: "Yes — scalp in early spring before green-up to remove dead material",
+        mowingFrequency: "Every 5–7 days during active growing season"
+      },
+      seasons: {
+        spring: {
+          focus: "Wake up the lawn — clean up, first feed, and pre-emergent weed control.",
+          mowing: "Begin mowing when grass reaches 4.5 inches. Start at a lower height (2.5\") for first cut then raise to normal height.",
+          fertilizing: "Apply a balanced starter fertilizer (like 10-10-10) in early spring once soil temps hit 55°F.",
+          watering: "1 inch per week. Water deeply 2–3 times per week rather than daily shallow watering.",
+          weedPest: "Apply pre-emergent herbicide before soil temps hit 55°F to prevent crabgrass and other annuals.",
+          aeration: "Light dethatching recommended if thatch layer exceeds ½ inch. Wait for fall for core aeration."
+        },
+        summer: {
+          focus: "Protect and maintain — avoid stress, keep moisture consistent, mow high.",
+          mowing: "Raise mowing height by ½ inch in summer heat. Never remove more than ⅓ of blade at once.",
+          fertilizing: "Skip or use a low-nitrogen, slow-release fertilizer only. Heavy feeding in summer heat can burn.",
+          watering: "Increase to 1.5 inches per week. Water in early morning to reduce evaporation and fungal risk.",
+          weedPest: "Spot-treat weeds. Watch for grub damage — treat with grub control in late June/early July.",
+          aeration: "Do not aerate in summer — too stressful on the lawn."
+        },
+        fall: {
+          focus: "The most important season — feed heavily, aerate, and prepare for winter.",
+          mowing: "Gradually lower mowing height by ¼ inch each cut as growth slows. Final cut at 2.5 inches.",
+          fertilizing: "Apply a high-potassium winterizer fertilizer (like 0-0-60 or 5-0-30) in late fall. This is the most important feed of the year.",
+          watering: "Reduce to ¾ inch per week as temperatures drop. Stop before first hard frost.",
+          weedPest: "Apply post-emergent herbicide for broadleaf weeds in early fall while still actively growing.",
+          aeration: "Core aerate in early fall (September) when soil is moist but not wet. Overseed immediately after for best results."
+        },
+        winter: {
+          focus: "Rest and protect — minimal intervention, plan for spring.",
+          mowing: "No mowing needed once grass goes dormant. Clean and sharpen mower blades during downtime.",
+          fertilizing: "No fertilizing during dormancy. Your fall winterizer is working underground.",
+          watering: "Only water if there's an extended dry spell with no snow cover.",
+          weedPest: "Scout for snow mold in late winter. Avoid heavy foot traffic on frozen grass.",
+          aeration: "Not recommended. Use this time to plan your spring schedule."
+        }
+      },
+      checklist: [
+        { task: "Apply pre-emergent herbicide before soil reaches 55°F", season: "Spring", priority: "high" },
+        { task: "Scalp lawn and remove winter debris", season: "Spring", priority: "high" },
+        { task: "First fertilizer application", season: "Spring", priority: "high" },
+        { task: "Core aerate and overseed", season: "Fall", priority: "high" },
+        { task: "Apply winterizer fertilizer", season: "Fall", priority: "high" },
+        { task: "Check and adjust mower blade height for summer", season: "Summer", priority: "medium" },
+        { task: "Inspect for grub damage and treat if needed", season: "Summer", priority: "medium" },
+        { task: "Final mow at 2.5 inches before dormancy", season: "Fall", priority: "medium" }
+      ],
+      products: [
+        { name: "Scotts Turf Builder Triple Action", category: "fertilizer", why: "Feeds, prevents crabgrass and kills existing weeds in one application — ideal for spring.", applicationRate: `For ${size}, use 1 bag (20 lbs). Covers up to 4,000 sq ft.`, bestTiming: "Apply in early spring when forsythia is blooming.", amazonSearch: "Scotts Turf Builder Triple Action spring fertilizer" },
+        { name: "Scotts Turf Builder WinterGuard Fall Lawn Food", category: "fertilizer", why: "High-potassium fall formula builds root strength and prepares lawn for winter.", applicationRate: `For ${size}, use 1 bag. Apply with a broadcast spreader.`, bestTiming: "Apply October–November before first hard frost.", amazonSearch: "Scotts Turf Builder WinterGuard fall lawn food" },
+        { name: "Spectracide Weed Stop For Lawns Concentrate", category: "weed-control", why: "Kills over 200 broadleaf weeds without harming grass. Post-emergent for active weeds.", applicationRate: "Mix 5 fl oz per gallon of water. 1 gallon covers ~400 sq ft.", bestTiming: "Apply in fall when weeds are actively growing and temps are 45–90°F.", amazonSearch: "Spectracide Weed Stop for Lawns concentrate" },
+        { name: "Jonathan Green Love Your Lawn Love Your Soil", category: "soil", why: "Improves soil structure and nutrient absorption — great for compacted or clay-heavy lawns.", applicationRate: "18 lb bag covers 5,000 sq ft. Apply once or twice per year.", bestTiming: "Apply in early spring or fall. Works best before aeration.", amazonSearch: "Jonathan Green Love Your Lawn soil conditioner" },
+        { name: "Bayer BioAdvanced Grub Killer Plus", category: "pest-control", why: "Kills grubs before they damage roots. Preventative treatment is more effective than curative.", applicationRate: "Apply 2.87 lbs per 1,000 sq ft with a spreader. Water in thoroughly.", bestTiming: "Apply late June to mid-July before eggs hatch. Water within 24 hours.", amazonSearch: "BioAdvanced Grub Killer Plus lawn" }
+      ]
+    };
+  }
+
+  let activeSeason = 'spring';
+
+  function renderPlan(plan) {
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('restartBtn').style.display = 'block';
+    const container = document.getElementById('planContent');
+    container.style.display = 'block';
+
+    const seasonEmojis = { spring: '🌸', summer: '☀️', fall: '🍂', winter: '❄️' };
+    const seasonColors = { spring: '#e8f5e7', summer: '#fff8e6', fall: '#fff3e0', winter: '#e8eaf6' };
+    const seasonAccents = { spring: '#3d7a3a', summer: '#f57f17', fall: '#e65100', winter: '#3949ab' };
+
+    const categoryIcons = {
+      'fertilizer': '🌿', 'weed-control': '🚫', 'seed': '🌱',
+      'soil': '🪨', 'pest-control': '🐛', 'fungicide': '🍄', 'tool': '🔧'
+    };
+    const categoryColors = {
+      'fertilizer': '#e8f5e7', 'weed-control': '#fff3e0', 'seed': '#f1f8e9',
+      'soil': '#fdf3e3', 'pest-control': '#e8eaf6', 'fungicide': '#f3e5f5', 'tool': '#f5f5f5'
+    };
+
+    function renderSeason(key) {
+      const s = plan.seasons[key];
+      if (!s) return '';
+      return `
+        <div class="care-section">
+          <div class="care-section-header">
+            <div class="care-icon" style="background:${seasonColors[key]};font-size:1.3rem">${seasonEmojis[key]}</div>
+            <h3>${key.charAt(0).toUpperCase() + key.slice(1)} Care Plan</h3>
+          </div>
+          <p style="font-size:0.88rem;color:#555;margin-bottom:1.25rem;font-style:italic;">${s.focus}</p>
+          <div class="info-grid">
+            <div class="info-card highlight">
+              <h4>✂️ Mowing</h4>
+              <p>${s.mowing}</p>
+            </div>
+            <div class="info-card">
+              <h4>💧 Watering</h4>
+              <p>${s.watering}</p>
+            </div>
+            <div class="info-card">
+              <h4>🌿 Fertilizing</h4>
+              <p>${s.fertilizing}</p>
+            </div>
+            <div class="info-card ${key === 'fall' ? 'highlight' : ''}">
+              <h4>🔄 Aeration & Thatch</h4>
+              <p>${s.aeration}</p>
+            </div>
+            <div class="info-card full warning">
+              <h4>🚫 Weed & Pest Control</h4>
+              <p>${s.weedPest}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    container.innerHTML = `
+      <!-- Plan Hero -->
+      <div class="plan-hero">
+        <div class="plan-hero-tag">Your Personalized Lawn Guide</div>
+        <h2>${answers.grassType || 'Your Lawn'} Care Plan for ZIP ${answers.zip || 'Your Area'}</h2>
+        <p>${plan.summary}</p>
+        <div class="plan-hero-stats">
+          <div class="plan-stat">
+            <div class="plan-stat-val">${plan.grassProfile.mowingHeight}</div>
+            <div class="plan-stat-label">Ideal mow height</div>
+          </div>
+          <div class="plan-stat">
+            <div class="plan-stat-val">${plan.grassProfile.mowingFrequency.split(' ')[0] + ' ' + plan.grassProfile.mowingFrequency.split(' ')[1] || 'Weekly'}</div>
+            <div class="plan-stat-label">Mowing frequency</div>
+          </div>
+          <div class="plan-stat">
+            <div class="plan-stat-val">${plan.grassProfile.scalping.toLowerCase().startsWith('yes') ? 'Yes' : 'No'}</div>
+            <div class="plan-stat-label">Scalping needed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mowing Profile -->
+      <div class="care-section">
+        <div class="care-section-header">
+          <div class="care-icon" style="background:#f5f5f5">✂️</div>
+          <h3>Mowing Profile</h3>
+        </div>
+        <div class="info-grid">
+          <div class="info-card highlight">
+            <h4>Ideal Height</h4>
+            <div class="big-val">${plan.grassProfile.mowingHeight}</div>
+            <p>Never cut more than ⅓ of the blade at once</p>
+          </div>
+          <div class="info-card">
+            <h4>Frequency</h4>
+            <p>${plan.grassProfile.mowingFrequency}</p>
+          </div>
+          <div class="info-card full ${plan.grassProfile.scalping.toLowerCase().startsWith('yes') ? 'warning' : ''}">
+            <h4>Scalping</h4>
+            <p>${plan.grassProfile.scalping}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Season Tabs -->
+      <div class="care-section">
+        <div class="care-section-header">
+          <div class="care-icon" style="background:#e8f5e7">🗓️</div>
+          <h3>Seasonal Care Guide</h3>
+        </div>
+        <div class="season-tabs" id="seasonTabs">
+          ${['spring','summer','fall','winter'].map(s => `
+            <div class="season-tab${s === activeSeason ? ' active' : ''}" onclick="switchSeason('${s}')">
+              ${seasonEmojis[s]} ${s.charAt(0).toUpperCase() + s.slice(1)}
+            </div>
+          `).join('')}
+        </div>
+        <div id="seasonContent">${renderSeason(activeSeason)}</div>
+      </div>
+
+      <!-- Seasonal Checklist -->
+      <div class="care-section">
+        <div class="care-section-header">
+          <div class="care-icon" style="background:#fff8e6">✅</div>
+          <h3>Your Seasonal Checklist</h3>
+        </div>
+        <div class="checklist" id="checklist">
+          ${(plan.checklist || []).map((item, i) => {
+            const sc = item.season?.toLowerCase();
+            const col = seasonAccents[sc] || '#555';
+            return `
+              <div class="check-item" id="chk${i}" onclick="toggleCheck(${i})">
+                <div class="check-box" id="chkbox${i}"></div>
+                <div>
+                  <div class="check-text">${item.task}</div>
+                  <div class="check-season" style="color:${col}">${item.season} · ${item.priority === 'high' ? '🔴 High priority' : item.priority === 'medium' ? '🟡 Medium priority' : '🟢 Low priority'}</div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+
+      <!-- Product Recommendations -->
+      <div class="care-section">
+        <div class="care-section-header">
+          <div class="care-icon" style="background:#e8f5e7">🛒</div>
+          <h3>Recommended Products</h3>
+        </div>
+        <div class="product-list">
+          ${(plan.products || []).map(p => {
+            const amazonUrl = `https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.amazon.com%2Fs%3Ftag%3DYOURTAG-20%26k%3D%24&data=05%7C02%7Cryan.mcdonald2%40fmr.com%7C77c9e5ca641e4687978f08de76336322%7C7521acbca68c41e5a9751cf83066dd19%7C0%7C0%7C639078160281753208%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C40000%7C%7C%7C&sdata=Z4Od9Y%2FCoJvhI%2BxHzy02TJmxnGQHfUo9RTHo2CuDjO4%3D&reserved=0{encodeURIComponent(p.amazonSearch || p.name)}`;
+            const icon = categoryIcons[p.category] || '🌿';
+            const bg = categoryColors[p.category] || '#f5f5f5';
+            return `
+              <div class="product-item">
+                <div class="product-item-icon" style="background:${bg}">${icon}</div>
+                <div class="product-item-body">
+                  <h4>${p.name}</h4>
+                  <p>${p.why}</p>
+                  <div class="product-item-meta">
+                    <span class="meta-chip">📦 ${p.applicationRate}</span>
+                    <span class="meta-chip">📅 ${p.bestTiming}</span>
+                  </div>
+                  <a href="${amazonUrl}" target="_blank" rel="noopener" class="btn-amazon" style="margin-top:0.75rem;display:inline-flex;">
+                    🛒 Find on Amazon
+                  </a>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        ⚠️ Recommendations are for informational purposes only. Results may vary. Always read product labels before use. LawnUnlocked may earn a small affiliate commission on Amazon purchases at no extra cost to you.
+      </div>
+    `;
+
+    // Store plan for season switching
+    window._currentPlan = plan;
+    window._renderSeason = renderSeason;
+  }
+
+  function switchSeason(key) {
+    activeSeason = key;
+    document.querySelectorAll('.season-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.season-tab').forEach(t => {
+      if (t.textContent.toLowerCase().includes(key)) t.classList.add('active');
+    });
+    document.getElementById('seasonContent').innerHTML = window._renderSeason(key);
+  }
+
+  function toggleCheck(i) {
+    const item = document.getElementById(`chk${i}`);
+    const box = document.getElementById(`chkbox${i}`);
+    item.classList.toggle('done');
+    box.textContent = item.classList.contains('done') ? '✓' : '';
+  }
+
+  function restartQuiz() {
+    current = 0;
+    answers = {};
+    activeSeason = 'spring';
+    document.getElementById('quizPanel').style.display = 'block';
+    document.getElementById('resultsPanel').style.display = 'none';
+    document.getElementById('planContent').style.display = 'none';
+    document.getElementById('restartBtn').style.display = 'none';
+    render();
+    document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // ── INIT ──────────────────────────────────────────────────
+  function startWithZip() {
+    const zip = document.getElementById('heroZip')?.value?.trim();
+    if (zip && zip.length === 5 && /^\d+$/.test(zip)) {
+      answers['zip'] = zip;
+      current = 1; // skip to question 2 since zip is already filled
+    } else {
+      current = 0;
+    }
+    document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+    render();
+  }
+
+  render();
+</script>
+
+</body>
+</html>
