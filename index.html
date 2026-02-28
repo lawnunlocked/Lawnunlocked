@@ -1050,14 +1050,10 @@ Return this exact JSON structure:
 Include 6–8 checklist items covering all seasons. Include 4–5 products. Be specific to the grass type and region.`;
 
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      const response = await fetch('https://lawnunlocked.lawnunlocked.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 2000,
-          messages: [{ role: 'user', content: prompt }]
-        })
+        body: JSON.stringify({ prompt })
       });
       const data = await response.json();
       const text = data.content.map(i => i.text || '').join('');
@@ -1362,3 +1358,4 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
 
 </body>
 </html>
+
