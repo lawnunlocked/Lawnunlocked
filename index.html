@@ -619,7 +619,7 @@ footer a:hover { color: var(--white); }
     </div>
 
 <div id="quizPanel">
-  <div class="progress-text" id="progressText">Question 1 of 9</div>
+  <div class="progress-text" id="progressText">Question 1 of 11</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:11%"></div></div>
 
   <div class="question-card" id="questionCard">
@@ -678,6 +678,31 @@ footer a:hover { color: var(--white); }
         { icon: '🌾', text: 'St. Augustine' },
         { icon: '🟢', text: 'Kentucky Bluegrass' },
         { icon: '❓', text: 'I\'m not sure' },
+      ]
+    },
+    {
+      id: 'lawnStyle',
+      type: 'options',
+      title: 'What\'s your lawn goal?',
+      sub: 'This shapes your entire care plan — be honest, there\'s no wrong answer!',
+      key: 'lawnStyle',
+      options: [
+        { icon: '🌿', text: 'Healthy & green — looks good, low stress' },
+        { icon: '🏡', text: 'Neighborhood showpiece — thick, manicured, impressive' },
+        { icon: '⛳', text: 'Golf course lawn — ultra-low cut, bentgrass-level obsession' },
+      ]
+    },
+    {
+      id: 'mowerType',
+      type: 'options',
+      title: 'What type of mower do you use?',
+      sub: 'This affects what cutting heights and techniques are possible for you.',
+      key: 'mowerType',
+      options: [
+        { icon: '🚜', text: 'Rotary mower (standard push or riding)' },
+        { icon: '⚙️', text: 'Reel mower (cylinder blade)' },
+        { icon: '🤖', text: 'Robot mower' },
+        { icon: '❓', text: 'Not sure / don\'t own one yet' },
       ]
     },
     {
@@ -975,11 +1000,14 @@ footer a:hover { color: var(--white); }
       soilSummary = `Soil test file uploaded: ${soilData.fileName}.`;
     }
 
+    const isGolfCourse = (answers.lawnStyle || '').includes('Golf course');
     const prompt = `You are LawnUnlocked, a knowledgeable lawn care advisor. Based on the lawn profile below, generate a comprehensive seasonal lawn care guide. Return ONLY a valid JSON object — no markdown, no explanation.
 
 Lawn Profile:
 - ZIP: ${answers.zip || 'Unknown'}
 - Grass Type: ${answers.grassType || 'Unknown'}
+- Lawn Style Goal: ${answers.lawnStyle || 'Healthy & green'}
+- Mower Type: ${answers.mowerType || 'Unknown'}
 - Lawn Size: ${answers.lawnSize || 'Unknown'}
 - Sun: ${answers.sunExposure || 'Unknown'}
 - Problems: ${Array.isArray(answers.problems) ? answers.problems.join(', ') : (answers.problems || 'Unknown')}
@@ -987,6 +1015,14 @@ Lawn Profile:
 - Budget: ${answers.budget || 'Unknown'}
 - Goals: ${Array.isArray(answers.goal) ? answers.goal.join(', ') : (answers.goal || 'Unknown')}
 - ${soilSummary}
+${isGolfCourse ? `IMPORTANT: This user wants a GOLF COURSE style lawn. Tailor ALL advice accordingly:
+- Recommend aggressive low mowing heights (Bermuda: 0.5-0.75 inch, Zoysia: 0.5-1 inch, Bentgrass: 0.125-0.5 inch)
+- Include growth regulators (Primo Maxx or T-Nex) in product recommendations
+- Include lawn leveling and topdressing with masonry sand
+- Recommend upgrading to a reel mower if they have a rotary
+- Include soil surfactants (Hydretain or similar) for water penetration
+- More frequent fertilizing on a 4-6 week schedule
+- Warn clearly if their grass type (Fescue, St. Augustine, Kentucky Bluegrass) is NOT suitable for ultra-low cutting` : ''}
 
 Return this exact JSON structure:
 {
@@ -1358,4 +1394,3 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
 
 </body>
 </html>
-
