@@ -50,12 +50,23 @@ nav {
 }
 .logo span { color: var(--green); }
 nav a.cta-nav {
-  background: var(--green); color: var(--white);
-  padding: 0.55rem 1.3rem; border-radius: 6px;
-  text-decoration: none; font-weight: 500; font-size: 0.9rem;
-  transition: background 0.2s;
+  background: transparent; color: var(--green);
+  padding: 0.5rem 1.2rem; border-radius: 100px;
+  text-decoration: none; font-weight: 500; font-size: 0.88rem;
+  border: 1.5px solid var(--green);
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.01em;
 }
-nav a.cta-nav:hover { background: var(--green-light); }
+nav a.cta-nav:hover { background: var(--green); color: var(--white); }
+
+
+nav a.nav-link {
+color: var(–black); text-decoration: none;
+font-weight: 500; font-size: 0.9rem; transition: color 0.2s;
+}
+nav a.nav-link:hover { color: var(–green); }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+
 
 /* ── HERO ── */
 .hero {
@@ -514,6 +525,17 @@ footer p { font-size: 0.82rem; margin-top: 1rem; }
 footer a { color: #aaa; text-decoration: none; }
 footer a:hover { color: var(--white); }
 
+/* ── INLINE SHOP FILTERS ── */
+.ifilter {
+  padding: 0.35rem 0.9rem; border-radius: 100px;
+  border: 1.5px solid var(--border); background: white;
+  color: var(--black); font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem; font-weight: 500; cursor: pointer;
+  transition: all 0.2s;
+}
+.ifilter:hover { border-color: var(--green); }
+.ifilter.active { background: var(--green); color: white; border-color: var(--green); }
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -536,7 +558,62 @@ footer a:hover { color: var(--white); }
 }
 
 
-  </style>
+/* ── SHOP ── */
+.shop-section {
+padding: 6rem 2.5rem;
+background: var(–gray);
+border-top: 1px solid var(–border);
+}
+.shop-intro {
+max-width: 600px; margin-bottom: 3rem;
+}
+.shop-filters {
+display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.shop-filter {
+padding: 0.45rem 1rem; border-radius: 100px;
+border: 1.5px solid var(–border); cursor: pointer;
+font-size: 0.82rem; font-weight: 500; background: var(–white);
+transition: all 0.2s; white-space: nowrap;
+}
+.shop-filter:hover { border-color: var(–green); }
+.shop-filter.active { background: var(–green); color: var(–white); border-color: var(–green); }
+.shop-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 1.5rem;
+}
+.shop-card {
+background: var(–white); border-radius: 14px;
+border: 1.5px solid var(–border);
+overflow: hidden; transition: box-shadow 0.2s, transform 0.2s;
+}
+.shop-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-2px); }
+.shop-card-img {
+width: 100%; height: 160px;
+display: flex; align-items: center; justify-content: center;
+font-size: 4rem; background: var(–gray);
+}
+.shop-card-body { padding: 1.25rem; }
+.shop-card-cat {
+font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em;
+text-transform: uppercase; color: var(–green); margin-bottom: 0.4rem;
+}
+.shop-card-body h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.3; }
+.shop-card-body p { font-size: 0.82rem; color: #555; margin-bottom: 1rem; line-height: 1.5; }
+.shop-card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.shop-tag {
+font-size: 0.68rem; padding: 0.15rem 0.5rem; border-radius: 100px;
+background: var(–gray); color: #666; font-weight: 500;
+}
+.shop-tag.golf { background: #e8f5e7; color: var(–green); }
+.shop-tag.popular { background: #fff3e0; color: #e65100; }
+@media (max-width: 600px) {
+.shop-grid { grid-template-columns: 1fr; }
+.shop-section { padding: 4rem 1.25rem; }
+}
+</style>
+
 </head>
 <body>
 
@@ -618,6 +695,7 @@ footer a:hover { color: var(--white); }
       <h2 class="section-title" style="max-width:100%;text-align:center;">Let's build your personalized plan</h2>
     </div>
 
+```
 <div id="quizPanel">
   <div class="progress-text" id="progressText">Question 1 of 11</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:11%"></div></div>
@@ -645,10 +723,250 @@ footer a:hover { color: var(--white); }
   </div>
 </section>
 
+<!-- SHOP -->
+
+<section class="shop-section" id="shop">
+  <div class="shop-intro">
+    <div class="section-label">Lawn Shop</div>
+    <h2 class="section-title">Gear we actually recommend</h2>
+    <p style="font-size:0.95rem;color:#555;">Hand-picked tools and products for every lawn type and goal. All available on Amazon — no markups, no sponsored placements.</p>
+  </div>
+
+  <div class="shop-filters">
+    <div class="shop-filter active" onclick="filterShop('all', this)">All</div>
+    <div class="shop-filter" onclick="filterShop('mower', this)">⛳ Mowers</div>
+    <div class="shop-filter" onclick="filterShop('spreader', this)">🪣 Spreaders</div>
+    <div class="shop-filter" onclick="filterShop('sprayer', this)">💧 Sprayers</div>
+    <div class="shop-filter" onclick="filterShop('soil', this)">🧪 Soil & Testing</div>
+    <div class="shop-filter" onclick="filterShop('fertilizer', this)">🌿 Fertilizers</div>
+    <div class="shop-filter" onclick="filterShop('tool', this)">🔧 Tools</div>
+  </div>
+
+  <div class="shop-grid" id="shopGrid">
+
+
+<!-- MOWERS -->
+<div class="shop-card" data-cat="mower">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#e8f5e7,#b6dcb2);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="20" cy="44" r="8" stroke="#3d7a3a" stroke-width="2.5"/><circle cx="44" cy="44" r="8" stroke="#3d7a3a" stroke-width="2.5"/><rect x="12" y="24" width="40" height="12" rx="4" fill="#3d7a3a" opacity="0.15" stroke="#3d7a3a" stroke-width="2"/><line x1="12" y1="30" x2="52" y2="30" stroke="#3d7a3a" stroke-width="2"/><rect x="24" y="14" width="4" height="12" rx="2" fill="#3d7a3a"/><rect x="36" y="14" width="4" height="12" rx="2" fill="#3d7a3a"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Reel Mower</div>
+    <h3>Scotts 20-inch Classic Push Reel Mower</h3>
+    <p>The entry point for golf course-style cutting. Perfect for Bermuda and Zoysia lawns wanting a low, clean cut without breaking the bank.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag golf">⛳ Golf Course</span>
+      <span class="shop-tag popular">🔥 Popular</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Scotts+20+inch+classic+push+reel+mower" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="mower">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#e8f5e7,#b6dcb2);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="18" cy="46" r="9" stroke="#3d7a3a" stroke-width="2.5"/><circle cx="46" cy="46" r="9" stroke="#3d7a3a" stroke-width="2.5"/><rect x="10" y="22" width="44" height="14" rx="5" fill="#3d7a3a" opacity="0.2" stroke="#3d7a3a" stroke-width="2"/><path d="M18 22 L26 12 L38 12 L46 22" stroke="#3d7a3a" stroke-width="2" fill="none"/><circle cx="18" cy="46" r="3" fill="#3d7a3a"/><circle cx="46" cy="46" r="3" fill="#3d7a3a"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Reel Mower — Premium</div>
+    <h3>Fiskars StaySharp Max Reel Mower</h3>
+    <p>The best consumer reel mower on the market. Self-sharpening blades, comfortable push, and cuts down to 1 inch. Ideal for serious lawn enthusiasts.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag golf">⛳ Golf Course</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Fiskars+StaySharp+Max+reel+mower" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="mower">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#e3f2fd,#90caf9);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="18" cy="46" r="8" stroke="#1565c0" stroke-width="2.5"/><circle cx="46" cy="46" r="8" stroke="#1565c0" stroke-width="2.5"/><rect x="10" y="24" width="44" height="14" rx="5" fill="#1565c0" opacity="0.15" stroke="#1565c0" stroke-width="2"/><rect x="26" y="14" width="12" height="7" rx="2" fill="#1565c0" opacity="0.4"/><line x1="30" y1="16" x2="30" y2="20" stroke="#1565c0" stroke-width="1.5"/><line x1="34" y1="16" x2="34" y2="20" stroke="#1565c0" stroke-width="1.5"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Battery Push Mower</div>
+    <h3>EGO Power+ 21-inch Cordless Mower</h3>
+    <p>The best battery-powered rotary mower for most homeowners. Quiet, powerful, and no gas needed. Great for Fescue and Bluegrass lawns at standard heights.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag popular">🔥 Popular</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=EGO+Power+21+inch+cordless+lawn+mower" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<!-- SPREADERS -->
+<div class="shop-card" data-cat="spreader">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#f1f8e9,#c5e1a5);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="20" y="10" width="24" height="18" rx="4" fill="#558b2f" opacity="0.2" stroke="#558b2f" stroke-width="2"/><path d="M24 28 L20 52 L44 52 L40 28Z" fill="#558b2f" opacity="0.15" stroke="#558b2f" stroke-width="2"/><circle cx="26" cy="54" r="4" stroke="#558b2f" stroke-width="2"/><circle cx="38" cy="54" r="4" stroke="#558b2f" stroke-width="2"/><circle cx="20" cy="40" r="2" fill="#558b2f" opacity="0.5"/><circle cx="32" cy="44" r="2" fill="#558b2f" opacity="0.5"/><circle cx="44" cy="40" r="2" fill="#558b2f" opacity="0.5"/><circle cx="26" cy="36" r="1.5" fill="#558b2f" opacity="0.4"/><circle cx="38" cy="36" r="1.5" fill="#558b2f" opacity="0.4"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Broadcast Spreader</div>
+    <h3>Scotts Turf Builder EdgeGuard Mini Spreader</h3>
+    <p>The go-to spreader for most homeowners. EdgeGuard technology keeps product off driveways. Works with all Scotts fertilizers and most granular products.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag popular">🔥 Popular</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Scotts+Turf+Builder+EdgeGuard+Mini+spreader" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="spreader">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#fff8e1,#ffe082);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M16 20 L20 50 L44 50 L48 20Z" fill="#f57f17" opacity="0.15" stroke="#f57f17" stroke-width="2"/><line x1="14" y1="20" x2="50" y2="20" stroke="#f57f17" stroke-width="2.5" stroke-linecap="round"/><path d="M28 20 L24 50" stroke="#f57f17" stroke-width="1.5" opacity="0.4"/><path d="M36 20 L40 50" stroke="#f57f17" stroke-width="1.5" opacity="0.4"/><path d="M24 8 L28 20 L36 20 L40 8" stroke="#f57f17" stroke-width="2" fill="none"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Topdressing Spreader</div>
+    <h3>Yard Butler Lawn Sand & Topdressing Spreader</h3>
+    <p>Essential for golf course lawn enthusiasts. Evenly distributes topdressing sand for leveling and smoothing. Works with masonry sand for Bermuda and Zoysia.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag golf">⛳ Golf Course</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+topdressing+sand+spreader" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="spreader">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#f3e5f5,#ce93d8);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="22" y="10" width="20" height="16" rx="3" fill="#7b1fa2" opacity="0.2" stroke="#7b1fa2" stroke-width="2"/><path d="M26 26 L22 50 L42 50 L38 26Z" fill="#7b1fa2" opacity="0.12" stroke="#7b1fa2" stroke-width="2"/><line x1="22" y1="38" x2="42" y2="38" stroke="#7b1fa2" stroke-width="1.5" stroke-dasharray="3,3"/><circle cx="28" cy="52" r="4" stroke="#7b1fa2" stroke-width="2"/><circle cx="36" cy="52" r="4" stroke="#7b1fa2" stroke-width="2"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Drop Spreader</div>
+    <h3>Earthway Precision Drop Spreader</h3>
+    <p>More precise than broadcast spreaders — great for smaller lawns or applying products close to garden beds without overspray.</p>
+    <div class="shop-card-tags"></div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Earthway+precision+drop+spreader" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<!-- SPRAYERS -->
+<div class="shop-card" data-cat="sprayer">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#e3f2fd,#81d4fa);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="22" y="10" width="20" height="32" rx="6" fill="#0277bd" opacity="0.15" stroke="#0277bd" stroke-width="2"/><path d="M42 30 L52 38" stroke="#0277bd" stroke-width="2.5" stroke-linecap="round"/><circle cx="54" cy="40" r="3" fill="#0277bd" opacity="0.4"/><path d="M50 44 C52 48 50 52 48 54" stroke="#0277bd" stroke-width="1.5" stroke-linecap="round"/><path d="M54 44 C56 48 54 52 52 54" stroke="#0277bd" stroke-width="1.5" stroke-linecap="round"/><rect x="26" y="20" width="12" height="6" rx="2" fill="#0277bd" opacity="0.3"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Electric Backpack Sprayer</div>
+    <h3>Chapin 4-Gallon Battery Backpack Sprayer</h3>
+    <p>No more pumping — battery-powered continuous spray. Perfect for applying herbicides, fungicides, and liquid fertilizers across large areas.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag popular">🔥 Popular</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Chapin+battery+backpack+sprayer+4+gallon" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="sprayer">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#e0f7fa,#80deea);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="10" y="26" width="30" height="12" rx="4" fill="#00695c" opacity="0.2" stroke="#00695c" stroke-width="2"/><path d="M40 30 L54 30" stroke="#00695c" stroke-width="2.5" stroke-linecap="round"/><path d="M22 38 L18 50" stroke="#00695c" stroke-width="2" stroke-linecap="round"/><circle cx="10" cy="32" r="5" stroke="#00695c" stroke-width="2"/><path d="M46 26 L50 38" stroke="#00695c" stroke-width="2" stroke-linecap="round"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Hose-End Sprayer</div>
+    <h3>Ortho Dial N Spray Hose-End Sprayer</h3>
+    <p>Attaches directly to your garden hose. Dial in the ratio and spray — great for liquid fertilizers and weed killers on medium-sized lawns.</p>
+    <div class="shop-card-tags"></div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Ortho+Dial+N+Spray+hose+end+sprayer" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<!-- SOIL & TESTING -->
+<div class="shop-card" data-cat="soil">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M26 10 L26 36 L16 52 L48 52 L38 36 L38 10Z" fill="#c62828" opacity="0.1" stroke="#c62828" stroke-width="2"/><line x1="22" y1="36" x2="42" y2="36" stroke="#c62828" stroke-width="1.5"/><circle cx="24" cy="44" r="2.5" fill="#c62828" opacity="0.4"/><circle cx="32" cy="46" r="2" fill="#c62828" opacity="0.3"/><circle cx="40" cy="43" r="2.5" fill="#c62828" opacity="0.4"/><line x1="26" y1="10" x2="38" y2="10" stroke="#c62828" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Soil Test Kit</div>
+    <h3>MySoil Soil Test Kit</h3>
+    <p>Mail-in test that gives you a full report on pH, nitrogen, phosphorus, potassium, and 9 other nutrients. Much more accurate than at-home strips.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag popular">🔥 Popular</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=MySoil+soil+test+kit" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="soil">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#fff8e1,#ffcc80);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="46" rx="22" ry="8" fill="#e65100" opacity="0.15" stroke="#e65100" stroke-width="2"/><path d="M14 46 Q20 30 32 28 Q44 30 50 46" fill="#e65100" opacity="0.1" stroke="#e65100" stroke-width="1.5"/><circle cx="24" cy="40" r="2" fill="#e65100" opacity="0.3"/><circle cx="32" cy="38" r="2.5" fill="#e65100" opacity="0.3"/><circle cx="40" cy="40" r="2" fill="#e65100" opacity="0.3"/><circle cx="28" cy="44" r="1.5" fill="#e65100" opacity="0.25"/><circle cx="36" cy="43" r="1.5" fill="#e65100" opacity="0.25"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Topdressing Sand</div>
+    <h3>Pavestone 50lb Play Sand (Masonry Grade)</h3>
+    <p>The preferred topdressing material for Bermuda and Zoysia golf course lawns. Levels low spots and improves drainage over time with repeated applications.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag golf">⛳ Golf Course</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=masonry+sand+topdressing+lawn" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<!-- FERTILIZERS -->
+<div class="shop-card" data-cat="fertilizer">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="24" y="8" width="16" height="30" rx="8" fill="#2e7d32" opacity="0.15" stroke="#2e7d32" stroke-width="2"/><rect x="28" y="34" width="8" height="18" rx="2" fill="#2e7d32" opacity="0.3"/><line x1="32" y1="52" x2="32" y2="58" stroke="#2e7d32" stroke-width="2.5" stroke-linecap="round"/><path d="M28 18 L20 14" stroke="#2e7d32" stroke-width="1.5" stroke-linecap="round"/><path d="M36 18 L44 14" stroke="#2e7d32" stroke-width="1.5" stroke-linecap="round"/><path d="M26 24 L16 24" stroke="#2e7d32" stroke-width="1.5" stroke-linecap="round"/><path d="M38 24 L48 24" stroke="#2e7d32" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Growth Regulator</div>
+    <h3>Primo Maxx Plant Growth Regulator</h3>
+    <p>The secret weapon of golf course superintendents. Slows vertical growth so you can mow lower and more frequently without stressing the turf.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag golf">⛳ Golf Course</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Primo+Maxx+plant+growth+regulator+lawn" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="fertilizer">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#f1f8e9,#dcedc8);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="16" y="16" width="32" height="36" rx="6" fill="#558b2f" opacity="0.12" stroke="#558b2f" stroke-width="2"/><line x1="16" y1="28" x2="48" y2="28" stroke="#558b2f" stroke-width="1.5" stroke-dasharray="4,3"/><circle cx="26" cy="38" r="3" fill="#558b2f" opacity="0.3"/><circle cx="38" cy="38" r="3" fill="#558b2f" opacity="0.3"/><circle cx="32" cy="44" r="3" fill="#558b2f" opacity="0.3"/><text x="32" y="24" text-anchor="middle" font-size="7" fill="#558b2f" font-weight="bold">NPK</text></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Fertilizer</div>
+    <h3>Scotts Turf Builder Southern Lawn Food</h3>
+    <p>Formulated specifically for warm-season grasses like Bermuda, Zoysia, and St. Augustine. Feeds for up to 3 months with slow-release nitrogen.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag popular">🔥 Popular</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Scotts+Turf+Builder+Southern+Lawn+Food" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="fertilizer">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#e8eaf6,#9fa8da);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M32 10 C32 10 18 28 18 38 C18 46 24 54 32 54 C40 54 46 46 46 38 C46 28 32 10 32 10Z" fill="#3949ab" opacity="0.15" stroke="#3949ab" stroke-width="2"/><path d="M24 42 C26 38 30 36 32 36" stroke="#3949ab" stroke-width="2" stroke-linecap="round"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Soil Surfactant</div>
+    <h3>Hydretain Soil Moisture Manager</h3>
+    <p>Reduces watering needs by up to 50% by helping soil retain moisture longer. Essential for golf course lawns that are mowed very low and prone to drought stress.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag golf">⛳ Golf Course</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Hydretain+soil+moisture+manager+lawn" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="shop-card" data-cat="tool">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="8" y="28" width="48" height="8" rx="3" fill="#4e342e" opacity="0.2" stroke="#4e342e" stroke-width="2"/><line x1="14" y1="36" x2="14" y2="48" stroke="#4e342e" stroke-width="2.5" stroke-linecap="round"/><line x1="22" y1="36" x2="22" y2="48" stroke="#4e342e" stroke-width="2.5" stroke-linecap="round"/><line x1="30" y1="36" x2="30" y2="48" stroke="#4e342e" stroke-width="2.5" stroke-linecap="round"/><line x1="38" y1="36" x2="38" y2="48" stroke="#4e342e" stroke-width="2.5" stroke-linecap="round"/><line x1="46" y1="36" x2="46" y2="48" stroke="#4e342e" stroke-width="2.5" stroke-linecap="round"/><line x1="32" y1="16" x2="32" y2="28" stroke="#4e342e" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Lawn Leveling</div>
+    <h3>Lawn Leveling Rake (Level Lute)</h3>
+    <p>The tool for spreading topdressing sand evenly across your lawn. Essential for achieving that smooth, flat golf course surface over time.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag golf">⛳ Golf Course</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+leveling+rake+lute+topdressing" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="tool">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#f5f5f5,#e0e0e0);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="28" y="8" width="8" height="30" rx="3" fill="#424242" opacity="0.2" stroke="#424242" stroke-width="2"/><rect x="20" y="38" width="24" height="8" rx="3" fill="#424242" opacity="0.2" stroke="#424242" stroke-width="2"/><line x1="22" y1="46" x2="20" y2="56" stroke="#424242" stroke-width="2.5" stroke-linecap="round"/><line x1="32" y1="46" x2="32" y2="56" stroke="#424242" stroke-width="2.5" stroke-linecap="round"/><line x1="42" y1="46" x2="44" y2="56" stroke="#424242" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Aerator</div>
+    <h3>Yard Butler Lawn Coring Aerator</h3>
+    <p>Manual core aerator for small to medium lawns. Pull plugs of soil to reduce compaction and improve water/nutrient absorption. Best used in fall.</p>
+    <div class="shop-card-tags">
+      <span class="shop-tag popular">🔥 Popular</span>
+    </div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Yard+Butler+lawn+coring+aerator" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+<div class="shop-card" data-cat="tool">
+  <div class="shop-card-img" style="background:linear-gradient(135deg,#fce4ec,#ef9a9a);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="28" y="8" width="8" height="36" rx="4" fill="#b71c1c" opacity="0.15" stroke="#b71c1c" stroke-width="2"/><circle cx="32" cy="48" r="8" fill="#b71c1c" opacity="0.2" stroke="#b71c1c" stroke-width="2"/><rect x="30" y="24" width="4" height="20" rx="2" fill="#b71c1c" opacity="0.4"/><line x1="38" y1="20" x2="44" y2="20" stroke="#b71c1c" stroke-width="1.5" stroke-linecap="round"/><line x1="38" y1="28" x2="42" y2="28" stroke="#b71c1c" stroke-width="1.5" stroke-linecap="round"/><line x1="38" y1="36" x2="44" y2="36" stroke="#b71c1c" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+  <div class="shop-card-body">
+    <div class="shop-card-cat">Soil Thermometer</div>
+    <h3>REOTEMP Soil Thermometer</h3>
+    <p>Know exactly when to apply pre-emergent and fertilizer. Soil temperature is the real trigger for lawn care timing — not calendar dates.</p>
+    <div class="shop-card-tags"></div>
+    <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=REOTEMP+soil+thermometer+lawn" target="_blank" rel="noopener" class="btn-amazon">🛒 Find on Amazon</a>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 
 <footer>
   <a href="#" class="logo">Lawn<span style="color:var(--green)">Unlocked</span></a>
+  <p style="margin-bottom:1rem;">
+    <a href="#how" style="color:#aaa;text-decoration:none;margin:0 0.75rem;">How It Works</a> ·
+    <a href="#shop" style="color:#aaa;text-decoration:none;margin:0 0.75rem;">Gear Shop</a> ·
+    <a href="#quiz" style="color:#aaa;text-decoration:none;margin:0 0.75rem;">Get My Plan</a>
+  </p>
   <p>Honest lawn advice. No nonsense. No markups.<br/>
   <a href="#">Privacy Policy</a> · <a href="#">Affiliate Disclosure</a></p>
   <p style="margin-top:1.5rem;font-size:0.75rem">© 2026 LawnUnlocked. As an Amazon Associate we earn from qualifying purchases.</p>
@@ -1306,42 +1624,68 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
         </div>
       </div>
 
-      <!-- Product Recommendations -->
+      <!-- Product Recommendations + Gear Shop Toggle -->
       <div class="care-section">
         <div class="care-section-header">
           <div class="care-icon" style="background:#e8f5e7">🛒</div>
-          <h3>Recommended Products</h3>
+          <h3>Products & Gear</h3>
         </div>
-        <div class="product-list">
-          ${(plan.products || []).map(p => {
-            const amazonUrl = `https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(p.amazonSearch || p.name)}`;
-            const icon = categoryIcons[p.category] || '🌿';
-            const bg = categoryColors[p.category] || '#f5f5f5';
-            return `
-              <div class="product-item">
-                <div class="product-item-icon" style="background:${bg}">${icon}</div>
-                <div class="product-item-body">
-                  <h4>${p.name}</h4>
-                  <p>${p.why}</p>
-                  <div class="product-item-meta">
-                    <span class="meta-chip">📦 ${p.applicationRate}</span>
-                    <span class="meta-chip">📅 ${p.bestTiming}</span>
+
+        <div style="display:flex;gap:0.5rem;margin-bottom:1.5rem;">
+          <button id="tabRecommended" onclick="switchProductTab('recommended')"
+            style="flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--green);background:var(--green);color:white;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;">
+            ✨ My Recommendations
+          </button>
+          <button id="tabGear" onclick="switchProductTab('gear')"
+            style="flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;">
+            🛒 Browse All Gear
+          </button>
+        </div>
+
+        <div id="panelRecommended">
+          <div class="product-list">
+            ${(plan.products || []).map(p => {
+              const amazonUrl = `https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(p.amazonSearch || p.name)}`;
+              const icon = categoryIcons[p.category] || '🌿';
+              const bg = categoryColors[p.category] || '#f5f5f5';
+              return `
+                <div class="product-item">
+                  <div class="product-item-icon" style="background:${bg}">${icon}</div>
+                  <div class="product-item-body">
+                    <h4>${p.name}</h4>
+                    <p>${p.why}</p>
+                    <div class="product-item-meta">
+                      <span class="meta-chip">📦 ${p.applicationRate}</span>
+                      <span class="meta-chip">📅 ${p.bestTiming}</span>
+                    </div>
+                    <a href="${amazonUrl}" target="_blank" rel="noopener" class="btn-amazon" style="margin-top:0.75rem;display:inline-flex;">
+                      🛒 Find on Amazon
+                    </a>
                   </div>
-                  <a href="${amazonUrl}" target="_blank" rel="noopener" class="btn-amazon" style="margin-top:0.75rem;display:inline-flex;">
-                    🛒 Find on Amazon
-                  </a>
                 </div>
-              </div>
-            `;
-          }).join('')}
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <div id="panelGear" style="display:none;">
+          <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.25rem;" id="inlineShopFilters">
+            <button onclick="filterInlineShop('all',this)" class="ifilter active">All</button>
+            <button onclick="filterInlineShop('mower',this)" class="ifilter">Mowers</button>
+            <button onclick="filterInlineShop('spreader',this)" class="ifilter">Spreaders</button>
+            <button onclick="filterInlineShop('sprayer',this)" class="ifilter">Sprayers</button>
+            <button onclick="filterInlineShop('soil',this)" class="ifilter">Soil & Testing</button>
+            <button onclick="filterInlineShop('fertilizer',this)" class="ifilter">Fertilizers</button>
+            <button onclick="filterInlineShop('tool',this)" class="ifilter">Tools</button>
+          </div>
+          <div id="inlineShopCards" class="product-list"></div>
         </div>
       </div>
 
       <!-- Disclaimer -->
       <div class="disclaimer">
         ⚠️ Recommendations are for informational purposes only. Results may vary. Always read product labels before use. LawnUnlocked may earn a small affiliate commission on Amazon purchases at no extra cost to you.
-      </div>
-    `;
+      </div>    `;
 
     // Store plan for season switching
     window._currentPlan = plan;
@@ -1387,6 +1731,83 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
     }
     document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
     render();
+  }
+
+
+  // ── PRODUCT TAB TOGGLE ──────────────────────────────────────
+  const inlineGearProducts = [
+    { name: 'Scotts 20" Classic Push Reel Mower', cat: 'mower', why: 'Entry-level reel mower for golf course-style cuts. Perfect for Bermuda and Zoysia.', tags: ['⛳ Golf Course', '🔥 Popular'], search: 'Scotts 20 inch classic push reel mower' },
+    { name: 'Fiskars StaySharp Max Reel Mower', cat: 'mower', why: 'Best consumer reel mower. Self-sharpening, cuts down to 1 inch.', tags: ['⛳ Golf Course'], search: 'Fiskars StaySharp Max reel mower' },
+    { name: 'EGO Power+ 21" Cordless Mower', cat: 'mower', why: 'Best battery rotary mower for Fescue and Bluegrass at standard heights.', tags: ['🔥 Popular'], search: 'EGO Power Plus 21 inch cordless lawn mower' },
+    { name: 'Scotts Turf Builder EdgeGuard Spreader', cat: 'spreader', why: 'The go-to broadcast spreader. EdgeGuard keeps product off driveways.', tags: ['🔥 Popular'], search: 'Scotts Turf Builder EdgeGuard Mini spreader' },
+    { name: 'Lawn Topdressing Sand Spreader', cat: 'spreader', why: 'Evenly distributes topdressing sand for leveling. Essential for golf course lawns.', tags: ['⛳ Golf Course'], search: 'lawn topdressing sand spreader' },
+    { name: 'Earthway Precision Drop Spreader', cat: 'spreader', why: 'More precise than broadcast — great for smaller lawns or near garden beds.', tags: [], search: 'Earthway precision drop spreader' },
+    { name: 'Chapin 4-Gallon Battery Backpack Sprayer', cat: 'sprayer', why: 'No-pump electric sprayer. Perfect for herbicides, fungicides, and liquid fertilizers.', tags: ['🔥 Popular'], search: 'Chapin battery backpack sprayer 4 gallon' },
+    { name: 'Ortho Dial N Spray Hose-End Sprayer', cat: 'sprayer', why: 'Attaches to your garden hose. Great for liquid fertilizers and weed killers.', tags: [], search: 'Ortho Dial N Spray hose end sprayer' },
+    { name: 'MySoil Soil Test Kit', cat: 'soil', why: 'Mail-in test with full nutrient report. Far more accurate than at-home strips.', tags: ['🔥 Popular'], search: 'MySoil soil test kit' },
+    { name: 'Masonry Sand for Topdressing', cat: 'soil', why: 'Preferred topdressing for Bermuda and Zoysia golf course lawns. Levels and improves drainage.', tags: ['⛳ Golf Course'], search: 'masonry sand topdressing lawn' },
+    { name: 'Primo Maxx Growth Regulator', cat: 'fertilizer', why: 'The secret weapon of golf course supers. Slows vertical growth for lower, cleaner cuts.', tags: ['⛳ Golf Course'], search: 'Primo Maxx plant growth regulator lawn' },
+    { name: 'Scotts Turf Builder Southern Lawn Food', cat: 'fertilizer', why: 'Formulated for Bermuda, Zoysia, and St. Augustine. Feeds up to 3 months.', tags: ['🔥 Popular'], search: 'Scotts Turf Builder Southern Lawn Food' },
+    { name: 'Hydretain Soil Moisture Manager', cat: 'fertilizer', why: 'Reduces watering by up to 50%. Essential for ultra-low mowed lawns prone to drought stress.', tags: ['⛳ Golf Course'], search: 'Hydretain soil moisture manager lawn' },
+    { name: 'Lawn Leveling Rake (Level Lute)', cat: 'tool', why: 'Spreads topdressing sand evenly. Essential for achieving a smooth, flat golf course surface.', tags: ['⛳ Golf Course'], search: 'lawn leveling rake lute topdressing' },
+    { name: 'Yard Butler Lawn Coring Aerator', cat: 'tool', why: 'Manual core aerator for small-medium lawns. Reduces compaction and improves absorption.', tags: ['🔥 Popular'], search: 'Yard Butler lawn coring aerator' },
+    { name: 'REOTEMP Soil Thermometer', cat: 'tool', why: 'Know exactly when to fertilize and apply pre-emergent based on real soil temp, not calendar dates.', tags: [], search: 'REOTEMP soil thermometer lawn' },
+  ];
+
+  function switchProductTab(tab) {
+    const recBtn = document.getElementById('tabRecommended');
+    const gearBtn = document.getElementById('tabGear');
+    const recPanel = document.getElementById('panelRecommended');
+    const gearPanel = document.getElementById('panelGear');
+    if (!recBtn) return;
+    if (tab === 'recommended') {
+      recBtn.style.cssText = 'flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--green);background:var(--green);color:white;font-family:DM Sans,sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;';
+      gearBtn.style.cssText = 'flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--black);font-family:DM Sans,sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;';
+      recPanel.style.display = 'block';
+      gearPanel.style.display = 'none';
+    } else {
+      gearBtn.style.cssText = 'flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--green);background:var(--green);color:white;font-family:DM Sans,sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;';
+      recBtn.style.cssText = 'flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--black);font-family:DM Sans,sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;';
+      recPanel.style.display = 'none';
+      gearPanel.style.display = 'block';
+      renderInlineShop('all');
+    }
+  }
+
+  function renderInlineShop(cat) {
+    const container = document.getElementById('inlineShopCards');
+    if (!container) return;
+    const filtered = cat === 'all' ? inlineGearProducts : inlineGearProducts.filter(p => p.cat === cat);
+    container.innerHTML = filtered.map(p => {
+      const url = `https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(p.search)}`;
+      const tagHtml = p.tags.map(t => `<span class="meta-chip">${t}</span>`).join('');
+      return `
+        <div class="product-item">
+          <div class="product-item-body" style="width:100%">
+            <h4>${p.name}</h4>
+            <p>${p.why}</p>
+            <div class="product-item-meta" style="margin-bottom:0.75rem">${tagHtml}</div>
+            <a href="${url}" target="_blank" rel="noopener" class="btn-amazon" style="display:inline-flex;">
+              🛒 Find on Amazon
+            </a>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  function filterInlineShop(cat, el) {
+    document.querySelectorAll('#inlineShopFilters .ifilter').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    renderInlineShop(cat);
+  }
+
+  // ── SHOP FILTER ───────────────────────────────────────────
+  function filterShop(cat, el) {
+    document.querySelectorAll('.shop-filter').forEach(f => f.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.shop-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+    });
   }
 
   render();
