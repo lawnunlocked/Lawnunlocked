@@ -11,7 +11,6 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-
 :root {
   --green: #3d7a3a;
   --green-light: #52a34e;
@@ -51,14 +50,12 @@ nav {
 .logo span { color: var(--green); }
 nav a.cta-nav {
   background: transparent; color: var(--green);
-  padding: 0.5rem 1.2rem; border-radius: 100px;
-  text-decoration: none; font-weight: 500; font-size: 0.88rem;
-  border: 1.5px solid var(--green);
-  transition: background 0.2s, color 0.2s;
-  letter-spacing: 0.01em;
+  padding: 0; border-radius: 0;
+  text-decoration: none; font-weight: 600; font-size: 0.88rem;
+  border: none; letter-spacing: 0.01em;
+  transition: opacity 0.2s;
 }
-nav a.cta-nav:hover { background: var(--green); color: var(--white); }
-
+nav a.cta-nav:hover { opacity: 0.7; background: transparent; color: var(--green); 
 
 nav a.nav-link {
 color: var(–black); text-decoration: none;
@@ -66,7 +63,6 @@ font-weight: 500; font-size: 0.9rem; transition: color 0.2s;
 }
 nav a.nav-link:hover { color: var(–green); }
 .nav-links { display: flex; align-items: center; gap: 2rem; }
-
 
 /* ── HERO ── */
 .hero {
@@ -536,6 +532,29 @@ footer a:hover { color: var(--white); }
 .ifilter:hover { border-color: var(--green); }
 .ifilter.active { background: var(--green); color: white; border-color: var(--green); }
 
+/* ── RESULTS TABS ── */
+.results-tabs {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem; padding: 0.5rem;
+  position: sticky; top: 64px; z-index: 50;
+  background: white; border-bottom: 1px solid var(--border);
+  margin: 0 0 1.5rem;
+}
+.results-tab {
+  padding: 0.65rem 0.4rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500;
+  color: #777; background: #f5f5f3; border: none; border-radius: 8px;
+  cursor: pointer; transition: all 0.18s; text-align: center;
+  line-height: 1.3; white-space: normal;
+}
+.results-tab:hover { background: #ebebeb; color: var(--black); }
+.results-tab.active {
+  background: var(--green); color: white; font-weight: 600;
+  box-shadow: 0 2px 8px rgba(61,122,58,0.25);
+}
+.results-tab-panel { display: none; }
+.results-tab-panel.active { display: block; }
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -556,7 +575,6 @@ footer a:hover { color: var(--white); }
   .question-card { padding: 1.5rem; }
   .soil-grid { grid-template-columns: 1fr; }
 }
-
 
 /* ── SHOP ── */
 .shop-section {
@@ -612,8 +630,72 @@ background: var(–gray); color: #666; font-weight: 500;
 .shop-grid { grid-template-columns: 1fr; }
 .shop-section { padding: 4rem 1.25rem; }
 }
-</style>
 
+/* ── BLOG ── */
+.blog-card {
+  background: white; border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border); cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.blog-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-3px); }
+.blog-card-img {
+  height: 120px; display: flex; align-items: center; justify-content: center;
+}
+.blog-card-body { padding: 1.5rem; }
+.blog-tag {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--green); background: #e8f5e7;
+  padding: 0.2rem 0.6rem; border-radius: 100px; margin-bottom: 0.6rem;
+}
+.blog-card-body h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.15rem;
+  font-weight: 700; margin-bottom: 0.5rem; line-height: 1.35;
+}
+.blog-card-body p { font-size: 0.85rem; color: #666; margin-bottom: 0.85rem; line-height: 1.6; }
+.blog-read { font-size: 0.85rem; font-weight: 600; color: var(--green); }
+.blog-post-hero {
+  padding: 2.5rem 2.5rem 1.5rem;
+}
+.blog-post-hero h1 {
+  font-family: 'Playfair Display', serif; font-size: 1.9rem;
+  font-weight: 900; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 0.75rem;
+}
+.blog-post-body { padding: 0 2.5rem 1rem; }
+.blog-post-body h2 {
+  font-family: 'Playfair Display', serif; font-size: 1.25rem;
+  font-weight: 700; margin: 2rem 0 0.6rem; color: var(--black);
+}
+.blog-post-body p { font-size: 0.92rem; color: #444; line-height: 1.8; margin-bottom: 1rem; }
+.blog-post-body ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+.blog-post-body ul li { font-size: 0.92rem; color: #444; line-height: 1.8; margin-bottom: 0.3rem; }
+.blog-stat-row {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.blog-stat {
+  background: #f9f9f7; border-radius: 10px; padding: 1rem;
+  text-align: center; border: 1px solid var(--border);
+}
+.blog-stat-val { font-size: 1.4rem; font-weight: 800; color: var(--green); font-family: 'Playfair Display', serif; }
+.blog-stat-label { font-size: 0.72rem; color: #888; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.blog-tip {
+  background: #e8f5e7; border-left: 3px solid var(--green);
+  border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.25rem 0;
+  font-size: 0.88rem; color: #2d5a2a; line-height: 1.6;
+}
+.blog-warn {
+  background: #fff3e0; border-left: 3px solid #e65100;
+  border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.25rem 0;
+  font-size: 0.88rem; color: #7f3300; line-height: 1.6;
+}
+@media (max-width: 600px) {
+  #blogCards { grid-template-columns: 1fr !important; }
+  .blog-post-hero, .blog-post-body { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .blog-stat-row { grid-template-columns: 1fr 1fr; }
+}
+
+</style>
 </head>
 <body>
 
@@ -621,7 +703,7 @@ background: var(–gray); color: #666; font-weight: 500;
 
 <nav>
   <a href="#" class="logo">Lawn<span>Unlocked</span></a>
-  <a href="#quiz" class="cta-nav">Get My Plan →</a>
+  <div class="nav-links"><a href="#blog" class="nav-link">Guides</a><a href="#quiz" class="cta-nav">Get My Plan →</a></div>
 </nav>
 
 <!-- HERO -->
@@ -662,32 +744,68 @@ background: var(–gray); color: #666; font-weight: 500;
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- BLOG SECTION -->
 
-<section class="how" id="how">
-  <div class="section-label">How It Works</div>
-  <h2 class="section-title">Your lawn plan in three simple steps</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <h3>Tell us about your lawn</h3>
-      <p>Answer a short quiz about your location, grass type, and current lawn conditions. Takes about 2 minutes.</p>
+<section id="blog" style="background:#f9f9f7;padding:5rem 2.5rem;">
+  <div style="max-width:940px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:0.5rem;">Lawn Care Guides</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:0.75rem;">Learn the Basics</h2>
+      <p style="color:#666;font-size:0.95rem;max-width:520px;margin:0 auto;">Everything you need to know about your grass type — written for real homeowners, not agronomists.</p>
     </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <h3>Upload your soil test (optional)</h3>
-      <p>Have a soil test? Upload it for a hyper-personalized plan. No test? No problem — we'll work with what you have.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <h3>Get your exact product list</h3>
-      <p>We recommend the specific products you need, available on Amazon. No guesswork. No wasted money.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:1.5rem;" id="blogCards">
+      <div class="blog-card" onclick="openBlog('bermuda')">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);"><span style="font-size:2.5rem;">☀️</span></div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Warm Season</div>
+          <h3>Bermuda Grass Lawn Care for Beginners</h3>
+          <p>Learn the essential mowing heights, fertilizing windows, and common mistakes new Bermuda owners make.</p>
+          <span class="blog-read">Read Guide →</span>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openBlog('zoysia')">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#fff8e1,#ffe082);"><span style="font-size:2.5rem;">🌾</span></div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Warm Season</div>
+          <h3>Zoysia Grass Lawn Care for Beginners</h3>
+          <p>Zoysia is one of the most forgiving warm-season grasses — but it has quirks beginners often get wrong.</p>
+          <span class="blog-read">Read Guide →</span>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openBlog('fescue')">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#e8eaf6,#9fa8da);"><span style="font-size:2.5rem;">🌿</span></div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Cool Season</div>
+          <h3>Tall Fescue Lawn Care for Beginners</h3>
+          <p>Fescue stays green through winter but struggles in summer heat. Here is how to keep it thriving year-round.</p>
+          <span class="blog-read">Read Guide →</span>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openBlog('kbg')">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#e3f2fd,#90caf9);"><span style="font-size:2.5rem;">❄️</span></div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Cool Season</div>
+          <h3>Kentucky Bluegrass Lawn Care for Beginners</h3>
+          <p>The most beautiful cool-season lawn — but also the most demanding. Learn what KBG really needs.</p>
+          <span class="blog-read">Read Guide →</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- QUIZ -->
+<!-- BLOG POST MODAL -->
 
+<div id="blogModal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.55);overflow-y:auto;padding:2rem 1rem;">
+  <div style="max-width:720px;margin:2rem auto;background:white;border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.18);">
+    <div id="blogModalContent"></div>
+    <div style="padding:0 2.5rem 2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+      <button onclick="closeBlog()" style="background:white;color:var(--black);border:1.5px solid var(--border);padding:0.75rem 2rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;">← Back to Guides</button>
+      <a href="#quiz" onclick="closeBlog()" style="display:inline-block;background:var(--green);color:white;padding:0.75rem 2rem;border-radius:8px;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;">Get My Free Lawn Plan →</a>
+    </div>
+  </div>
+</div>
+<!-- QUIZ -->
 <section class="quiz-section" id="quiz">
   <div class="quiz-wrapper">
     <div class="quiz-header">
@@ -695,7 +813,6 @@ background: var(–gray); color: #666; font-weight: 500;
       <h2 class="section-title" style="max-width:100%;text-align:center;">Let's build your personalized plan</h2>
     </div>
 
-```
 <div id="quizPanel">
   <div class="progress-text" id="progressText">Question 1 of 11</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:11%"></div></div>
@@ -718,7 +835,6 @@ background: var(–gray); color: #666; font-weight: 500;
   <div id="planContent" style="display:none"></div>
   <button class="restart-btn" id="restartBtn" onclick="restartQuiz()" style="display:none">← Start Over</button>
 </div>
-
 
   </div>
 </section>
@@ -743,7 +859,6 @@ background: var(–gray); color: #666; font-weight: 500;
   </div>
 
   <div class="shop-grid" id="shopGrid">
-
 
 <!-- MOWERS -->
 <div class="shop-card" data-cat="mower">
@@ -954,7 +1069,6 @@ background: var(–gray); color: #666; font-weight: 500;
   </div>
 </div>
 
-
   </div>
 </section>
 
@@ -963,7 +1077,7 @@ background: var(–gray); color: #666; font-weight: 500;
 <footer>
   <a href="#" class="logo">Lawn<span style="color:var(--green)">Unlocked</span></a>
   <p style="margin-bottom:1rem;">
-    <a href="#how" style="color:#aaa;text-decoration:none;margin:0 0.75rem;">How It Works</a> ·
+    <a href="#blog" style="color:#aaa;text-decoration:none;margin:0 0.75rem;">Guides</a> ·
     <a href="#shop" style="color:#aaa;text-decoration:none;margin:0 0.75rem;">Gear Shop</a> ·
     <a href="#quiz" style="color:#aaa;text-decoration:none;margin:0 0.75rem;">Get My Plan</a>
   </p>
@@ -1562,134 +1676,155 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
         </div>
       </div>
 
-      <!-- Mowing Profile -->
-      <div class="care-section">
-        <div class="care-section-header">
-          <div class="care-icon" style="background:#f5f5f5">✂️</div>
-          <h3>Mowing Profile</h3>
-        </div>
-        <div class="info-grid">
-          <div class="info-card highlight">
-            <h4>Ideal Height</h4>
-            <div class="big-val">${plan.grassProfile.mowingHeight}</div>
-            <p>Never cut more than ⅓ of the blade at once</p>
-          </div>
-          <div class="info-card">
-            <h4>Frequency</h4>
-            <p>${plan.grassProfile.mowingFrequency}</p>
-          </div>
-          <div class="info-card full ${plan.grassProfile.scalping.toLowerCase().startsWith('yes') ? 'warning' : ''}">
-            <h4>Scalping</h4>
-            <p>${plan.grassProfile.scalping}</p>
-          </div>
-        </div>
+      <!-- Results Tab Bar -->
+      <div class="results-tabs" id="resultsTabs">
+        <button class="results-tab active" onclick="switchResultsTab('mowing', this)">✂️ Mowing</button>
+        <button class="results-tab" onclick="switchResultsTab('products', this)">🛒 Products</button>
+        <button class="results-tab" onclick="switchResultsTab('seasons', this)">🗓️ Seasons</button>
+        <button class="results-tab" onclick="switchResultsTab('checklist', this)">✅ Checklist</button>
       </div>
 
-      <!-- Season Tabs -->
-      <div class="care-section">
-        <div class="care-section-header">
-          <div class="care-icon" style="background:#e8f5e7">🗓️</div>
-          <h3>Seasonal Care Guide</h3>
-        </div>
-        <div class="season-tabs" id="seasonTabs">
-          ${['spring','summer','fall','winter'].map(s => `
-            <div class="season-tab${s === activeSeason ? ' active' : ''}" onclick="switchSeason('${s}')">
-              ${seasonEmojis[s]} ${s.charAt(0).toUpperCase() + s.slice(1)}
+      <!-- TAB: MOWING -->
+      <div class="results-tab-panel active" id="panel-mowing">
+        <div class="care-section">
+          <div class="care-section-header">
+            <div class="care-icon" style="background:#f5f5f5">✂️</div>
+            <h3>Mowing Profile</h3>
+          </div>
+          <div class="info-grid">
+            <div class="info-card highlight">
+              <h4>Ideal Height</h4>
+              <div class="big-val">${plan.grassProfile.mowingHeight}</div>
+              <p>Never cut more than ⅓ of the blade at once</p>
             </div>
-          `).join('')}
-        </div>
-        <div id="seasonContent">${renderSeason(activeSeason)}</div>
-      </div>
-
-      <!-- Seasonal Checklist -->
-      <div class="care-section">
-        <div class="care-section-header">
-          <div class="care-icon" style="background:#fff8e6">✅</div>
-          <h3>Your Seasonal Checklist</h3>
-        </div>
-        <div class="checklist" id="checklist">
-          ${(plan.checklist || []).map((item, i) => {
-            const sc = item.season?.toLowerCase();
-            const col = seasonAccents[sc] || '#555';
-            return `
-              <div class="check-item" id="chk${i}" onclick="toggleCheck(${i})">
-                <div class="check-box" id="chkbox${i}"></div>
-                <div>
-                  <div class="check-text">${item.task}</div>
-                  <div class="check-season" style="color:${col}">${item.season} · ${item.priority === 'high' ? '🔴 High priority' : item.priority === 'medium' ? '🟡 Medium priority' : '🟢 Low priority'}</div>
-                </div>
-              </div>
-            `;
-          }).join('')}
+            <div class="info-card">
+              <h4>Frequency</h4>
+              <p>${plan.grassProfile.mowingFrequency}</p>
+            </div>
+            <div class="info-card full ${plan.grassProfile.scalping.toLowerCase().startsWith('yes') ? 'warning' : ''}">
+              <h4>Scalping</h4>
+              <p>${plan.grassProfile.scalping}</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Product Recommendations + Gear Shop Toggle -->
-      <div class="care-section">
-        <div class="care-section-header">
-          <div class="care-icon" style="background:#e8f5e7">🛒</div>
-          <h3>Products & Gear</h3>
-        </div>
-
-        <div style="display:flex;gap:0.5rem;margin-bottom:1.5rem;">
-          <button id="tabRecommended" onclick="switchProductTab('recommended')"
-            style="flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--green);background:var(--green);color:white;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;">
-            ✨ My Recommendations
-          </button>
-          <button id="tabGear" onclick="switchProductTab('gear')"
-            style="flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;">
-            🛒 Browse All Gear
-          </button>
-        </div>
-
-        <div id="panelRecommended">
-          <div class="product-list">
-            ${(plan.products || []).map(p => {
-              const amazonUrl = `https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(p.amazonSearch || p.name)}`;
-              const icon = categoryIcons[p.category] || '🌿';
-              const bg = categoryColors[p.category] || '#f5f5f5';
-              return `
-                <div class="product-item">
-                  <div class="product-item-icon" style="background:${bg}">${icon}</div>
-                  <div class="product-item-body">
-                    <h4>${p.name}</h4>
-                    <p>${p.why}</p>
-                    <div class="product-item-meta">
-                      <span class="meta-chip">📦 ${p.applicationRate}</span>
-                      <span class="meta-chip">📅 ${p.bestTiming}</span>
+      <!-- TAB: PRODUCTS -->
+      <div class="results-tab-panel" id="panel-products">
+        <div class="care-section">
+          <div class="care-section-header">
+            <div class="care-icon" style="background:#e8f5e7">🛒</div>
+            <h3>Products & Gear</h3>
+          </div>
+          <div style="display:flex;gap:0.5rem;margin-bottom:1.5rem;">
+            <button id="tabRecommended" onclick="switchProductTab('recommended')"
+              style="flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--green);background:var(--green);color:white;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;">
+              ✨ My Recommendations
+            </button>
+            <button id="tabGear" onclick="switchProductTab('gear')"
+              style="flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;">
+              🛒 Browse All Gear
+            </button>
+          </div>
+          <div id="panelRecommended">
+            <div class="product-list">
+              ${(plan.products || []).map(p => {
+                const amazonUrl = `https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(p.amazonSearch || p.name)}`;
+                const icon = categoryIcons[p.category] || '🌿';
+                const bg = categoryColors[p.category] || '#f5f5f5';
+                return `
+                  <div class="product-item">
+                    <div class="product-item-icon" style="background:${bg}">${icon}</div>
+                    <div class="product-item-body">
+                      <h4>${p.name}</h4>
+                      <p>${p.why}</p>
+                      <div class="product-item-meta">
+                        <span class="meta-chip">📦 ${p.applicationRate}</span>
+                        <span class="meta-chip">📅 ${p.bestTiming}</span>
+                      </div>
+                      <a href="${amazonUrl}" target="_blank" rel="noopener" class="btn-amazon" style="margin-top:0.75rem;display:inline-flex;">
+                        🛒 Find on Amazon
+                      </a>
                     </div>
-                    <a href="${amazonUrl}" target="_blank" rel="noopener" class="btn-amazon" style="margin-top:0.75rem;display:inline-flex;">
-                      🛒 Find on Amazon
-                    </a>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+          <div id="panelGear" style="display:none;">
+            <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.25rem;" id="inlineShopFilters">
+              <button onclick="filterInlineShop('all',this)" class="ifilter active">All</button>
+              <button onclick="filterInlineShop('mower',this)" class="ifilter">Mowers</button>
+              <button onclick="filterInlineShop('spreader',this)" class="ifilter">Spreaders</button>
+              <button onclick="filterInlineShop('sprayer',this)" class="ifilter">Sprayers</button>
+              <button onclick="filterInlineShop('soil',this)" class="ifilter">Soil & Testing</button>
+              <button onclick="filterInlineShop('fertilizer',this)" class="ifilter">Fertilizers</button>
+              <button onclick="filterInlineShop('tool',this)" class="ifilter">Tools</button>
+            </div>
+            <div id="inlineShopCards" class="product-list"></div>
+          </div>
+        </div>
+        <div class="disclaimer">
+          ⚠️ Recommendations are for informational purposes only. Results may vary. Always read product labels before use. LawnUnlocked may earn a small affiliate commission on Amazon purchases at no extra cost to you.
+        </div>
+      </div>
+
+      <!-- TAB: SEASONS -->
+      <div class="results-tab-panel" id="panel-seasons">
+        <div class="care-section">
+          <div class="care-section-header">
+            <div class="care-icon" style="background:#e8f5e7">🗓️</div>
+            <h3>Seasonal Care Guide</h3>
+          </div>
+          <div class="season-tabs" id="seasonTabs">
+            ${['spring','summer','fall','winter'].map(s => `
+              <div class="season-tab${s === activeSeason ? ' active' : ''}" onclick="switchSeason('${s}')">
+                ${seasonEmojis[s]} ${s.charAt(0).toUpperCase() + s.slice(1)}
+              </div>
+            `).join('')}
+          </div>
+          <div id="seasonContent">${renderSeason(activeSeason)}</div>
+        </div>
+      </div>
+
+      <!-- TAB: CHECKLIST -->
+      <div class="results-tab-panel" id="panel-checklist">
+        <div class="care-section">
+          <div class="care-section-header">
+            <div class="care-icon" style="background:#fff8e6">✅</div>
+            <h3>Your Seasonal Checklist</h3>
+          </div>
+          <div class="checklist" id="checklist">
+            ${(plan.checklist || []).map((item, i) => {
+              const sc = item.season?.toLowerCase();
+              const col = seasonAccents[sc] || '#555';
+              return `
+                <div class="check-item" id="chk${i}" onclick="toggleCheck(${i})">
+                  <div class="check-box" id="chkbox${i}"></div>
+                  <div>
+                    <div class="check-text">${item.task}</div>
+                    <div class="check-season" style="color:${col}">${item.season} · ${item.priority === 'high' ? '🔴 High priority' : item.priority === 'medium' ? '🟡 Medium priority' : '🟢 Low priority'}</div>
                   </div>
                 </div>
               `;
             }).join('')}
           </div>
         </div>
-
-        <div id="panelGear" style="display:none;">
-          <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.25rem;" id="inlineShopFilters">
-            <button onclick="filterInlineShop('all',this)" class="ifilter active">All</button>
-            <button onclick="filterInlineShop('mower',this)" class="ifilter">Mowers</button>
-            <button onclick="filterInlineShop('spreader',this)" class="ifilter">Spreaders</button>
-            <button onclick="filterInlineShop('sprayer',this)" class="ifilter">Sprayers</button>
-            <button onclick="filterInlineShop('soil',this)" class="ifilter">Soil & Testing</button>
-            <button onclick="filterInlineShop('fertilizer',this)" class="ifilter">Fertilizers</button>
-            <button onclick="filterInlineShop('tool',this)" class="ifilter">Tools</button>
-          </div>
-          <div id="inlineShopCards" class="product-list"></div>
-        </div>
       </div>
-
-      <!-- Disclaimer -->
-      <div class="disclaimer">
-        ⚠️ Recommendations are for informational purposes only. Results may vary. Always read product labels before use. LawnUnlocked may earn a small affiliate commission on Amazon purchases at no extra cost to you.
-      </div>    `;
+    `;
 
     // Store plan for season switching
     window._currentPlan = plan;
     window._renderSeason = renderSeason;
+  }
+
+  function switchResultsTab(tab, el) {
+    document.querySelectorAll('.results-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.results-tab-panel').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('panel-' + tab).classList.add('active');
+    // Scroll to just below the sticky tab bar
+    document.getElementById('resultsTabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function switchSeason(key) {
@@ -1811,6 +1946,325 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
   }
 
   render();
+
+  // ── BLOG ─────────────────────────────────────────────────────
+  const blogPosts = {
+    bermuda: {
+      title: 'Bermuda Grass Lawn Care for Beginners',
+      tag: 'Warm Season',
+      tagColor: '#e8f5e7',
+      hero: 'linear-gradient(135deg,#e8f5e7,#a5d6a7)',
+      emoji: '☀️',
+      stats: [
+        { val: '0.5–1.5"', label: 'Mow Height' },
+        { val: 'Apr–Sep', label: 'Grow Season' },
+        { val: '4–6 lbs N', label: 'Nitrogen/yr' }
+      ],
+      body: `
+        <h2>What is Bermuda Grass?</h2>
+        <p>Bermuda grass is the most popular warm-season turf in the southern United States. It thrives in heat, recovers quickly from damage, and can achieve a dense, carpet-like lawn when properly maintained. It goes dormant and turns brown in winter — this is normal and not a sign of a dead lawn.</p>
+
+        <div class="blog-tip">💡 <strong>Beginner tip:</strong> Bermuda is aggressive. It will spread into flower beds and cracks in pavement. Edge regularly and keep it contained from the start.</div>
+
+        <h2>Mowing Bermuda Grass</h2>
+        <p>Mowing height is the single biggest factor in how your Bermuda lawn looks. Standard Bermuda should be cut between <strong>1–1.5 inches</strong>. Hybrid varieties like TifTuf or Tifway 419 can go as low as <strong>0.5–0.75 inches</strong> for a golf course-style finish.</p>
+        <ul>
+          <li>Never remove more than one-third of the blade in a single mow</li>
+          <li>Mow frequently during peak growing season — every 5–7 days</li>
+          <li>A reel mower will give you the cleanest cut at low heights</li>
+          <li>Scalp the lawn in early spring (February–March) to remove dead thatch and wake it up faster</li>
+        </ul>
+        <div class="blog-warn">⚠️ <strong>Common mistake:</strong> Mowing too high. Bermuda left at 2.5–3 inches gets puffy, thatchy, and harder to maintain. Keep it low.</div>
+
+        <h2>Watering</h2>
+        <p>Bermuda is drought-tolerant once established, but for a healthy, dense lawn it needs consistent moisture during the growing season. Water deeply and infrequently — this trains deep root growth.</p>
+        <ul>
+          <li>Water 1–1.25 inches per week during summer, split over 2–3 sessions</li>
+          <li>Water in the early morning to reduce fungal disease risk</li>
+          <li>Let the soil dry slightly between waterings — Bermuda does not like soggy conditions</li>
+          <li>In winter dormancy, you can skip watering almost entirely</li>
+        </ul>
+
+        <h2>Fertilizing Schedule</h2>
+        <p>Bermuda is a heavy feeder and responds dramatically to proper fertilization. Do not fertilize before green-up in spring or after Labor Day in fall — this can push tender growth that gets frost-damaged.</p>
+        <ul>
+          <li><strong>Spring (green-up):</strong> Starter or balanced fertilizer once soil temps hit 65°F consistently</li>
+          <li><strong>Early summer:</strong> High-nitrogen fertilizer every 4–6 weeks through the growing season</li>
+          <li><strong>Late summer:</strong> Switch to a lower-nitrogen, higher-potassium blend to harden the lawn for fall</li>
+          <li><strong>Fall/Winter:</strong> No fertilizer — let it go dormant naturally</li>
+        </ul>
+        <div class="blog-tip">💡 Get a soil test before your first fertilizer application. Most Bermuda lawns need phosphorus only occasionally — overtreating wastes money and harms the environment.</div>
+
+        <h2>Weed Control</h2>
+        <p>A thick, healthy Bermuda lawn is your best weed defense. But pre-emergent herbicide in early spring is non-negotiable to stop crabgrass before it germinates.</p>
+        <ul>
+          <li>Apply pre-emergent when soil temps reach 55°F (usually late February–March depending on your zone)</li>
+          <li>Use a post-emergent broadleaf herbicide like 2,4-D for dandelions and clover</li>
+          <li>Sedge weeds (nutsedge) need a specialty product like Sedgehammer — standard herbicides will not touch them</li>
+        </ul>
+
+        <h2>Aeration and Thatch</h2>
+        <p>Bermuda builds thatch fast. Core aerate once or twice a year — ideally in late spring and again in early fall — to reduce compaction and allow water and nutrients to reach the roots. Dethatch aggressively every 2–3 years if thatch exceeds half an inch.</p>
+
+        <h2>Common Beginner Mistakes</h2>
+        <ul>
+          <li>Mowing too high — keeps the lawn puffy and promotes thatch</li>
+          <li>Watering too often and too shallowly — promotes shallow roots</li>
+          <li>Fertilizing too late in fall — pushes growth that gets winter-killed</li>
+          <li>Ignoring pre-emergent — one missed application can mean a summer full of crabgrass</li>
+          <li>Panicking when it goes dormant in winter — it comes back every spring</li>
+        </ul>
+      `
+    },
+
+    zoysia: {
+      title: 'Zoysia Grass Lawn Care for Beginners',
+      tag: 'Warm Season',
+      tagColor: '#fff8e1',
+      hero: 'linear-gradient(135deg,#fff8e1,#ffe082)',
+      emoji: '🌾',
+      stats: [
+        { val: '1–2.5"', label: 'Mow Height' },
+        { val: 'May–Sep', label: 'Grow Season' },
+        { val: '2–4 lbs N', label: 'Nitrogen/yr' }
+      ],
+      body: `
+        <h2>What is Zoysia Grass?</h2>
+        <p>Zoysia is a warm-season grass known for its dense, carpet-like texture and impressive durability. It handles heat, drought, and foot traffic exceptionally well, and it requires less fertilizer and water than Bermuda. The trade-off: it spreads slowly, goes dormant in winter, and wakes up later in spring than Bermuda.</p>
+        <div class="blog-tip">💡 Zoysia is one of the best grasses for homeowners who want a low-maintenance premium lawn. Less feeding, less watering, and it chokes out most weeds on its own once established.</div>
+
+        <h2>Mowing Zoysia</h2>
+        <p>Zoysia varieties vary widely in recommended mowing height. Zeon and Emerald Zoysia can be cut very low (golf course style), while Meyer and El Toro look best at a moderate height.</p>
+        <ul>
+          <li><strong>Standard Zoysia (Meyer, El Toro):</strong> 1.5–2.5 inches</li>
+          <li><strong>Fine-blade varieties (Zeon, Emerald):</strong> 0.5–1 inch</li>
+          <li>Mow every 7–10 days in peak season — Zoysia grows slower than Bermuda</li>
+          <li>A reel mower gives the cleanest cut on fine-blade varieties</li>
+        </ul>
+        <div class="blog-warn">⚠️ Zoysia is very dense and tough on mower blades. Keep your blades sharp — dull blades tear the grass and create an ugly brownish cast on top of the lawn.</div>
+
+        <h2>Watering</h2>
+        <p>Zoysia is highly drought-tolerant once established — more so than most grasses. It will go brown under severe drought stress but recover quickly once rain or irrigation returns.</p>
+        <ul>
+          <li>Water deeply once or twice per week — about 1 inch total</li>
+          <li>Zoysia shows drought stress by developing a blue-gray tint and rolling leaves — water at this point</li>
+          <li>Avoid overwatering — Zoysia is prone to fungal issues in wet conditions</li>
+        </ul>
+
+        <h2>Fertilizing Schedule</h2>
+        <p>Zoysia needs significantly less nitrogen than Bermuda. Over-fertilizing causes excessive thatch buildup and actually weakens the lawn over time.</p>
+        <ul>
+          <li><strong>Spring:</strong> Light feeding after full green-up — a balanced fertilizer works well</li>
+          <li><strong>Early summer:</strong> A second application of slow-release nitrogen</li>
+          <li><strong>Late summer (optional):</strong> Potassium-heavy fertilizer to improve drought and cold hardiness</li>
+          <li>Skip fall fertilization — pushing growth before dormancy weakens the plant</li>
+        </ul>
+        <div class="blog-tip">💡 Soil test first. Zoysia often does not need phosphorus. Applying it unnecessarily locks up zinc and iron in the soil, causing yellowing.</div>
+
+        <h2>Weed Control</h2>
+        <p>A well-established Zoysia lawn is one of the best natural weed suppressors — its density simply smothers most weeds. That said, weeds can establish during thin periods in early spring.</p>
+        <ul>
+          <li>Apply pre-emergent in late winter before soil temps hit 55°F</li>
+          <li>Post-emergent broadleaf herbicides handle dandelions, clover, and henbit</li>
+          <li>Zoysia is sensitive to some herbicides — always read labels before applying</li>
+        </ul>
+
+        <h2>Thatch Management</h2>
+        <p>Zoysia is the thatchiest warm-season grass. Its dense, fibrous growth accumulates thatch faster than Bermuda or St. Augustine. Left unmanaged, a thick thatch layer blocks water and nutrients from reaching the soil.</p>
+        <ul>
+          <li>Core aerate every year in late spring</li>
+          <li>Dethatch every 2–3 years if thatch exceeds half an inch</li>
+          <li>Vertical mowing (verticutting) in late spring is the most effective dethatching method for Zoysia</li>
+        </ul>
+
+        <h2>Common Beginner Mistakes</h2>
+        <ul>
+          <li>Overwatering — Zoysia thrives slightly dry, not wet</li>
+          <li>Over-fertilizing — more nitrogen means more thatch, not more green</li>
+          <li>Ignoring thatch until it becomes a serious problem</li>
+          <li>Comparing green-up speed to Bermuda — Zoysia wakes up 2–4 weeks later in spring</li>
+          <li>Using the wrong herbicide and damaging the lawn</li>
+        </ul>
+      `
+    },
+
+    fescue: {
+      title: 'Tall Fescue Lawn Care for Beginners',
+      tag: 'Cool Season',
+      tagColor: '#e8eaf6',
+      hero: 'linear-gradient(135deg,#e8eaf6,#9fa8da)',
+      emoji: '🌿',
+      stats: [
+        { val: '3–4"', label: 'Mow Height' },
+        { val: 'Sep–Nov', label: 'Best Seeding' },
+        { val: '2–4 lbs N', label: 'Nitrogen/yr' }
+      ],
+      body: `
+        <h2>What is Tall Fescue?</h2>
+        <p>Tall Fescue is the most popular cool-season grass in the transition zone — the band of the US that is too cold for Bermuda to look great year-round but too hot for pure cool-season grasses to thrive in summer. Fescue stays green year-round in mild climates and is one of the most shade-tolerant turf grasses available.</p>
+        <div class="blog-tip">💡 Fescue does not spread by stolons or rhizomes the way Bermuda and Zoysia do. It grows in clumps. This is why overseeding is so important — thin or dead spots will not fill in on their own.</div>
+
+        <h2>Mowing Tall Fescue</h2>
+        <p>Tall Fescue should be mowed higher than warm-season grasses. Height is critical — taller blades shade the soil, retain moisture, and help the grass survive summer heat stress.</p>
+        <ul>
+          <li>Mow at <strong>3–4 inches</strong> during the growing season</li>
+          <li>Raise the mowing height to 4 inches during July and August to protect against heat stress</li>
+          <li>Never scalp Fescue — it does not recover the way Bermuda does</li>
+          <li>Mow every 7–14 days depending on growth rate</li>
+        </ul>
+        <div class="blog-warn">⚠️ Never mow Fescue short in summer. Cutting below 2.5 inches during heat stress is one of the fastest ways to kill it. When in doubt, leave it tall.</div>
+
+        <h2>Watering</h2>
+        <p>Fescue has a deep root system that makes it more drought-tolerant than Kentucky Bluegrass, but it will go dormant and thin out in prolonged summer heat without irrigation.</p>
+        <ul>
+          <li>Water 1–1.5 inches per week in summer, preferably in one or two deep sessions</li>
+          <li>Water in early morning to reduce fungal disease risk</li>
+          <li>In spring and fall, natural rainfall often handles most of the watering needs</li>
+          <li>Do not overwater — wet Fescue is highly susceptible to brown patch fungus</li>
+        </ul>
+
+        <h2>Fertilizing Schedule</h2>
+        <p>Unlike warm-season grasses, Fescue should be fertilized primarily in fall — not spring or summer. Fall feeding fuels root development and sets the lawn up for spring green-up.</p>
+        <ul>
+          <li><strong>Early fall (September):</strong> Main fertilizer application — high nitrogen, slow-release</li>
+          <li><strong>Late fall (November):</strong> A lighter winterizer application with higher potassium</li>
+          <li><strong>Spring (optional):</strong> A light application if the lawn looks thin, but keep it minimal</li>
+          <li><strong>Summer:</strong> Do not fertilize — pushing growth during heat stress invites disease and burnout</li>
+        </ul>
+
+        <h2>Overseeding — The Most Important Task</h2>
+        <p>Because Fescue does not self-spread, overseeding every fall is the single most important maintenance task. Thin areas will not fill themselves in. Annual overseeding keeps the lawn dense, which is your best defense against weeds.</p>
+        <ul>
+          <li>Overseed in mid-September to mid-October when soil temps drop below 70°F</li>
+          <li>Core aerate before overseeding for best seed-to-soil contact</li>
+          <li>Use a quality turf-type tall fescue blend — not a bargain big box mix</li>
+          <li>Keep the seedbed moist for 2–3 weeks until germination</li>
+        </ul>
+        <div class="blog-tip">💡 Do not apply pre-emergent herbicide in fall if you are overseeding. Pre-emergent will prevent your grass seed from germinating just as effectively as it prevents crabgrass.</div>
+
+        <h2>Weed Control</h2>
+        <ul>
+          <li>Apply pre-emergent in early spring (February–March) to stop crabgrass — but skip it in fall if overseeding</li>
+          <li>Broadleaf weeds can be treated with standard 2,4-D products in fall or spring</li>
+          <li>A thick, well-maintained Fescue lawn is your best long-term weed prevention</li>
+        </ul>
+
+        <h2>Common Beginner Mistakes</h2>
+        <ul>
+          <li>Mowing too short in summer — this is the number one way beginners kill Fescue</li>
+          <li>Fertilizing in summer — it pushes weak growth and invites brown patch disease</li>
+          <li>Skipping fall overseeding and wondering why the lawn looks thin in spring</li>
+          <li>Applying pre-emergent in fall and then overseeding — the herbicide kills the new seed</li>
+          <li>Overwatering in humid conditions — brown patch thrives in wet, warm conditions</li>
+        </ul>
+      `
+    },
+
+    kbg: {
+      title: 'Kentucky Bluegrass Lawn Care for Beginners',
+      tag: 'Cool Season',
+      tagColor: '#e3f2fd',
+      hero: 'linear-gradient(135deg,#e3f2fd,#90caf9)',
+      emoji: '❄️',
+      stats: [
+        { val: '2.5–3.5"', label: 'Mow Height' },
+        { val: 'Sep–Oct', label: 'Best Seeding' },
+        { val: '3–5 lbs N', label: 'Nitrogen/yr' }
+      ],
+      body: `
+        <h2>What is Kentucky Bluegrass?</h2>
+        <p>Kentucky Bluegrass is the gold standard of cool-season lawns. When well-maintained, it produces a thick, dark green, lush carpet that is hard to beat aesthetically. It spreads by underground rhizomes, meaning it will slowly fill in thin spots on its own — something Fescue cannot do. The trade-off: it is the most demanding cool-season grass to maintain and struggles significantly in summer heat and drought.</p>
+        <div class="blog-warn">⚠️ Kentucky Bluegrass is not a great choice for hot, dry climates or lawns with heavy shade. It thrives in the northern US, Pacific Northwest, and mountain states where summers stay relatively mild.</div>
+
+        <h2>Mowing Kentucky Bluegrass</h2>
+        <p>KBG performs best when mowed at a moderate height. Too short and it stresses easily in summer; too tall and it becomes puffy and prone to disease.</p>
+        <ul>
+          <li>Mow at <strong>2.5–3.5 inches</strong> during the growing season</li>
+          <li>Raise to 3.5 inches during summer heat stress</li>
+          <li>Mow every 5–7 days in spring when growth is explosive</li>
+          <li>Keep blades sharp — KBG has a characteristic boat-shaped leaf tip that tears easily with dull blades</li>
+        </ul>
+
+        <h2>Watering</h2>
+        <p>KBG has a shallower root system than Fescue, making it more vulnerable to drought. It will go dormant (brown) in extended drought, then bounce back when rains return — but repeated dormancy cycles weaken the lawn significantly over time.</p>
+        <ul>
+          <li>Water 1–1.5 inches per week during the growing season</li>
+          <li>Water deeply 2–3 times per week rather than daily shallow watering</li>
+          <li>Water in early morning — KBG is highly susceptible to fungal diseases when wet overnight</li>
+          <li>In summer, you may need to irrigate more frequently to prevent dormancy</li>
+        </ul>
+        <div class="blog-tip">💡 If you are not willing to irrigate consistently through summer, consider mixing KBG with Fescue in a blend. Most northern lawn seed mixes already do this for resilience.</div>
+
+        <h2>Fertilizing Schedule</h2>
+        <p>KBG is a heavier feeder than Fescue. It needs consistent nitrogen through the season but timing is everything — summer feeding during heat stress is a serious mistake.</p>
+        <ul>
+          <li><strong>Early fall (September):</strong> Primary fertilization — the most important application of the year</li>
+          <li><strong>Late fall (October–November):</strong> Winterizer — high potassium to strengthen roots before freeze</li>
+          <li><strong>Late spring (May):</strong> Light feeding once the soil has warmed</li>
+          <li><strong>Summer:</strong> Avoid or use a very light slow-release product only if the lawn is irrigated and healthy</li>
+        </ul>
+
+        <h2>Overseeding and Renovation</h2>
+        <p>Unlike Fescue, KBG spreads via rhizomes and will slowly fill in thin areas. But for bare spots or severely thinned lawns, overseeding in early fall is the right move.</p>
+        <ul>
+          <li>Overseed in late August to mid-September — KBG germinates best at soil temps of 50–65°F</li>
+          <li>KBG seed germinates slowly (14–21 days) — be patient and keep the seedbed moist</li>
+          <li>Core aerate before overseeding for best results</li>
+          <li>Avoid pre-emergent herbicide in fall if overseeding</li>
+        </ul>
+
+        <h2>Disease Management</h2>
+        <p>KBG is more susceptible to fungal disease than other cool-season grasses. Summer patch and dollar spot are the two most common issues.</p>
+        <ul>
+          <li>Water in the morning only — never evening</li>
+          <li>Avoid overwatering and compacted soils</li>
+          <li>If summer patch appears (circular brown rings), apply a systemic fungicide like Heritage or Eagle in late spring as a preventative</li>
+          <li>Core aeration and overseeding after disease events helps recovery</li>
+        </ul>
+
+        <h2>Common Beginner Mistakes</h2>
+        <ul>
+          <li>Planting KBG in a hot, dry climate where it cannot thrive</li>
+          <li>Fertilizing in summer and triggering disease or burnout</li>
+          <li>Underwatering in summer and repeatedly stressing the lawn into dormancy</li>
+          <li>Skipping fall fertilization — this is the most critical feeding of the year for KBG</li>
+          <li>Mowing too short — below 2 inches in summer is very stressful for KBG</li>
+        </ul>
+      `
+    }
+  };
+
+  function openBlog(id) {
+    const post = blogPosts[id];
+    if (!post) return;
+    const statHtml = post.stats.map(s => `
+      <div class="blog-stat">
+        <div class="blog-stat-val">${s.val}</div>
+        <div class="blog-stat-label">${s.label}</div>
+      </div>`).join('');
+    document.getElementById('blogModalContent').innerHTML = `
+      <div class="blog-post-hero" style="background:${post.hero};">
+        <div style="font-size:3rem;margin-bottom:0.75rem;">${post.emoji}</div>
+        <div class="blog-tag" style="background:white;color:var(--green);">${post.tag}</div>
+        <h1 style="margin-top:0.6rem;">${post.title}</h1>
+        <div class="blog-stat-row">${statHtml}</div>
+      </div>
+      <div class="blog-post-body">${post.body}</div>
+    `;
+    document.getElementById('blogModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBlog() {
+    document.getElementById('blogModal').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  // Close modal on backdrop click
+  document.getElementById('blogModal').addEventListener('click', function(e) {
+    if (e.target === this) closeBlog();
+  });
+
 </script>
 
 </body>
