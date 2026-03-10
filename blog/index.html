@@ -19,6 +19,7 @@
     nav a.nav-link{color:#111;text-decoration:none;font-weight:500;font-size:0.9rem;}
     nav a.nav-link:hover{color:var(--green);}
     nav a.cta-nav{color:var(--green);text-decoration:none;font-weight:600;font-size:0.88rem;}
+    @media(max-width:480px){.nav-hide-mobile{display:none;}}
     .hero{padding:9rem 2.5rem 4rem;max-width:800px;margin:0 auto;text-align:center;}
     .hero-tag{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:0.3rem 0.8rem;border-radius:100px;margin-bottom:1.25rem;}
     .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:1rem;}
@@ -44,7 +45,7 @@
 <nav>
   <a href="/index.html" class="logo">Lawn<span>Unlocked</span></a>
   <div class="nav-links">
-    <a href="/blog/index.html" class="nav-link">Guides</a>
+    <a href="/blog/index.html" class="nav-link nav-hide-mobile">Guides</a>
     <a href="/index.html#quiz" class="cta-nav">Get My Plan →</a>
   </div>
 </nav>
