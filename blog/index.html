@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lawn Care Guides — LawnUnlocked</title>
+  <meta name="description" content="Deep-dive lawn care guides on niche topics — new construction soil, smart irrigation, seeding vs sod, and more. Real numbers, honest advice." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root { --green:#3d7a3a;--green-light:#52a34e;--green-pale:#e8f5e7;--black:#111;--white:#fff;--border:#e0e0dc; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',sans-serif;color:var(--black);background:var(--white);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--black);text-decoration:none;letter-spacing:-0.03em;}
+    .logo span{color:var(--green);}
+    .nav-links{display:flex;align-items:center;gap:2rem;}
+    nav a.nav-link{color:var(--black);text-decoration:none;font-weight:500;font-size:0.9rem;}
+    nav a.nav-link:hover{color:var(--green);}
+    nav a.cta-nav{color:var(--green);text-decoration:none;font-weight:600;font-size:0.88rem;}
+    nav a.cta-nav:hover{opacity:0.7;}
+    .hero{padding:9rem 2.5rem 4rem;max-width:800px;margin:0 auto;text-align:center;}
+    .hero-tag{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:0.3rem 0.8rem;border-radius:100px;margin-bottom:1.25rem;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:1rem;}
+    .hero p{font-size:1rem;color:#555;max-width:520px;margin:0 auto;}
+    .posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;padding:2rem 2.5rem 5rem;}
+    .post-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--black);transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column;}
+    .post-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.1);transform:translateY(-3px);}
+    .post-card-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;}
+    .post-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;}
+    .post-tag{display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.6rem;}
+    .post-card-body h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;line-height:1.35;}
+    .post-card-body p{font-size:0.84rem;color:#666;line-height:1.6;flex:1;margin-bottom:1rem;}
+    .post-read{font-size:0.84rem;font-weight:600;color:var(--green);}
+    footer{background:var(--black);color:#aaa;padding:3rem 2.5rem;text-align:center;}
+    footer p{font-size:0.82rem;margin-top:1rem;}
+    footer a{color:#aaa;text-decoration:none;}
+    footer a:hover{color:var(--white);}
+    @media(max-width:600px){.posts-grid{grid-template-columns:1fr;padding:1.5rem;}.hero{padding:8rem 1.5rem 2rem;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="logo">Lawn<span>Unlocked</span></a>
+  <div class="nav-links">
+    <a href="/blog/index.html" class="nav-link">Guides</a>
+    <a href="/index.html#quiz" class="cta-nav">Get My Plan →</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="hero-tag">Deep Dive Guides</span>
+  <h1>The Stuff Nobody Tells You</h1>
+  <p>Niche topics, real numbers, and honest comparisons — for homeowners who want to go deeper than basic lawn tips.</p>
+</div>
+
+<div class="posts-grid">
+
+  <a href="/blog/new-construction-soil.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);">🏗️</div>
+    <div class="post-card-body">
+      <div class="post-tag">Soil & Site</div>
+      <h2>Managing a Lawn in New Construction Soil</h2>
+      <p>Builder fill dirt is not real topsoil. Here is what you are actually dealing with — and how to fix it without wasting money.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
+  <a href="/blog/smart-irrigation-cost-benefit.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#e3f2fd,#81d4fa);">💧</div>
+    <div class="post-card-body">
+      <div class="post-tag">Irrigation</div>
+      <h2>Smart Irrigation for a Small Yard: Is It Worth the Cost?</h2>
+      <p>A full cost-benefit breakdown of smart controllers, drip systems, and basic timers — with real payback estimates.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
+  <a href="/blog/hydroseeding-vs-sod-vs-seed.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);">⚖️</div>
+    <div class="post-card-body">
+      <div class="post-tag">Cost Comparison</div>
+      <h2>Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?</h2>
+      <p>Upfront cost is only part of the story. We ran the real 3-year numbers so you do not have to guess.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  <a href="/index.html" class="logo">Lawn<span style="color:var(--green)">Unlocked</span></a>
+  <p style="margin-bottom:1rem;">
+    <a href="/blog/index.html">Guides</a> ·
+    <a href="/index.html#shop">Gear Shop</a> ·
+    <a href="/index.html#quiz">Get My Plan</a>
+  </p>
+  <p>Honest lawn advice. No nonsense. No markups.</p>
+  <p style="margin-top:1.5rem;font-size:0.75rem">© 2026 LawnUnlocked. As an Amazon Associate we earn from qualifying purchases.</p>
+</footer>
+
+</body>
+</html>
