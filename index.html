@@ -755,48 +755,46 @@ background: var(–gray); color: #666; font-weight: 500;
 <section id="blog" style="background:#f9f9f7;padding:5rem 2.5rem;">
   <div style="max-width:940px;margin:0 auto;">
     <div style="text-align:center;margin-bottom:3rem;">
-      <div style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:0.5rem;">Lawn Care Guides</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:0.75rem;">Learn the Basics</h2>
-      <p style="color:#666;font-size:0.95rem;max-width:520px;margin:0 auto;">Everything you need to know about your grass type — written for real homeowners, not agronomists.</p>
+      <div style="font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:0.5rem;">Deep Dive Guides</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:0.75rem;">The Stuff Nobody Tells You</h2>
+      <p style="color:#666;font-size:0.95rem;max-width:520px;margin:0 auto;">Niche topics, real numbers, and honest comparisons — for homeowners who want to go deeper than basic lawn tips.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:1.5rem;" id="blogCards">
-      <div class="blog-card" onclick="openBlog('bermuda')">
-        <div class="blog-card-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);"><span style="font-size:2.5rem;">☀️</span></div>
-        <div class="blog-card-body">
-          <div class="blog-tag">Warm Season</div>
-          <h3>Bermuda Grass Lawn Care for Beginners</h3>
-          <p>Learn the essential mowing heights, fertilizing windows, and common mistakes new Bermuda owners make.</p>
-          <span class="blog-read">Read Guide →</span>
-        </div>
-      </div>
-      <div class="blog-card" onclick="openBlog('zoysia')">
-        <div class="blog-card-img" style="background:linear-gradient(135deg,#fff8e1,#ffe082);"><span style="font-size:2.5rem;">🌾</span></div>
-        <div class="blog-card-body">
-          <div class="blog-tag">Warm Season</div>
-          <h3>Zoysia Grass Lawn Care for Beginners</h3>
-          <p>Zoysia is one of the most forgiving warm-season grasses — but it has quirks beginners often get wrong.</p>
-          <span class="blog-read">Read Guide →</span>
-        </div>
-      </div>
-      <div class="blog-card" onclick="openBlog('fescue')">
-        <div class="blog-card-img" style="background:linear-gradient(135deg,#e8eaf6,#9fa8da);"><span style="font-size:2.5rem;">🌿</span></div>
-        <div class="blog-card-body">
-          <div class="blog-tag">Cool Season</div>
-          <h3>Tall Fescue Lawn Care for Beginners</h3>
-          <p>Fescue stays green through winter but struggles in summer heat. Here is how to keep it thriving year-round.</p>
-          <span class="blog-read">Read Guide →</span>
-        </div>
-      </div>
-      <div class="blog-card" onclick="openBlog('kbg')">
-        <div class="blog-card-img" style="background:linear-gradient(135deg,#e3f2fd,#90caf9);"><span style="font-size:2.5rem;">❄️</span></div>
-        <div class="blog-card-body">
-          <div class="blog-tag">Cool Season</div>
-          <h3>Kentucky Bluegrass Lawn Care for Beginners</h3>
-          <p>The most beautiful cool-season lawn — but also the most demanding. Learn what KBG really needs.</p>
-          <span class="blog-read">Read Guide →</span>
-        </div>
-      </div>
+
+
+  <div class="blog-card" onclick="openBlog('newconstruction')">
+    <div class="blog-card-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);"><span style="font-size:2.5rem;">🏗️</span></div>
+    <div class="blog-card-body">
+      <div class="blog-tag">Soil & Site</div>
+      <h3>Managing a Lawn in New Construction Soil</h3>
+      <p>Builder fill dirt is not real topsoil. Here is what you are actually dealing with — and how to fix it without wasting money.</p>
+      <span class="blog-read">Read Guide →</span>
     </div>
+  </div>
+
+  <div class="blog-card" onclick="openBlog('smartirrigation')">
+    <div class="blog-card-img" style="background:linear-gradient(135deg,#e3f2fd,#81d4fa);"><span style="font-size:2.5rem;">💧</span></div>
+    <div class="blog-card-body">
+      <div class="blog-tag">Irrigation</div>
+      <h3>Smart Irrigation for a Small Yard: Is It Worth the Cost?</h3>
+      <p>A full cost-benefit breakdown of smart controllers, drip systems, and basic timers — with real payback estimates.</p>
+      <span class="blog-read">Read Guide →</span>
+    </div>
+  </div>
+
+  <div class="blog-card" onclick="openBlog('seedvssod')">
+    <div class="blog-card-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);"><span style="font-size:2.5rem;">⚖️</span></div>
+    <div class="blog-card-body">
+      <div class="blog-tag">Cost Comparison</div>
+      <h3>Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?</h3>
+      <p>Upfront cost is only part of the story. We ran the real 3-year numbers so you do not have to guess.</p>
+      <span class="blog-read">Read Guide →</span>
+    </div>
+  </div>
+
+</div>
+
+
   </div>
 </section>
 
@@ -1959,289 +1957,304 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
 
   // ── BLOG ─────────────────────────────────────────────────────
   const blogPosts = {
-    bermuda: {
-      title: 'Bermuda Grass Lawn Care for Beginners',
-      tag: 'Warm Season',
+
+    newconstruction: {
+      title: 'Managing a Lawn in New Construction Soil',
+      tag: 'Soil & Site',
+      tagColor: '#efebe9',
+      hero: 'linear-gradient(135deg,#efebe9,#bcaaa4)',
+      emoji: '🏗️',
+      stats: [
+        { val: '4–6"', label: 'Topsoil Needed' },
+        { val: '6–18 mo', label: 'Fix Timeline' },
+        { val: '$0.10–0.30', label: 'Per sq ft to amend' }
+      ],
+      body: `
+        <h2>Why New Construction Soil Is a Nightmare</h2>
+        <p>If you moved into a newly built home and your lawn looks patchy, compacted, and refuses to grow — you are not doing anything wrong. The soil itself is the problem.</p>
+        <p>During construction, builders strip away the original topsoil (which took decades to form) and replace it with whatever fill dirt was cheapest — often subsoil, clay, crushed rock, or a mix of all three. This "builder dirt" has almost no organic matter, poor drainage, wrong pH, and is compacted by heavy equipment. It is the worst possible medium to grow grass in.</p>
+        <div class="blog-warn">⚠️ <strong>Key insight:</strong> Most new construction homes have only 1–2 inches of actual topsoil, if any. Grass roots need at least 4–6 inches of workable soil to establish properly. Until you fix this, you are fighting a losing battle.</div>
+
+        <h2>Step 1: Test Before You Do Anything</h2>
+        <p>Before spending a dollar on fertilizer or seed, get a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=mail+in+soil+test+kit+lawn" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">soil test</a>. New construction soil is often wildly out of range — pH can be anywhere from 5.0 to 8.5, compaction is extreme, and nutrient levels are near zero. A $20–30 <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=MySoil+soil+test+kit" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">mail-in soil test</a> tells you exactly what you are working with.</p>
+        <ul>
+          <li>Test pH, nitrogen, phosphorus, potassium, and organic matter percentage</li>
+          <li>Test in multiple spots — fill dirt is often inconsistent across the yard</li>
+          <li>Most university extension programs offer soil testing for under $20</li>
+        </ul>
+        <div class="blog-tip">💡 New construction soil commonly tests at less than 1% organic matter. Healthy lawn soil should be 3–5%. This single number explains most of the failure you are seeing.</div>
+
+        <h2>Step 2: Address Compaction First</h2>
+        <p>Heavy construction equipment compacts soil to near-concrete density in some areas. Water cannot penetrate, roots cannot grow, and fertilizer just sits on the surface. No amendment will work until you break up this compaction.</p>
+        <ul>
+          <li><strong>Core aeration</strong> is the minimum — rent a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=core+aerator+rental+lawn" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">core aerator</a> and make 2–3 passes in different directions</li>
+          <li>For severe compaction, a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=deep+tine+lawn+aerator" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;"><strong>deep-tine aerator</strong></a> (available at equipment rental shops) goes 8–12 inches deep and is far more effective</li>
+          <li>Aerate when the soil is slightly moist, not bone dry or soaking wet</li>
+          <li>Plan to aerate every year for 3–5 years until the soil structure improves</li>
+        </ul>
+
+        <h2>Step 3: Add Real Topsoil or Organic Matter</h2>
+        <p>There is no shortcut here — you need to physically add organic matter to the soil. The two main approaches are topdressing and tilling.</p>
+        <ul>
+          <li><strong>Topdressing</strong> (preferred for established or seeded areas): Spread 0.25–0.5 inches of <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+topdressing+compost" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">quality compost</a> over the lawn after aeration and work it into the holes. Repeat every fall for 3–5 years.</li>
+          <li><strong>Tilling in compost</strong> (for bare areas before seeding): Till 3–4 inches of compost into the top 6 inches of existing soil. This is the fastest fix for bare dirt areas before establishing grass.</li>
+          <li>For severely bad areas, bringing in 4–6 inches of quality topsoil and grading it before seeding is sometimes the only realistic option.</li>
+        </ul>
+        <div class="blog-tip">💡 Use aged compost, not fresh. Fresh compost can burn grass and introduces weed seeds. Look for OMRI-listed or heat-treated compost products.</div>
+
+        <h2>Step 4: Correct pH</h2>
+        <p>Most grasses want a soil pH between 6.0 and 7.0. New construction fill can be far outside this range depending on what was used.</p>
+        <ul>
+          <li><strong>Too acidic (below 6.0):</strong> Apply <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=pelletized+limestone+lawn+pH" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">pelletized limestone</a> at the rate your soil test recommends. Work it into the top few inches if possible. pH correction takes 3–6 months.</li>
+          <li><strong>Too alkaline (above 7.5):</strong> Apply <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=elemental+sulfur+lawn+soil+acidifier" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">elemental sulfur</a> per soil test recommendations. This is slower — budget 6–12 months for meaningful pH shift.</li>
+          <li>Retest every season until pH stabilizes in the target range</li>
+        </ul>
+
+        <h2>Step 5: Choose the Right Establishment Method</h2>
+        <p>Once soil is improved enough to support growth, you need to decide how to establish the lawn.</p>
+        <ul>
+          <li><strong>Seed</strong>: Cheapest upfront, best long-term root development, but takes 6–12 weeks to establish and requires keeping the area moist</li>
+          <li><strong>Sod</strong>: Instant visual result, but sod laid on bad soil fails just as fast as seed — fix the soil first or the sod will die within a season</li>
+          <li><strong>Hydroseeding</strong>: Good option for large bare areas — the mulch slurry retains moisture and improves germination rates on challenging soils</li>
+        </ul>
+        <div class="blog-warn">⚠️ Do not lay sod over unimproved new construction soil and expect it to survive. The roots will hit compacted fill dirt within 2 inches and stop growing. Fix the soil first.</div>
+
+        <h2>Realistic Timeline and Expectations</h2>
+        <ul>
+          <li><strong>Year 1:</strong> Focus on soil improvement — aeration, compost, pH correction. Establish grass in bare areas. Expect patchy results and do not judge the lawn yet.</li>
+          <li><strong>Year 2:</strong> Continue annual aeration and topdressing. Overseed thin areas. Lawn should start looking significantly more consistent.</li>
+          <li><strong>Year 3+:</strong> Organic matter builds, soil structure improves, earthworms return. Most new construction lawns reach acceptable density by year 3 with consistent management.</li>
+        </ul>
+        <div class="blog-tip">💡 Patience is the most important input on a new construction lawn. Homeowners who try to force thick, lush results in year one with heavy fertilizer and water usually end up with more problems, not fewer.</div>
+      `
+    },
+
+    smartirrigation: {
+      title: 'Smart Irrigation for a Small Yard: Is It Worth the Cost?',
+      tag: 'Irrigation',
+      tagColor: '#e3f2fd',
+      hero: 'linear-gradient(135deg,#e3f2fd,#81d4fa)',
+      emoji: '💧',
+      stats: [
+        { val: '$150–800', label: 'Smart System Cost' },
+        { val: '20–50%', label: 'Water Savings' },
+        { val: '1–3 yrs', label: 'Typical Payback' }
+      ],
+      body: `
+        <h2>What "Smart Irrigation" Actually Means</h2>
+        <p>Smart irrigation is a broad term that covers anything from a $30 hose-end timer to a $600 multi-zone Wi-Fi controller with soil sensors. For a small yard, the right setup is probably somewhere in the middle — and the math on whether it pays off depends heavily on your water rates and how much you currently over-water.</p>
+        <p>This guide breaks down the three main options for small yards (under 5,000 sq ft), gives real cost estimates, and helps you figure out which, if any, is worth it for your situation.</p>
+
+        <h2>Option 1: Basic Hose-End Timer ($20–60)</h2>
+        <p>A <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=battery+hose+end+water+timer" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">battery-powered timer</a> that attaches to your outdoor spigot and runs a sprinkler or drip line on a schedule. No Wi-Fi, no app, no weather integration.</p>
+        <ul>
+          <li><strong>Best for:</strong> Renters, small gardens, supplemental watering of specific areas</li>
+          <li><strong>Water savings:</strong> Modest — eliminates forgetting to turn the water off, but no weather adjustment</li>
+          <li><strong>Verdict:</strong> Worth it purely for convenience if you hand-water or forget to run sprinklers. Not a true efficiency tool.</li>
+        </ul>
+        <div class="blog-tip">💡 A basic timer running a flat schedule will often over-water in wet weeks. If your area gets regular summer rain, a basic timer without a rain sensor can actually increase your water use compared to manual watering.</div>
+
+        <h2>Option 2: Smart Hose-End Controller ($50–150)</h2>
+        <p>Wi-Fi enabled timers like the <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Orbit+B-hyve+smart+hose+end+timer" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">Orbit B-hyve</a> or <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Rachio+hose+end+smart+watering+timer" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">Rachio Hose-End</a> that connect to weather data and skip or adjust watering based on rainfall and temperature. No professional installation, plugs into your existing spigot.</p>
+        <ul>
+          <li><strong>Best for:</strong> Small lawns without an in-ground system, renters with landlord permission, budget-conscious homeowners</li>
+          <li><strong>Water savings:</strong> 15–30% compared to a fixed schedule — the weather skips alone add up fast</li>
+          <li><strong>Setup time:</strong> 15–30 minutes, no tools required</li>
+          <li><strong>Payback:</strong> At average US water rates (~$0.006/gallon), a 1,500 sq ft lawn using 30% less water saves roughly $30–60/year. Payback in 2–4 years.</li>
+        </ul>
+
+        <h2>Option 3: In-Ground Smart Irrigation System ($300–800 DIY, $800–2,500 installed)</h2>
+        <p>Multi-zone in-ground pop-up sprinkler system with a smart controller (<a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Rachio+3+smart+irrigation+controller" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">Rachio 3</a>, <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=Rain+Bird+WiFi+irrigation+controller" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">RainBird Wi-Fi</a>, etc.). The gold standard for efficiency — each zone can be programmed by soil type, sun exposure, and plant type.</p>
+        <ul>
+          <li><strong>Best for:</strong> Homeowners planning to stay 5+ years, yards with established landscaping, areas with tiered water pricing</li>
+          <li><strong>Water savings:</strong> 30–50% compared to an unmanaged manual system</li>
+          <li><strong>Rebates:</strong> Many water utilities offer $50–200 rebates for smart controller installation — check before you buy</li>
+          <li><strong>DIY vs. pro:</strong> DIY in-ground systems are very doable for a small yard. Budget a weekend and $300–500 in materials for a 3–4 zone system under 3,000 sq ft.</li>
+        </ul>
+
+        <h2>The Real Cost-Benefit Math</h2>
+        <p>Here is a straightforward comparison for a 2,000 sq ft lawn in a typical US market with $80/month summer water bills:</p>
+        <div style="overflow-x:auto;margin:1.25rem 0;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+            <thead>
+              <tr style="background:#f5f5f3;">
+                <th style="padding:0.6rem 0.75rem;text-align:left;border-bottom:2px solid var(--border);">Option</th>
+                <th style="padding:0.6rem 0.75rem;text-align:right;border-bottom:2px solid var(--border);">Upfront</th>
+                <th style="padding:0.6rem 0.75rem;text-align:right;border-bottom:2px solid var(--border);">Annual Savings</th>
+                <th style="padding:0.6rem 0.75rem;text-align:right;border-bottom:2px solid var(--border);">3-Year Net</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.6rem 0.75rem;">Basic timer</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">$35</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">$0–15</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;color:#888;">Break-even</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.6rem 0.75rem;">Smart hose-end</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">$100</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">$40–70</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;color:var(--green);font-weight:600;">+$80–110</td>
+              </tr>
+              <tr>
+                <td style="padding:0.6rem 0.75rem;">In-ground smart system (DIY)</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">$450</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">$120–200</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;color:var(--green);font-weight:600;">+$0–150</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="blog-tip">💡 In areas with tiered water pricing (where each additional unit of water costs more), the savings from reducing overwatering are amplified significantly. Check your utility's rate structure before deciding.</div>
+
+        <h2>What Actually Saves the Most Water</h2>
+        <p>The hardware matters less than the habits. Before investing in smart controllers, make sure these fundamentals are right:</p>
+        <ul>
+          <li><strong>Water deeply and infrequently</strong> — 2–3 times per week at 0.5 inches each beats daily light watering for both lawn health and water use</li>
+          <li><strong>Water at dawn</strong> — evening watering loses 20–30% more to evaporation and increases disease risk</li>
+          <li><strong>Check for leaks and broken heads</strong> — a single stuck-open sprinkler head wastes hundreds of gallons per week</li>
+          <li><strong>Adjust seasonally</strong> — most homeowners set irrigation in May and never change it until fall, massively over-watering in cooler months</li>
+        </ul>
+
+        <h2>Bottom Line Recommendation</h2>
+        <p>For most small yard homeowners, a <strong>smart hose-end controller ($80–130)</strong> is the sweet spot. It requires no installation, saves meaningful water, and pays for itself within 2 years in most climates. In-ground systems make sense if you are planting new turf, doing landscaping work anyway, or have high water rates — otherwise the payback period stretches too long for a small yard.</p>
+      `
+    },
+
+    seedvssod: {
+      title: 'Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?',
+      tag: 'Cost Comparison',
       tagColor: '#e8f5e7',
       hero: 'linear-gradient(135deg,#e8f5e7,#a5d6a7)',
-      emoji: '☀️',
+      emoji: '⚖️',
       stats: [
-        { val: '0.5–1.5"', label: 'Mow Height' },
-        { val: 'Apr–Sep', label: 'Grow Season' },
-        { val: '4–6 lbs N', label: 'Nitrogen/yr' }
+        { val: '$0.05–0.15', label: 'Seed per sq ft' },
+        { val: '$0.30–0.80', label: 'Hydroseed per sq ft' },
+        { val: '$0.90–2.00', label: 'Sod per sq ft' }
       ],
       body: `
-        <h2>What is Bermuda Grass?</h2>
-        <p>Bermuda grass is the most popular warm-season turf in the southern United States. It thrives in heat, recovers quickly from damage, and can achieve a dense, carpet-like lawn when properly maintained. It goes dormant and turns brown in winter — this is normal and not a sign of a dead lawn.</p>
+        <h2>Why Upfront Cost Is the Wrong Comparison</h2>
+        <p>When people compare seeding, hydroseeding, and sod, they almost always look at the installation cost and stop there. That is the wrong way to think about it. The real question is: what does each method cost over 3 years when you factor in establishment inputs, failure rates, and re-do costs?</p>
+        <p>This guide runs honest 3-year numbers for a hypothetical 3,000 sq ft lawn in a typical US market, using mid-range pricing. Your actual costs will vary by region and grass type — but the relative comparisons hold up broadly.</p>
 
-        <div class="blog-tip">💡 <strong>Beginner tip:</strong> Bermuda is aggressive. It will spread into flower beds and cracks in pavement. Edge regularly and keep it contained from the start.</div>
-
-        <h2>Mowing Bermuda Grass</h2>
-        <p>Mowing height is the single biggest factor in how your Bermuda lawn looks. Standard Bermuda should be cut between <strong>1–1.5 inches</strong>. Hybrid varieties like TifTuf or Tifway 419 can go as low as <strong>0.5–0.75 inches</strong> for a golf course-style finish.</p>
+        <h2>Method 1: Seeding (DIY)</h2>
+        <p>Seeding is the cheapest entry point and produces the strongest long-term root system when done correctly. The trade-off is time — a seeded lawn takes 6–12 weeks to establish and requires consistent moisture during germination.</p>
+        <div style="overflow-x:auto;margin:1.25rem 0;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+            <thead>
+              <tr style="background:#f5f5f3;">
+                <th style="padding:0.6rem 0.75rem;text-align:left;border-bottom:2px solid var(--border);">Cost Item</th>
+                <th style="padding:0.6rem 0.75rem;text-align:right;border-bottom:2px solid var(--border);">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.6rem 0.75rem;">Seed (quality turf blend, 3,000 sq ft)</td><td style="padding:0.6rem 0.75rem;text-align:right;">$90–150</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.6rem 0.75rem;">Starter fertilizer</td><td style="padding:0.6rem 0.75rem;text-align:right;">$30–50</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.6rem 0.75rem;"><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=straw+erosion+mat+lawn+seeding" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">Straw or erosion mat</a></td><td style="padding:0.6rem 0.75rem;text-align:right;">$20–60</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.6rem 0.75rem;">Overseeding thin spots (Year 2)</td><td style="padding:0.6rem 0.75rem;text-align:right;">$40–80</td></tr>
+              <tr style="background:#f9f9f7;font-weight:600;"><td style="padding:0.6rem 0.75rem;">3-Year Total</td><td style="padding:0.6rem 0.75rem;text-align:right;color:var(--green);">$180–340</td></tr>
+            </tbody>
+          </table>
+        </div>
         <ul>
-          <li>Never remove more than one-third of the blade in a single mow</li>
-          <li>Mow frequently during peak growing season — every 5–7 days</li>
-          <li>A reel mower will give you the cleanest cut at low heights</li>
-          <li>Scalp the lawn in early spring (February–March) to remove dead thatch and wake it up faster</li>
+          <li><strong>Pros:</strong> Lowest cost, strongest root development, wide grass type selection, better soil integration</li>
+          <li><strong>Cons:</strong> Slowest to establish (6–12 weeks), requires 2–3 weeks of daily watering, higher failure risk in heat or drought, no lawn use during establishment</li>
+          <li><strong>Failure rate:</strong> 20–40% of DIY seeding jobs require partial re-seeding due to poor germination in spots</li>
         </ul>
-        <div class="blog-warn">⚠️ <strong>Common mistake:</strong> Mowing too high. Bermuda left at 2.5–3 inches gets puffy, thatchy, and harder to maintain. Keep it low.</div>
+        <div class="blog-tip">💡 The single biggest cause of seeding failure is letting the seedbed dry out during the first 3 weeks. If you cannot commit to watering once or twice daily during germination, consider hydroseeding instead.</div>
 
-        <h2>Watering</h2>
-        <p>Bermuda is drought-tolerant once established, but for a healthy, dense lawn it needs consistent moisture during the growing season. Water deeply and infrequently — this trains deep root growth.</p>
+        <h2>Method 2: Hydroseeding</h2>
+        <p>Hydroseeding (also called hydraulic mulch seeding) involves spraying a slurry of seed, mulch, fertilizer, and tackifier onto prepared soil. The mulch layer retains moisture dramatically better than bare seed or straw, making it significantly more forgiving than dry seeding — especially on slopes and in hot weather.</p>
+        <div style="overflow-x:auto;margin:1.25rem 0;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+            <thead>
+              <tr style="background:#f5f5f3;">
+                <th style="padding:0.6rem 0.75rem;text-align:left;border-bottom:2px solid var(--border);">Cost Item</th>
+                <th style="padding:0.6rem 0.75rem;text-align:right;border-bottom:2px solid var(--border);">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.6rem 0.75rem;">Hydroseeding service (3,000 sq ft)</td><td style="padding:0.6rem 0.75rem;text-align:right;">$900–1,500</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.6rem 0.75rem;">Touch-up seeding (Year 2, if needed)</td><td style="padding:0.6rem 0.75rem;text-align:right;">$0–80</td></tr>
+              <tr style="background:#f9f9f7;font-weight:600;"><td style="padding:0.6rem 0.75rem;">3-Year Total</td><td style="padding:0.6rem 0.75rem;text-align:right;color:#e65100;">$900–1,580</td></tr>
+            </tbody>
+          </table>
+        </div>
         <ul>
-          <li>Water 1–1.25 inches per week during summer, split over 2–3 sessions</li>
-          <li>Water in the early morning to reduce fungal disease risk</li>
-          <li>Let the soil dry slightly between waterings — Bermuda does not like soggy conditions</li>
-          <li>In winter dormancy, you can skip watering almost entirely</li>
-        </ul>
-
-        <h2>Fertilizing Schedule</h2>
-        <p>Bermuda is a heavy feeder and responds dramatically to proper fertilization. Do not fertilize before green-up in spring or after Labor Day in fall — this can push tender growth that gets frost-damaged.</p>
-        <ul>
-          <li><strong>Spring (green-up):</strong> Starter or balanced fertilizer once soil temps hit 65°F consistently</li>
-          <li><strong>Early summer:</strong> High-nitrogen fertilizer every 4–6 weeks through the growing season</li>
-          <li><strong>Late summer:</strong> Switch to a lower-nitrogen, higher-potassium blend to harden the lawn for fall</li>
-          <li><strong>Fall/Winter:</strong> No fertilizer — let it go dormant naturally</li>
-        </ul>
-        <div class="blog-tip">💡 Get a soil test before your first fertilizer application. Most Bermuda lawns need phosphorus only occasionally — overtreating wastes money and harms the environment.</div>
-
-        <h2>Weed Control</h2>
-        <p>A thick, healthy Bermuda lawn is your best weed defense. But pre-emergent herbicide in early spring is non-negotiable to stop crabgrass before it germinates.</p>
-        <ul>
-          <li>Apply pre-emergent when soil temps reach 55°F (usually late February–March depending on your zone)</li>
-          <li>Use a post-emergent broadleaf herbicide like 2,4-D for dandelions and clover</li>
-          <li>Sedge weeds (nutsedge) need a specialty product like Sedgehammer — standard herbicides will not touch them</li>
-        </ul>
-
-        <h2>Aeration and Thatch</h2>
-        <p>Bermuda builds thatch fast. Core aerate once or twice a year — ideally in late spring and again in early fall — to reduce compaction and allow water and nutrients to reach the roots. Dethatch aggressively every 2–3 years if thatch exceeds half an inch.</p>
-
-        <h2>Common Beginner Mistakes</h2>
-        <ul>
-          <li>Mowing too high — keeps the lawn puffy and promotes thatch</li>
-          <li>Watering too often and too shallowly — promotes shallow roots</li>
-          <li>Fertilizing too late in fall — pushes growth that gets winter-killed</li>
-          <li>Ignoring pre-emergent — one missed application can mean a summer full of crabgrass</li>
-          <li>Panicking when it goes dormant in winter — it comes back every spring</li>
-        </ul>
-      `
-    },
-
-    zoysia: {
-      title: 'Zoysia Grass Lawn Care for Beginners',
-      tag: 'Warm Season',
-      tagColor: '#fff8e1',
-      hero: 'linear-gradient(135deg,#fff8e1,#ffe082)',
-      emoji: '🌾',
-      stats: [
-        { val: '1–2.5"', label: 'Mow Height' },
-        { val: 'May–Sep', label: 'Grow Season' },
-        { val: '2–4 lbs N', label: 'Nitrogen/yr' }
-      ],
-      body: `
-        <h2>What is Zoysia Grass?</h2>
-        <p>Zoysia is a warm-season grass known for its dense, carpet-like texture and impressive durability. It handles heat, drought, and foot traffic exceptionally well, and it requires less fertilizer and water than Bermuda. The trade-off: it spreads slowly, goes dormant in winter, and wakes up later in spring than Bermuda.</p>
-        <div class="blog-tip">💡 Zoysia is one of the best grasses for homeowners who want a low-maintenance premium lawn. Less feeding, less watering, and it chokes out most weeds on its own once established.</div>
-
-        <h2>Mowing Zoysia</h2>
-        <p>Zoysia varieties vary widely in recommended mowing height. Zeon and Emerald Zoysia can be cut very low (golf course style), while Meyer and El Toro look best at a moderate height.</p>
-        <ul>
-          <li><strong>Standard Zoysia (Meyer, El Toro):</strong> 1.5–2.5 inches</li>
-          <li><strong>Fine-blade varieties (Zeon, Emerald):</strong> 0.5–1 inch</li>
-          <li>Mow every 7–10 days in peak season — Zoysia grows slower than Bermuda</li>
-          <li>A reel mower gives the cleanest cut on fine-blade varieties</li>
-        </ul>
-        <div class="blog-warn">⚠️ Zoysia is very dense and tough on mower blades. Keep your blades sharp — dull blades tear the grass and create an ugly brownish cast on top of the lawn.</div>
-
-        <h2>Watering</h2>
-        <p>Zoysia is highly drought-tolerant once established — more so than most grasses. It will go brown under severe drought stress but recover quickly once rain or irrigation returns.</p>
-        <ul>
-          <li>Water deeply once or twice per week — about 1 inch total</li>
-          <li>Zoysia shows drought stress by developing a blue-gray tint and rolling leaves — water at this point</li>
-          <li>Avoid overwatering — Zoysia is prone to fungal issues in wet conditions</li>
+          <li><strong>Pros:</strong> Much better germination rates than dry seed, ideal for slopes and erosion-prone areas, faster coverage than dry seeding, still cheaper than sod</li>
+          <li><strong>Cons:</strong> Requires professional equipment (not a DIY option), still takes 4–8 weeks to establish, higher cost than seeding</li>
+          <li><strong>Failure rate:</strong> 5–15% partial re-seeding needed — significantly lower than dry seeding</li>
         </ul>
 
-        <h2>Fertilizing Schedule</h2>
-        <p>Zoysia needs significantly less nitrogen than Bermuda. Over-fertilizing causes excessive thatch buildup and actually weakens the lawn over time.</p>
+        <h2>Method 3: Sod</h2>
+        <p>Sod gives you an instant lawn. It is the most expensive option upfront but eliminates the weeks of bare dirt, establishment watering risk, and patchiness that come with seeding. For homeowners with limited time or for highly visible front yards, sod is often worth the premium.</p>
+        <div style="overflow-x:auto;margin:1.25rem 0;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+            <thead>
+              <tr style="background:#f5f5f3;">
+                <th style="padding:0.6rem 0.75rem;text-align:left;border-bottom:2px solid var(--border);">Cost Item</th>
+                <th style="padding:0.6rem 0.75rem;text-align:right;border-bottom:2px solid var(--border);">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.6rem 0.75rem;">Sod installed (3,000 sq ft)</td><td style="padding:0.6rem 0.75rem;text-align:right;">$2,700–4,500</td></tr>
+              <tr style="border-bottom:1px solid var(--border);"><td style="padding:0.6rem 0.75rem;">Failed section replacement (est. 5%)</td><td style="padding:0.6rem 0.75rem;text-align:right;">$135–225</td></tr>
+              <tr style="background:#f9f9f7;font-weight:600;"><td style="padding:0.6rem 0.75rem;">3-Year Total</td><td style="padding:0.6rem 0.75rem;text-align:right;color:#c62828;">$2,835–4,725</td></tr>
+            </tbody>
+          </table>
+        </div>
         <ul>
-          <li><strong>Spring:</strong> Light feeding after full green-up — a balanced fertilizer works well</li>
-          <li><strong>Early summer:</strong> A second application of slow-release nitrogen</li>
-          <li><strong>Late summer (optional):</strong> Potassium-heavy fertilizer to improve drought and cold hardiness</li>
-          <li>Skip fall fertilization — pushing growth before dormancy weakens the plant</li>
+          <li><strong>Pros:</strong> Instant usable lawn (walkable in 2–3 weeks), dramatically lower failure risk, no establishment period mud or dust, best option for erosion-prone areas</li>
+          <li><strong>Cons:</strong> 10–20x more expensive than seeding, requires heavy watering for first 2–3 weeks, sod roots need 6–8 weeks to fully anchor, limited grass variety selection</li>
+          <li><strong>Important:</strong> Sod laid on poor soil fails just as fast as seed. Soil prep is non-negotiable regardless of method.</li>
         </ul>
-        <div class="blog-tip">💡 Soil test first. Zoysia often does not need phosphorus. Applying it unnecessarily locks up zinc and iron in the soil, causing yellowing.</div>
+        <div class="blog-warn">⚠️ Do not let contractors skip soil prep to save money on a sod job. Sod laid on hard, ungraded fill dirt will fail within one growing season. Proper grading, aeration, and <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+starter+fertilizer+new+grass" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;text-decoration:underline;text-decoration-color:rgba(61,122,58,0.3);text-underline-offset:2px;">starter fertilizer</a> are required.</div>
 
-        <h2>Weed Control</h2>
-        <p>A well-established Zoysia lawn is one of the best natural weed suppressors — its density simply smothers most weeds. That said, weeds can establish during thin periods in early spring.</p>
+        <h2>3-Year Total Cost Comparison</h2>
+        <div style="overflow-x:auto;margin:1.25rem 0;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+            <thead>
+              <tr style="background:#f5f5f3;">
+                <th style="padding:0.6rem 0.75rem;text-align:left;border-bottom:2px solid var(--border);">Method</th>
+                <th style="padding:0.6rem 0.75rem;text-align:right;border-bottom:2px solid var(--border);">3-Year Cost</th>
+                <th style="padding:0.6rem 0.75rem;text-align:right;border-bottom:2px solid var(--border);">Time to Use</th>
+                <th style="padding:0.6rem 0.75rem;text-align:right;border-bottom:2px solid var(--border);">Risk Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.6rem 0.75rem;font-weight:600;">Seed (DIY)</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;color:var(--green);font-weight:600;">$180–340</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">8–12 weeks</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">High</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.6rem 0.75rem;font-weight:600;">Hydroseed</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;color:#e65100;font-weight:600;">$900–1,580</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">5–8 weeks</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">Medium</td>
+              </tr>
+              <tr>
+                <td style="padding:0.6rem 0.75rem;font-weight:600;">Sod</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;color:#c62828;font-weight:600;">$2,835–4,725</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">2–3 weeks</td>
+                <td style="padding:0.6rem 0.75rem;text-align:right;">Low</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Which Should You Choose?</h2>
         <ul>
-          <li>Apply pre-emergent in late winter before soil temps hit 55°F</li>
-          <li>Post-emergent broadleaf herbicides handle dandelions, clover, and henbit</li>
-          <li>Zoysia is sensitive to some herbicides — always read labels before applying</li>
+          <li><strong>Choose seed if:</strong> You are on a tight budget, timing is flexible, you can commit to daily watering for 3 weeks, and the area is flat with no erosion risk</li>
+          <li><strong>Choose hydroseeding if:</strong> You have slopes, a large area (over 3,000 sq ft), previous dry seeding failures, or want better odds than DIY seeding without sod pricing</li>
+          <li><strong>Choose sod if:</strong> You need the lawn usable quickly, the area is high-visibility, you are in a hot climate where seeding windows are narrow, or you simply want to eliminate establishment risk entirely</li>
         </ul>
-
-        <h2>Thatch Management</h2>
-        <p>Zoysia is the thatchiest warm-season grass. Its dense, fibrous growth accumulates thatch faster than Bermuda or St. Augustine. Left unmanaged, a thick thatch layer blocks water and nutrients from reaching the soil.</p>
-        <ul>
-          <li>Core aerate every year in late spring</li>
-          <li>Dethatch every 2–3 years if thatch exceeds half an inch</li>
-          <li>Vertical mowing (verticutting) in late spring is the most effective dethatching method for Zoysia</li>
-        </ul>
-
-        <h2>Common Beginner Mistakes</h2>
-        <ul>
-          <li>Overwatering — Zoysia thrives slightly dry, not wet</li>
-          <li>Over-fertilizing — more nitrogen means more thatch, not more green</li>
-          <li>Ignoring thatch until it becomes a serious problem</li>
-          <li>Comparing green-up speed to Bermuda — Zoysia wakes up 2–4 weeks later in spring</li>
-          <li>Using the wrong herbicide and damaging the lawn</li>
-        </ul>
-      `
-    },
-
-    fescue: {
-      title: 'Tall Fescue Lawn Care for Beginners',
-      tag: 'Cool Season',
-      tagColor: '#e8eaf6',
-      hero: 'linear-gradient(135deg,#e8eaf6,#9fa8da)',
-      emoji: '🌿',
-      stats: [
-        { val: '3–4"', label: 'Mow Height' },
-        { val: 'Sep–Nov', label: 'Best Seeding' },
-        { val: '2–4 lbs N', label: 'Nitrogen/yr' }
-      ],
-      body: `
-        <h2>What is Tall Fescue?</h2>
-        <p>Tall Fescue is the most popular cool-season grass in the transition zone — the band of the US that is too cold for Bermuda to look great year-round but too hot for pure cool-season grasses to thrive in summer. Fescue stays green year-round in mild climates and is one of the most shade-tolerant turf grasses available.</p>
-        <div class="blog-tip">💡 Fescue does not spread by stolons or rhizomes the way Bermuda and Zoysia do. It grows in clumps. This is why overseeding is so important — thin or dead spots will not fill in on their own.</div>
-
-        <h2>Mowing Tall Fescue</h2>
-        <p>Tall Fescue should be mowed higher than warm-season grasses. Height is critical — taller blades shade the soil, retain moisture, and help the grass survive summer heat stress.</p>
-        <ul>
-          <li>Mow at <strong>3–4 inches</strong> during the growing season</li>
-          <li>Raise the mowing height to 4 inches during July and August to protect against heat stress</li>
-          <li>Never scalp Fescue — it does not recover the way Bermuda does</li>
-          <li>Mow every 7–14 days depending on growth rate</li>
-        </ul>
-        <div class="blog-warn">⚠️ Never mow Fescue short in summer. Cutting below 2.5 inches during heat stress is one of the fastest ways to kill it. When in doubt, leave it tall.</div>
-
-        <h2>Watering</h2>
-        <p>Fescue has a deep root system that makes it more drought-tolerant than Kentucky Bluegrass, but it will go dormant and thin out in prolonged summer heat without irrigation.</p>
-        <ul>
-          <li>Water 1–1.5 inches per week in summer, preferably in one or two deep sessions</li>
-          <li>Water in early morning to reduce fungal disease risk</li>
-          <li>In spring and fall, natural rainfall often handles most of the watering needs</li>
-          <li>Do not overwater — wet Fescue is highly susceptible to brown patch fungus</li>
-        </ul>
-
-        <h2>Fertilizing Schedule</h2>
-        <p>Unlike warm-season grasses, Fescue should be fertilized primarily in fall — not spring or summer. Fall feeding fuels root development and sets the lawn up for spring green-up.</p>
-        <ul>
-          <li><strong>Early fall (September):</strong> Main fertilizer application — high nitrogen, slow-release</li>
-          <li><strong>Late fall (November):</strong> A lighter winterizer application with higher potassium</li>
-          <li><strong>Spring (optional):</strong> A light application if the lawn looks thin, but keep it minimal</li>
-          <li><strong>Summer:</strong> Do not fertilize — pushing growth during heat stress invites disease and burnout</li>
-        </ul>
-
-        <h2>Overseeding — The Most Important Task</h2>
-        <p>Because Fescue does not self-spread, overseeding every fall is the single most important maintenance task. Thin areas will not fill themselves in. Annual overseeding keeps the lawn dense, which is your best defense against weeds.</p>
-        <ul>
-          <li>Overseed in mid-September to mid-October when soil temps drop below 70°F</li>
-          <li>Core aerate before overseeding for best seed-to-soil contact</li>
-          <li>Use a quality turf-type tall fescue blend — not a bargain big box mix</li>
-          <li>Keep the seedbed moist for 2–3 weeks until germination</li>
-        </ul>
-        <div class="blog-tip">💡 Do not apply pre-emergent herbicide in fall if you are overseeding. Pre-emergent will prevent your grass seed from germinating just as effectively as it prevents crabgrass.</div>
-
-        <h2>Weed Control</h2>
-        <ul>
-          <li>Apply pre-emergent in early spring (February–March) to stop crabgrass — but skip it in fall if overseeding</li>
-          <li>Broadleaf weeds can be treated with standard 2,4-D products in fall or spring</li>
-          <li>A thick, well-maintained Fescue lawn is your best long-term weed prevention</li>
-        </ul>
-
-        <h2>Common Beginner Mistakes</h2>
-        <ul>
-          <li>Mowing too short in summer — this is the number one way beginners kill Fescue</li>
-          <li>Fertilizing in summer — it pushes weak growth and invites brown patch disease</li>
-          <li>Skipping fall overseeding and wondering why the lawn looks thin in spring</li>
-          <li>Applying pre-emergent in fall and then overseeding — the herbicide kills the new seed</li>
-          <li>Overwatering in humid conditions — brown patch thrives in wet, warm conditions</li>
-        </ul>
-      `
-    },
-
-    kbg: {
-      title: 'Kentucky Bluegrass Lawn Care for Beginners',
-      tag: 'Cool Season',
-      tagColor: '#e3f2fd',
-      hero: 'linear-gradient(135deg,#e3f2fd,#90caf9)',
-      emoji: '❄️',
-      stats: [
-        { val: '2.5–3.5"', label: 'Mow Height' },
-        { val: 'Sep–Oct', label: 'Best Seeding' },
-        { val: '3–5 lbs N', label: 'Nitrogen/yr' }
-      ],
-      body: `
-        <h2>What is Kentucky Bluegrass?</h2>
-        <p>Kentucky Bluegrass is the gold standard of cool-season lawns. When well-maintained, it produces a thick, dark green, lush carpet that is hard to beat aesthetically. It spreads by underground rhizomes, meaning it will slowly fill in thin spots on its own — something Fescue cannot do. The trade-off: it is the most demanding cool-season grass to maintain and struggles significantly in summer heat and drought.</p>
-        <div class="blog-warn">⚠️ Kentucky Bluegrass is not a great choice for hot, dry climates or lawns with heavy shade. It thrives in the northern US, Pacific Northwest, and mountain states where summers stay relatively mild.</div>
-
-        <h2>Mowing Kentucky Bluegrass</h2>
-        <p>KBG performs best when mowed at a moderate height. Too short and it stresses easily in summer; too tall and it becomes puffy and prone to disease.</p>
-        <ul>
-          <li>Mow at <strong>2.5–3.5 inches</strong> during the growing season</li>
-          <li>Raise to 3.5 inches during summer heat stress</li>
-          <li>Mow every 5–7 days in spring when growth is explosive</li>
-          <li>Keep blades sharp — KBG has a characteristic boat-shaped leaf tip that tears easily with dull blades</li>
-        </ul>
-
-        <h2>Watering</h2>
-        <p>KBG has a shallower root system than Fescue, making it more vulnerable to drought. It will go dormant (brown) in extended drought, then bounce back when rains return — but repeated dormancy cycles weaken the lawn significantly over time.</p>
-        <ul>
-          <li>Water 1–1.5 inches per week during the growing season</li>
-          <li>Water deeply 2–3 times per week rather than daily shallow watering</li>
-          <li>Water in early morning — KBG is highly susceptible to fungal diseases when wet overnight</li>
-          <li>In summer, you may need to irrigate more frequently to prevent dormancy</li>
-        </ul>
-        <div class="blog-tip">💡 If you are not willing to irrigate consistently through summer, consider mixing KBG with Fescue in a blend. Most northern lawn seed mixes already do this for resilience.</div>
-
-        <h2>Fertilizing Schedule</h2>
-        <p>KBG is a heavier feeder than Fescue. It needs consistent nitrogen through the season but timing is everything — summer feeding during heat stress is a serious mistake.</p>
-        <ul>
-          <li><strong>Early fall (September):</strong> Primary fertilization — the most important application of the year</li>
-          <li><strong>Late fall (October–November):</strong> Winterizer — high potassium to strengthen roots before freeze</li>
-          <li><strong>Late spring (May):</strong> Light feeding once the soil has warmed</li>
-          <li><strong>Summer:</strong> Avoid or use a very light slow-release product only if the lawn is irrigated and healthy</li>
-        </ul>
-
-        <h2>Overseeding and Renovation</h2>
-        <p>Unlike Fescue, KBG spreads via rhizomes and will slowly fill in thin areas. But for bare spots or severely thinned lawns, overseeding in early fall is the right move.</p>
-        <ul>
-          <li>Overseed in late August to mid-September — KBG germinates best at soil temps of 50–65°F</li>
-          <li>KBG seed germinates slowly (14–21 days) — be patient and keep the seedbed moist</li>
-          <li>Core aerate before overseeding for best results</li>
-          <li>Avoid pre-emergent herbicide in fall if overseeding</li>
-        </ul>
-
-        <h2>Disease Management</h2>
-        <p>KBG is more susceptible to fungal disease than other cool-season grasses. Summer patch and dollar spot are the two most common issues.</p>
-        <ul>
-          <li>Water in the morning only — never evening</li>
-          <li>Avoid overwatering and compacted soils</li>
-          <li>If summer patch appears (circular brown rings), apply a systemic fungicide like Heritage or Eagle in late spring as a preventative</li>
-          <li>Core aeration and overseeding after disease events helps recovery</li>
-        </ul>
-
-        <h2>Common Beginner Mistakes</h2>
-        <ul>
-          <li>Planting KBG in a hot, dry climate where it cannot thrive</li>
-          <li>Fertilizing in summer and triggering disease or burnout</li>
-          <li>Underwatering in summer and repeatedly stressing the lawn into dormancy</li>
-          <li>Skipping fall fertilization — this is the most critical feeding of the year for KBG</li>
-          <li>Mowing too short — below 2 inches in summer is very stressful for KBG</li>
-        </ul>
+        <div class="blog-tip">💡 For most average homeowners doing a full yard renovation on a budget, seeding in the optimal window (fall for cool-season, late spring for warm-season) with proper soil prep and a commitment to watering delivers the best long-term value by a wide margin. The savings over sod pay for years of ongoing lawn care.</div>
       `
     }
+
   };
 
   function openBlog(id) {
