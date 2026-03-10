@@ -5,37 +5,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lawn Care Guides — LawnUnlocked</title>
-  <meta name="description" content="Deep-dive lawn care guides on niche topics — new construction soil, smart irrigation, seeding vs sod, and more. Real numbers, honest advice." />
+  <meta name="description" content="Deep-dive lawn care guides on niche topics — new construction soil, smart irrigation, seeding vs sod, dog urine spots, slopes, renters, and more. Real numbers, honest advice." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    :root { --green:#3d7a3a;--green-light:#52a34e;--green-pale:#e8f5e7;--black:#111;--white:#fff;--border:#e0e0dc; }
+    :root{--green:#3d7a3a;--green-light:#52a34e;--green-pale:#e8f5e7;--black:#111;--white:#fff;--border:#e0e0dc;}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:'DM Sans',sans-serif;color:var(--black);background:var(--white);}
+    html{background:#ffffff !important;}
+    body{font-family:'DM Sans',sans-serif;color:#111;background:#ffffff !important;}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
-    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--black);text-decoration:none;letter-spacing:-0.03em;}
+    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#111;text-decoration:none;letter-spacing:-0.03em;}
     .logo span{color:var(--green);}
     .nav-links{display:flex;align-items:center;gap:2rem;}
-    nav a.nav-link{color:var(--black);text-decoration:none;font-weight:500;font-size:0.9rem;}
+    nav a.nav-link{color:#111;text-decoration:none;font-weight:500;font-size:0.9rem;}
     nav a.nav-link:hover{color:var(--green);}
     nav a.cta-nav{color:var(--green);text-decoration:none;font-weight:600;font-size:0.88rem;}
-    nav a.cta-nav:hover{opacity:0.7;}
     .hero{padding:9rem 2.5rem 4rem;max-width:800px;margin:0 auto;text-align:center;}
     .hero-tag{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:0.3rem 0.8rem;border-radius:100px;margin-bottom:1.25rem;}
     .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:1rem;}
     .hero p{font-size:1rem;color:#555;max-width:520px;margin:0 auto;}
-    .posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;padding:2rem 2.5rem 5rem;}
-    .post-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--black);transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column;}
+    .posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;padding:2rem 2.5rem 5rem;}
+    .post-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;text-decoration:none;color:#111;transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column;}
     .post-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.1);transform:translateY(-3px);}
-    .post-card-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:2.8rem;}
-    .post-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;}
+    .post-card-img{height:110px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+    .post-card-body{padding:1.25rem;flex:1;display:flex;flex-direction:column;}
     .post-tag{display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.6rem;}
-    .post-card-body h2{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;line-height:1.35;}
-    .post-card-body p{font-size:0.84rem;color:#666;line-height:1.6;flex:1;margin-bottom:1rem;}
-    .post-read{font-size:0.84rem;font-weight:600;color:var(--green);}
-    footer{background:var(--black);color:#aaa;padding:3rem 2.5rem;text-align:center;}
+    .post-card-body h2{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:0.4rem;line-height:1.35;}
+    .post-card-body p{font-size:0.82rem;color:#666;line-height:1.6;flex:1;margin-bottom:0.75rem;}
+    .post-read{font-size:0.82rem;font-weight:600;color:var(--green);}
+    footer{background:#111;color:#aaa;padding:3rem 2.5rem;text-align:center;}
     footer p{font-size:0.82rem;margin-top:1rem;}
     footer a{color:#aaa;text-decoration:none;}
-    footer a:hover{color:var(--white);}
+    footer a:hover{color:#fff;}
     @media(max-width:600px){.posts-grid{grid-template-columns:1fr;padding:1.5rem;}.hero{padding:8rem 1.5rem 2rem;}}
   </style>
 </head>
@@ -57,22 +57,92 @@
 
 <div class="posts-grid">
 
+  <a href="/blog/lawn-dies-driveway-edge.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#f5f5f0,#e8e0d5);">🛣️</div>
+    <div class="post-card-body">
+      <div class="post-tag">Lawn Problems</div>
+      <h2>Why Your Lawn Dies Every Year Along the Driveway Edge</h2>
+      <p>Three things are happening simultaneously — and fixing just one of them is why most people fail.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
+  <a href="/blog/dog-urine-spots-grass.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">🐶</div>
+    <div class="post-card-body">
+      <div class="post-tag">Lawn Problems</div>
+      <h2>How to Fix Dog Urine Spots on Grass Permanently</h2>
+      <p>Most advice online is wrong. Here's what actually works — based on why urine actually kills grass.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
+  <a href="/blog/lawn-care-renters.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);">🏠</div>
+    <div class="post-card-body">
+      <div class="post-tag">Renter's Guide</div>
+      <h2>Lawn Care for Renters: What You're Actually Responsible For</h2>
+      <p>Most lawn advice is written for homeowners. This one is for renters — what's yours, what's the landlord's, and what to buy.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
+  <a href="/blog/overseed-without-killing-existing-grass.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#e8f5e7,#b2dfdb);">🌱</div>
+    <div class="post-card-body">
+      <div class="post-tag">Overseeding</div>
+      <h2>How to Overseed a Lawn Without Killing the Existing Grass</h2>
+      <p>Done right, overseeding doesn't hurt what's already there. Here's the exact sequence that works.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
+  <a href="/blog/lawn-compacted-party-event.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#fff8e1,#ffecb3);">🎉</div>
+    <div class="post-card-body">
+      <div class="post-tag">Lawn Recovery</div>
+      <h2>What to Do When Your Lawn Gets Compacted by a Party or Event</h2>
+      <p>Most of the damage looks worse than it is. Here's how to assess it and bring the lawn back fast.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
+  <a href="/blog/lawn-care-slope.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#e8f5e7,#dcedc8);">⛰️</div>
+    <div class="post-card-body">
+      <div class="post-tag">Slopes & Grades</div>
+      <h2>Lawn Care on a Slope: What Works and What's a Waste of Money</h2>
+      <p>Flat-lawn advice doesn't apply on a hill. Here's what actually works for erosion, watering, and mowing on a grade.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
+  <a href="/blog/lazy-lawn-minimum-effort.html" class="post-card">
+    <div class="post-card-img" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);">😴</div>
+    <div class="post-card-body">
+      <div class="post-tag">Low Effort</div>
+      <h2>The Lazy Lawn: Minimum Effort Maintenance for People Who Hate Yard Work</h2>
+      <p>You don't have to love lawn care to have a decent lawn. Here's the absolute minimum — and the tools that do the work for you.</p>
+      <span class="post-read">Read Guide →</span>
+    </div>
+  </a>
+
   <a href="/blog/new-construction-soil.html" class="post-card">
     <div class="post-card-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);">🏗️</div>
     <div class="post-card-body">
       <div class="post-tag">Soil & Site</div>
       <h2>Managing a Lawn in New Construction Soil</h2>
-      <p>Builder fill dirt is not real topsoil. Here is what you are actually dealing with — and how to fix it without wasting money.</p>
+      <p>Builder fill dirt is not real topsoil. Here's what you're actually dealing with — and how to fix it without wasting money.</p>
       <span class="post-read">Read Guide →</span>
     </div>
   </a>
 
   <a href="/blog/smart-irrigation-cost-benefit.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#e3f2fd,#81d4fa);">💧</div>
+    <div class="post-card-img" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">💧</div>
     <div class="post-card-body">
       <div class="post-tag">Irrigation</div>
       <h2>Smart Irrigation for a Small Yard: Is It Worth the Cost?</h2>
-      <p>A full cost-benefit breakdown of smart controllers, drip systems, and basic timers — with real payback estimates.</p>
+      <p>A full cost-benefit breakdown with real payback estimates — so you know if it's actually worth it for your yard.</p>
       <span class="post-read">Read Guide →</span>
     </div>
   </a>
@@ -82,7 +152,7 @@
     <div class="post-card-body">
       <div class="post-tag">Cost Comparison</div>
       <h2>Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?</h2>
-      <p>Upfront cost is only part of the story. We ran the real 3-year numbers so you do not have to guess.</p>
+      <p>Upfront cost is only part of the story. We ran the real 3-year numbers so you don't have to guess.</p>
       <span class="post-read">Read Guide →</span>
     </div>
   </a>
