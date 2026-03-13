@@ -11,7 +11,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    
+
 :root {
   --green: #3d7a3a;
   --green-light: #52a34e;
@@ -1502,113 +1502,65 @@ background: var(–gray); color: #666; font-weight: 500;
     }
 
     const isGolfCourse = (answers.lawnStyle || '').includes('Golf course');
-    const prompt = `You are LawnUnlocked, an expert lawn care advisor. Generate a highly specific seasonal lawn care plan based EXACTLY on the inputs below. Return ONLY valid JSON — no markdown, no explanation.
-
-CRITICAL RULES — YOU MUST FOLLOW THESE EXACTLY:
-1. Mowing heights are NON-NEGOTIABLE. Use ONLY these values:
-   - Bermuda (standard): 1–1.5 inches
-   - Bermuda (golf course goal): 0.5–0.75 inches
-   - Zoysia (standard): 1.5–2 inches
-   - Zoysia (golf course goal): 0.5–1 inch
-   - St. Augustine: 3–4 inches (NEVER lower — scalping kills it)
-   - Tall Fescue: 3.5–4 inches (NEVER below 3 inches)
-   - Kentucky Bluegrass: 2.5–3.5 inches
-   - Fine Fescue: 2.5–3 inches
-   NEVER output 3–3.5 inches for Bermuda or Zoysia under any circumstances.
-
-2. If the goal is "Golf course lawn", you MUST:
-   - Use the golf course mowing height above (not standard)
-   - Recommend a reel mower if they have a rotary
-   - Include Primo Maxx or T-Nex growth regulator in products
-   - Include topdressing with masonry sand
-   - Include a soil surfactant (Hydretain or similar)
-   - Set fertilizing to every 4–6 weeks during growing season
-   - Warn if their grass type cannot handle ultra-low cutting
-
-3. All advice must be specific to ZIP ${answers.zip || 'Unknown'} climate and region.
-
-Lawn Profile:
-- ZIP: ${answers.zip || 'Unknown'}
-- Grass Type: ${answers.grassType || 'Unknown'}
-- Lawn Goal: ${answers.lawnStyle || 'Healthy & green'}
-- Mower Type: ${answers.mowerType || 'Unknown'}
-- Lawn Size: ${answers.lawnSize || 'Unknown'}
-- Sun Exposure: ${answers.sunExposure || 'Unknown'}
-- Problems: ${Array.isArray(answers.problems) ? answers.problems.join(', ') : (answers.problems || 'None specified')}
-- Last Fertilized: ${answers.lastFertilized || 'Unknown'}
-- Budget: ${answers.budget || 'Unknown'}
-- Goals: ${Array.isArray(answers.goal) ? answers.goal.join(', ') : (answers.goal || 'Unknown')}
-- Soil Data: ${soilSummary}
-
-Return this exact JSON structure (no extra fields, no markdown):
-{
-  "summary": "2 sentences specific to this lawn's situation and ZIP climate",
-  "healthScore": 65,
-  "healthNote": "one sentence explanation of the score",
-  "grassProfile": {
-    "type": "confirmed grass type based on inputs and ZIP",
-    "mowingHeight": "USE THE EXACT HEIGHT FROM THE RULES ABOVE based on grass type and goal",
-    "scalping": "yes or no, when and why specific to this grass",
-    "mowingFrequency": "specific frequency for this grass type and season"
-  },
-  "seasons": {
-    "spring": {
-      "focus": "1 sentence specific to this grass and ZIP region",
-      "mowing": "specific mowing guidance using the correct height from rules above",
-      "fertilizing": "specific product type, timing, and N-P-K ratio for this grass",
-      "watering": "specific inches per week and frequency for this climate",
-      "weedPest": "specific pre/post emergent timing for this ZIP climate",
-      "aeration": "specific recommendation for this grass type"
-    },
-    "summer": {
-      "focus": "1 sentence specific to this grass and ZIP region",
-      "mowing": "specific mowing guidance",
-      "fertilizing": "specific guidance — warm season grasses can be fed in summer unlike cool season",
-      "watering": "specific inches and frequency for summer heat in this ZIP",
-      "weedPest": "specific actions",
-      "aeration": "specific note"
-    },
-    "fall": {
-      "focus": "1 sentence specific to this grass and ZIP region",
-      "mowing": "specific mowing guidance",
-      "fertilizing": "warm season: stop feeding as dormancy approaches. cool season: most important feed of year",
-      "watering": "specific guidance",
-      "weedPest": "specific pre-emergent timing for this ZIP",
-      "aeration": "specific timing for this grass type"
-    },
-    "winter": {
-      "focus": "1 sentence specific to this grass and ZIP region",
-      "mowing": "specific guidance — warm season goes dormant, cool season may keep growing",
-      "fertilizing": "specific note",
-      "watering": "specific note",
-      "weedPest": "specific dormant season actions",
-      "aeration": "specific note"
-    }
-  },
-  "checklist": [
-    {"task": "specific actionable task", "season": "Spring", "priority": "high"},
-    {"task": "specific actionable task", "season": "Spring", "priority": "medium"},
-    {"task": "specific actionable task", "season": "Summer", "priority": "high"},
-    {"task": "specific actionable task", "season": "Summer", "priority": "medium"},
-    {"task": "specific actionable task", "season": "Fall", "priority": "high"},
-    {"task": "specific actionable task", "season": "Fall", "priority": "medium"},
-    {"task": "specific actionable task", "season": "Winter", "priority": "low"},
-    {"task": "specific actionable task", "season": "Winter", "priority": "low"}
-  ],
-  "products": [
-    {
-      "name": "specific real product name available on Amazon",
-      "category": "fertilizer OR weed-control OR seed OR soil OR pest-control OR fungicide OR tool",
-      "priority": "high OR medium OR low",
-      "why": "1 sentence why THIS specific lawn needs it",
-      "timing": "exact timing — month or soil temp trigger",
-      "rate": "exact rate for their lawn size",
-      "amazonSearch": "optimized Amazon search string"
-    }
-  ]
-}
-
-Include exactly 8 checklist items (2 per season). Include 5 products tailored to this exact grass type and goal. If golf course goal, include growth regulator and topdressing products.`;
+    const prompt = "You are LawnUnlocked, an expert lawn care advisor. Generate a highly specific seasonal lawn care plan based EXACTLY on the inputs below. Return ONLY valid JSON - no markdown, no explanation.\n\n" +
+      "CRITICAL RULES - YOU MUST FOLLOW THESE EXACTLY:\n" +
+      "1. Mowing heights are NON-NEGOTIABLE:\n" +
+      "   - Bermuda (standard): 1-1.5 inches\n" +
+      "   - Bermuda (golf course goal): 0.5-0.75 inches\n" +
+      "   - Zoysia (standard): 1.5-2 inches\n" +
+      "   - Zoysia (golf course goal): 0.5-1 inch\n" +
+      "   - St. Augustine: 3-4 inches NEVER lower\n" +
+      "   - Tall Fescue: 3.5-4 inches NEVER below 3 inches\n" +
+      "   - Kentucky Bluegrass: 2.5-3.5 inches\n" +
+      "   NEVER output 3-3.5 inches for Bermuda or Zoysia.\n\n" +
+      "2. If goal is Golf course lawn you MUST use golf course mowing height, recommend reel mower, include Primo Maxx growth regulator, include topdressing with masonry sand, include soil surfactant like Hydretain, fertilize every 4-6 weeks during growing season.\n\n" +
+      "Lawn Profile:\n" +
+      "- ZIP: " + (answers.zip || "Unknown") + "\n" +
+      "- Grass Type: " + (answers.grassType || "Unknown") + "\n" +
+      "- Lawn Goal: " + (answers.lawnStyle || "Healthy and green") + "\n" +
+      "- Mower Type: " + (answers.mowerType || "Unknown") + "\n" +
+      "- Lawn Size: " + (answers.lawnSize || "Unknown") + "\n" +
+      "- Sun Exposure: " + (answers.sunExposure || "Unknown") + "\n" +
+      "- Problems: " + (Array.isArray(answers.problems) ? answers.problems.join(", ") : (answers.problems || "None")) + "\n" +
+      "- Last Fertilized: " + (answers.lastFertilized || "Unknown") + "\n" +
+      "- Budget: " + (answers.budget || "Unknown") + "\n" +
+      "- Goals: " + (Array.isArray(answers.goal) ? answers.goal.join(", ") : (answers.goal || "Unknown")) + "\n" +
+      "- Soil Data: " + soilSummary + "\n\n" +
+      "Return this exact JSON structure:\n" +
+      "{\n" +
+      '  "summary": "2 sentences specific to this lawn and ZIP climate",\n' +
+      '  "healthScore": 65,\n' +
+      '  "healthNote": "one sentence explanation of score",\n' +
+      '  "grassProfile": {\n' +
+      '    "type": "confirmed grass type",\n' +
+      '    "mowingHeight": "USE EXACT HEIGHT FROM RULES ABOVE",\n' +
+      '    "scalping": "yes or no, when and why",\n' +
+      '    "mowingFrequency": "specific frequency for this grass"\n' +
+      '  },\n' +
+      '  "seasons": {\n' +
+      '    "spring": { "focus": "...", "mowing": "...", "fertilizing": "...", "watering": "...", "weedPest": "...", "aeration": "..." },\n' +
+      '    "summer": { "focus": "...", "mowing": "...", "fertilizing": "...", "watering": "...", "weedPest": "...", "aeration": "..." },\n' +
+      '    "fall":   { "focus": "...", "mowing": "...", "fertilizing": "...", "watering": "...", "weedPest": "...", "aeration": "..." },\n' +
+      '    "winter": { "focus": "...", "mowing": "...", "fertilizing": "...", "watering": "...", "weedPest": "...", "aeration": "..." }\n' +
+      '  },\n' +
+      '  "checklist": [\n' +
+      '    {"task": "specific task", "season": "Spring", "priority": "high"},\n' +
+      '    {"task": "specific task", "season": "Spring", "priority": "medium"},\n' +
+      '    {"task": "specific task", "season": "Summer", "priority": "high"},\n' +
+      '    {"task": "specific task", "season": "Summer", "priority": "medium"},\n' +
+      '    {"task": "specific task", "season": "Fall", "priority": "high"},\n' +
+      '    {"task": "specific task", "season": "Fall", "priority": "medium"},\n' +
+      '    {"task": "specific task", "season": "Winter", "priority": "low"},\n' +
+      '    {"task": "specific task", "season": "Winter", "priority": "low"}\n' +
+      '  ],\n' +
+      '  "products": [\n' +
+      '    {"name": "product name", "category": "fertilizer", "priority": "high", "why": "why this lawn needs it", "timing": "when to apply", "rate": "how much", "amazonSearch": "search string"},\n' +
+      '    {"name": "product name", "category": "weed-control", "priority": "medium", "why": "...", "timing": "...", "rate": "...", "amazonSearch": "..."},\n' +
+      '    {"name": "product name", "category": "soil", "priority": "high", "why": "...", "timing": "...", "rate": "...", "amazonSearch": "..."},\n' +
+      '    {"name": "product name", "category": "tool", "priority": "medium", "why": "...", "timing": "...", "rate": "...", "amazonSearch": "..."},\n' +
+      '    {"name": "product name", "category": "pest-control", "priority": "low", "why": "...", "timing": "...", "rate": "...", "amazonSearch": "..."}\n' +
+      '  ]\n' +
+      '}'
 
     try {
       console.log('🌿 LawnUnlocked: Sending request to Worker...');
