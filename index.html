@@ -1502,102 +1502,173 @@ background: var(–gray); color: #666; font-weight: 500;
     }
 
     const isGolfCourse = (answers.lawnStyle || '').includes('Golf course');
-    const prompt = `You are LawnUnlocked, a knowledgeable lawn care advisor. Based on the lawn profile below, generate a comprehensive seasonal lawn care guide. Return ONLY a valid JSON object — no markdown, no explanation.
+    const prompt = `You are LawnUnlocked, an expert lawn care advisor. Generate a highly specific seasonal lawn care plan based EXACTLY on the inputs below. Return ONLY valid JSON — no markdown, no explanation.
+
+CRITICAL RULES — YOU MUST FOLLOW THESE EXACTLY:
+1. Mowing heights are NON-NEGOTIABLE. Use ONLY these values:
+   - Bermuda (standard): 1–1.5 inches
+   - Bermuda (golf course goal): 0.5–0.75 inches
+   - Zoysia (standard): 1.5–2 inches
+   - Zoysia (golf course goal): 0.5–1 inch
+   - St. Augustine: 3–4 inches (NEVER lower — scalping kills it)
+   - Tall Fescue: 3.5–4 inches (NEVER below 3 inches)
+   - Kentucky Bluegrass: 2.5–3.5 inches
+   - Fine Fescue: 2.5–3 inches
+   NEVER output 3–3.5 inches for Bermuda or Zoysia under any circumstances.
+
+2. If the goal is "Golf course lawn", you MUST:
+   - Use the golf course mowing height above (not standard)
+   - Recommend a reel mower if they have a rotary
+   - Include Primo Maxx or T-Nex growth regulator in products
+   - Include topdressing with masonry sand
+   - Include a soil surfactant (Hydretain or similar)
+   - Set fertilizing to every 4–6 weeks during growing season
+   - Warn if their grass type cannot handle ultra-low cutting
+
+3. All advice must be specific to ZIP ${answers.zip || 'Unknown'} climate and region.
 
 Lawn Profile:
 - ZIP: ${answers.zip || 'Unknown'}
 - Grass Type: ${answers.grassType || 'Unknown'}
-- Lawn Style Goal: ${answers.lawnStyle || 'Healthy & green'}
+- Lawn Goal: ${answers.lawnStyle || 'Healthy & green'}
 - Mower Type: ${answers.mowerType || 'Unknown'}
 - Lawn Size: ${answers.lawnSize || 'Unknown'}
-- Sun: ${answers.sunExposure || 'Unknown'}
-- Problems: ${Array.isArray(answers.problems) ? answers.problems.join(', ') : (answers.problems || 'Unknown')}
+- Sun Exposure: ${answers.sunExposure || 'Unknown'}
+- Problems: ${Array.isArray(answers.problems) ? answers.problems.join(', ') : (answers.problems || 'None specified')}
 - Last Fertilized: ${answers.lastFertilized || 'Unknown'}
 - Budget: ${answers.budget || 'Unknown'}
 - Goals: ${Array.isArray(answers.goal) ? answers.goal.join(', ') : (answers.goal || 'Unknown')}
-- ${soilSummary}
-${isGolfCourse ? `IMPORTANT: This user wants a GOLF COURSE style lawn. Tailor ALL advice accordingly:
-- Recommend aggressive low mowing heights (Bermuda: 0.5-0.75 inch, Zoysia: 0.5-1 inch, Bentgrass: 0.125-0.5 inch)
-- Include growth regulators (Primo Maxx or T-Nex) in product recommendations
-- Include lawn leveling and topdressing with masonry sand
-- Recommend upgrading to a reel mower if they have a rotary
-- Include soil surfactants (Hydretain or similar) for water penetration
-- More frequent fertilizing on a 4-6 week schedule
-- Warn clearly if their grass type (Fescue, St. Augustine, Kentucky Bluegrass) is NOT suitable for ultra-low cutting` : ''}
+- Soil Data: ${soilSummary}
 
-Return this exact JSON structure:
+Return this exact JSON structure (no extra fields, no markdown):
 {
-  "summary": "2 sentence overview of this lawn's situation and main priorities",
-  "grassProfile": {  /* IMPORTANT: Use correct grass-specific mowing heights. Bermuda = 1–2 inches standard (0.5–0.75 golf course). Zoysia = 1–2 inches. St. Augustine = 3–4 inches. Fescue/Bluegrass = 3–4 inches. DO NOT use 3–3.5 inches for Bermuda. */
-    "type": "confirmed or estimated grass type",
-    "mowingHeight": "grass-specific ideal height (Bermuda: 1–2 inches, Zoysia: 1–2 inches, St. Augustine: 3–4 inches, Fescue: 3–4 inches, Bluegrass: 2.5–3.5 inches)",
-    "scalping": "yes/no and when (e.g. early spring before green-up)",
-    "mowingFrequency": "e.g. every 5–7 days in growing season"
+  "summary": "2 sentences specific to this lawn's situation and ZIP climate",
+  "healthScore": 65,
+  "healthNote": "one sentence explanation of the score",
+  "grassProfile": {
+    "type": "confirmed grass type based on inputs and ZIP",
+    "mowingHeight": "USE THE EXACT HEIGHT FROM THE RULES ABOVE based on grass type and goal",
+    "scalping": "yes or no, when and why specific to this grass",
+    "mowingFrequency": "specific frequency for this grass type and season"
   },
   "seasons": {
     "spring": {
-      "focus": "1 sentence seasonal focus",
-      "mowing": "mowing guidance for this season",
-      "fertilizing": "fertilizer timing and type for this season",
-      "watering": "watering guidance",
-      "weedPest": "weed/pest actions this season",
-      "aeration": "aerate or dethatch? when and why or why not"
+      "focus": "1 sentence specific to this grass and ZIP region",
+      "mowing": "specific mowing guidance using the correct height from rules above",
+      "fertilizing": "specific product type, timing, and N-P-K ratio for this grass",
+      "watering": "specific inches per week and frequency for this climate",
+      "weedPest": "specific pre/post emergent timing for this ZIP climate",
+      "aeration": "specific recommendation for this grass type"
     },
     "summer": {
-      "focus": "1 sentence seasonal focus",
-      "mowing": "mowing guidance",
-      "fertilizing": "fertilizer guidance or hold off note",
-      "watering": "watering guidance (more critical in summer)",
-      "weedPest": "weed/pest actions",
-      "aeration": "aeration note"
+      "focus": "1 sentence specific to this grass and ZIP region",
+      "mowing": "specific mowing guidance",
+      "fertilizing": "specific guidance — warm season grasses can be fed in summer unlike cool season",
+      "watering": "specific inches and frequency for summer heat in this ZIP",
+      "weedPest": "specific actions",
+      "aeration": "specific note"
     },
     "fall": {
-      "focus": "1 sentence seasonal focus",
-      "mowing": "mowing guidance",
-      "fertilizing": "fertilizer timing — most important season for most grasses",
-      "watering": "watering guidance",
-      "weedPest": "pre-emergent or other actions",
-      "aeration": "best time for most grasses — detail here"
+      "focus": "1 sentence specific to this grass and ZIP region",
+      "mowing": "specific mowing guidance",
+      "fertilizing": "warm season: stop feeding as dormancy approaches. cool season: most important feed of year",
+      "watering": "specific guidance",
+      "weedPest": "specific pre-emergent timing for this ZIP",
+      "aeration": "specific timing for this grass type"
     },
     "winter": {
-      "focus": "1 sentence seasonal focus",
-      "mowing": "final mow guidance",
-      "fertilizing": "winterizer or hold off",
-      "watering": "watering note",
-      "weedPest": "dormant season notes",
-      "aeration": "not recommended or prep note"
+      "focus": "1 sentence specific to this grass and ZIP region",
+      "mowing": "specific guidance — warm season goes dormant, cool season may keep growing",
+      "fertilizing": "specific note",
+      "watering": "specific note",
+      "weedPest": "specific dormant season actions",
+      "aeration": "specific note"
     }
   },
   "checklist": [
-    {"task": "task description", "season": "Spring/Summer/Fall/Winter", "priority": "high/medium/low"},
-    {"task": "...", "season": "...", "priority": "..."}
+    {"task": "specific actionable task", "season": "Spring", "priority": "high"},
+    {"task": "specific actionable task", "season": "Spring", "priority": "medium"},
+    {"task": "specific actionable task", "season": "Summer", "priority": "high"},
+    {"task": "specific actionable task", "season": "Summer", "priority": "medium"},
+    {"task": "specific actionable task", "season": "Fall", "priority": "high"},
+    {"task": "specific actionable task", "season": "Fall", "priority": "medium"},
+    {"task": "specific actionable task", "season": "Winter", "priority": "low"},
+    {"task": "specific actionable task", "season": "Winter", "priority": "low"}
   ],
   "products": [
     {
-      "name": "specific real Amazon product name",
-      "category": "fertilizer/weed-control/seed/soil/pest-control/fungicide/tool",
-      "why": "1 sentence why this lawn needs it",
-      "applicationRate": "specific amount for their lawn size",
-      "bestTiming": "when to apply",
-      "amazonSearch": "Amazon search string"
+      "name": "specific real product name available on Amazon",
+      "category": "fertilizer OR weed-control OR seed OR soil OR pest-control OR fungicide OR tool",
+      "priority": "high OR medium OR low",
+      "why": "1 sentence why THIS specific lawn needs it",
+      "timing": "exact timing — month or soil temp trigger",
+      "rate": "exact rate for their lawn size",
+      "amazonSearch": "optimized Amazon search string"
     }
   ]
 }
 
-Include 6–8 checklist items covering all seasons. Include 4–5 products. Be specific to the grass type and region.`;
+Include exactly 8 checklist items (2 per season). Include 5 products tailored to this exact grass type and goal. If golf course goal, include growth regulator and topdressing products.`;
 
     try {
+      console.log('🌿 LawnUnlocked: Sending request to Worker...');
+      console.log('📋 Answers:', JSON.stringify(answers, null, 2));
+
       const response = await fetch('https://lawnunlocked.lawnunlocked.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt })
       });
+
+      console.log('📡 Worker response status:', response.status, response.statusText);
+
+      if (!response.ok) {
+        const errText = await response.text();
+        console.error('❌ Worker returned error:', errText);
+        throw new Error(`Worker HTTP ${response.status}: ${errText}`);
+      }
+
       const data = await response.json();
+      console.log('📦 Raw API response:', JSON.stringify(data, null, 2));
+
+      if (!data.content) {
+        console.error('❌ No content field in response. Full data:', data);
+        throw new Error('No content in response: ' + JSON.stringify(data));
+      }
+
       const text = data.content.map(i => i.text || '').join('');
+      console.log('📝 Extracted text length:', text.length);
+      console.log('📝 First 500 chars:', text.slice(0, 500));
+
       const clean = text.replace(/```json|```/g, '').trim();
-      renderPlan(JSON.parse(clean));
+
+      let plan;
+      try {
+        plan = JSON.parse(clean);
+        console.log('✅ JSON parsed successfully. Keys:', Object.keys(plan));
+      } catch (parseErr) {
+        console.error('❌ JSON parse failed:', parseErr.message);
+        console.error('Raw text that failed to parse:', clean.slice(0, 1000));
+        throw parseErr;
+      }
+
+      renderPlan(plan);
+
     } catch (err) {
-      renderPlan(getFallbackPlan());
+      console.error('❌ Full error in showResults:', err);
+      console.error('Stack:', err.stack);
+      // Show error on screen too
+      document.getElementById('loadingState').innerHTML = `
+        <div style="background:#fff3e0;border:1.5px solid #ffcc80;border-radius:12px;padding:1.5rem;text-align:left;">
+          <p style="font-weight:700;margin-bottom:0.5rem;color:#e65100;">⚠️ Something went wrong — showing default plan</p>
+          <p style="font-size:0.82rem;color:#555;margin-bottom:0.75rem;">Open browser DevTools → Console for details.</p>
+          <code style="font-size:0.72rem;color:#888;word-break:break-all;">${err.message}</code>
+        </div>`;
+      document.getElementById('loadingState').style.display = 'block';
+      setTimeout(() => {
+        document.getElementById('loadingState').style.display = 'none';
+        renderPlan(getFallbackPlan());
+      }, 3000);
     }
   }
 
