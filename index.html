@@ -66,7 +66,7 @@ font-weight: 500; font-size: 0.9rem; transition: color 0.2s;
 nav a.nav-link:hover { color: var(–green); }
 .nav-links { display: flex; align-items: center; gap: 2rem; }
 
-
+    
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
@@ -701,7 +701,65 @@ background: var(–gray); color: #666; font-weight: 500;
 }
 
 
+/* ══ UPGRADED RESULTS UI ══ */
+.plan-hero { background: var(–black); border-radius: 20px; padding: 2.5rem; margin-bottom: 1.75rem; position: relative; overflow: hidden; }
+.plan-hero::before { content: ‘’; position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(61,122,58,0.35) 0%, transparent 70%); }
+.plan-hero::after { content: ‘’; position: absolute; bottom: -40px; left: -40px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(82,163,78,0.2) 0%, transparent 70%); }
+.plan-hero-inner { position: relative; z-index: 1; }
+.plan-hero-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(–green-light); font-weight: 700; margin-bottom: 0.6rem; display: block; }
+.plan-hero h2 { font-family: ‘Playfair Display’, serif; font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 0.6rem; letter-spacing: -0.02em; }
+.plan-hero h2 em { font-style: italic; color: var(–green-light); }
+.plan-hero-summary { font-size: 0.88rem; color: #aaa; line-height: 1.65; margin-bottom: 1.5rem; }
+.profile-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.5rem; }
+.profile-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: #ccc; font-size: 0.72rem; font-weight: 500; padding: 0.3rem 0.8rem; border-radius: 100px; }
+.profile-pill span { color: var(–green-light); font-weight: 700; }
+.score-wrap { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+.score-ring { width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; position: relative; }
+.score-num-wrap { position: relative; z-index: 1; text-align: center; }
+.score-num { font-family: ‘Playfair Display’, serif; font-size: 1.1rem; font-weight: 900; line-height: 1; }
+.score-num-sub { font-size: 0.55rem; color: #666; }
+.score-text h3 { font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+.score-text p { font-size: 0.78rem; color: #888; line-height: 1.5; }
+.plan-stats-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.plan-stat-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 0.8rem 1rem; flex: 1; min-width: 80px; }
+.plan-stat-val { font-family: ‘Playfair Display’, serif; font-size: 1.2rem; font-weight: 700; color: var(–green-light); line-height: 1; }
+.plan-stat-label { font-size: 0.65rem; color: #777; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.res-section-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(–border); }
+.res-section-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; }
+.res-section-head h3 { font-family: ‘Playfair Display’, serif; font-size: 1.15rem; font-weight: 900; letter-spacing: -0.01em; }
+.pri-badge { display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 100px; margin-bottom: 0.5rem; }
+.pri-high { background: #fef3c7; color: #92400e; }
+.pri-med  { background: var(–green-pale); color: var(–green); }
+.pri-low  { background: #f3f4f6; color: #6b7280; }
+.product-list-rich { display: flex; flex-direction: column; gap: 0.9rem; }
+.product-card-rich { background: var(–white); border: 1.5px solid var(–border); border-radius: 14px; padding: 1.15rem 1.25rem; display: flex; gap: 1rem; align-items: flex-start; transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+.product-card-rich:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.09); transform: translateY(-1px); border-color: #c8e6c9; }
+.product-card-rich.featured { border-color: var(–green); border-width: 2px; }
+.product-card-body { flex: 1; min-width: 0; }
+.product-card-name { font-weight: 700; font-size: 0.93rem; margin-bottom: 0.2rem; }
+.product-card-why { font-size: 0.81rem; color: #555; line-height: 1.6; margin-bottom: 0.6rem; }
+.product-card-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+.meta-tag { font-size: 0.68rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 100px; }
+.meta-tag-amber { background: #fef9c3; color: #854d0e; }
+.meta-tag-gray  { background: #f3f4f6; color: #555; }
+.btn-amazon-rich { display: inline-flex; align-items: center; gap: 0.4rem; background: #FF9900; color: #111; padding: 0.5rem 1.1rem; border-radius: 7px; font-size: 0.8rem; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+.btn-amazon-rich:hover { background: #e68a00; }
+.timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem; }
+.timeline-card { background: var(–white); border: 1px solid var(–border); border-radius: 12px; padding: 1rem; }
+.timeline-card.now { border-color: var(–green); background: var(–green-pale); }
+.timeline-month { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(–green); margin-bottom: 0.3rem; }
+.timeline-task { font-size: 0.81rem; color: var(–black); line-height: 1.5; }
+.kit-box { background: var(–black); border-radius: 16px; padding: 2rem; margin-top: 2rem; text-align: center; position: relative; overflow: hidden; }
+.kit-box::before { content: ‘’; position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(61,122,58,0.3) 0%, transparent 70%); }
+.kit-box h3 { font-family: ‘Playfair Display’, serif; font-size: 1.2rem; color: #fff; font-weight: 900; margin-bottom: 0.4rem; position: relative; }
+.kit-box p { font-size: 0.82rem; color: #aaa; margin-bottom: 1.2rem; position: relative; }
+.kit-items { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-bottom: 1.4rem; position: relative; }
+.kit-item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: #ccc; font-size: 0.73rem; padding: 0.3rem 0.8rem; border-radius: 100px; }
+.kit-cta { display: inline-block; background: var(–green); color: #fff; padding: 0.8rem 1.8rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; position: relative; transition: background 0.2s; }
+.kit-cta:hover { background: var(–green-light); }
+@media (max-width: 600px) { .timeline-grid { grid-template-columns: 1fr; } .plan-stats-row { gap: 0.5rem; } .product-card-rich { flex-direction: column; } }
 </style>
+
 </head>
 <body>
 
@@ -820,7 +878,7 @@ background: var(–gray); color: #666; font-weight: 500;
       <h2 class="section-title" style="max-width:100%;text-align:center;">Let's build your personalized plan</h2>
     </div>
 
-    
+
 <div id="quizPanel">
   <div class="progress-text" id="progressText">Question 1 of 11</div>
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:11%"></div></div>
@@ -869,7 +927,7 @@ background: var(–gray); color: #666; font-weight: 500;
 
   <div class="shop-grid" id="shopGrid">
 
-
+    
 <!-- MOWERS -->
 <div class="shop-card" data-cat="mower">
   <div class="shop-card-img" style="background:linear-gradient(135deg,#e8f5e7,#b6dcb2);"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="20" cy="44" r="8" stroke="#3d7a3a" stroke-width="2.5"/><circle cx="44" cy="44" r="8" stroke="#3d7a3a" stroke-width="2.5"/><rect x="12" y="24" width="40" height="12" rx="4" fill="#3d7a3a" opacity="0.15" stroke="#3d7a3a" stroke-width="2"/><line x1="12" y1="30" x2="52" y2="30" stroke="#3d7a3a" stroke-width="2"/><rect x="24" y="14" width="4" height="12" rx="2" fill="#3d7a3a"/><rect x="36" y="14" width="4" height="12" rx="2" fill="#3d7a3a"/></svg></div>
@@ -1545,9 +1603,11 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
 
   function getFallbackPlan() {
     const grass = answers.grassType || 'your grass type';
-    const size = answers.lawnSize || 'Medium (2,000–5,000 sq ft)';
+    const size  = answers.lawnSize  || 'Medium (2,000–5,000 sq ft)';
     return {
       summary: `Your ${grass} lawn has been analyzed based on your location and goals. Focus on a consistent fertilizer schedule and addressing the problems you identified to see significant improvement this season.`,
+      healthScore: 62,
+      healthNote: "Your lawn has solid potential — targeted attention to the issues below will drive a big improvement.",
       grassProfile: {
         type: grass,
         mowingHeight: "3–3.5 inches",
@@ -1555,58 +1615,31 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
         mowingFrequency: "Every 5–7 days during active growing season"
       },
       seasons: {
-        spring: {
-          focus: "Wake up the lawn — clean up, first feed, and pre-emergent weed control.",
-          mowing: "Begin mowing when grass reaches 4.5 inches. Start at a lower height (2.5\") for first cut then raise to normal height.",
-          fertilizing: "Apply a balanced starter fertilizer (like 10-10-10) in early spring once soil temps hit 55°F.",
-          watering: "1 inch per week. Water deeply 2–3 times per week rather than daily shallow watering.",
-          weedPest: "Apply pre-emergent herbicide before soil temps hit 55°F to prevent crabgrass and other annuals.",
-          aeration: "Light dethatching recommended if thatch layer exceeds ½ inch. Wait for fall for core aeration."
-        },
-        summer: {
-          focus: "Protect and maintain — avoid stress, keep moisture consistent, mow high.",
-          mowing: "Raise mowing height by ½ inch in summer heat. Never remove more than ⅓ of blade at once.",
-          fertilizing: "Skip or use a low-nitrogen, slow-release fertilizer only. Heavy feeding in summer heat can burn.",
-          watering: "Increase to 1.5 inches per week. Water in early morning to reduce evaporation and fungal risk.",
-          weedPest: "Spot-treat weeds. Watch for grub damage — treat with grub control in late June/early July.",
-          aeration: "Do not aerate in summer — too stressful on the lawn."
-        },
-        fall: {
-          focus: "The most important season — feed heavily, aerate, and prepare for winter.",
-          mowing: "Gradually lower mowing height by ¼ inch each cut as growth slows. Final cut at 2.5 inches.",
-          fertilizing: "Apply a high-potassium winterizer fertilizer (like 0-0-60 or 5-0-30) in late fall. This is the most important feed of the year.",
-          watering: "Reduce to ¾ inch per week as temperatures drop. Stop before first hard frost.",
-          weedPest: "Apply post-emergent herbicide for broadleaf weeds in early fall while still actively growing.",
-          aeration: "Core aerate in early fall (September) when soil is moist but not wet. Overseed immediately after for best results."
-        },
-        winter: {
-          focus: "Rest and protect — minimal intervention, plan for spring.",
-          mowing: "No mowing needed once grass goes dormant. Clean and sharpen mower blades during downtime.",
-          fertilizing: "No fertilizing during dormancy. Your fall winterizer is working underground.",
-          watering: "Only water if there's an extended dry spell with no snow cover.",
-          weedPest: "Scout for snow mold in late winter. Avoid heavy foot traffic on frozen grass.",
-          aeration: "Not recommended. Use this time to plan your spring schedule."
-        }
+        spring: { focus:"Wake up the lawn — clean up, first feed, and pre-emergent weed control.", mowing:"Begin mowing when grass reaches 4.5 inches. Start at a lower height (2.5 in.) for first cut then raise to normal.", fertilizing:"Apply a balanced starter fertilizer once soil temps hit 55°F.", watering:"1 inch per week. Water deeply 2–3 times per week.", weedPest:"Apply pre-emergent herbicide before soil temps hit 55°F to prevent crabgrass.", aeration:"Light dethatching if thatch exceeds ½ inch. Wait for fall for core aeration." },
+        summer: { focus:"Protect and maintain — avoid stress, keep moisture consistent, mow high.", mowing:"Raise mowing height by ½ inch in summer heat. Never remove more than ⅓ of blade.", fertilizing:"Skip or use low-nitrogen slow-release only. Heavy feeding in summer heat can burn.", watering:"Increase to 1.5 inches per week. Water in early morning.", weedPest:"Spot-treat weeds. Watch for grub damage — treat in late June/early July.", aeration:"Do not aerate in summer — too stressful." },
+        fall:   { focus:"The most important season — feed heavily, aerate, and prepare for winter.", mowing:"Gradually lower mowing height by ¼ inch as growth slows. Final cut at 2.5 inches.", fertilizing:"Apply high-potassium winterizer in late fall. Most important feed of the year.", watering:"Reduce to ¾ inch per week as temps drop. Stop before first hard frost.", weedPest:"Apply post-emergent herbicide for broadleaf weeds in early fall.", aeration:"Core aerate in early fall (September) when soil is moist. Overseed immediately after." },
+        winter: { focus:"Rest and protect — minimal intervention, plan for spring.", mowing:"No mowing once dormant. Clean and sharpen mower blades.", fertilizing:"No fertilizing during dormancy. Your fall winterizer is working underground.", watering:"Only water if extended dry spell with no snow cover.", weedPest:"Scout for snow mold in late winter. Avoid foot traffic on frozen grass.", aeration:"Not recommended." }
       },
       checklist: [
-        { task: "Apply pre-emergent herbicide before soil reaches 55°F", season: "Spring", priority: "high" },
-        { task: "Scalp lawn and remove winter debris", season: "Spring", priority: "high" },
-        { task: "First fertilizer application", season: "Spring", priority: "high" },
-        { task: "Core aerate and overseed", season: "Fall", priority: "high" },
-        { task: "Apply winterizer fertilizer", season: "Fall", priority: "high" },
-        { task: "Check and adjust mower blade height for summer", season: "Summer", priority: "medium" },
-        { task: "Inspect for grub damage and treat if needed", season: "Summer", priority: "medium" },
-        { task: "Final mow at 2.5 inches before dormancy", season: "Fall", priority: "medium" }
+        {task:"Apply pre-emergent herbicide before soil reaches 55°F",season:"Spring",priority:"high"},
+        {task:"Scalp lawn and remove winter debris",season:"Spring",priority:"high"},
+        {task:"First fertilizer application",season:"Spring",priority:"high"},
+        {task:"Core aerate and overseed",season:"Fall",priority:"high"},
+        {task:"Apply winterizer fertilizer",season:"Fall",priority:"high"},
+        {task:"Raise mowing height for summer heat",season:"Summer",priority:"medium"},
+        {task:"Inspect for grub damage and treat if needed",season:"Summer",priority:"medium"},
+        {task:"Final mow at 2.5 inches before dormancy",season:"Fall",priority:"medium"}
       ],
       products: [
-        { name: "Scotts Turf Builder Triple Action", category: "fertilizer", why: "Feeds, prevents crabgrass and kills existing weeds in one application — ideal for spring.", applicationRate: `For ${size}, use 1 bag (20 lbs). Covers up to 4,000 sq ft.`, bestTiming: "Apply in early spring when forsythia is blooming.", amazonSearch: "Scotts Turf Builder Triple Action spring fertilizer" },
-        { name: "Scotts Turf Builder WinterGuard Fall Lawn Food", category: "fertilizer", why: "High-potassium fall formula builds root strength and prepares lawn for winter.", applicationRate: `For ${size}, use 1 bag. Apply with a broadcast spreader.`, bestTiming: "Apply October–November before first hard frost.", amazonSearch: "Scotts Turf Builder WinterGuard fall lawn food" },
-        { name: "Spectracide Weed Stop For Lawns Concentrate", category: "weed-control", why: "Kills over 200 broadleaf weeds without harming grass. Post-emergent for active weeds.", applicationRate: "Mix 5 fl oz per gallon of water. 1 gallon covers ~400 sq ft.", bestTiming: "Apply in fall when weeds are actively growing and temps are 45–90°F.", amazonSearch: "Spectracide Weed Stop for Lawns concentrate" },
-        { name: "Jonathan Green Love Your Lawn Love Your Soil", category: "soil", why: "Improves soil structure and nutrient absorption — great for compacted or clay-heavy lawns.", applicationRate: "18 lb bag covers 5,000 sq ft. Apply once or twice per year.", bestTiming: "Apply in early spring or fall. Works best before aeration.", amazonSearch: "Jonathan Green Love Your Lawn soil conditioner" },
-        { name: "Bayer BioAdvanced Grub Killer Plus", category: "pest-control", why: "Kills grubs before they damage roots. Preventative treatment is more effective than curative.", applicationRate: "Apply 2.87 lbs per 1,000 sq ft with a spreader. Water in thoroughly.", bestTiming: "Apply late June to mid-July before eggs hatch. Water within 24 hours.", amazonSearch: "BioAdvanced Grub Killer Plus lawn" }
+        {name:"Scotts Turf Builder Triple Action",category:"fertilizer",priority:"high",why:"Feeds, prevents crabgrass and kills weeds in one application — ideal for spring.",timing:"Early spring when forsythia is blooming",rate:"1 bag covers up to 4,000 sq ft",amazonSearch:"Scotts Turf Builder Triple Action spring fertilizer"},
+        {name:"Scotts Turf Builder WinterGuard Fall Lawn Food",category:"fertilizer",priority:"high",why:"High-potassium fall formula builds root strength and prepares lawn for winter.",timing:"October–November before first hard frost",rate:"1 bag covers 5,000 sq ft",amazonSearch:"Scotts WinterGuard fall lawn food"},
+        {name:"MySoil Soil Test Kit",category:"soil",priority:"high",why:"Knowing your pH and nutrient levels prevents wasting money on the wrong products.",timing:"Do this first, before buying anything else",rate:"One kit covers your whole yard",amazonSearch:"MySoil soil test kit"},
+        {name:"Spectracide Weed Stop For Lawns Concentrate",category:"weed-control",priority:"medium",why:"Kills over 200 broadleaf weeds without harming grass. Best applied in fall.",timing:"Fall when weeds are active and temps are 45–90°F",rate:"5 fl oz per gallon, 1 gal covers 400 sq ft",amazonSearch:"Spectracide Weed Stop for Lawns concentrate"},
+        {name:"BioAdvanced Grub Killer Plus",category:"pest-control",priority:"medium",why:"Kills grubs before they damage roots. Preventative is more effective than curative.",timing:"Late June to mid-July before eggs hatch",rate:"2.87 lbs per 1,000 sq ft",amazonSearch:"BioAdvanced Grub Killer Plus lawn"}
       ]
     };
   }
+
 
   let activeSeason = 'spring';
 
@@ -1616,218 +1649,202 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
     const container = document.getElementById('planContent');
     container.style.display = 'block';
 
-    const seasonEmojis = { spring: '🌸', summer: '☀️', fall: '🍂', winter: '❄️' };
-    const seasonColors = { spring: '#e8f5e7', summer: '#fff8e6', fall: '#fff3e0', winter: '#e8eaf6' };
-    const seasonAccents = { spring: '#3d7a3a', summer: '#f57f17', fall: '#e65100', winter: '#3949ab' };
+    const sEmoji = {spring:'🌸',summer:'☀️',fall:'🍂',winter:'❄️'};
+    const sAccent = {spring:'#3d7a3a',summer:'#f57f17',fall:'#e65100',winter:'#3949ab'};
+    const catIcon = {fertilizer:'🌿','weed-control':'🚫',seed:'🌱',soil:'🧪','pest-control':'🐛',fungicide:'🍄',tool:'🔧'};
+    const catBg   = {fertilizer:'#e8f5e7','weed-control':'#fff3e0',seed:'#f1f8e9',soil:'#fdf3e3','pest-control':'#e8eaf6',fungicide:'#f3e5f5',tool:'#f5f5f5'};
 
-    const categoryIcons = {
-      'fertilizer': '🌿', 'weed-control': '🚫', 'seed': '🌱',
-      'soil': '🪨', 'pest-control': '🐛', 'fungicide': '🍄', 'tool': '🔧'
-    };
-    const categoryColors = {
-      'fertilizer': '#e8f5e7', 'weed-control': '#fff3e0', 'seed': '#f1f8e9',
-      'soil': '#fdf3e3', 'pest-control': '#e8eaf6', 'fungicide': '#f3e5f5', 'tool': '#f5f5f5'
-    };
+    const score    = Math.min(100, Math.max(0, plan.healthScore || 65));
+    const scoreDeg = Math.round((score / 100) * 360);
+    const scoreCol = score >= 70 ? '#52a34e' : score >= 45 ? '#f57f17' : '#e65100';
 
-    function renderSeason(key) {
-      const s = plan.seasons[key];
-      if (!s) return '';
+    const pills = [
+      answers.grassType  && `Grass: <span>${answers.grassType}</span>`,
+      answers.zip        && `ZIP: <span>${answers.zip}</span>`,
+      answers.lawnSize   && `Size: <span>${answers.lawnSize.split(' (')[0]}</span>`,
+      answers.lawnStyle  && `Goal: <span>${answers.lawnStyle.split(' —')[0]}</span>`,
+      answers.sunExposure && `Sun: <span>${answers.sunExposure.split(' (')[0]}</span>`,
+    ].filter(Boolean);
+
+    function priClass(p) { return p==='high'?'pri-high':p==='medium'?'pri-med':'pri-low'; }
+    function priLabel(p) { return p==='high'?'Do First':p==='medium'?'Recommended':'Optional'; }
+
+    function renderSeasonContent(key) {
+      const s = plan.seasons[key]; if (!s) return '';
       return `
-        <div class="care-section">
-          <div class="care-section-header">
-            <div class="care-icon" style="background:${seasonColors[key]};font-size:1.3rem">${seasonEmojis[key]}</div>
-            <h3>${key.charAt(0).toUpperCase() + key.slice(1)} Care Plan</h3>
-          </div>
-          <p style="font-size:0.88rem;color:#555;margin-bottom:1.25rem;font-style:italic;">${s.focus}</p>
-          <div class="info-grid">
-            <div class="info-card highlight">
-              <h4>✂️ Mowing</h4>
-              <p>${s.mowing}</p>
-            </div>
-            <div class="info-card">
-              <h4>💧 Watering</h4>
-              <p>${s.watering}</p>
-            </div>
-            <div class="info-card">
-              <h4>🌿 Fertilizing</h4>
-              <p>${s.fertilizing}</p>
-            </div>
-            <div class="info-card ${key === 'fall' ? 'highlight' : ''}">
-              <h4>🔄 Aeration & Thatch</h4>
-              <p>${s.aeration}</p>
-            </div>
-            <div class="info-card full warning">
-              <h4>🚫 Weed & Pest Control</h4>
-              <p>${s.weedPest}</p>
-            </div>
-          </div>
-        </div>
-      `;
+        <p style="font-size:0.85rem;color:#666;margin-bottom:1.15rem;font-style:italic;line-height:1.5;">${s.focus}</p>
+        <div class="info-grid">
+          <div class="info-card highlight"><h4>✂️ Mowing</h4><p>${s.mowing}</p></div>
+          <div class="info-card"><h4>💧 Watering</h4><p>${s.watering}</p></div>
+          <div class="info-card"><h4>🌿 Fertilizing</h4><p>${s.fertilizing}</p></div>
+          <div class="info-card${key==='fall'?' highlight':''}"><h4>🔄 Aeration</h4><p>${s.aeration}</p></div>
+          <div class="info-card full warning"><h4>🚫 Weed &amp; Pest Control</h4><p>${s.weedPest}</p></div>
+        </div>`;
     }
 
+    const kitNames = (plan.products||[]).map(p => p.name.split(' ').slice(0,3).join(' '));
+    window._currentPlan = plan;
+    window._renderSeasonContent = renderSeasonContent;
+    window._sEmoji = sEmoji;
+
     container.innerHTML = `
-      <!-- Plan Hero -->
-      <div class="plan-hero">
-        <div class="plan-hero-tag">Your Personalized Lawn Guide</div>
-        <h2>${answers.grassType || 'Your Lawn'} Care Plan for ZIP ${answers.zip || 'Your Area'}</h2>
-        <p>${plan.summary}</p>
-        <div class="plan-hero-stats">
-          <div class="plan-stat">
-            <div class="plan-stat-val">${plan.grassProfile.mowingHeight}</div>
-            <div class="plan-stat-label">Ideal mow height</div>
+      <div class="plan-hero"><div class="plan-hero-inner">
+        <span class="plan-hero-tag">Your Personalized Lawn Plan</span>
+        <h2><em>${plan.grassProfile.type || answers.grassType || 'Your Lawn'}</em> Plan for ZIP ${answers.zip || 'Your Area'}</h2>
+        <p class="plan-hero-summary">${plan.summary}</p>
+        <div class="profile-pills">${pills.map(p=>`<div class="profile-pill">${p}</div>`).join('')}</div>
+        <div class="score-wrap">
+          <div class="score-ring" style="background:conic-gradient(${scoreCol} ${scoreDeg}deg,rgba(255,255,255,0.1) 0deg);">
+            <div style="position:absolute;inset:8px;border-radius:50%;background:#111;"></div>
+            <div class="score-num-wrap">
+              <div class="score-num" style="color:${scoreCol}">${score}</div>
+              <div class="score-num-sub" style="color:#888">/100</div>
+            </div>
           </div>
-          <div class="plan-stat">
-            <div class="plan-stat-val">${plan.grassProfile.mowingFrequency.split(' ')[0] + ' ' + plan.grassProfile.mowingFrequency.split(' ')[1] || 'Weekly'}</div>
-            <div class="plan-stat-label">Mowing frequency</div>
-          </div>
-          <div class="plan-stat">
-            <div class="plan-stat-val">${plan.grassProfile.scalping.toLowerCase().startsWith('yes') ? 'Yes' : 'No'}</div>
-            <div class="plan-stat-label">Scalping needed</div>
+          <div class="score-text">
+            <h3>Lawn Health Score: ${score}/100</h3>
+            <p>${plan.healthNote || 'Follow the plan below to see improvement this season.'}</p>
           </div>
         </div>
-      </div>
+        <div class="plan-stats-row">
+          <div class="plan-stat-card"><div class="plan-stat-val">${plan.grassProfile.mowingHeight}</div><div class="plan-stat-label">Mow Height</div></div>
+          <div class="plan-stat-card"><div class="plan-stat-val">${plan.grassProfile.scalping?.toLowerCase().startsWith('yes')?'Yes':'No'}</div><div class="plan-stat-label">Scalping</div></div>
+          <div class="plan-stat-card"><div class="plan-stat-val">${(plan.products||[]).length}</div><div class="plan-stat-label">Products</div></div>
+          <div class="plan-stat-card"><div class="plan-stat-val">${(plan.checklist||[]).filter(c=>c.priority==='high').length}</div><div class="plan-stat-label">High Priority</div></div>
+        </div>
+      </div></div>
 
-      <!-- Results Tab Bar -->
       <div class="results-tabs" id="resultsTabs">
-        <button class="results-tab active" onclick="switchResultsTab('mowing', this)">✂️ Mowing</button>
-        <button class="results-tab" onclick="switchResultsTab('products', this)">🛒 Products</button>
-        <button class="results-tab" onclick="switchResultsTab('seasons', this)">🗓️ Seasons</button>
-        <button class="results-tab" onclick="switchResultsTab('checklist', this)">✅ Checklist</button>
+        <button class="results-tab active" onclick="switchResultsTab('products',this)">🛒 Products</button>
+        <button class="results-tab" onclick="switchResultsTab('seasons',this)">🗓️ Seasons</button>
+        <button class="results-tab" onclick="switchResultsTab('checklist',this)">✅ Checklist</button>
+        <button class="results-tab" onclick="switchResultsTab('mowing',this)">✂️ Mowing</button>
       </div>
 
-      <!-- TAB: MOWING -->
-      <div class="results-tab-panel active" id="panel-mowing">
-        <div class="care-section">
-          <div class="care-section-header">
-            <div class="care-icon" style="background:#f5f5f5">✂️</div>
-            <h3>Mowing Profile</h3>
+      <div class="results-tab-panel active" id="panel-products">
+        <div style="margin-bottom:2rem;">
+          <div class="res-section-head">
+            <div class="res-section-icon" style="background:#fdf3e3;">🧪</div>
+            <div><h3>Step 1 — Soil &amp; Prep</h3><p style="font-size:0.78rem;color:var(--mid);margin-top:0.1rem;">Fix the foundation before spending money on seed or fertilizer</p></div>
           </div>
-          <div class="info-grid">
-            <div class="info-card highlight">
-              <h4>Ideal Height</h4>
-              <div class="big-val">${plan.grassProfile.mowingHeight}</div>
-              <p>Never cut more than ⅓ of the blade at once</p>
-            </div>
-            <div class="info-card">
-              <h4>Frequency</h4>
-              <p>${plan.grassProfile.mowingFrequency}</p>
-            </div>
-            <div class="info-card full ${plan.grassProfile.scalping.toLowerCase().startsWith('yes') ? 'warning' : ''}">
-              <h4>Scalping</h4>
-              <p>${plan.grassProfile.scalping}</p>
-            </div>
-          </div>
+          <div class="product-list-rich" id="prodSoil"></div>
         </div>
+        <div style="margin-bottom:2rem;">
+          <div class="res-section-head">
+            <div class="res-section-icon" style="background:var(--green-pale);">🌿</div>
+            <div><h3>Step 2 — Your Recommended Products</h3><p style="font-size:0.78rem;color:var(--mid);margin-top:0.1rem;">Ranked by priority for your specific lawn</p></div>
+          </div>
+          <div class="product-list-rich" id="prodMain"></div>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <div class="res-section-head">
+            <div class="res-section-icon" style="background:#f5f5f5;">🛒</div>
+            <div><h3>Browse All Gear</h3><p style="font-size:0.78rem;color:var(--mid);margin-top:0.1rem;">Hand-picked tools for every lawn type</p></div>
+          </div>
+          <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1rem;" id="inlineShopFilters">
+            <button onclick="filterInlineShop('all',this)" class="ifilter active">All</button>
+            <button onclick="filterInlineShop('mower',this)" class="ifilter">Mowers</button>
+            <button onclick="filterInlineShop('spreader',this)" class="ifilter">Spreaders</button>
+            <button onclick="filterInlineShop('sprayer',this)" class="ifilter">Sprayers</button>
+            <button onclick="filterInlineShop('soil',this)" class="ifilter">Soil &amp; Testing</button>
+            <button onclick="filterInlineShop('fertilizer',this)" class="ifilter">Fertilizers</button>
+            <button onclick="filterInlineShop('tool',this)" class="ifilter">Tools</button>
+          </div>
+          <div id="inlineShopCards" class="product-list-rich"></div>
+        </div>
+        <div class="kit-box">
+          <h3>Your Complete Product List</h3>
+          <p>Everything recommended for your lawn — search each on Amazon.</p>
+          <div class="kit-items">${kitNames.map(n=>`<span class="kit-item">${n}</span>`).join('')}</div>
+          <a class="kit-cta" href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+care+kit+fertilizer+seed" target="_blank">Shop All on Amazon →</a>
+        </div>
+        <div class="disclaimer">⚠️ Recommendations are for informational purposes only. Results may vary. Always read product labels. LawnUnlocked may earn a small affiliate commission at no extra cost to you.</div>
       </div>
 
-      <!-- TAB: PRODUCTS -->
-      <div class="results-tab-panel" id="panel-products">
-        <div class="care-section">
-          <div class="care-section-header">
-            <div class="care-icon" style="background:#e8f5e7">🛒</div>
-            <h3>Products & Gear</h3>
-          </div>
-          <div style="display:flex;gap:0.5rem;margin-bottom:1.5rem;">
-            <button id="tabRecommended" onclick="switchProductTab('recommended')"
-              style="flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--green);background:var(--green);color:white;font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;">
-              ✨ My Recommendations
-            </button>
-            <button id="tabGear" onclick="switchProductTab('gear')"
-              style="flex:1;padding:0.65rem 1rem;border-radius:8px;border:1.5px solid var(--border);background:white;color:var(--black);font-family:'DM Sans',sans-serif;font-size:0.88rem;font-weight:500;cursor:pointer;transition:all 0.2s;">
-              🛒 Browse All Gear
-            </button>
-          </div>
-          <div id="panelRecommended">
-            <div class="product-list">
-              ${(plan.products || []).map(p => {
-                const amazonUrl = `https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(p.amazonSearch || p.name)}`;
-                const icon = categoryIcons[p.category] || '🌿';
-                const bg = categoryColors[p.category] || '#f5f5f5';
-                return `
-                  <div class="product-item">
-                    <div class="product-item-icon" style="background:${bg}">${icon}</div>
-                    <div class="product-item-body">
-                      <h4>${p.name}</h4>
-                      <p>${p.why}</p>
-                      <div class="product-item-meta">
-                        <span class="meta-chip">📦 ${p.applicationRate}</span>
-                        <span class="meta-chip">📅 ${p.bestTiming}</span>
-                      </div>
-                      <a href="${amazonUrl}" target="_blank" rel="noopener" class="btn-amazon" style="margin-top:0.75rem;display:inline-flex;">
-                        🛒 Find on Amazon
-                      </a>
-                    </div>
-                  </div>
-                `;
-              }).join('')}
-            </div>
-          </div>
-          <div id="panelGear" style="display:none;">
-            <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1.25rem;" id="inlineShopFilters">
-              <button onclick="filterInlineShop('all',this)" class="ifilter active">All</button>
-              <button onclick="filterInlineShop('mower',this)" class="ifilter">Mowers</button>
-              <button onclick="filterInlineShop('spreader',this)" class="ifilter">Spreaders</button>
-              <button onclick="filterInlineShop('sprayer',this)" class="ifilter">Sprayers</button>
-              <button onclick="filterInlineShop('soil',this)" class="ifilter">Soil & Testing</button>
-              <button onclick="filterInlineShop('fertilizer',this)" class="ifilter">Fertilizers</button>
-              <button onclick="filterInlineShop('tool',this)" class="ifilter">Tools</button>
-            </div>
-            <div id="inlineShopCards" class="product-list"></div>
-          </div>
-        </div>
-        <div class="disclaimer">
-          ⚠️ Recommendations are for informational purposes only. Results may vary. Always read product labels before use. LawnUnlocked may earn a small affiliate commission on Amazon purchases at no extra cost to you.
-        </div>
-      </div>
-
-      <!-- TAB: SEASONS -->
       <div class="results-tab-panel" id="panel-seasons">
-        <div class="care-section">
-          <div class="care-section-header">
-            <div class="care-icon" style="background:#e8f5e7">🗓️</div>
-            <h3>Seasonal Care Guide</h3>
+        <div class="res-section-head"><div class="res-section-icon" style="background:#e8f5e7;">🗓️</div><h3>Seasonal Care Guide</h3></div>
+        <div class="season-tabs" id="seasonTabs">
+          ${['spring','summer','fall','winter'].map(s=>`<div class="season-tab${s===activeSeason?' active':''}" onclick="switchSeason('${s}')">${sEmoji[s]} ${s.charAt(0).toUpperCase()+s.slice(1)}</div>`).join('')}
+        </div>
+        <div id="seasonContent">${renderSeasonContent(activeSeason)}</div>
+        <div style="margin-top:2rem;">
+          <div class="res-section-head"><div class="res-section-icon" style="background:#fff8e6;">📅</div><h3>12-Month Timeline</h3></div>
+          <div class="timeline-grid">
+            <div class="timeline-card now"><div class="timeline-month">🟢 Now — This Season</div><div class="timeline-task" id="nowTask">${plan.seasons[activeSeason]?.focus||''}</div></div>
+            ${['spring','summer','fall','winter'].filter(s=>s!==activeSeason).map(s=>`<div class="timeline-card"><div class="timeline-month">${sEmoji[s]} ${s.charAt(0).toUpperCase()+s.slice(1)}</div><div class="timeline-task">${plan.seasons[s]?.focus||''}</div></div>`).join('')}
           </div>
-          <div class="season-tabs" id="seasonTabs">
-            ${['spring','summer','fall','winter'].map(s => `
-              <div class="season-tab${s === activeSeason ? ' active' : ''}" onclick="switchSeason('${s}')">
-                ${seasonEmojis[s]} ${s.charAt(0).toUpperCase() + s.slice(1)}
-              </div>
-            `).join('')}
-          </div>
-          <div id="seasonContent">${renderSeason(activeSeason)}</div>
         </div>
       </div>
 
-      <!-- TAB: CHECKLIST -->
       <div class="results-tab-panel" id="panel-checklist">
-        <div class="care-section">
-          <div class="care-section-header">
-            <div class="care-icon" style="background:#fff8e6">✅</div>
-            <h3>Your Seasonal Checklist</h3>
-          </div>
-          <div class="checklist" id="checklist">
-            ${(plan.checklist || []).map((item, i) => {
-              const sc = item.season?.toLowerCase();
-              const col = seasonAccents[sc] || '#555';
-              return `
-                <div class="check-item" id="chk${i}" onclick="toggleCheck(${i})">
-                  <div class="check-box" id="chkbox${i}"></div>
-                  <div>
-                    <div class="check-text">${item.task}</div>
-                    <div class="check-season" style="color:${col}">${item.season} · ${item.priority === 'high' ? '🔴 High priority' : item.priority === 'medium' ? '🟡 Medium priority' : '🟢 Low priority'}</div>
-                  </div>
-                </div>
-              `;
-            }).join('')}
-          </div>
+        <div class="res-section-head"><div class="res-section-icon" style="background:#fff8e6;">✅</div><h3>Your Seasonal Checklist</h3></div>
+        <div class="checklist-list">
+          ${(plan.checklist||[]).map((item,i)=>{
+            const sc=item.season?.toLowerCase(),col=sAccent[sc]||'#555';
+            const pl=item.priority==='high'?'🔴 High priority':item.priority==='medium'?'🟡 Medium':'🟢 Low';
+            return `<div class="check-item" id="chk${i}" onclick="toggleCheck(${i})"><div class="check-box" id="chkbox${i}"></div><div><div class="check-text">${item.task}</div><div class="check-season" style="color:${col}">${item.season} · ${pl}</div></div></div>`;
+          }).join('')}
+        </div>
+      </div>
+
+      <div class="results-tab-panel" id="panel-mowing">
+        <div class="res-section-head"><div class="res-section-icon" style="background:#f5f5f5;">✂️</div><h3>Mowing Profile</h3></div>
+        <div class="info-grid">
+          <div class="info-card highlight"><h4>Ideal Height</h4><div class="big-val">${plan.grassProfile.mowingHeight}</div><p>Never cut more than ⅓ of the blade at once</p></div>
+          <div class="info-card"><h4>Frequency</h4><p>${plan.grassProfile.mowingFrequency}</p></div>
+          <div class="info-card full${plan.grassProfile.scalping?.toLowerCase().startsWith('yes')?' warning':''}"><h4>Scalping</h4><p>${plan.grassProfile.scalping}</p></div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <div class="res-section-head"><div class="res-section-icon" style="background:#e8f5e7;">📅</div><h3>Mowing by Season</h3></div>
+          <div class="info-grid">${['spring','summer','fall','winter'].map(s=>`<div class="info-card"><h4>${sEmoji[s]} ${s.charAt(0).toUpperCase()+s.slice(1)}</h4><p>${plan.seasons[s]?.mowing||''}</p></div>`).join('')}</div>
         </div>
       </div>
     `;
 
-    // Store plan for season switching
-    window._currentPlan = plan;
-    window._renderSeason = renderSeason;
+    // Populate product sections
+    const allP  = plan.products || [];
+    const soilP = allP.filter(p => p.category === 'soil');
+    const mainP = allP.filter(p => p.category !== 'soil');
+
+    function buildCard(p, featured) {
+      const icon = catIcon[p.category] || '🌿';
+      const bg   = catBg[p.category]   || '#f5f5f5';
+      const url  = `https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(p.amazonSearch||p.name)}`;
+      return `<div class="product-card-rich${featured?' featured':''}">
+        <div style="background:${bg};border-radius:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">${icon}</div>
+        <div class="product-card-body">
+          <span class="pri-badge ${priClass(p.priority)}">${priLabel(p.priority)}</span>
+          <div class="product-card-name">${p.name}</div>
+          <div class="product-card-why">${p.why}</div>
+          <div class="product-card-meta">
+            <span class="meta-tag meta-tag-amber">📅 ${p.timing || p.bestTiming || ''}</span>
+            <span class="meta-tag meta-tag-gray">📦 ${p.rate || p.applicationRate || ''}</span>
+          </div>
+          <a class="btn-amazon-rich" href="${url}" target="_blank" rel="noopener">🛒 Find on Amazon</a>
+        </div>
+      </div>`;
+    }
+
+    const soilEl = document.getElementById('prodSoil');
+    if (soilEl) {
+      if (soilP.length > 0) {
+        soilEl.innerHTML = soilP.map((p,i) => buildCard(p, i===0)).join('');
+      } else {
+        soilEl.innerHTML = buildCard({
+          name:'MySoil Soil Test Kit', category:'soil', priority:'high',
+          why:'Know your pH and nutrients before buying anything else — prevents wasting money on the wrong products.',
+          timing:'Do this first — before any other purchase',
+          rate:'One kit covers your whole yard',
+          amazonSearch:'MySoil soil test kit lawn'
+        }, true);
+      }
+    }
+    const mainEl = document.getElementById('prodMain');
+    if (mainEl) mainEl.innerHTML = (mainP.length>0?mainP:allP).map(p=>buildCard(p,p.priority==='high')).join('');
+
+    renderInlineShop('all');
   }
+
 
   function switchResultsTab(tab, el) {
     document.querySelectorAll('.results-tab').forEach(t => t.classList.remove('active'));
