@@ -1933,6 +1933,19 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
     }
     document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
     render();
+    document.getElementById("productResults").innerHTML = `
+  <div class="product-card">
+    <h4>Starter Fertilizer</h4>
+    <p>Great for boosting lawn growth</p>
+    <button>Buy Now</button>
+  </div>
+
+  <div class="product-card">
+    <h4>Weed Control</h4>
+    <p>Prevents and kills common weeds</p>
+    <button>Buy Now</button>
+  </div>
+`;
   }
 
 
