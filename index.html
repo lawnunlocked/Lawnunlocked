@@ -840,12 +840,68 @@ background: var(–gray); color: #666; font-weight: 500;
     <div class="spinner"></div>
     <p>Building your personalized lawn guide…</p>
   </div>
-  <div id="planContent" style="display:none"></div>
-  <button class="restart-btn" id="restartBtn" onclick="restartQuiz()" style="display:none">← Start Over</button>
+  <div id="planContent" style="display:none">
+
+<!-- LAWN DASHBOARD -->
+<div class="result-card">
+
+  <h2>Your Lawn Plan</h2>
+
+  <p><strong>Grass Type:</strong> <span id="resultGrass"></span></p>
+  <p><strong>Location:</strong> <span id="resultLocation"></span></p>
+
+  <div class="health-score" id="resultScore">72</div>
+  <p class="score-label">Lawn Health Score</p>
+
 </div>
 
+<!-- METRICS -->
+<div class="result-card">
+
+  <h3>Key Lawn Metrics</h3>
+
+  <div class="metric-grid">
+
+    <div class="metric">
+      Mowing Height
+      <strong id="mowHeight">1.5–2"</strong>
+    </div>
+
+    <div class="metric">
+      Watering
+      <strong id="watering">1–1.25"/week</strong>
+    </div>
+
+    <div class="metric">
+      Fertilizing
+      <strong id="fertilizing">6–8 weeks</strong>
+    </div>
 
   </div>
+
+</div>
+
+<!-- PRODUCTS -->
+<div class="result-card">
+
+  <h3>Recommended Products</h3>
+
+  <div id="productResults" class="products"></div>
+
+</div>
+
+<!-- SEASON PLAN -->
+<div class="result-card">
+
+  <h3>Your Seasonal Plan</h3>
+
+  <div id="seasonPlan" class="season-grid"></div>
+
+</div>
+
+<button class="restart-btn" id="restartBtn">Start Over</button>
+
+</div>
 </section>
 
 <!-- SHOP -->
@@ -2290,7 +2346,21 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
   document.getElementById('blogModal').addEventListener('click', function(e) {
     if (e.target === this) closeBlog();
   });
+  document.addEventListener("DOMContentLoaded", function() {
+document.getElementById("productResults").innerHTML = `
+  <div class="product-card">
+    <h4>Starter Fertilizer</h4>
+    <p>Great for boosting lawn growth</p>
+    <button>Buy Now</button>
+  </div>
 
+  <div class="product-card">
+    <h4>Weed Control</h4>
+    <p>Prevents and kills common weeds</p>
+    <button>Buy Now</button>
+  </div>
+`;
+});
 </script>
 
 </body>
