@@ -1814,8 +1814,26 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
                       </a>
                     </div>
                   </div>
-                `;
-              }).join('')}
+                  
+<div class="next-step-card">
+  <h3>🚀 Start This Week</h3>
+  <p>Your lawn is ready to improve fast. Follow these steps:</p>
+
+  <ul>
+    <li>🌱 Apply nitrogen fertilizer</li>
+    <li>✂️ Mow every 2–3 days</li>
+    <li>⚙️ Use growth regulator for best results</li>
+  </ul>
+
+  <button onclick="goToProducts()">Get My Products →</button>
+</div>
+${products.map(product => `
+  <div class="product-card">
+    <h4>${product.name}</h4>
+    <p>${product.description}</p>
+    <a href="${product.amazonUrl}" target="_blank">🛒 Find on Amazon</a>
+  </div>
+`).join('')}
             </div>
           </div>
           <div id="panelGear" style="display:none;">
@@ -1835,7 +1853,6 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
           ⚠️ Recommendations are for informational purposes only. Results may vary. Always read product labels before use. LawnUnlocked may earn a small affiliate commission on Amazon purchases at no extra cost to you.
         </div>
       </div>
-
       <!-- TAB: SEASONS -->
       <div class="results-tab-panel" id="panel-seasons">
         <div class="care-section">
@@ -1853,7 +1870,6 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
           <div id="seasonContent">${renderSeason(activeSeason)}</div>
         </div>
       </div>
-
       <!-- TAB: CHECKLIST -->
       <div class="results-tab-panel" id="panel-checklist">
         <div class="care-section">
