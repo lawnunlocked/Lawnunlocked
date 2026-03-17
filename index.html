@@ -2347,7 +2347,17 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
     if (e.target === this) closeBlog();
   });
   document.addEventListener("DOMContentLoaded", function() {
-document.getElementById("productResults").innerHTML = `
+  setTimeout(function() {
+
+    document.getElementById("productResults").innerHTML = `
+      <div style="background:red;color:white;padding:20px;">
+        TEST WORKING
+      </div>
+    `;
+
+  }, 2000);
+
+});
   <div class="product-card">
     <h4>Starter Fertilizer</h4>
     <p>Great for boosting lawn growth</p>
