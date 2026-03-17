@@ -1665,7 +1665,20 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
   }
 
   let activeSeason = 'spring';
+window.generatePlan = function() {
+  document.getElementById('loadingState').style.display = 'block';
 
+  let plan;
+
+  try {
+    // If you already have logic to build a plan, use it here
+    plan = getFallbackPlan(); // fallback for now
+  } catch (e) {
+    plan = getFallbackPlan();
+  }
+
+  renderPlan(plan);
+};
   function renderPlan(plan) {
     document.getElementById('loadingState').style.display = 'none';
     document.getElementById('restartBtn').style.display = 'block';
