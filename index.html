@@ -308,6 +308,26 @@ nav a.nav-link:hover { color: var(--green); }
   margin: 0 auto 1.5rem;
 }
 .loading-state p { color: var(--mid); font-size: 0.95rem; }
+.load-step {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.7rem 1rem; border-radius: 10px;
+  background: var(--gray); border: 1.5px solid var(--border);
+  font-size: 0.88rem; font-weight: 500; color: #888;
+  transition: all 0.4s ease;
+}
+.load-step.active {
+  background: var(--green-pale); border-color: #b6dcb2;
+  color: var(--black);
+}
+.load-step.done {
+  background: var(--green-pale); border-color: #b6dcb2;
+  color: var(--green);
+}
+.lstep-icon { font-size: 1.1rem; flex-shrink: 0; width: 1.4rem; text-align: center; }
+@keyframes floatGlobe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 .product-grid { display: grid; gap: 1.25rem; }
 .product-card {
   border: 1.5px solid var(--border); border-radius: 12px;
@@ -721,6 +741,88 @@ footer a:hover { color: var(--white); }
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════════════════
+     SHOP — replaced with product guide teaser card
+════════════════════════════════════════════════════════ -->
+<section class="shop-section" id="shop">
+  <div class="shop-intro">
+    <div class="section-label">Product Guide</div>
+    <h2 class="section-title">Good. Better. Best.</h2>
+    <p style="font-size:0.95rem;color:#555;max-width:520px;">One honest pick per tier across every major category — from budget-friendly options that get the job done to the professional-grade gear that landscapers actually use.</p>
+  </div>
+
+  <div class="tiers-promo-card">
+    <div class="tiers-promo-left">
+      <h3>Every product, every budget.</h3>
+      <p>We cover fertilizers, mowers, weed control, spreaders, sprayers, soil testing, aeration, and irrigation — with a clear Good / Better / Best recommendation for each. No filler, no sponsored placements.</p>
+      <div class="tier-pill-row">
+        <div class="tier-pill-sm"><span class="tp-dot" style="background:#4ade80;"></span> Good</div>
+        <div class="tier-pill-sm"><span class="tp-dot" style="background:#f59e0b;"></span> Better</div>
+        <div class="tier-pill-sm"><span class="tp-dot" style="background:var(--green);"></span> Best / Pro</div>
+      </div>
+      <a href="products.html" class="btn-browse-tiers">Browse All Products →</a>
+    </div>
+    <div class="tiers-promo-right">
+      <div class="cat-row">🌿 Fertilizers</div>
+      <div class="cat-row">🚫 Weed Control</div>
+      <div class="cat-row">✂️ Mowers</div>
+      <div class="cat-row">🪣 Spreaders</div>
+      <div class="cat-row">💧 Sprayers</div>
+      <div class="cat-row">🧪 Soil & Testing</div>
+      <div class="cat-row">🔧 Aeration & Tools</div>
+      <div class="cat-row">🚿 Irrigation</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG POST MODAL -->
+<div id="blogModal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.55);overflow-y:auto;padding:2rem 1rem;">
+  <div style="max-width:720px;margin:2rem auto;background:white;border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.18);">
+    <div id="blogModalContent"></div>
+    <div style="padding:0 2.5rem 2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
+      <button onclick="closeBlog()" style="background:white;color:var(--black);border:1.5px solid var(--border);padding:0.75rem 2rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;">← Back to Guides</button>
+      <a href="#quiz" onclick="closeBlog()" style="display:inline-block;background:var(--green);color:white;padding:0.75rem 2rem;border-radius:8px;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;">Get My Free Lawn Plan →</a>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-wrapper">
+    <div class="quiz-header">
+      <span class="section-label">Your Free Lawn Plan</span>
+      <h2 class="section-title" style="max-width:100%;text-align:center;">Let's build your personalized plan</h2>
+    </div>
+    <div id="quizPanel">
+      <div class="progress-text" id="progressText">Question 1 of 11</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:11%"></div></div>
+      <div class="question-card" id="questionCard"></div>
+      <div class="quiz-nav">
+        <button class="btn-back" id="btnBack" onclick="goBack()" style="visibility:hidden">← Back</button>
+        <button class="btn-next" id="btnNext" onclick="goNext()">Continue →</button>
+      </div>
+    </div>
+    <div id="resultsPanel">
+      <div id="loadingState" class="loading-state">
+        <div style="text-align:center;padding:2.5rem 1rem;">
+          <div style="font-size:3rem;margin-bottom:1rem;animation:floatGlobe 2s ease-in-out infinite;">🌍</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.4rem;">Building your lawn plan</h3>
+          <p style="font-size:0.88rem;color:var(--mid);margin-bottom:2rem;">Analyzing your answers…</p>
+          <div id="loadingSteps" style="max-width:280px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:0.85rem;">
+            <div class="load-step" id="lstep0"><span class="lstep-icon">⏳</span><span class="lstep-text">Reading your ZIP &amp; grass type</span></div>
+            <div class="load-step" id="lstep1"><span class="lstep-icon">⏳</span><span class="lstep-text">Checking your climate zone</span></div>
+            <div class="load-step" id="lstep2"><span class="lstep-icon">⏳</span><span class="lstep-text">Matching products to your lawn</span></div>
+            <div class="load-step" id="lstep3"><span class="lstep-icon">⏳</span><span class="lstep-text">Building seasonal care schedule</span></div>
+            <div class="load-step" id="lstep4"><span class="lstep-icon">⏳</span><span class="lstep-text">Finalizing your plan</span></div>
+          </div>
+        </div>
+      </div>
+      <div id="planContent" style="display:none"></div>
+      <button class="restart-btn" id="restartBtn" onclick="restartQuiz()" style="display:none">← Start Over</button>
+    </div>
+  </div>
+</section>
+
 <!-- BLOG SECTION -->
 <section id="blog" style="background:#f9f9f7;padding:5rem 2.5rem;">
   <div style="max-width:940px;margin:0 auto;">
@@ -764,78 +866,6 @@ footer a:hover { color: var(--white); }
   </div>
 </section>
 
-<!-- BLOG POST MODAL -->
-<div id="blogModal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.55);overflow-y:auto;padding:2rem 1rem;">
-  <div style="max-width:720px;margin:2rem auto;background:white;border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.18);">
-    <div id="blogModalContent"></div>
-    <div style="padding:0 2.5rem 2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
-      <button onclick="closeBlog()" style="background:white;color:var(--black);border:1.5px solid var(--border);padding:0.75rem 2rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;">← Back to Guides</button>
-      <a href="#quiz" onclick="closeBlog()" style="display:inline-block;background:var(--green);color:white;padding:0.75rem 2rem;border-radius:8px;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;">Get My Free Lawn Plan →</a>
-    </div>
-  </div>
-</div>
-
-<!-- QUIZ -->
-<section class="quiz-section" id="quiz">
-  <div class="quiz-wrapper">
-    <div class="quiz-header">
-      <span class="section-label">Your Free Lawn Plan</span>
-      <h2 class="section-title" style="max-width:100%;text-align:center;">Let's build your personalized plan</h2>
-    </div>
-    <div id="quizPanel">
-      <div class="progress-text" id="progressText">Question 1 of 11</div>
-      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:11%"></div></div>
-      <div class="question-card" id="questionCard"></div>
-      <div class="quiz-nav">
-        <button class="btn-back" id="btnBack" onclick="goBack()" style="visibility:hidden">← Back</button>
-        <button class="btn-next" id="btnNext" onclick="goNext()">Continue →</button>
-      </div>
-    </div>
-    <div id="resultsPanel">
-      <div id="loadingState" class="loading-state">
-        <div class="spinner"></div>
-        <p>Building your personalized lawn guide…</p>
-      </div>
-      <div id="planContent" style="display:none"></div>
-      <button class="restart-btn" id="restartBtn" onclick="restartQuiz()" style="display:none">← Start Over</button>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════
-     SHOP — replaced with product guide teaser card
-════════════════════════════════════════════════════════ -->
-<section class="shop-section" id="shop">
-  <div class="shop-intro">
-    <div class="section-label">Product Guide</div>
-    <h2 class="section-title">Good. Better. Best.</h2>
-    <p style="font-size:0.95rem;color:#555;max-width:520px;">One honest pick per tier across every major category — from budget-friendly options that get the job done to the professional-grade gear that landscapers actually use.</p>
-  </div>
-
-  <div class="tiers-promo-card">
-    <div class="tiers-promo-left">
-      <h3>Every product, every budget.</h3>
-      <p>We cover fertilizers, mowers, weed control, spreaders, sprayers, soil testing, aeration, and irrigation — with a clear Good / Better / Best recommendation for each. No filler, no sponsored placements.</p>
-      <div class="tier-pill-row">
-        <div class="tier-pill-sm"><span class="tp-dot" style="background:#4ade80;"></span> Good</div>
-        <div class="tier-pill-sm"><span class="tp-dot" style="background:#f59e0b;"></span> Better</div>
-        <div class="tier-pill-sm"><span class="tp-dot" style="background:var(--green);"></span> Best / Pro</div>
-      </div>
-      <a href="products.html" class="btn-browse-tiers">Browse All Products →</a>
-    </div>
-    <div class="tiers-promo-right">
-      <div class="cat-row">🌿 Fertilizers</div>
-      <div class="cat-row">🚫 Weed Control</div>
-      <div class="cat-row">✂️ Mowers</div>
-      <div class="cat-row">🪣 Spreaders</div>
-      <div class="cat-row">💧 Sprayers</div>
-      <div class="cat-row">🧪 Soil & Testing</div>
-      <div class="cat-row">🔧 Aeration & Tools</div>
-      <div class="cat-row">🚿 Irrigation</div>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER — Products link added -->
 <footer>
   <a href="#" class="logo">Lawn<span style="color:var(--green)">Unlocked</span></a>
@@ -860,7 +890,7 @@ footer a:hover { color: var(--white); }
     { id:'sunExposure', type:'options', title:'How much sun does your lawn get?', sub:'On a typical sunny day.', key:'sunExposure', options:[{icon:'☀️',text:'Full sun (6+ hours)'},{icon:'⛅',text:'Partial sun (3–6 hours)'},{icon:'🌥️',text:'Mostly shade (under 3 hours)'},{icon:'🔀',text:'Mix of sun and shade'}] },
     { id:'problems', type:'multi', title:'What lawn problems are you dealing with?', sub:'Select all that apply.', key:'problems', options:[{icon:'🟡',text:'Yellowing or thin grass'},{icon:'🌿',text:'Weeds taking over'},{icon:'🐛',text:'Pests or grubs'},{icon:'🦠',text:'Disease or fungus patches'},{icon:'🏜️',text:'Bare or patchy spots'},{icon:'💚',text:'Just want it to look greener'}] },
     { id:'lastFertilized', type:'options', title:'When did you last fertilize?', sub:'Best guess is fine.', key:'lastFertilized', options:[{icon:'📅',text:'Within the last month'},{icon:'🗓️',text:'1–3 months ago'},{icon:'📆',text:'3–6 months ago'},{icon:'❌',text:"Never or can't remember"}] },
-    { id:'budget', type:'options', title:"What's your budget for lawn products?", sub:"We'll keep recommendations within your range.", key:'budget', options:[{icon:'💵',text:'Under $50'},{icon:'💴',text:'$50–$100'},{icon:'💰',text:'$100–$200'},{icon:'🏆',text:'Whatever it takes to get results'}] },
+
     { id:'goal', type:'multi', title:'What are your lawn goals this season?', sub:'Select all that apply.', key:'goal', options:[{icon:'🌱',text:'Fix the obvious problems'},{icon:'💚',text:'Get it thick and green'},{icon:'🏆',text:'Best lawn on the block'},{icon:'🌿',text:'Low maintenance, just healthy'}] },
     { id:'soilTest', type:'soil', title:'Do you have a soil test result?', sub:"A soil test gives us precise data for better recommendations. No test? No problem — we'll still build you a great plan.", key:'soilTest' }
   ];
@@ -927,63 +957,48 @@ footer a:hover { color: var(--white); }
     document.getElementById('restartBtn').style.display='none';
     scrollOffset('resultsPanel');
 
+    // Animate loading steps
+    const stepTimings = [0, 1200, 2800, 4500, 6500];
+    const stepDone    = ['✅','✅','✅','✅','✅'];
+    stepTimings.forEach((delay, i) => {
+      setTimeout(() => {
+        // Mark previous step done
+        if (i > 0) {
+          const prev = document.getElementById('lstep'+(i-1));
+          if (prev) { prev.classList.remove('active'); prev.classList.add('done'); prev.querySelector('.lstep-icon').textContent = stepDone[i-1]; }
+        }
+        const cur = document.getElementById('lstep'+i);
+        if (cur) { cur.classList.add('active'); cur.querySelector('.lstep-icon').textContent = '🔄'; }
+      }, delay);
+    });
+
     const soilData=answers.soilTest||{};
-    let soilSummary='No soil test provided.';
-    if(soilData.type==='manual'&&soilData.values){const vals=Object.entries(soilData.values).filter(([,v])=>v).map(([k,v])=>`${k}: ${v}`).join(', ');soilSummary=vals?`Soil test values: ${vals}`:'No soil values entered.';}
-    else if(soilData.type==='upload'&&soilData.fileName){soilSummary=`Soil test file uploaded: ${soilData.fileName}.`;}
+    let soilSummary='No soil test.';
+    if(soilData.type==='manual'&&soilData.values){const vals=Object.entries(soilData.values).filter(([,v])=>v).map(([k,v])=>`${k}:${v}`).join(',');soilSummary=vals||'No values.';}
+    else if(soilData.type==='upload'&&soilData.fileName){soilSummary=`Test file: ${soilData.fileName}`;}
 
     const isGolfCourse=(answers.lawnStyle||'').includes('Golf course');
-    const prompt=`You are LawnUnlocked, a knowledgeable lawn care advisor. Based on the lawn profile below, generate a comprehensive seasonal lawn care guide. Return ONLY a valid JSON object — no markdown, no explanation.
+    const prompt=`You are LawnUnlocked, a lawn care advisor. Return ONLY valid JSON, no markdown.
 
-Lawn Profile:
-- ZIP: ${answers.zip||'Unknown'}
-- Grass Type: ${answers.grassType||'Unknown'}
-- Lawn Style Goal: ${answers.lawnStyle||'Healthy & green'}
-- Mower Type: ${answers.mowerType||'Unknown'}
-- Lawn Size: ${answers.lawnSize||'Unknown'}
-- Sun: ${answers.sunExposure||'Unknown'}
-- Problems: ${Array.isArray(answers.problems)?answers.problems.join(', '):(answers.problems||'Unknown')}
-- Last Fertilized: ${answers.lastFertilized||'Unknown'}
-- Budget: ${answers.budget||'Unknown'}
-- Goals: ${Array.isArray(answers.goal)?answers.goal.join(', '):(answers.goal||'Unknown')}
-- ${soilSummary}
-${isGolfCourse?`IMPORTANT: This user wants a GOLF COURSE style lawn. Tailor ALL advice accordingly:
-- Recommend aggressive low mowing heights (Bermuda: 0.5-0.75 inch, Zoysia: 0.5-1 inch, Bentgrass: 0.125-0.5 inch)
-- Include growth regulators (Primo Maxx or T-Nex) in product recommendations
-- Include lawn leveling and topdressing with masonry sand
-- Recommend upgrading to a reel mower if they have a rotary
-- Include soil surfactants (Hydretain or similar) for water penetration
-- More frequent fertilizing on a 4-6 week schedule
-- Warn clearly if their grass type (Fescue, St. Augustine, Kentucky Bluegrass) is NOT suitable for ultra-low cutting`:''}
+Lawn: ZIP ${answers.zip||'?'}, Grass: ${answers.grassType||'?'}, Goal: ${answers.lawnStyle||'Healthy'}, Mower: ${answers.mowerType||'?'}, Size: ${answers.lawnSize||'?'}, Sun: ${answers.sunExposure||'?'}, Problems: ${Array.isArray(answers.problems)?answers.problems.join(','): answers.problems||'?'}, Last fertilized: ${answers.lastFertilized||'?'}, Goals: ${Array.isArray(answers.goal)?answers.goal.join(','):answers.goal||'?'}, Soil: ${soilSummary}${isGolfCourse?'. GOLF COURSE goal: use aggressive low mow heights, recommend growth regulators, reel mower, topdressing, warn if grass not suitable for ultra-low cut.':''}
 
-Return this exact JSON structure:
-{
-  "summary": "2 sentence overview of this lawn's situation and main priorities",
-  "grassProfile": {
-    "type": "confirmed or estimated grass type",
-    "mowingHeight": "e.g. 3–3.5 inches",
-    "scalping": "yes/no and when",
-    "mowingFrequency": "e.g. every 5–7 days in growing season"
-  },
-  "seasons": {
-    "spring": {"focus":"","mowing":"","fertilizing":"","watering":"","weedPest":"","aeration":""},
-    "summer": {"focus":"","mowing":"","fertilizing":"","watering":"","weedPest":"","aeration":""},
-    "fall":   {"focus":"","mowing":"","fertilizing":"","watering":"","weedPest":"","aeration":""},
-    "winter": {"focus":"","mowing":"","fertilizing":"","watering":"","weedPest":"","aeration":""}
-  },
-  "checklist": [{"task":"","season":"","priority":""}],
-  "products":  [{"name":"","category":"","why":"","applicationRate":"","bestTiming":"","amazonSearch":""}]
-}
+Return exactly:
+{"summary":"2 sentences","grassProfile":{"type":"","mowingHeight":"","scalping":"","mowingFrequency":""},"seasons":{"spring":{"focus":"","mowing":"","fertilizing":"","watering":"","weedPest":"","aeration":""},"summer":{"focus":"","mowing":"","fertilizing":"","watering":"","weedPest":"","aeration":""},"fall":{"focus":"","mowing":"","fertilizing":"","watering":"","weedPest":"","aeration":""},"winter":{"focus":"","mowing":"","fertilizing":"","watering":"","weedPest":"","aeration":""}},"checklist":[{"task":"","season":"","priority":""}],"products":[{"name":"","category":"","why":"","applicationRate":"","bestTiming":"","amazonSearch":""}]}
 
-Include 6–8 checklist items covering all seasons. Include 4–5 products. Be specific to the grass type and region.`;
+6 checklist items, 4 products. Be specific to the grass and region.`;
 
     try{
       const response=await fetch('https://lawnunlocked.lawnunlocked.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})});
       const data=await response.json();
       const text=data.content.map(i=>i.text||'').join('');
       const clean=text.replace(/```json|```/g,'').trim();
-      renderPlan(JSON.parse(clean));
-    }catch(err){renderPlan(getFallbackPlan());}
+      // Mark all steps done
+      for(let i=0;i<5;i++){const s=document.getElementById('lstep'+i);if(s){s.classList.remove('active');s.classList.add('done');s.querySelector('.lstep-icon').textContent='✅';}}
+      setTimeout(()=>renderPlan(JSON.parse(clean)),400);
+    }catch(err){
+      for(let i=0;i<5;i++){const s=document.getElementById('lstep'+i);if(s){s.classList.remove('active');s.classList.add('done');s.querySelector('.lstep-icon').textContent='✅';}}
+      setTimeout(()=>renderPlan(getFallbackPlan()),400);
+    }
   }
 
   function getFallbackPlan(){
@@ -1164,42 +1179,42 @@ Include 6–8 checklist items covering all seasons. Include 4–5 products. Be s
      tiers:[
       {tier:'good',label:'Good',price:'~$22',name:'Scotts Turf Builder All-Purpose Lawn Food',why:'Reliable entry point across all grass types. Fast-release nitrogen means visible color within a few days. Best applied in spring or fall.',tags:['NPK 32-0-4','5,000 sq ft','All grass types'],url:amz('B005W1QXQW')},
       {tier:'better',label:'Better',price:'~$40',name:'Milorganite Organic Nitrogen Fertilizer',why:'Organic-based and impossible to burn. Feeds soil biology alongside the grass, building a healthier root zone over multiple seasons.',tags:['Slow-release','Organic-based','36 lb bag','Burn-proof'],url:amz('B08TM3ZCVL')},
-      {tier:'best',label:'Best',price:'~$85',name:'Lebanon Pro 30-0-4 with MESA Nitrogen',why:'MESA nitrogen — the standard on golf courses — delivers 50% immediate green-up and 50% sustained 8-week feeding. No flush growth, no burning.',tags:['MESA nitrogen','50-lb bag','Pro program'],url:amzS('Lebanon Pro 30-0-4 MESA nitrogen lawn fertilizer 50 lb')}
+      {tier:'best',label:'Best',price:'~$60',name:'The Andersons PGF Complete 16-4-8 Fertilizer',why:'Professional-grade formula using DG Technology — ultra-fine particles disperse twice as evenly as standard fertilizers. Includes 7% Humic DG, iron, and micronutrients. The 4-1-2 NPK ratio most agronomists recommend for general maintenance.',tags:['NPK 16-4-8','7% Humic DG','Iron + micronutrients','5,000 sq ft'],url:amz('B07SYLCKRH')}
      ]},
     {id:'weed',label:'Weed Control',emoji:'🚫',
      desc:'Prodiamine — used in virtually every professional pre-emergent program — provides a 5-to-6-month residual per application. Most retail alternatives need reapplication every 6–8 weeks.',
      tiers:[
       {tier:'good',label:'Good',price:'~$13',name:'Spectracide Weed Stop RTU Spray',why:'Ready-to-use spray killing 460+ broadleaf weed species on contact. Best for spot treatment — not a substitute for a seasonal pre-emergent program.',tags:['Post-emergent','Ready-to-use','460+ species'],url:amz('B01956S1L4')},
-      {tier:'better',label:'Better',price:'~$28',name:'Spectracide Weed Stop Concentrate (Hose-End)',why:'One jar treats up to 32,000 sq ft at a fraction of the cost of RTU sprays. Attaches to your hose and auto-dilutes.',tags:['Post-emergent','Hose-end spray','32,000 sq ft'],url:amz('B00OHV5S96')},
-      {tier:'best',label:'Best',price:'~$60',name:'Prodiamine 65 WDG (Generic Barricade)',why:'The active ingredient behind virtually every professional pre-emergent program in the US. 5–6 month residual. Five ounces treats five acres — far cheaper per sq ft than any hardware store option.',tags:['Active: prodiamine','5–6 month residual','Pre-emergent'],url:amz('B015BSNZP2')}
+      {tier:'better',label:'Better',price:'~$45',name:'Tenacity Turf Herbicide (8 oz)',why:'One jar treats up to 32,000 sq ft at a fraction of the cost of RTU sprays. Attaches to your hose and auto-dilutes.',tags:['Post-emergent','Hose-end spray','32,000 sq ft'],url:amz('B01AZXJ2ZA')},
+      {tier:'best',label:'Best',price:'~$80',name:'Prodiamine 65 WDG (Generic Barricade)',why:'The active ingredient behind virtually every professional pre-emergent program in the US. 5–6 month residual. Five ounces treats five acres — far cheaper per sq ft than any hardware store option.',tags:['Active: prodiamine','5–6 month residual','Pre-emergent'],url:amz('B015BSNZP2')}
      ]},
     {id:'mowers',label:'Mowers',emoji:'✂️',
      desc:'Rotary mowers tear the grass blade. Reel mowers slice it cleanly. A cleaner cut means less disease, better color, and a finish that looks noticeably different.',
      tiers:[
-      {tier:'good',label:'Good',price:'~$105',name:'Scotts 20" Classic Push Reel Mower',why:'No gas, no battery, no ongoing costs. Five-blade reel cuts cleanly at 1–3 inches. Effective for lawns up to 6,500 sq ft.',tags:['5-blade reel','Cut ht: 1–3"','No gas or battery'],url:amz('B00004RA3E')},
-      {tier:'better',label:'Better',price:'~$499',name:'EGO Power+ 21" Self-Propelled Cordless Mower',why:'The benchmark battery rotary mower. Quiet, self-propelled, and strong enough for tall grass. Ideal for Fescue and Bluegrass at standard 3–4 inch heights.',tags:['56V battery','Self-propelled','~45 min runtime'],url:amz('B0GKQZF882')},
+      {tier:'good',label:'Good',price:'~$150',name:'Scotts 20" Classic Push Reel Mower',why:'No gas, no battery, no ongoing costs. Five-blade reel cuts cleanly at 1–3 inches. Effective for lawns up to 6,500 sq ft.',tags:['5-blade reel','Cut ht: 1–3"','No gas or battery'],url:amz('B00004RA3E')},
+      {tier:'better',label:'Better',price:'~$479',name:'EGO Power+ 21" Self-Propelled Cordless Mower',why:'The benchmark battery rotary mower. Quiet, self-propelled, and strong enough for tall grass. Ideal for Fescue and Bluegrass at standard 3–4 inch heights.',tags:['56V battery','Self-propelled','~45 min runtime'],url:amz('B0857KWHHC')},
       {tier:'best',label:'Best',price:'~$2,595',name:'McLane 20" 7-Blade Gas Reel Mower',why:'The most widely used professional reel mower for homeowners cutting Bermuda or Zoysia to sub-inch heights. Gas-powered, 7-blade, cuts to 0.5 inches.',tags:['7-blade reel','Cuts to 0.5"','Gas-powered'],url:amz('B0GKQZF882')}
      ]},
     {id:'spreaders',label:'Spreaders',emoji:'🪣',
      desc:'Uneven application from a cheap spreader creates the alternating dark and light streaks visible across lawns every spring. A quality spreader makes every product work at the rate the label specifies.',
      tiers:[
-      {tier:'good',label:'Good',price:'~$28',name:'Scotts Wizz Battery Hand Spreader',why:'Battery-powered handheld spreader covering up to 2,500 sq ft per fill. Perfect for small lawns and edge touch-ups.',tags:['Handheld','Battery-powered','Up to 2,500 sq ft'],url:amz('B011HY5Q1K')},
-      {tier:'better',label:'Better',price:'~$65',name:'Scotts Turf Builder EdgeGuard DLX Spreader',why:'EdgeGuard tech blocks product from landing on driveways. Holds 15,000 sq ft of product per fill. The most used homeowner spreader for good reason.',tags:['EdgeGuard tech','Broadcast pattern','15,000 sq ft hopper'],url:amz('B001H1EQO2')},
-      {tier:'best',label:'Best',price:'~$329',name:'Lesco High-Wheel Fertilizer Spreader',why:'The spreader behind more professional lawn care programs than any other. Stainless axle and sealed gearbox built for decades of use.',tags:['100 lb hopper','High-wheel','Stainless axle'],url:amzS('Lesco 101186 high wheel fertilizer spreader')}
+      {tier:'good',label:'Good',price:'~$41',name:'Scotts Wizz Battery Hand Spreader',why:'Battery-powered handheld spreader covering up to 2,500 sq ft per fill. Perfect for small lawns and edge touch-ups.',tags:['Handheld','Battery-powered','Up to 2,500 sq ft'],url:amz('B011HY5Q1K')},
+      {tier:'better',label:'Better',price:'~$99',name:'Scotts Turf Builder EdgeGuard DLX Spreader',why:'EdgeGuard tech blocks product from landing on driveways. Holds 15,000 sq ft of product per fill. The most used homeowner spreader for good reason.',tags:['EdgeGuard tech','Broadcast pattern','15,000 sq ft hopper'],url:amz('B001H1EQO2')},
+      {tier:'best',label:'Best',price:'~$929',name:'Lesco High-Wheel Fertilizer Spreader',why:'The spreader behind more professional lawn care programs than any other. Stainless axle and sealed gearbox built for decades of use.',tags:['100 lb hopper','High-wheel','Stainless axle'],url:amzS('Lesco 101186 high wheel fertilizer spreader')}
      ]},
     {id:'sprayers',label:'Sprayers',emoji:'💧',
      desc:'Manual pump sprayers lose pressure as the tank empties. Battery and diaphragm pump models hold constant PSI from first spray to last, so your coverage rate is actually consistent.',
      tiers:[
       {tier:'good',label:'Good',price:'~$14',name:'Ortho Dial N Spray Hose-End Sprayer',why:'Attaches to your garden hose and auto-dilutes concentrate at the dial setting. No pumping required — fastest way to apply liquid fertilizer or herbicide.',tags:['Hose-end','Auto-dilutes','No pump needed'],url:amz('B000BQTRG6')},
-      {tier:'better',label:'Better',price:'~$105',name:'Chapin 4-Gallon Battery Backpack Sprayer',why:'Battery-maintained constant pressure keeps your application rate consistent across the entire 4-gallon tank. One fill covers most lawns completely.',tags:['4-gallon tank','Battery-powered','Constant pressure'],url:amz('B00Q03MMDO')},
-      {tier:'best',label:'Best',price:'~$210',name:'Field King Max Professional Backpack Sprayer',why:'Sealed pump design keeps chemical away from the pump mechanism — the primary reason cheaper sprayers fail. Standard choice of professional lawn care technicians.',tags:['4-gallon tank','Sealed pump','Padded harness'],url:amz('B01LZJEAHM')}
+      {tier:'better',label:'Better',price:'~$130',name:'Field King 190515 Battery Backpack Sprayer',why:'Battery-maintained constant pressure keeps your application rate consistent across the entire 4-gallon tank. One fill covers most lawns completely.',tags:['4-gallon tank','Battery-powered','Constant pressure'],url:amz('B07C814RC4')},
+      {tier:'best',label:'Best',price:'~$210',name:'Field King 190328 No-Leak Pump Backpack Sprayer',why:'Sealed pump design keeps chemical away from the pump mechanism — the primary reason cheaper sprayers fail. Standard choice of professional lawn care technicians.',tags:['4-gallon tank','Sealed pump','Padded harness'],url:amz('B01LZJEAHM')}
      ]},
     {id:'soil',label:'Soil & Testing',emoji:'🧪',
      desc:'A $25 mail-in soil test prevents hundreds of dollars in misdirected products. It is the single highest-ROI step in lawn care. If your lawn isn\'t responding to fertilizer, wrong soil pH is the most common reason.',
      tiers:[
       {tier:'good',label:'Good',price:'~$18',name:'Rapitest 4-in-1 Soil Test Kit',why:'At-home test for pH, nitrogen, phosphorus, and potassium. Results in minutes. Sufficient to reveal if your soil is seriously out of range before buying amendments.',tags:['At-home use','pH + N, P, K','40 tests included'],url:amz('B01HQXF0PS')},
       {tier:'better',label:'Better',price:'~$30',name:'MySoil Complete Soil Test Kit (Mail-In)',why:'Lab-accurate test for pH plus 13 nutrients. Results arrive as a custom report with fertilizer recommendations for your specific grass type.',tags:['Mail-in lab','13 nutrients tested','Custom report'],url:amz('B084TSNR79')},
-      {tier:'best',label:'Best',price:'~$35',name:'7-in-1 Soil Tester with NPK Meter',why:'Handheld meter that reads pH, nitrogen, phosphorus, potassium, moisture, sunlight, and temperature in real time — no mail-in wait. The fastest way to get actionable soil data before making fertilizer decisions.',tags:['pH + NPK + Moisture','Handheld & instant','No mail required'],url:amz('B0F1TRHFZQ')}
+      {tier:'best',label:'Best',price:'~$330',name:'7-in-1 Soil Tester with NPK Meter',why:'Handheld meter that reads pH, nitrogen, phosphorus, potassium, moisture, sunlight, and temperature in real time — no mail-in wait. The fastest way to get actionable soil data before making fertilizer decisions.',tags:['pH + NPK + Moisture','Handheld & instant','No mail required'],url:amz('B0F1TRHFZQ')}
      ]},
     {id:'tools',label:'Aeration & Tools',emoji:'🔧',
      desc:'Core aeration done once a year delivers better long-term results than almost any product you can apply. Spike aerators only poke holes — only hollow-tine core aerators pull actual plugs and create genuine relief.',
