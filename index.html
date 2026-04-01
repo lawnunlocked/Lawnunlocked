@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <script async data-uid="45b8798c7e" src="https://lawnunlocked.kit.com/45b8798c7e/index.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -758,119 +757,6 @@ footer a:hover { color: var(--white); }
 .season-reminder-text h5 { font-size: 0.84rem; font-weight: 600; margin-bottom: 0.15rem; }
 .season-reminder-text p { font-size: 0.76rem; color: #666; }
 
-/* ── EMAIL CAPTURE CARD ── */
-.guide-capture {
-  background: var(--black);
-  border-radius: 14px;
-  padding: 1.75rem;
-  margin: 1.25rem 0;
-  position: relative;
-  overflow: hidden;
-}
-.guide-capture::before {
-  content: '';
-  position: absolute; top: -40px; right: -40px;
-  width: 160px; height: 160px; border-radius: 50%;
-  background: radial-gradient(circle, var(--green) 0%, transparent 70%);
-  opacity: 0.25;
-}
-.guide-capture::after {
-  content: '';
-  position: absolute; bottom: -30px; left: -20px;
-  width: 100px; height: 100px; border-radius: 50%;
-  background: radial-gradient(circle, #f9a825 0%, transparent 70%);
-  opacity: 0.12;
-}
-.guide-capture-eyebrow {
-  font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: #f9a825; margin-bottom: 0.5rem;
-}
-.guide-capture h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem; font-weight: 700;
-  color: white; line-height: 1.3; margin-bottom: 0.4rem;
-}
-.guide-capture > p {
-  font-size: 0.84rem; color: #aaa;
-  line-height: 1.55; margin-bottom: 1rem;
-}
-.guide-capture-preview {
-  display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.1rem;
-}
-.guide-preview-chip {
-  font-size: 0.7rem; font-weight: 500;
-  padding: 0.2rem 0.65rem; border-radius: 100px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: #ccc;
-}
-/* Override Kit's default form styles to match site */
-.guide-capture .formkit-form {
-  background: transparent !important;
-  padding: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
-  width: 100% !important;
-  max-width: 100% !important;
-}
-.guide-capture .formkit-form * { box-sizing: border-box; }
-.guide-capture .formkit-fields {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 0.6rem !important;
-  margin-bottom: 0.6rem !important;
-}
-.guide-capture .formkit-field { margin: 0 !important; }
-.guide-capture .formkit-input {
-  width: 100% !important;
-  padding: 0.75rem 1rem !important;
-  background: rgba(255,255,255,0.07) !important;
-  border: 1.5px solid rgba(255,255,255,0.12) !important;
-  border-radius: 8px !important;
-  color: white !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 0.9rem !important;
-  outline: none !important;
-}
-.guide-capture .formkit-input::placeholder { color: #666 !important; }
-.guide-capture .formkit-input:focus {
-  border-color: var(--green-light) !important;
-}
-.guide-capture .formkit-submit {
-  width: 100% !important;
-  background: var(--green) !important;
-  color: white !important; border: none !important;
-  padding: 0.8rem 1.5rem !important; border-radius: 8px !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 0.95rem !important; font-weight: 600 !important;
-  cursor: pointer !important;
-  transition: background 0.2s, transform 0.15s !important;
-}
-.guide-capture .formkit-submit:hover {
-  background: var(--green-light) !important;
-  transform: translateY(-1px) !important;
-}
-.guide-capture .formkit-guarantee,
-.guide-capture .formkit-powered-by-convertkit-container {
-  display: none !important;
-}
-.guide-capture .formkit-alert {
-  color: #81c784 !important; font-size: 0.85rem !important;
-  background: rgba(76,175,80,0.15) !important;
-  border: 1px solid rgba(76,175,80,0.3) !important;
-  border-radius: 8px !important; padding: 0.75rem 1rem !important;
-  margin-top: 0.5rem !important;
-}
-.guide-fine-print {
-  font-size: 0.7rem; color: #555; text-align: center; margin-top: 0.5rem;
-}
-@media (max-width: 600px) {
-  .guide-capture .formkit-fields {
-    grid-template-columns: 1fr !important;
-  }
-}
-
 @media (max-width: 600px) {
   nav { padding: 1rem 1.25rem; }
   .hero { padding: 7rem 1.25rem 4rem; }
@@ -1236,8 +1122,6 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
 
       ${getPriorityCallout(answers.grassType, answers.zip, plan)}
 
-      ${getEmailCaptureCard(answers.grassType)}
-
       <div class="results-tabs" id="resultsTabs" style="grid-template-columns:1fr 1fr;">
         <button class="results-tab active" onclick="switchResultsTab('products',this)">🛒 My Products</button>
         <button class="results-tab"        onclick="switchResultsTab('careplan',this)">🗓️ Care Plan</button>
@@ -1369,6 +1253,24 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
 
     window._currentPlan=plan;
     setTimeout(initTierList, 50);
+
+    // Re-run Kit's embed script after dynamic DOM injection
+    setTimeout(() => {
+      if (window.FormKitObjects) {
+        // Kit v2 API
+        try { window.FormKitObjects.init(); } catch(e) {}
+      } else {
+        // Fallback: reload the script tag so Kit rescans the DOM
+        const existing = document.querySelector('script[data-uid="45b8798c7e"]');
+        if (existing) {
+          const s = document.createElement('script');
+          s.src = existing.src;
+          s.async = true;
+          s.setAttribute('data-uid', '45b8798c7e');
+          existing.parentNode.replaceChild(s, existing);
+        }
+      }
+    }, 200);
   }
 
   function switchResultsTab(tab,el){document.querySelectorAll('.results-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.results-tab-panel').forEach(p=>p.classList.remove('active'));el.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');scrollOffset('resultsTabs');}
@@ -1542,26 +1444,6 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
     const reminders={spring:{icon:'📅',title:'Set a reminder for fall aeration',text:`The best time to aerate ${isWarmSeason?'warm-season':'cool-season'} grass is ${isWarmSeason?'late spring':'September'}. Add a calendar reminder now so you do not miss it.`},summer:{icon:'💧',title:'Deep watering reminder',text:'Set a twice-weekly deep watering reminder. Shallow daily watering trains shallow roots — deep watering 2–3× per week builds drought resistance.'},fall:{icon:'❄️',title:'Set a reminder for spring pre-emergent',text:'The spring pre-emergent window opens when soil hits 55°F — usually late February to March. Add a reminder now so you are ready before the window opens.'},winter:{icon:'🌱',title:'Set a reminder for spring lawn startup',text:'Your spring lawn plan is ready. Add a reminder for late February to order your pre-emergent before it sells out.'}};
     const r=reminders[season];
     return`<div class="season-reminder"><span style="font-size:1.3rem;flex-shrink:0">${r.icon}</span><div class="season-reminder-text"><h5>${r.title}</h5><p>${r.text}</p></div></div>`;
-  }
-
-  // ── EMAIL CAPTURE ─────────────────────────────────────────────
-  function getEmailCaptureCard(grassType) {
-    const grass = grassType && !grassType.toLowerCase().includes("not sure")
-      ? grassType : "your lawn";
-    return `
-    <div class="guide-capture">
-      <div class="guide-capture-eyebrow">🌿 Free Download</div>
-      <h3>Get your Seasonal Lawn Care Guide</h3>
-      <p>A month-by-month care calendar for ${grass} — what to do, what to buy, and exactly when. 12 months, zero fluff.</p>
-      <div class="guide-capture-preview">
-        <span class="guide-preview-chip">📅 12-month calendar</span>
-        <span class="guide-preview-chip">🌿 Product + timing</span>
-        <span class="guide-preview-chip">❄ Cool &amp; warm season</span>
-        <span class="guide-preview-chip">📄 PDF download</span>
-      </div>
-      <div data-uid="45b8798c7e"></div>
-      <p class="guide-fine-print">No spam. Unsubscribe anytime.</p>
-    </div>`;
   }
 
   render();
