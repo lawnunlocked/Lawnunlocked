@@ -758,6 +758,108 @@ footer a:hover { color: var(--white); }
 .season-reminder-text h5 { font-size: 0.84rem; font-weight: 600; margin-bottom: 0.15rem; }
 .season-reminder-text p { font-size: 0.76rem; color: #666; }
 
+/* ── FRONT-OF-SITE GUIDE CAPTURE SECTION ── */
+.guide-section {
+  background: var(--black);
+  padding: 4rem 2.5rem;
+  position: relative; overflow: hidden;
+}
+.guide-section::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, var(--green) 0%, transparent 65%);
+  opacity: 0.18; pointer-events: none;
+}
+.guide-section::after {
+  content: ''; position: absolute; bottom: -40px; left: -40px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, #f9a825 0%, transparent 65%);
+  opacity: 0.1; pointer-events: none;
+}
+.guide-section-inner {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: center; position: relative; z-index: 1;
+}
+.guide-section-left .section-eyebrow {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #f9a825; margin-bottom: 0.75rem;
+}
+.guide-section-left h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700; color: white; line-height: 1.2;
+  letter-spacing: -0.02em; margin-bottom: 0.75rem;
+}
+.guide-section-left p {
+  font-size: 0.92rem; color: #aaa; line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+.guide-section-chips {
+  display: flex; gap: 0.4rem; flex-wrap: wrap;
+}
+.guide-section-chip {
+  font-size: 0.72rem; font-weight: 500; padding: 0.25rem 0.75rem;
+  border-radius: 100px; background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12); color: #bbb;
+}
+.guide-section-right {
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 2rem;
+}
+.guide-section-right h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700; color: white;
+  margin-bottom: 0.4rem;
+}
+.guide-section-right p {
+  font-size: 0.82rem; color: #888; margin-bottom: 1.25rem; line-height: 1.5;
+}
+/* reuse guide-capture form styles for the section form */
+.guide-section-form .formkit-form { background: transparent !important; box-shadow: none !important; max-width: 100% !important; }
+.guide-section-form .formkit-hero { display: none !important; }
+.guide-section-form .formkit-container { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
+.guide-section-form .formkit-fields { gap: 0.6rem !important; flex-wrap: wrap !important; flex-direction: column !important; }
+.guide-section-form .formkit-field { flex: 1 1 100% !important; margin: 0 !important; }
+.guide-section-form .formkit-input {
+  width: 100% !important;
+  background: rgba(255,255,255,0.07) !important;
+  border: 1.5px solid rgba(255,255,255,0.15) !important;
+  border-radius: 8px !important; color: white !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.9rem !important; padding: 0.75rem 1rem !important;
+}
+.guide-section-form .formkit-input::placeholder { color: #555 !important; font-style: normal !important; }
+.guide-section-form .formkit-input:focus { border-color: var(--green-light) !important; box-shadow: none !important; }
+.guide-section-form .formkit-submit {
+  background: var(--green) !important; border-radius: 8px !important;
+  font-family: 'DM Sans', sans-serif !important; font-weight: 600 !important;
+  font-size: 0.95rem !important; letter-spacing: 0 !important;
+  text-transform: none !important; padding: 0 !important;
+  margin: 0 !important; flex: 1 1 100% !important;
+  width: 100% !important; min-height: 48px !important;
+  color: white !important; border: none !important;
+}
+.guide-section-form .formkit-submit > span {
+  padding: 0.8rem 1.5rem !important; display: block !important;
+  color: white !important; font-size: 0.95rem !important; font-weight: 600 !important;
+}
+.guide-section-form .formkit-submit * { color: white !important; }
+.guide-section-form .formkit-submit:hover { background: var(--green-light) !important; }
+.guide-section-form .formkit-powered-by-convertkit-container { display: none !important; }
+.guide-section-form .formkit-alert-success {
+  background: rgba(76,175,80,0.15) !important; border-color: rgba(76,175,80,0.3) !important;
+  color: #81c784 !important; border-radius: 8px !important;
+}
+.guide-section-fineprt {
+  font-size: 0.7rem; color: #444; text-align: center; margin-top: 0.6rem;
+}
+@media (max-width: 700px) {
+  .guide-section-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .guide-section { padding: 3rem 1.25rem; }
+}
+
 /* ── EMAIL CAPTURE CARD ── */
 .guide-capture {
   background: var(--black); border-radius: 14px;
@@ -817,9 +919,14 @@ footer a:hover { color: var(--white); }
   text-transform: none !important; padding: 0 !important;
   margin: 0 !important; flex: 1 1 100% !important;
   width: 100% !important; min-height: 48px !important;
+  color: white !important; border: none !important;
 }
-.guide-capture .formkit-submit > span { padding: 0.8rem 1.5rem !important; display: block !important; }
+.guide-capture .formkit-submit > span {
+  padding: 0.8rem 1.5rem !important; display: block !important;
+  color: white !important; font-size: 0.95rem !important; font-weight: 600 !important;
+}
 .guide-capture .formkit-submit:hover { background: var(--green-light) !important; transform: none !important; }
+.guide-capture .formkit-submit * { color: white !important; }
 .guide-capture .formkit-powered-by-convertkit-container { display: none !important; }
 .guide-capture .formkit-alert-success {
   background: rgba(76,175,80,0.15) !important; border-color: rgba(76,175,80,0.3) !important;
@@ -907,6 +1014,45 @@ footer a:hover { color: var(--white); }
       <span>·</span>
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="flex-shrink:0"><rect x="2" y="5" width="9" height="7" rx="1.5" stroke="#888" stroke-width="1.2"/><path d="M4.5 5V3.5a2 2 0 014 0V5" stroke="#888" stroke-width="1.2" stroke-linecap="round"/></svg>
       No spam ever
+    </div>
+  </div>
+</section>
+
+<!-- GUIDE CAPTURE SECTION -->
+<section class="guide-section" id="guide-signup">
+  <div class="guide-section-inner">
+    <div class="guide-section-left">
+      <div class="section-eyebrow">🌿 Free Download</div>
+      <h2>Your complete Seasonal Lawn Care Guide — free.</h2>
+      <p>A month-by-month care calendar covering every task, every product, and the exact timing for both cool and warm season grasses. 12 months, zero fluff.</p>
+      <div class="guide-section-chips">
+        <span class="guide-section-chip">📅 Jan–Dec calendar</span>
+        <span class="guide-section-chip">🌿 Product + timing</span>
+        <span class="guide-section-chip">❄ Cool &amp; warm season</span>
+        <span class="guide-section-chip">📄 Instant PDF</span>
+      </div>
+    </div>
+    <div class="guide-section-right">
+      <h4>Get the free guide</h4>
+      <p>Enter your email and we'll send it straight to your inbox.</p>
+      <div class="guide-section-form">
+        <form action="https://app.kit.com/forms/9270390/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9270390" data-uid="45b8798c7e" data-format="inline" data-version="5" id="kitHeroForm">
+          <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+            <div class="formkit-field">
+              <input class="formkit-input" name="email_address" placeholder="Email address" required type="email" />
+            </div>
+            <button data-element="submit" class="formkit-submit">
+              <div class="formkit-spinner"><div></div><div></div><div></div></div>
+              <span>Send Me the Guide →</span>
+            </button>
+          </div>
+          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+          <div id="kitHeroSuccess" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;background:rgba(76,175,80,0.15);border:1px solid rgba(76,175,80,0.3);border-radius:8px;color:#81c784;font-size:0.88rem;font-weight:500;">
+            ✅ Check your inbox — your guide is on its way!
+          </div>
+        </form>
+      </div>
+      <p class="guide-section-fineprt">No spam. Unsubscribe anytime.</p>
     </div>
   </div>
 </section>
@@ -1554,9 +1700,9 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
   function closeBlog(){document.getElementById('blogModal').style.display='none';document.body.style.overflow='';}
   document.getElementById('blogModal').addEventListener('click',function(e){if(e.target===this)closeBlog();});
 
-  // Intercept Kit form submit — prevent redirect, show inline success
+  // Intercept Kit form submits — prevent redirect, show inline success
   document.addEventListener('submit', function(e) {
-    const form = e.target.closest('#kitCaptureForm');
+    const form = e.target.closest('#kitCaptureForm, #kitHeroForm');
     if (!form) return;
     e.preventDefault();
     const email = form.querySelector('input[name="email_address"]')?.value?.trim();
@@ -1566,11 +1712,12 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
     const body = new FormData(form);
     fetch(form.action, { method: 'POST', body, headers: { 'Accept': 'application/json' } })
       .then(() => showKitSuccess(form))
-      .catch(() => showKitSuccess(form)); // show success even on CORS — Kit processes it
+      .catch(() => showKitSuccess(form));
   }, true);
 
   function showKitSuccess(form) {
-    const success = document.getElementById('kitInlineSuccess');
+    const successId = form.id === 'kitHeroForm' ? 'kitHeroSuccess' : 'kitInlineSuccess';
+    const success = document.getElementById(successId);
     const fields  = form.querySelector('.seva-fields');
     if (fields)  fields.style.display = 'none';
     if (success) success.style.display = 'block';
