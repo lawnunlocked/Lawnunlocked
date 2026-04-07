@@ -77,7 +77,6 @@ nav a.nav-link:hover { color: var(--green); }
     radial-gradient(ellipse 40% 40% at 5% 85%, #e8f5e7 0%, transparent 60%),
     #ffffff;
 }
-/* hero-grid removed */
 .hero-inner {
   position: relative; z-index: 1;
   max-width: 680px;
@@ -518,8 +517,8 @@ nav a.nav-link:hover { color: var(--green); }
   margin: 0 0 1.5rem;
 }
 .results-tab {
-  padding: 0.65rem 0.4rem;
-  font-family: 'DM Sans', sans-serif; font-size: 0.8rem; font-weight: 500;
+  padding: 0.85rem 0.4rem; min-height: 44px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500;
   color: #777; background: #f5f5f3; border: none; border-radius: 8px;
   cursor: pointer; transition: all 0.18s; text-align: center;
   line-height: 1.3; white-space: normal;
@@ -583,7 +582,9 @@ nav a.nav-link:hover { color: var(--green); }
   padding: 0.5rem 0.75rem;
   background: white; border: 1px solid var(--border);
   border-radius: 8px; white-space: nowrap;
+  text-decoration: none;
 }
+.cat-row:hover { border-color: var(--green); }
 
 /* ── BLOG ── */
 .blog-card {
@@ -758,108 +759,6 @@ footer a:hover { color: var(--white); }
 .season-reminder-text h5 { font-size: 0.84rem; font-weight: 600; margin-bottom: 0.15rem; }
 .season-reminder-text p { font-size: 0.76rem; color: #666; }
 
-/* ── FRONT-OF-SITE GUIDE CAPTURE SECTION ── */
-.guide-section {
-  background: var(--black);
-  padding: 4rem 2.5rem;
-  position: relative; overflow: hidden;
-}
-.guide-section::before {
-  content: ''; position: absolute; top: -60px; right: -60px;
-  width: 300px; height: 300px; border-radius: 50%;
-  background: radial-gradient(circle, var(--green) 0%, transparent 65%);
-  opacity: 0.18; pointer-events: none;
-}
-.guide-section::after {
-  content: ''; position: absolute; bottom: -40px; left: -40px;
-  width: 200px; height: 200px; border-radius: 50%;
-  background: radial-gradient(circle, #f9a825 0%, transparent 65%);
-  opacity: 0.1; pointer-events: none;
-}
-.guide-section-inner {
-  max-width: 860px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 3rem; align-items: center; position: relative; z-index: 1;
-}
-.guide-section-left .section-eyebrow {
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: #f9a825; margin-bottom: 0.75rem;
-}
-.guide-section-left h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-  font-weight: 700; color: white; line-height: 1.2;
-  letter-spacing: -0.02em; margin-bottom: 0.75rem;
-}
-.guide-section-left p {
-  font-size: 0.92rem; color: #aaa; line-height: 1.65;
-  margin-bottom: 1.25rem;
-}
-.guide-section-chips {
-  display: flex; gap: 0.4rem; flex-wrap: wrap;
-}
-.guide-section-chip {
-  font-size: 0.72rem; font-weight: 500; padding: 0.25rem 0.75rem;
-  border-radius: 100px; background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12); color: #bbb;
-}
-.guide-section-right {
-  background: rgba(255,255,255,0.04);
-  border: 1.5px solid rgba(255,255,255,0.1);
-  border-radius: 14px; padding: 2rem;
-}
-.guide-section-right h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem; font-weight: 700; color: white;
-  margin-bottom: 0.4rem;
-}
-.guide-section-right p {
-  font-size: 0.82rem; color: #888; margin-bottom: 1.25rem; line-height: 1.5;
-}
-/* reuse guide-capture form styles for the section form */
-.guide-section-form .formkit-form { background: transparent !important; box-shadow: none !important; max-width: 100% !important; }
-.guide-section-form .formkit-hero { display: none !important; }
-.guide-section-form .formkit-container { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
-.guide-section-form .formkit-fields { gap: 0.6rem !important; flex-wrap: wrap !important; flex-direction: column !important; }
-.guide-section-form .formkit-field { flex: 1 1 100% !important; margin: 0 !important; }
-.guide-section-form .formkit-input {
-  width: 100% !important;
-  background: rgba(255,255,255,0.07) !important;
-  border: 1.5px solid rgba(255,255,255,0.15) !important;
-  border-radius: 8px !important; color: white !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 0.9rem !important; padding: 0.75rem 1rem !important;
-}
-.guide-section-form .formkit-input::placeholder { color: #555 !important; font-style: normal !important; }
-.guide-section-form .formkit-input:focus { border-color: var(--green-light) !important; box-shadow: none !important; }
-.guide-section-form .formkit-submit {
-  background: var(--green) !important; border-radius: 8px !important;
-  font-family: 'DM Sans', sans-serif !important; font-weight: 600 !important;
-  font-size: 0.95rem !important; letter-spacing: 0 !important;
-  text-transform: none !important; padding: 0 !important;
-  margin: 0 !important; flex: 1 1 100% !important;
-  width: 100% !important; min-height: 48px !important;
-  color: white !important; border: none !important;
-}
-.guide-section-form .formkit-submit > span {
-  padding: 0.8rem 1.5rem !important; display: block !important;
-  color: white !important; font-size: 0.95rem !important; font-weight: 600 !important;
-}
-.guide-section-form .formkit-submit * { color: white !important; }
-.guide-section-form .formkit-submit:hover { background: var(--green-light) !important; }
-.guide-section-form .formkit-powered-by-convertkit-container { display: none !important; }
-.guide-section-form .formkit-alert-success {
-  background: rgba(76,175,80,0.15) !important; border-color: rgba(76,175,80,0.3) !important;
-  color: #81c784 !important; border-radius: 8px !important;
-}
-.guide-section-fineprt {
-  font-size: 0.7rem; color: #444; text-align: center; margin-top: 0.6rem;
-}
-@media (max-width: 700px) {
-  .guide-section-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-  .guide-section { padding: 3rem 1.25rem; }
-}
-
 /* ── EMAIL CAPTURE CARD ── */
 .guide-capture {
   background: var(--black); border-radius: 14px;
@@ -897,7 +796,6 @@ footer a:hover { color: var(--white); }
   border-radius: 100px; background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.12); color: #ccc;
 }
-/* Override Kit form styles inside our card */
 .guide-capture .formkit-form { background: transparent !important; box-shadow: none !important; max-width: 100% !important; }
 .guide-capture .formkit-hero { display: none !important; }
 .guide-capture .formkit-container { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
@@ -938,9 +836,6 @@ footer a:hover { color: var(--white); }
 }
 .guide-fine-print {
   font-size: 0.7rem; color: #444; text-align: center; margin-top: 0.6rem;
-}
-@media (max-width: 600px) {
-  .guide-capture .formkit-fields { flex-wrap: wrap !important; }
 }
 
 @media (max-width: 600px) {
@@ -1018,45 +913,6 @@ footer a:hover { color: var(--white); }
   </div>
 </section>
 
-<!-- GUIDE CAPTURE SECTION -->
-<section class="guide-section" id="guide-signup">
-  <div class="guide-section-inner">
-    <div class="guide-section-left">
-      <div class="section-eyebrow">🌿 Free Download</div>
-      <h2>Your complete Seasonal Lawn Care Guide — free.</h2>
-      <p>A month-by-month care calendar covering every task, every product, and the exact timing for both cool and warm season grasses. 12 months, zero fluff.</p>
-      <div class="guide-section-chips">
-        <span class="guide-section-chip">📅 Jan–Dec calendar</span>
-        <span class="guide-section-chip">🌿 Product + timing</span>
-        <span class="guide-section-chip">❄ Cool &amp; warm season</span>
-        <span class="guide-section-chip">📄 Instant PDF</span>
-      </div>
-    </div>
-    <div class="guide-section-right">
-      <h4>Get the free guide</h4>
-      <p>Enter your email and we'll send it straight to your inbox.</p>
-      <div class="guide-section-form">
-        <form action="https://app.kit.com/forms/9270390/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9270390" data-uid="45b8798c7e" data-format="inline" data-version="5" id="kitHeroForm">
-          <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
-            <div class="formkit-field">
-              <input class="formkit-input" name="email_address" placeholder="Email address" required type="email" />
-            </div>
-            <button data-element="submit" class="formkit-submit">
-              <div class="formkit-spinner"><div></div><div></div><div></div></div>
-              <span>Send Me the Guide →</span>
-            </button>
-          </div>
-          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-          <div id="kitHeroSuccess" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;background:rgba(76,175,80,0.15);border:1px solid rgba(76,175,80,0.3);border-radius:8px;color:#81c784;font-size:0.88rem;font-weight:500;">
-            ✅ Check your inbox — your guide is on its way!
-          </div>
-        </form>
-      </div>
-      <p class="guide-section-fineprt">No spam. Unsubscribe anytime.</p>
-    </div>
-  </div>
-</section>
-
 <!-- SHOP — product guide teaser card -->
 <section class="shop-section" id="shop">
   <div class="shop-intro">
@@ -1076,14 +932,13 @@ footer a:hover { color: var(--white); }
       <a href="products.html" class="btn-browse-tiers">Browse All Products →</a>
     </div>
     <div class="tiers-promo-right">
-      <div class="cat-row">🌿 Fertilizers</div>
-      <div class="cat-row">🚫 Weed Control</div>
-      <div class="cat-row">✂️ Mowers</div>
-      <div class="cat-row">🪣 Spreaders</div>
-      <div class="cat-row">💧 Sprayers</div>
-      <div class="cat-row">🧪 Soil & Testing</div>
-      <div class="cat-row">🔧 Aeration & Tools</div>
-      <div class="cat-row">🚿 Irrigation</div>
+      <a href="products.html#fertilizers" class="cat-row">🌿 Fertilizers</a>
+      <a href="products.html#weed" class="cat-row">🚫 Weed Control</a>
+      <a href="products.html#mowers" class="cat-row">✂️ Mowers</a>
+      <a href="products.html#spreaders" class="cat-row">🪣 Spreaders</a>
+      <a href="products.html#sprayers" class="cat-row">💧 Sprayers</a>
+      <a href="products.html#soil" class="cat-row">🧪 Soil &amp; Testing</a>
+      <a href="products.html#tools" class="cat-row">🔧 Aeration &amp; Tools</a>
     </div>
   </div>
 </section>
@@ -1107,8 +962,8 @@ footer a:hover { color: var(--white); }
       <h2 class="section-title" style="max-width:100%;text-align:center;">Let's build your personalized plan</h2>
     </div>
     <div id="quizPanel">
-      <div class="progress-text" id="progressText">Question 1 of 11</div>
-      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:11%"></div></div>
+      <div class="progress-text" id="progressText">Question 1 of 10</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:10%"></div></div>
       <div class="question-card" id="questionCard"></div>
       <div class="quiz-nav">
         <button class="btn-back" id="btnBack" onclick="goBack()" style="visibility:hidden">← Back</button>
@@ -1148,7 +1003,7 @@ footer a:hover { color: var(--white); }
       <div class="blog-card" onclick="openBlog('newconstruction')">
         <div class="blog-card-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);"><span style="font-size:2.5rem;">🏗️</span></div>
         <div class="blog-card-body">
-          <div class="blog-tag">Soil & Site</div>
+          <div class="blog-tag">Soil &amp; Site</div>
           <h3>Managing a Lawn in New Construction Soil</h3>
           <p>Builder fill dirt is not real topsoil. Here is what you are actually dealing with — and how to fix it without wasting money.</p>
           <span class="blog-read">Read Guide →</span>
@@ -1188,7 +1043,7 @@ footer a:hover { color: var(--white); }
     <a href="#quiz"         style="color:#aaa;text-decoration:none;margin:0 0.75rem;">Get My Plan</a>
   </p>
   <p>Honest lawn advice. No nonsense. No markups.<br/>
-  <a href="#">Privacy Policy</a> · <a href="#">Affiliate Disclosure</a></p>
+  <a href="#">Privacy Policy</a> · <a href="/affiliate-disclosure.html">Affiliate Disclosure</a></p>
   <p style="margin-top:1.5rem;font-size:0.75rem">© 2026 LawnUnlocked. As an Amazon Associate we earn from qualifying purchases.</p>
 </footer>
 
@@ -1232,12 +1087,12 @@ footer a:hover { color: var(--white); }
     } else if (q.type === 'soil') {
       const saved = answers['soilTest'] || {};
       card.innerHTML = `<h2>${q.title}</h2><p class="sub">${q.sub}</p><div class="soil-options">
+        <div style="background:var(--green-pale);border:1.5px solid #b6dcb2;border-radius:10px;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.25rem;"><div><p style="font-size:0.85rem;font-weight:500;color:var(--black);margin-bottom:0.2rem">🧪 No soil test yet?</p><p style="font-size:0.78rem;color:#555;">A $30 mail-in kit gives you lab-accurate results — the single highest-ROI step in lawn care.</p></div><a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" style="background:var(--green);color:white;padding:0.5rem 1.1rem;border-radius:7px;text-decoration:none;font-size:0.82rem;font-weight:500;white-space:nowrap;" onmouseover="this.style.background='#52a34e'" onmouseout="this.style.background='#3d7a3a'">Get MySoil Kit →</a></div>
         <div class="soil-opt${saved.type==='upload'?' selected':''}" id="soilOptUpload" onclick="selectSoilType('upload')"><h4>📄 Yes — I'll upload my soil test PDF or photo</h4><p>Get the most precise recommendations based on your actual soil data</p></div>
         <div id="soilUploadArea"><div class="upload-zone" onclick="document.getElementById('soilFileInput').click()"><div style="font-size:2rem">📎</div><p>${saved.fileName||'Click to upload your soil test (PDF, JPG, PNG)'}</p></div><input type="file" id="soilFileInput" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileUpload(this)"/></div>
         <div class="soil-opt${saved.type==='manual'?' selected':''}" id="soilOptManual" onclick="selectSoilType('manual')"><h4>🔢 Yes — I'll enter my soil test numbers manually</h4><p>Type in the key values from your soil test report</p></div>
         <div id="soilManualArea"><p style="font-size:0.82rem;color:var(--mid);margin-bottom:0.5rem">Enter what you have — leave blank if not listed</p><div class="soil-grid">${[['pH','pH (e.g. 6.2)'],['nitrogen','Nitrogen (N)'],['phosphorus','Phosphorus (P)'],['potassium','Potassium (K)'],['organicMatter','Organic Matter %'],['calcium','Calcium']].map(([k,label])=>`<div class="soil-field"><label>${label}</label><input type="text" class="text-input" style="padding:0.65rem 0.9rem;font-size:0.88rem" placeholder="—" value="${(saved.values&&saved.values[k])||''}" oninput="updateSoilManual('${k}',this.value)"/></div>`).join('')}</div></div>
         <div class="soil-opt${saved.type==='none'?' selected':''}" id="soilOptNone" onclick="selectSoilType('none')"><h4>❌ No — skip this and use my quiz answers only</h4><p>We'll still build you a solid plan based on your location and lawn profile</p></div>
-        <div style="background:var(--green-pale);border:1.5px solid #b6dcb2;border-radius:10px;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;"><div><p style="font-size:0.85rem;font-weight:500;color:var(--black);margin-bottom:0.2rem">🧪 Don't have a soil test yet?</p><p style="font-size:0.78rem;color:#555;">A ~$15 kit from Amazon gives you precise data for much better recommendations.</p></div><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=soil+test+kit+lawn" target="_blank" rel="noopener" style="background:var(--green);color:white;padding:0.5rem 1.1rem;border-radius:7px;text-decoration:none;font-size:0.82rem;font-weight:500;white-space:nowrap;" onmouseover="this.style.background='#52a34e'" onmouseout="this.style.background='#3d7a3a'">Get a Soil Test Kit →</a></div>
       </div>`;
       if (saved.type==='upload') document.getElementById('soilUploadArea').style.display='block';
       if (saved.type==='manual') document.getElementById('soilManualArea').style.display='block';
@@ -1316,7 +1171,7 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
   function getFallbackPlan(){
     const grass=answers.grassType||'your grass type';
     const size=answers.lawnSize||'Medium (2,000–5,000 sq ft)';
-    return{summary:`Your ${grass} lawn has been analyzed based on your location and goals. Focus on a consistent fertilizer schedule and addressing the problems you identified to see significant improvement this season.`,grassProfile:{type:grass,mowingHeight:"3–3.5 inches",scalping:"Yes — scalp in early spring before green-up to remove dead material",mowingFrequency:"Every 5–7 days during active growing season"},seasons:{spring:{focus:"Wake up the lawn — clean up, first feed, and pre-emergent weed control.",mowing:"Begin mowing when grass reaches 4.5 inches. Start lower for first cut then raise to normal height.",fertilizing:"Apply a balanced starter fertilizer once soil temps hit 55°F.",watering:"1 inch per week. Water deeply 2–3 times per week.",weedPest:"Apply pre-emergent herbicide before soil temps hit 55°F to prevent crabgrass.",aeration:"Light dethatching recommended if thatch exceeds ½ inch.",productName:"Prodiamine 65 WDG",productReason:"Apply before soil hits 55°F for season-long crabgrass control"},summer:{focus:"Protect and maintain — avoid stress, keep moisture consistent, mow high.",mowing:"Raise mowing height by ½ inch in summer heat. Never remove more than ⅓ of blade.",fertilizing:"Use slow-release only. Avoid heavy nitrogen in summer heat.",watering:"1.5 inches per week. Water in early morning.",weedPest:"Spot-treat weeds. Watch for grub damage in June–July.",aeration:"Do not aerate in summer.",productName:"Milorganite",productReason:"Safe slow-release feed during summer heat — won't burn stressed turf"},fall:{focus:"The most important season — feed heavily, aerate, and prepare for winter.",mowing:"Gradually lower mowing height as growth slows. Final cut at 2.5 inches.",fertilizing:"Apply a high-potassium winterizer fertilizer. This is the most important feed of the year.",watering:"Reduce to ¾ inch per week as temperatures drop.",weedPest:"Apply post-emergent herbicide for broadleaf weeds in early fall.",aeration:"Core aerate in early fall when soil is moist. Overseed immediately after.",productName:"Scotts Turf Builder WinterGuard",productReason:"High-potassium fall formula builds root strength for winter"},winter:{focus:"Rest and protect — minimal intervention, plan for spring.",mowing:"No mowing needed once dormant. Sharpen blades during downtime.",fertilizing:"No fertilizing during dormancy.",watering:"Only water if extended dry spell with no snow.",weedPest:"Scout for snow mold. Avoid foot traffic on frozen grass.",aeration:"Not recommended.",productName:"Prodiamine 65 WDG",productReason:"Order now before spring demand spikes — apply when soil hits 55°F"}},products:[{name:"Prodiamine 65 WDG (Generic Barricade)",category:"weed-control",why:"The professional pre-emergent standard. A single spring application delivers 5–6 months of crabgrass protection.",applicationRate:`5 oz treats one acre. For ${size}, use proportionally.`,urgency:"now",windowNote:"Apply before soil hits 55°F",amazonSearch:"Prodiamine 65 WDG pre-emergent herbicide"},{name:"Milorganite Organic Nitrogen Fertilizer",category:"fertilizer",why:"Organic-based, impossible to burn. Feeds the lawn and soil biology simultaneously.",applicationRate:`32 lb bag covers 2,500 sq ft. For ${size}, use 1–2 bags.`,urgency:"now",windowNote:"Safe to apply any time ground isn't frozen",amazonSearch:"Milorganite organic nitrogen fertilizer 32lb"},{name:"Spectracide Weed Stop for Lawns RTU",category:"weed-control",why:"Ready-to-use spot treatment for visible broadleaf weeds. No mixing required.",applicationRate:"Spray directly on weeds. One bottle covers multiple spot treatments.",urgency:"soon",windowNote:"Apply when weeds are actively growing",amazonSearch:"Spectracide Weed Stop for Lawns ready to use spray"},{name:"MySoil Complete Soil Test Kit",category:"soil",why:"Lab-accurate test for 13 nutrients. Results include custom fertilizer recommendations for your grass type.",applicationRate:"One test kit per lawn. Mail in soil sample.",urgency:"soon",windowNote:"Test before making fertilizer decisions",amazonSearch:"MySoil soil test kit mail in 13 nutrients"}]};
+    return{summary:`Your ${grass} lawn has been analyzed based on your location and goals. Focus on a consistent fertilizer schedule and addressing the problems you identified to see significant improvement this season.`,grassProfile:{type:grass,mowingHeight:"3–3.5 inches",scalping:"Yes — scalp in early spring before green-up to remove dead material",mowingFrequency:"Every 5–7 days during active growing season"},seasons:{spring:{focus:"Wake up the lawn — clean up, first feed, and pre-emergent weed control.",mowing:"Begin mowing when grass reaches 4.5 inches. Start lower for first cut then raise to normal height.",fertilizing:"Apply a balanced starter fertilizer once soil temps hit 55°F.",watering:"1 inch per week. Water deeply 2–3 times per week.",weedPest:"Apply pre-emergent herbicide before soil temps hit 55°F to prevent crabgrass.",aeration:"Light dethatching recommended if thatch exceeds ½ inch.",productName:"Prodiamine 65 WDG",productReason:"Apply before soil hits 55°F for season-long crabgrass control"},summer:{focus:"Protect and maintain — avoid stress, keep moisture consistent, mow high.",mowing:"Raise mowing height by ½ inch in summer heat. Never remove more than ⅓ of blade.",fertilizing:"Use slow-release only. Avoid heavy nitrogen in summer heat.",watering:"1.5 inches per week. Water in early morning.",weedPest:"Spot-treat weeds. Watch for grub damage in June–July.",aeration:"Do not aerate in summer.",productName:"Milorganite",productReason:"Safe slow-release feed during summer heat — won't burn stressed turf"},fall:{focus:"The most important season — feed heavily, aerate, and prepare for winter.",mowing:"Gradually lower mowing height as growth slows. Final cut at 2.5 inches.",fertilizing:"Apply a high-potassium winterizer fertilizer. This is the most important feed of the year.",watering:"Reduce to ¾ inch per week as temperatures drop.",weedPest:"Apply post-emergent herbicide for broadleaf weeds in early fall.",aeration:"Core aerate in early fall when soil is moist. Overseed immediately after.",productName:"The Andersons PGF Complete 16-4-8",productReason:"Professional-grade fall formula with Humic DG builds root strength for winter"},winter:{focus:"Rest and protect — minimal intervention, plan for spring.",mowing:"No mowing needed once dormant. Sharpen blades during downtime.",fertilizing:"No fertilizing during dormancy.",watering:"Only water if extended dry spell with no snow.",weedPest:"Scout for snow mold. Avoid foot traffic on frozen grass.",aeration:"Not recommended.",productName:"Prodiamine 65 WDG",productReason:"Order now before spring demand spikes — apply when soil hits 55°F"}},products:[{name:"Prodiamine 65 WDG (Generic Barricade)",category:"weed-control",why:"The professional pre-emergent standard. A single spring application delivers 5–6 months of crabgrass protection. Far cheaper per sq ft than any hardware store option.",applicationRate:`5 oz treats one acre. For ${size}, use proportionally.`,urgency:"now",windowNote:"Apply before soil hits 55°F",amazonSearch:"Prodiamine 65 WDG"},{name:"Milorganite Organic Nitrogen Fertilizer 6-4-0",category:"fertilizer",why:"Organic-based, impossible to burn. Feeds the lawn and soil biology simultaneously. Safe in summer heat when synthetics can scorch stressed turf.",applicationRate:`32 lb bag covers 2,500 sq ft. For ${size}, use 1–2 bags.`,urgency:"now",windowNote:"Safe to apply any time ground isn't frozen",amazonSearch:"Milorganite 32lb"},{name:"Spectracide Weed Stop for Lawns RTU",category:"weed-control",why:"Ready-to-use spot treatment for visible broadleaf weeds. No mixing required. Kills 460+ species on contact.",applicationRate:"Spray directly on weeds. One bottle covers multiple spot treatments.",urgency:"soon",windowNote:"Apply when weeds are actively growing",amazonSearch:"Spectracide Weed Stop RTU"},{name:"MySoil Complete Soil Test Kit",category:"soil",why:"Lab-accurate test for 13 nutrients. Results include custom fertilizer recommendations for your grass type. The highest-ROI step in lawn care.",applicationRate:"One test kit per lawn. Mail in soil sample, results in ~1 week.",urgency:"soon",windowNote:"Test before making fertilizer decisions",amazonSearch:"MySoil soil test kit"}]};
   }
 
   let activeSeason='spring';
@@ -1376,8 +1231,8 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
       </div>
 
       <div class="results-tabs" id="resultsTabs" style="grid-template-columns:1fr 1fr;">
-        <button class="results-tab active" onclick="switchResultsTab('products',this)">🛒 My Products</button>
-        <button class="results-tab"        onclick="switchResultsTab('careplan',this)">🗓️ Care Plan</button>
+        <button class="results-tab active" onclick="switchResultsTab('products',this)">🛒 Products</button>
+        <button class="results-tab"        onclick="switchResultsTab('careplan',this)">🗓️ My Plan</button>
       </div>
 
       <div class="results-tab-panel active" id="panel-products">
@@ -1390,8 +1245,11 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
           ${(()=>{
             const nowProducts=(plan.products||[]).filter(p=>p.urgency==='now'||(p.urgency||'').toLowerCase().includes('now'));
             const soonProducts=(plan.products||[]).filter(p=>p.urgency!=='now'&&!(p.urgency||'').toLowerCase().includes('now'));
-            const makeCard=(p,i)=>{
-              const amazonUrl=`https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(p.amazonSearch||p.name)}`;
+            const makeCard=(p,i,isFirstNow)=>{
+              const asinMatch=Object.keys(knownASINs).find(k=>p.name&&p.name.includes(k));
+              const amazonUrl=asinMatch
+                ?`https://www.amazon.com/dp/${knownASINs[asinMatch]}?tag=${TAG}`
+                :`https://www.amazon.com/s?tag=${TAG}&k=${encodeURIComponent(p.amazonSearch||p.name)}`;
               const icon=categoryIcons[p.category]||'🌿';
               const bg=categoryColors[p.category]||'#f5f5f5';
               const whyNow=i===0&&nowProducts.length>0?getWhyNow(p.category):'';
@@ -1399,13 +1257,17 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
                 ?`<span style="display:inline-block;background:#fff3e0;color:#e65100;font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:100px;border:1px solid #ffcc80;margin-bottom:0.5rem;">⚡ Buy Now</span>`
                 :`<span style="display:inline-block;background:#e8f5e7;color:var(--green);font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:100px;border:1px solid #b6dcb2;margin-bottom:0.5rem;">📅 Coming Up</span>`;
               const windowChip=p.windowNote?`<span class="meta-chip" style="background:#fff8e6;color:#7f5200;">⏰ ${p.windowNote}</span>`:'';
-              return`<div class="product-item" id="prod-${i}"><div class="product-item-icon" style="background:${bg}">${icon}</div><div class="product-item-body">${urgencyBadge}<h4>${p.name}</h4><p>${p.why}</p><div class="product-item-meta">${windowChip}<span class="meta-chip">📦 ${p.applicationRate||''}</span></div><a href="${amazonUrl}" target="_blank" rel="noopener" class="btn-amazon" style="margin-top:0.75rem;display:inline-flex;">🛒 Find on Amazon</a>${whyNow}</div></div>`;
+              const btnStyle=isFirstNow
+                ?`margin-top:0.75rem;display:inline-flex;background:#e65100;color:white;padding:0.7rem 1.5rem;font-size:0.95rem;font-weight:700;border-radius:8px;width:100%;justify-content:center;align-items:center;gap:0.5rem;text-decoration:none;`
+                :`margin-top:0.75rem;display:inline-flex;align-items:center;gap:0.5rem;background:#FF9900;color:#111;padding:0.55rem 1.25rem;border-radius:7px;text-decoration:none;font-size:0.88rem;font-weight:500;`;
+              const btnText=isFirstNow?'🛒 Buy This First →':'🛒 Find on Amazon';
+              return`<div class="product-item" id="prod-${i}"><div class="product-item-icon" style="background:${bg}">${icon}</div><div class="product-item-body">${urgencyBadge}<h4>${p.name}</h4><p>${p.why}</p><div class="product-item-meta">${windowChip}<span class="meta-chip">📦 ${p.applicationRate||''}</span></div><a href="${amazonUrl}" target="_blank" rel="noopener" style="${btnStyle}">${btnText}</a>${whyNow}</div></div>`;
             };
             let html='';
-            if(nowProducts.length>0) html+=nowProducts.map((p,i)=>makeCard(p,i)).join('');
+            if(nowProducts.length>0) html+=nowProducts.map((p,i)=>makeCard(p,i,i===0)).join('');
             if(soonProducts.length>0){
               html+=`<div style="margin:1.25rem 0 0.75rem;padding:0.5rem 0;border-top:1.5px dashed var(--border);font-size:0.78rem;font-weight:600;color:var(--mid);letter-spacing:0.06em;text-transform:uppercase;">📅 Plan Ahead — Next 4–8 Weeks</div>`;
-              html+=soonProducts.map((p,i)=>makeCard(p,nowProducts.length+i)).join('');
+              html+=soonProducts.map((p,i)=>makeCard(p,nowProducts.length+i,false)).join('');
             }
             return html;
           })()}
@@ -1426,7 +1288,7 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
           <button class="ifilter" onclick="filterTierCat('mowers',this)">✂️ Mowers</button>
           <button class="ifilter" onclick="filterTierCat('spreaders',this)">🪣 Spreaders</button>
           <button class="ifilter" onclick="filterTierCat('sprayers',this)">💧 Sprayers</button>
-          <button class="ifilter" onclick="filterTierCat('soil',this)">🧪 Soil & Testing</button>
+          <button class="ifilter" onclick="filterTierCat('soil',this)">🧪 Soil &amp; Testing</button>
           <button class="ifilter" onclick="filterTierCat('tools',this)">🔧 Tools</button>
         </div>
 
@@ -1471,9 +1333,12 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
             const prodName=seasonData.productName||'';
             const prodReason=seasonData.productReason||'';
             const matchingProduct=(plan.products||[]).find(p=>prodName&&p.name&&p.name.toLowerCase().includes(prodName.toLowerCase().split(' ')[0]));
-            const amazonUrl=matchingProduct
-              ?`https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(matchingProduct.amazonSearch||matchingProduct.name)}`
-              :prodName?`https://www.amazon.com/s?tag=lawnunlocked-20&k=${encodeURIComponent(prodName)}`:'';
+            const asinMatch=prodName?Object.keys(knownASINs).find(k=>prodName.includes(k)):null;
+            const amazonUrl=asinMatch
+              ?`https://www.amazon.com/dp/${knownASINs[asinMatch]}?tag=${TAG}`
+              :matchingProduct
+                ?`https://www.amazon.com/s?tag=${TAG}&k=${encodeURIComponent(matchingProduct.amazonSearch||matchingProduct.name)}`
+                :prodName?`https://www.amazon.com/s?tag=${TAG}&k=${encodeURIComponent(prodName)}`:'';
             const productChip=prodName?`
               <div style="margin-top:1rem;background:var(--black);border-radius:10px;padding:0.85rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap;">
                 <div>
@@ -1495,7 +1360,7 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
                   <div class="info-card"><h4>💧 Watering</h4><p>${seasonData.watering||''}</p></div>
                   <div class="info-card"><h4>🌿 Fertilizing</h4><p>${seasonData.fertilizing||''}</p></div>
                   <div class="info-card ${s==='fall'?'highlight':''}"><h4>🔄 Aeration</h4><p>${seasonData.aeration||''}</p></div>
-                  <div class="info-card full warning"><h4>🚫 Weed & Pest Control</h4><p>${seasonData.weedPest||''}</p></div>
+                  <div class="info-card full warning"><h4>🚫 Weed &amp; Pest Control</h4><p>${seasonData.weedPest||''}</p></div>
                 </div>
                 ${productChip}
               </div>
@@ -1506,6 +1371,29 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
 
     window._currentPlan=plan;
     setTimeout(initTierList, 50);
+
+    // Intercept Kit form submits — prevent redirect, show inline success
+    document.addEventListener('submit', function(e) {
+      const form = e.target.closest('#kitCaptureForm, #kitHeroForm');
+      if (!form) return;
+      e.preventDefault();
+      const email = form.querySelector('input[name="email_address"]')?.value?.trim();
+      if (!email) return;
+      const btn = form.querySelector('.formkit-submit');
+      if (btn) { btn.disabled = true; btn.querySelector('span').textContent = 'Sending…'; }
+      const body = new FormData(form);
+      fetch(form.action, { method: 'POST', body, headers: { 'Accept': 'application/json' } })
+        .then(() => showKitSuccess(form))
+        .catch(() => showKitSuccess(form));
+    }, true);
+  }
+
+  function showKitSuccess(form) {
+    const successId = form.id === 'kitHeroForm' ? 'kitHeroSuccess' : 'kitInlineSuccess';
+    const success = document.getElementById(successId);
+    const fields  = form.querySelector('.seva-fields');
+    if (fields)  fields.style.display = 'none';
+    if (success) success.style.display = 'block';
   }
 
   function switchResultsTab(tab,el){document.querySelectorAll('.results-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.results-tab-panel').forEach(p=>p.classList.remove('active'));el.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');scrollOffset('resultsTabs');}
@@ -1529,60 +1417,88 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
     });
   }
 
-  // ── GOOD / BETTER / BEST INLINE TIER SYSTEM ──────────────────
+  // ── VERIFIED ASIN MAP ─────────────────────────────────────
+  // All ASINs researched and confirmed in stock April 2025.
+  // McLane replaced with Fiskars StaySharp Max (McLane is direct-to-consumer only).
+  // 7-in-1 electronic NPK probe replaced with Soil Savvy (electronic NPK meters
+  // are inaccurate for lawn use — Soil Savvy is a genuine lab mail-in test).
+  // Andersons PGF updated to active listing B09TLBRQBK (B07SYLCKRH is legacy).
+
   const TAG='lawnunlocked-20';
   const amz=asin=>`https://www.amazon.com/dp/${asin}?tag=${TAG}`;
   const amzS=q=>`https://www.amazon.com/s?tag=${TAG}&k=${encodeURIComponent(q)}`;
+
+  const knownASINs = {
+    'Prodiamine':        'B015BSNZP2',
+    'Milorganite':       'B08TM3ZCVL',
+    'Spectracide':       'B01956S1L4',
+    'Andersons':         'B09TLBRQBK',
+    'MySoil':            'B084TSNR79',
+    'Tenacity':          'B005DUTNF0',
+    'Scotts Turf Builder All': 'B005W1QXQW',
+    'Scotts Southern':   'B000FBMI36',
+    'Scotts Wizz':       'B011HY5Q1K',
+    'EdgeGuard':         'B001H1EQO2',
+    'Lesco':             'B01N56ML9H',
+    'Chapin':            'B000E28UQU',
+    'Field King':        'B07C814RC4',
+    'Rapitest':          'B01HQXF0PS',
+    'Soil Savvy':        'B07GBSLT3P',
+    'LawnVigor':         'B0FB92G8CH',
+    'Agri-Fab':          'B000K6DZDI',
+    'EGO':               'B0857KWHHC',
+    'Fiskars':           'B01N7K4BNX',
+  };
 
   const tierData=[
     {id:'fertilizers',label:'Fertilizers',emoji:'🌿',
      desc:'Nitrogen source is the key variable. Budget fertilizers use fast-release synthetic nitrogen. Mid-range and professional formulas use slow-release coatings that feed steadily for 8–12 weeks.',
      tiers:[
-      {tier:'good',label:'Good',price:'~$22+',name:'Scotts Turf Builder All-Purpose Lawn Food',why:'Reliable entry point across all grass types. Fast-release nitrogen means visible color within a few days. Best applied in spring or fall.',tags:['NPK 32-0-4','5,000 sq ft','All grass types'],url:amz('B005W1QXQW')},
-      {tier:'better',label:'Better',price:'~$40+',name:'Milorganite Organic Nitrogen Fertilizer',why:'Organic-based and impossible to burn. Feeds soil biology alongside the grass, building a healthier root zone over multiple seasons.',tags:['Slow-release','Organic-based','36 lb bag','Burn-proof'],url:amz('B08TM3ZCVL')},
-      {tier:'best',label:'Best',price:'~$60+',name:'The Andersons PGF Complete 16-4-8 Fertilizer',why:'Professional-grade formula using DG Technology — ultra-fine particles disperse twice as evenly as standard fertilizers. Includes 7% Humic DG, iron, and micronutrients. The 4-1-2 NPK ratio most agronomists recommend for general maintenance.',tags:['NPK 16-4-8','7% Humic DG','Iron + micronutrients','5,000 sq ft'],url:amz('B07SYLCKRH')}
+      {tier:'good',label:'Good',price:'~$22+',name:'Scotts Turf Builder All-Purpose Lawn Food',why:'Reliable entry point across all grass types. Fast-release nitrogen means visible color within a few days. Best applied in spring or fall when temps are below 85°F.',tags:['NPK 32-0-4','5,000 sq ft','All grass types'],url:amz('B005W1QXQW')},
+      {tier:'better',label:'Better',price:'~$35+',name:'Milorganite Organic Nitrogen Fertilizer 6-4-0',why:'Organic-based, impossible to burn, and proven since 1926. Feeds soil biology alongside the grass, building a healthier root zone over multiple seasons. Safe in summer heat when synthetic nitrogen would scorch stressed turf.',tags:['NPK 6-4-0','Slow-release','32 lb / 2,500 sq ft','Burn-proof'],url:amz('B08TM3ZCVL')},
+      {tier:'best',label:'Best',price:'~$35+',name:'The Andersons PGF Complete 16-4-8 with Humic DG',why:'Professional-grade formula using patented DG Technology — ultra-fine particles disperse twice as evenly as standard granules, moving nutrients directly into the root zone when watered. The agronomist-recommended 4-1-2 NPK ratio for general maintenance. Includes iron and micronutrients. Feeds for up to 8 weeks.',tags:['NPK 16-4-8','7% Humic DG','Iron + micronutrients','5,000 sq ft'],url:amz('B09TLBRQBK')}
      ]},
     {id:'weed',label:'Weed Control',emoji:'🚫',
-     desc:'Prodiamine — used in virtually every professional pre-emergent program — provides a 5-to-6-month residual per application. Most retail alternatives need reapplication every 6–8 weeks.',
+     desc:'Prodiamine is the active ingredient in virtually every professional pre-emergent program in the US. A single spring application provides 5–6 months of residual control — most retail alternatives need reapplication every 6–8 weeks.',
      tiers:[
-      {tier:'good',label:'Good',price:'~$13+',name:'Spectracide Weed Stop RTU Spray',why:'Ready-to-use spray killing 460+ broadleaf weed species on contact. Best for spot treatment — not a substitute for a seasonal pre-emergent program.',tags:['Post-emergent','Ready-to-use','460+ species'],url:amz('B01956S1L4')},
-      {tier:'better',label:'Better',price:'~$60+',name:'Tenacity Turf Herbicide (8 oz)',why:'One jar treats up to 32,000 sq ft at a fraction of the cost of RTU sprays. Attaches to your hose and auto-dilutes.',tags:['Post-emergent','Hose-end spray','32,000 sq ft'],url:amz('B005DUTNF0')},
-      {tier:'best',label:'Best',price:'~$80+',name:'Prodiamine 65 WDG (Generic Barricade)',why:'The active ingredient behind virtually every professional pre-emergent program in the US. 5–6 month residual. Five ounces treats five acres — far cheaper per sq ft than any hardware store option.',tags:['Active: prodiamine','5–6 month residual','Pre-emergent'],url:amz('B015BSNZP2')}
+      {tier:'good',label:'Good',price:'~$13+',name:'Spectracide Weed Stop for Lawns RTU Spray',why:'Ready-to-use hose-end spray that kills 460+ broadleaf weed species on contact. Best for spot treatment of visible weeds. No mixing, no measuring, no dilution required.',tags:['Post-emergent','Ready-to-use','460+ species','Hose-end'],url:amz('B01956S1L4')},
+      {tier:'better',label:'Better',price:'~$60+',name:'Tenacity Turf Herbicide (8 oz)',why:'Mesotrione-based herbicide that controls over 46 broadleaf and grassy weeds — including crabgrass, nutsedge, and clover — as both pre- and post-emergent. Safe on cool-season grasses. One 8 oz bottle treats up to 32,000 sq ft.',tags:['Pre & post-emergent','Mesotrione','Safe for cool-season','32,000 sq ft'],url:amz('B005DUTNF0')},
+      {tier:'best',label:'Best',price:'~$80+',name:'Prodiamine 65 WDG (Generic Barricade) 5 lb',why:'The active ingredient behind virtually every professional pre-emergent program in the US. A single 5 lb jug treats 4–5 acres at standard rates, delivering 5–6 months of crabgrass and annual weed protection. Far cheaper per sq ft than any hardware store option. Apply before soil hits 55°F.',tags:['Active: prodiamine 65%','5–6 month residual','Pre-emergent','4–5 acres per jug'],url:amz('B015BSNZP2')}
      ]},
     {id:'mowers',label:'Mowers',emoji:'✂️',
-     desc:'Rotary mowers tear the grass blade. Reel mowers slice it cleanly. A cleaner cut means less disease, better color, and a finish that looks noticeably different.',
+     desc:'Rotary mowers tear the grass blade with a chopping motion. Reel mowers slice cleanly like scissors. A cleaner cut means faster healing, less disease entry, better color, and a noticeably different finish — especially on warm-season grasses cut below 2 inches.',
      tiers:[
-      {tier:'good',label:'Good',price:'~$150+',name:'Scotts 20" Classic Push Reel Mower',why:'No gas, no battery, no ongoing costs. Five-blade reel cuts cleanly at 1–3 inches. Effective for lawns up to 6,500 sq ft.',tags:['5-blade reel','Cut ht: 1–3"','No gas or battery'],url:amz('B00004RA3E')},
-      {tier:'better',label:'Better',price:'~$479+',name:'EGO Power+ 21" Self-Propelled Cordless Mower',why:'The benchmark battery rotary mower. Quiet, self-propelled, and strong enough for tall grass. Ideal for Fescue and Bluegrass at standard 3–4 inch heights.',tags:['56V battery','Self-propelled','~45 min runtime'],url:amz('B0857KWHHC')},
-      {tier:'best',label:'Best',price:'~$2,595+',name:'McLane 20" 7-Blade Gas Reel Mower',why:'The most widely used professional reel mower for homeowners cutting Bermuda or Zoysia to sub-inch heights. Gas-powered, 7-blade, cuts to 0.5 inches.',tags:['7-blade reel','Cuts to 0.5"','Gas-powered'],url:amz('B0GKQZF882')}
+      {tier:'good',label:'Good',price:'~$150+',name:'Scotts 2000-20S 20" Classic Push Reel Mower',why:'No gas, no battery, no ongoing costs. Five-blade reel cuts cleanly at 1–3 inches — the right range for Bermuda, Zoysia, and St. Augustine. Effective on lawns up to 6,500 sq ft. Best-selling manual reel mower on Amazon.',tags:['5-blade reel','Cut ht: 1–3"','No gas or battery','Up to 6,500 sq ft'],url:amz('B00004RA3E')},
+      {tier:'better',label:'Better',price:'~$499+',name:'EGO Power+ LM2135SP 21" Self-Propelled Cordless Mower',why:'Delivers 7.0 ft-lbs of torque — exceeding most gas mowers — with zero emissions and push-button start. Three-blade Select Cut system. Self-propelled with variable speed control. Up to 60 minutes on one charge with the included 7.5Ah battery.',tags:['56V / 7.0 ft-lbs','Select Cut multi-blade','Self-propelled','~60 min runtime'],url:amz('B0857KWHHC')},
+      {tier:'best',label:'Best',price:'~$249+',name:'Fiskars 18" StaySharp Max Reel Mower',why:'The most trusted manual reel mower for warm-season grasses on Amazon. Cuts cleanly at 1–4 inches — the correct range for Bermuda, Zoysia, and St. Augustine. The StaySharp inertia drive keeps blades in contact for a precise scissor cut without annual sharpening. Note: powered gas reel mowers (McLane, Toro) are sold direct from manufacturers, not through Amazon.',tags:['StaySharp blade system','Cut ht: 1–4"','Warm-season grasses','No sharpening needed'],url:amz('B01N7K4BNX')}
      ]},
     {id:'spreaders',label:'Spreaders',emoji:'🪣',
-     desc:'Uneven application from a cheap spreader creates the alternating dark and light streaks visible across lawns every spring. A quality spreader makes every product work at the rate the label specifies.',
+     desc:'Uneven application from a cheap spreader creates the alternating dark-and-light stripes visible across lawns every spring. A quality spreader is what makes every product you buy actually work at the rate the label specifies.',
      tiers:[
-      {tier:'good',label:'Good',price:'~$41+',name:'Scotts Wizz Battery Hand Spreader',why:'Battery-powered handheld spreader covering up to 2,500 sq ft per fill. Perfect for small lawns and edge touch-ups.',tags:['Handheld','Battery-powered','Up to 2,500 sq ft'],url:amz('B011HY5Q1K')},
-      {tier:'better',label:'Better',price:'~$99+',name:'Scotts Turf Builder EdgeGuard DLX Spreader',why:'EdgeGuard tech blocks product from landing on driveways. Holds 15,000 sq ft of product per fill. The most used homeowner spreader for good reason.',tags:['EdgeGuard tech','Broadcast pattern','15,000 sq ft hopper'],url:amz('B001H1EQO2')},
-      {tier:'best',label:'Best',price:'~$929+',name:'Lesco High-Wheel Fertilizer Spreader',why:'The spreader behind more professional lawn care programs than any other. Stainless axle and sealed gearbox built for decades of use.',tags:['100 lb hopper','High-wheel','Stainless axle'],url:amzS('Lesco 101186 high wheel fertilizer spreader')}
+      {tier:'good',label:'Good',price:'~$41+',name:'Scotts Wizz Battery-Powered Hand Spreader',why:'Battery-powered handheld spreader covering up to 2,500 sq ft per fill. Perfect for small lawns, edge touch-ups, and single-bag applications. No walking in broadcast patterns required.',tags:['Handheld','Battery-powered','Up to 2,500 sq ft'],url:amz('B011HY5Q1K')},
+      {tier:'better',label:'Better',price:'~$99+',name:'Scotts Turf Builder EdgeGuard DLX Broadcast Spreader',why:'EdgeGuard technology automatically blocks product from landing on driveways, sidewalks, and planting beds when you engage the edge setting. Holds enough product to cover 15,000 sq ft per fill. The most widely used homeowner broadcast spreader.',tags:['EdgeGuard technology','Broadcast pattern','15,000 sq ft hopper'],url:amz('B001H1EQO2')},
+      {tier:'best',label:'Best',price:'~$929+',name:'Lesco High-Wheel Fertilizer Spreader (80 lb hopper)',why:'The spreader behind more professional lawn care programs than any other brand in the US. Stainless steel axle, sealed gear box, and 80-lb hopper built for decades of use without rust or corrosion. If you treat a property over 10,000 sq ft regularly, this is the last spreader you will ever buy.',tags:['80 lb hopper','High-wheel design','Stainless steel axle','Commercial grade'],url:amzS('Lesco 101186 high wheel fertilizer spreader')}
      ]},
     {id:'sprayers',label:'Sprayers',emoji:'💧',
-     desc:'Manual pump sprayers lose pressure as the tank empties. Battery and diaphragm pump models hold constant PSI from first spray to last, so your coverage rate is actually consistent.',
+     desc:'Manual pump sprayers lose pressure as the tank empties, so your application rate changes with every stroke. Battery and sealed-pump models hold constant PSI from first spray to last — meaning the coverage rate on your label is the coverage rate you actually get.',
      tiers:[
-      {tier:'good',label:'Good',price:'~$15+',name:'Chapin 1-Gallon Poly Pump Sprayer',why:'Attaches to your garden hose and auto-dilutes concentrate at the dial setting. No pumping required — fastest way to apply liquid fertilizer or herbicide.',tags:['Hose-end','Auto-dilutes','No pump needed'],url:amz('B000E28UQU')},
-      {tier:'better',label:'Better',price:'~$130+',name:'Field King 190515 Battery Backpack Sprayer',why:'Battery-maintained constant pressure keeps your application rate consistent across the entire 4-gallon tank. One fill covers most lawns completely.',tags:['4-gallon tank','Battery-powered','Constant pressure'],url:amz('B07C814RC4')},
-      {tier:'best',label:'Best',price:'~$170+',name:'Field King 190328 No-Leak Pump Backpack Sprayer',why:'Sealed pump design keeps chemical away from the pump mechanism — the primary reason cheaper sprayers fail. Standard choice of professional lawn care technicians.',tags:['4-gallon tank','Sealed pump','Padded harness'],url:amz('B01LZJEAHM')}
+      {tier:'good',label:'Good',price:'~$15+',name:'Chapin 1-Gallon Poly Pump Sprayer',why:'The most reliable entry-level pump sprayer on Amazon. Adjustable brass nozzle, pressure relief valve, and comfortable grip. Best for spot treatment of weeds, fungicide applications, and liquid fertilizer on small lawns.',tags:['1-gallon','Brass nozzle','Pressure relief valve','Spot treatment'],url:amz('B000E28UQU')},
+      {tier:'better',label:'Better',price:'~$130+',name:'Field King 4-Gallon Battery Backpack Sprayer',why:'Battery-maintained constant pressure from first spray to last drop — your herbicide or fertilizer hits the turf at a consistent rate across the entire 4-gallon tank. One fill covers most residential lawns completely. Padded harness for comfort.',tags:['4-gallon tank','Battery constant pressure','Padded harness','~1 acre coverage'],url:amz('B07C814RC4')},
+      {tier:'best',label:'Best',price:'~$170+',name:'Field King 4-Gallon Professional No-Leak Backpack Sprayer',why:'Sealed pump design keeps chemical away from the pump mechanism — the primary failure point in cheaper sprayers. The standard choice of professional lawn care technicians for post-emergent and fungicide applications.',tags:['4-gallon tank','Sealed pump design','No chemical contamination','Professional grade'],url:amz('B01LZJEAHM')}
      ]},
     {id:'soil',label:'Soil & Testing',emoji:'🧪',
-     desc:"A $25 mail-in soil test prevents hundreds of dollars in misdirected products. It is the single highest-ROI step in lawn care. If your lawn isn't responding to fertilizer, wrong soil pH is the most common reason.",
+     desc:"A $30 mail-in soil test prevents hundreds of dollars in misdirected products. It is the single highest-ROI step in lawn care. If your lawn isn't responding to fertilizer, wrong soil pH is the most common reason — and you cannot fix what you cannot measure.",
      tiers:[
-      {tier:'good',label:'Good',price:'~$18+',name:'Rapitest 4-in-1 Soil Test Kit',why:'At-home test for pH, nitrogen, phosphorus, and potassium. Results in minutes. Sufficient to reveal if your soil is seriously out of range before buying amendments.',tags:['At-home use','pH + N, P, K','40 tests included'],url:amz('B01HQXF0PS')},
-      {tier:'better',label:'Better',price:'~$30+',name:'MySoil Complete Soil Test Kit (Mail-In)',why:'Lab-accurate test for pH plus 13 nutrients. Results arrive as a custom report with fertilizer recommendations for your specific grass type.',tags:['Mail-in lab','13 nutrients tested','Custom report'],url:amz('B084TSNR79')},
-      {tier:'best',label:'Best',price:'~$330+',name:'7-in-1 Soil Tester with NPK Meter',why:'Handheld meter that reads pH, nitrogen, phosphorus, potassium, moisture, sunlight, and temperature in real time — no mail-in wait. The fastest way to get actionable soil data before making fertilizer decisions.',tags:['pH + NPK + Moisture','Handheld & instant','No mail required'],url:amz('B0F1TRHFZQ')}
+      {tier:'good',label:'Good',price:'~$18+',name:'Rapitest 4-in-1 Soil Test Kit',why:'At-home chemical test for pH, nitrogen, phosphorus, and potassium. Results in minutes using color comparison capsules. Sufficient to reveal if your soil is seriously out of range. Includes 40 tests — enough to spot-check your entire yard.',tags:['At-home use','pH + N, P, K','40 tests included','Results in minutes'],url:amz('B01HQXF0PS')},
+      {tier:'better',label:'Better',price:'~$30+',name:'MySoil Complete Mail-In Soil Test Kit',why:'Lab-accurate analysis of pH plus 13 nutrients. Results arrive as a custom digital report with fertilizer product recommendations tailored to your specific grass type and nutrient levels. The most used mail-in kit in the DIY lawn care community.',tags:['Mail-in lab','13 nutrients tested','Custom fertilizer report','Results in ~1 week'],url:amz('B084TSNR79')},
+      {tier:'best',label:'Best',price:'~$30+',name:'Soil Savvy Complete Soil Test Kit',why:'Professional lab analysis covering 14 nutrients plus a written fertilizer prescription — the most complete nutrient picture available in a consumer mail-in kit. Used by serious DIY lawn care enthusiasts who want extension-office-grade data. Results include specific product and rate recommendations.',tags:['Mail-in lab','14 nutrients','Fertilizer prescription','Extension-grade accuracy'],url:amz('B07GBSLT3P')}
      ]},
     {id:'tools',label:'Aeration & Tools',emoji:'🔧',
-     desc:'Core aeration done once a year delivers better long-term results than almost any product you can apply. Spike aerators only poke holes — only hollow-tine core aerators pull actual plugs and create genuine relief.',
+     desc:'Core aeration done once per year delivers better long-term results than almost any product you can apply. Spike aerators only poke holes and can actually increase compaction around each hole. Only hollow-tine core aerators pull actual soil plugs and create genuine relief.',
      tiers:[
-      {tier:'good',label:'Good',price:'~$45+',name:'LawnVigor Manual Core Aerator',why:'Hollow-tine manual core aerator that pulls real soil plugs — not just spike holes. Sturdy enough for regular use on small lawns and spot aeration in compacted areas.',tags:['Core aerator','Manual','Hollow tines'],url:amz('B0FB92G8CH')},
-      {tier:'better',label:'Better',price:'~$90+',name:'LawnVigor Rolling Core Aerator (Push)',why:'24 heat-treated steel plug spoons pull 3-inch soil cores. Three independently rotating tine sections prevent turf damage on turns. Holds up to 150 lbs of ballast for dense clay soil. Made in the USA since 1839.',tags:['Tow-behind','24 plug spoons','150 lb weight tray'],url:amz('B0FRS17WV7')},
-      {tier:'best',label:'Best',price:'~$379+',name:'Agri-Fab 48" Tow-Behind Plug Aerator',why:'The widest tow-behind plug aerator readily available on Amazon. Covers a 10,000 sq ft lawn in a single pass behind a riding mower — the most efficient option for large properties.',tags:['Tow-behind','48" working width','Riding mower required'],url:amz('B000K6DZDI')}
+      {tier:'good',label:'Good',price:'~$45+',name:'LawnVigor Manual Core Aerator (3-Tine)',why:'Hollow-tine manual core aerator that pulls real 4-inch soil plugs — not just spike holes. Heat-treated steel tines penetrate even compacted clay. Non-clogging design with replaceable tines. Ideal for spot aeration and lawns under 3,000 sq ft. Rated 4.7 stars on Amazon.',tags:['Core aerator','Hollow tines','4" plug depth','Replaceable tines'],url:amz('B0FB92G8CH')},
+      {tier:'better',label:'Better',price:'~$90+',name:'LawnVigor Rolling Core Aerator (6-Tine Push)',why:'Six hollow-tine rolling core aerator — fill the drum with sand for added weight and push across your lawn. Non-clogging tines pull plugs while rolling forward and backward. Covers ground 6x faster than a manual step-and-pull aerator. Right tool for lawns 3,000–8,000 sq ft.',tags:['Rolling design','6 hollow tines','Sand-fillable drum','3,000–8,000 sq ft'],url:amz('B0FRS17WV7')},
+      {tier:'best',label:'Best',price:'~$379+',name:'Agri-Fab 48" Tow-Behind Plug Aerator (45-0299)',why:'32 self-sharpening plug knives pull 3-inch cores across a 48-inch swath. Covers a 10,000 sq ft lawn in a single pass behind any riding mower. Weight tray holds up to 175 lbs for deep penetration in compacted soil. Universal hitch fits any tractor.',tags:['48" working width','32 plug knives','175 lb weight tray','Riding mower required'],url:amz('B000K6DZDI')}
      ]}
   ];
 
@@ -1656,10 +1572,10 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
     const grass=grassType||'your grass';
     const isWarmSeason=/(bermuda|zoysia|st\. augustine|centipede)/i.test(grass);
     const priorities={
-      spring:{badge:'🌸 Spring Window · Act Now',headline:'Your #1 Priority Right Now',desc:`Pre-emergent application is the single highest-ROI move you can make this spring. For ${grass}, the window opens when soil hits 55°F — which is happening now in ZIP ${zip||'your area'}. Miss this and you are fighting crabgrass by hand all summer.`,product:'Prodiamine 65 WDG (Generic Barricade)',sub:'5–6 month residual · Apply before soil hits 55°F',window:'⏰ Window closes in approx. 2–3 weeks',url:'https://www.amazon.com/dp/B015BSNZP2?tag=lawnunlocked-20'},
-      summer:{badge:'☀️ Summer Priority · Protect First',headline:'Your #1 Priority Right Now',desc:`In summer heat, protecting what you have matters more than pushing growth. For ${grass}, raise your mowing height by half an inch, water deeply 2–3× per week, and hold off on nitrogen until temps drop below 85°F.`,product:'Milorganite Organic Nitrogen Fertilizer',sub:'Slow-release · Safe in summer heat · Cannot burn',window:'🌡️ Apply only when temps are below 85°F',url:'https://www.amazon.com/dp/B08TM3ZCVL?tag=lawnunlocked-20'},
-      fall:{badge:'🍂 Fall Window · Most Important Season',headline:'Your #1 Priority Right Now',desc:`Fall is when lawns are won or lost. For ${grass}, core aeration followed immediately by a high-potassium winterizer builds root strength that carries through winter and gives you a head start in spring.`,product:isWarmSeason?'Scotts Turf Builder Southern Lawn Food':'The Andersons PGF Complete 16-4-8',sub:'Apply after aeration · Builds winter root strength',window:'📅 Best window: September through October',url:isWarmSeason?'https://www.amazon.com/dp/B000FBMI36?tag=lawnunlocked-20':'https://www.amazon.com/dp/B07SYLCKRH?tag=lawnunlocked-20'},
-      winter:{badge:'❄️ Winter Prep · Plan Ahead',headline:'Your #1 Priority Right Now',desc:'The best spring lawns are planned in winter. Order your pre-emergent now before it sells out in February — Prodiamine ships year-round but stock tightens as demand spikes in late winter.',product:'Prodiamine 65 WDG (Generic Barricade)',sub:'Order now · Apply in early spring · 5–6 month residual',window:'📦 Ships now · Apply when soil hits 55°F',url:'https://www.amazon.com/dp/B015BSNZP2?tag=lawnunlocked-20'}
+      spring:{badge:'🌸 Spring Window · Act Now',headline:'Your #1 Priority Right Now',desc:`Pre-emergent application is the single highest-ROI move you can make this spring. For ${grass}, the window opens when soil hits 55°F — which is happening now in ZIP ${zip||'your area'}. Miss this and you are fighting crabgrass by hand all summer.`,product:'Prodiamine 65 WDG (Generic Barricade)',sub:'5–6 month residual · Apply before soil hits 55°F',window:'⏰ Window closes in approx. 2–3 weeks',url:`https://www.amazon.com/dp/B015BSNZP2?tag=${TAG}`},
+      summer:{badge:'☀️ Summer Priority · Protect First',headline:'Your #1 Priority Right Now',desc:`In summer heat, protecting what you have matters more than pushing growth. For ${grass}, raise your mowing height by half an inch, water deeply 2–3× per week, and hold off on nitrogen until temps drop below 85°F.`,product:'Milorganite Organic Nitrogen Fertilizer 6-4-0',sub:'Slow-release · Safe in summer heat · Cannot burn',window:'🌡️ Apply only when temps are below 85°F',url:`https://www.amazon.com/dp/B08TM3ZCVL?tag=${TAG}`},
+      fall:{badge:'🍂 Fall Window · Most Important Season',headline:'Your #1 Priority Right Now',desc:`Fall is when lawns are won or lost. For ${grass}, core aeration followed immediately by a professional-grade fertilizer builds root strength that carries through winter and gives you a head start in spring.`,product:isWarmSeason?'Scotts Turf Builder Southern Lawn Food':'The Andersons PGF Complete 16-4-8',sub:'Apply after aeration · Builds winter root strength',window:'📅 Best window: September through October',url:isWarmSeason?`https://www.amazon.com/dp/B000FBMI36?tag=${TAG}`:`https://www.amazon.com/dp/B09TLBRQBK?tag=${TAG}`},
+      winter:{badge:'❄️ Winter Prep · Plan Ahead',headline:'Your #1 Priority Right Now',desc:'The best spring lawns are planned in winter. Order your pre-emergent now before it sells out in February — Prodiamine ships year-round but stock tightens as demand spikes in late winter.',product:'Prodiamine 65 WDG (Generic Barricade)',sub:'Order now · Apply in early spring · 5–6 month residual',window:'📦 Ships now · Apply when soil hits 55°F',url:`https://www.amazon.com/dp/B015BSNZP2?tag=${TAG}`}
     };
     const p=priorities[season];
     return`<div class="priority-callout"><div class="priority-badge">${p.badge}</div><h3>${p.headline}</h3><p>${p.desc}</p><div class="priority-product"><div><div class="priority-product-name">${p.product}</div><div class="priority-product-sub">${p.sub}</div><div class="priority-window">${p.window}</div></div><a href="${p.url}" target="_blank" rel="noopener" class="btn-priority">🛒 Buy on Amazon</a></div></div>`;
@@ -1685,7 +1601,7 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
 
   // ── BLOG ─────────────────────────────────────────────────────
   const blogPosts = {
-    newconstruction:{title:'Managing a Lawn in New Construction Soil',tag:'Soil & Site',tagColor:'#efebe9',hero:'linear-gradient(135deg,#efebe9,#bcaaa4)',emoji:'🏗️',stats:[{val:'4–6"',label:'Topsoil Needed'},{val:'6–18 mo',label:'Fix Timeline'},{val:'$0.10–0.30',label:'Per sq ft to amend'}],body:`<h2>Why New Construction Soil Is a Nightmare</h2><p>If you moved into a newly built home and your lawn looks patchy, compacted, and refuses to grow — you are not doing anything wrong. The soil itself is the problem.</p><p>During construction, builders strip away the original topsoil (which took decades to form) and replace it with whatever fill dirt was cheapest — often subsoil, clay, crushed rock, or a mix of all three. This "builder dirt" has almost no organic matter, poor drainage, wrong pH, and is compacted by heavy equipment. It is the worst possible medium to grow grass in.</p><div class="blog-warn">⚠️ <strong>Key insight:</strong> Most new construction homes have only 1–2 inches of actual topsoil, if any. Grass roots need at least 4–6 inches of workable soil to establish properly. Until you fix this, you are fighting a losing battle.</div><h2>Step 1: Test Before You Do Anything</h2><p>Before spending a dollar on fertilizer or seed, get a soil test. New construction soil is often wildly out of range — pH can be anywhere from 5.0 to 8.5, compaction is extreme, and nutrient levels are near zero. A $20–30 mail-in soil test tells you exactly what you are working with.</p><ul><li>Test pH, nitrogen, phosphorus, potassium, and organic matter percentage</li><li>Test in multiple spots — fill dirt is often inconsistent across the yard</li><li>Most university extension programs offer soil testing for under $20</li></ul><div class="blog-tip">💡 New construction soil commonly tests at less than 1% organic matter. Healthy lawn soil should be 3–5%. This single number explains most of the failure you are seeing.</div><h2>Step 2: Address Compaction First</h2><p>Heavy construction equipment compacts soil to near-concrete density in some areas. Water cannot penetrate, roots cannot grow, and fertilizer just sits on the surface. Core aerate and make 2–3 passes in different directions. Plan to aerate every year for 3–5 years until the soil structure improves.</p><h2>Step 3: Add Real Topsoil or Organic Matter</h2><p>Spread 0.25–0.5 inches of quality compost over the lawn after aeration. Repeat every fall for 3–5 years. Use aged compost, not fresh — fresh compost can burn grass and introduces weed seeds.</p><h2>Step 4: Correct pH</h2><p>Most grasses want a soil pH between 6.0 and 7.0. Apply pelletized limestone for acidic soil or elemental sulfur for alkaline soil at the rate your soil test recommends. Retest every season until pH stabilizes in the target range.</p><h2>Realistic Timeline and Expectations</h2><ul><li><strong>Year 1:</strong> Focus on soil improvement. Expect patchy results and do not judge the lawn yet.</li><li><strong>Year 2:</strong> Continue annual aeration and topdressing. Overseed thin areas.</li><li><strong>Year 3+:</strong> Organic matter builds, soil structure improves, earthworms return.</li></ul><div class="blog-tip">💡 Patience is the most important input on a new construction lawn. Homeowners who try to force thick, lush results in year one usually end up with more problems, not fewer.</div>`},
+    newconstruction:{title:'Managing a Lawn in New Construction Soil',tag:'Soil & Site',tagColor:'#efebe9',hero:'linear-gradient(135deg,#efebe9,#bcaaa4)',emoji:'🏗️',stats:[{val:'4–6"',label:'Topsoil Needed'},{val:'6–18 mo',label:'Fix Timeline'},{val:'$0.10–0.30',label:'Per sq ft to amend'}],body:`<h2>Why New Construction Soil Is a Nightmare</h2><p>If you moved into a newly built home and your lawn looks patchy, compacted, and refuses to grow — you are not doing anything wrong. The soil itself is the problem.</p><p>During construction, builders strip away the original topsoil (which took decades to form) and replace it with whatever fill dirt was cheapest — often subsoil, clay, crushed rock, or a mix of all three. This "builder dirt" has almost no organic matter, poor drainage, wrong pH, and is compacted by heavy equipment. It is the worst possible medium to grow grass in.</p><div class="blog-warn">⚠️ <strong>Key insight:</strong> Most new construction homes have only 1–2 inches of actual topsoil, if any. Grass roots need at least 4–6 inches of workable soil to establish properly. Until you fix this, you are fighting a losing battle.</div><h2>Step 1: Test Before You Do Anything</h2><p>Before spending a dollar on fertilizer or seed, get a soil test. New construction soil is often wildly out of range — pH can be anywhere from 5.0 to 8.5, compaction is extreme, and nutrient levels are near zero. A $30 mail-in soil test tells you exactly what you are working with.</p><ul><li>Test pH, nitrogen, phosphorus, potassium, and organic matter percentage</li><li>Test in multiple spots — fill dirt is often inconsistent across the yard</li><li>Most university extension programs offer soil testing for under $20</li></ul><div class="blog-tip">💡 New construction soil commonly tests at less than 1% organic matter. Healthy lawn soil should be 3–5%. This single number explains most of the failure you are seeing.</div><h2>Step 2: Address Compaction First</h2><p>Heavy construction equipment compacts soil to near-concrete density in some areas. Water cannot penetrate, roots cannot grow, and fertilizer just sits on the surface. Core aerate and make 2–3 passes in different directions. Plan to aerate every year for 3–5 years until the soil structure improves.</p><h2>Step 3: Add Real Topsoil or Organic Matter</h2><p>Spread 0.25–0.5 inches of quality compost over the lawn after aeration. Repeat every fall for 3–5 years. Use aged compost, not fresh — fresh compost can burn grass and introduces weed seeds.</p><h2>Step 4: Correct pH</h2><p>Most grasses want a soil pH between 6.0 and 7.0. Apply pelletized limestone for acidic soil or elemental sulfur for alkaline soil at the rate your soil test recommends. Retest every season until pH stabilizes in the target range.</p><h2>Realistic Timeline and Expectations</h2><ul><li><strong>Year 1:</strong> Focus on soil improvement. Expect patchy results and do not judge the lawn yet.</li><li><strong>Year 2:</strong> Continue annual aeration and topdressing. Overseed thin areas.</li><li><strong>Year 3+:</strong> Organic matter builds, soil structure improves, earthworms return.</li></ul><div class="blog-tip">💡 Patience is the most important input on a new construction lawn. Homeowners who try to force thick, lush results in year one usually end up with more problems, not fewer.</div><div style="background:var(--green-pale);border:1.5px solid #b6dcb2;border-radius:12px;padding:1.25rem;margin-top:1.5rem;"><div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);margin-bottom:0.5rem;">🛒 Start Here</div><strong>MySoil Complete Soil Test Kit — ~$30</strong><br/><span style="font-size:0.85rem;color:#555;">Lab-accurate test for 13 nutrients with a custom fertilizer recommendation report. The only way to know exactly what your builder dirt is missing before spending on amendments.</span><br/><a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;background:#FF9900;color:#111;padding:0.5rem 1rem;border-radius:7px;text-decoration:none;font-size:0.85rem;font-weight:600;margin-top:0.75rem;">🛒 Buy on Amazon</a></div>`},
     smartirrigation:{title:'Smart Irrigation for a Small Yard: Is It Worth the Cost?',tag:'Irrigation',tagColor:'#e3f2fd',hero:'linear-gradient(135deg,#e3f2fd,#81d4fa)',emoji:'💧',stats:[{val:'$150–800',label:'Smart System Cost'},{val:'20–50%',label:'Water Savings'},{val:'1–3 yrs',label:'Typical Payback'}],body:`<h2>What "Smart Irrigation" Actually Means</h2><p>Smart irrigation covers anything from a $30 hose-end timer to a $600 multi-zone Wi-Fi controller with soil sensors. For a small yard, the right setup depends heavily on your water rates and how much you currently over-water.</p><h2>Option 1: Basic Hose-End Timer ($20–60)</h2><p>A battery-powered timer that attaches to your outdoor spigot and runs a sprinkler on a schedule. No Wi-Fi, no app, no weather integration. Good for renters or supplemental watering of specific areas.</p><div class="blog-tip">💡 A basic timer running a flat schedule will often over-water in wet weeks. If your area gets regular summer rain, a basic timer without a rain sensor can actually increase your water use.</div><h2>Option 2: Smart Hose-End Controller ($50–150)</h2><p>Wi-Fi enabled timers like the Orbit B-hyve that connect to weather data and skip or adjust watering based on rainfall and temperature. No professional installation required. Water savings: 15–30% compared to a fixed schedule. Payback in 2–4 years.</p><h2>Option 3: In-Ground Smart System ($300–800 DIY)</h2><p>Multi-zone in-ground system with a smart controller. Water savings: 30–50%. Many water utilities offer $50–200 rebates for smart controller installation.</p><h2>Bottom Line Recommendation</h2><p>For most small yard homeowners, a smart hose-end controller ($80–130) is the sweet spot. No installation, saves meaningful water, and pays for itself within 2 years in most climates.</p>`},
     seedvssod:{title:'Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?',tag:'Cost Comparison',tagColor:'#e8f5e7',hero:'linear-gradient(135deg,#e8f5e7,#a5d6a7)',emoji:'⚖️',stats:[{val:'$0.05–0.15',label:'Seed per sq ft'},{val:'$0.30–0.80',label:'Hydroseed per sq ft'},{val:'$0.90–2.00',label:'Sod per sq ft'}],body:`<h2>Why Upfront Cost Is the Wrong Comparison</h2><p>When people compare seeding, hydroseeding, and sod, they almost always look at the installation cost and stop there. The real question is: what does each method cost over 3 years when you factor in establishment inputs, failure rates, and re-do costs?</p><h2>Method 1: Seeding (DIY) — 3-Year Cost: $180–340</h2><p>Seeding is the cheapest entry point and produces the strongest long-term root system when done correctly. The trade-off is time — a seeded lawn takes 6–12 weeks to establish and requires consistent moisture during germination.</p><ul><li><strong>Pros:</strong> Lowest cost, strongest root development, wide grass type selection</li><li><strong>Cons:</strong> Slowest to establish, higher failure risk in heat or drought, no lawn use during establishment</li><li><strong>Failure rate:</strong> 20–40% of DIY seeding jobs require partial re-seeding</li></ul><div class="blog-tip">💡 The single biggest cause of seeding failure is letting the seedbed dry out during the first 3 weeks.</div><h2>Method 2: Hydroseeding — 3-Year Cost: $900–1,580</h2><p>Sprays a slurry of seed, mulch, fertilizer, and tackifier onto prepared soil. Much better germination rates than dry seed, especially on slopes. Requires professional equipment. Failure rate: 5–15%.</p><h2>Method 3: Sod — 3-Year Cost: $2,835–4,725</h2><p>Gives you an instant lawn. Most expensive upfront but eliminates establishment risk. Walkable in 2–3 weeks, roots fully anchor in 6–8 weeks.</p><div class="blog-warn">⚠️ Do not lay sod over unimproved new construction soil and expect it to survive. The roots will hit compacted fill dirt within 2 inches and stop growing. Fix the soil first.</div><h2>Which Should You Choose?</h2><ul><li><strong>Choose seed if:</strong> Tight budget, flexible timing, flat area, committed to watering daily for 3 weeks</li><li><strong>Choose hydroseeding if:</strong> Slopes, large area, previous dry seeding failures</li><li><strong>Choose sod if:</strong> Need the lawn usable quickly, high-visibility area, hot climate with narrow seeding windows</li></ul><div class="blog-tip">💡 For most homeowners on a budget, seeding in the optimal window with proper soil prep and a commitment to watering delivers the best long-term value by a wide margin.</div>`}
   };
@@ -1699,29 +1615,6 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
   }
   function closeBlog(){document.getElementById('blogModal').style.display='none';document.body.style.overflow='';}
   document.getElementById('blogModal').addEventListener('click',function(e){if(e.target===this)closeBlog();});
-
-  // Intercept Kit form submits — prevent redirect, show inline success
-  document.addEventListener('submit', function(e) {
-    const form = e.target.closest('#kitCaptureForm, #kitHeroForm');
-    if (!form) return;
-    e.preventDefault();
-    const email = form.querySelector('input[name="email_address"]')?.value?.trim();
-    if (!email) return;
-    const btn = form.querySelector('.formkit-submit');
-    if (btn) { btn.disabled = true; btn.querySelector('span').textContent = 'Sending…'; }
-    const body = new FormData(form);
-    fetch(form.action, { method: 'POST', body, headers: { 'Accept': 'application/json' } })
-      .then(() => showKitSuccess(form))
-      .catch(() => showKitSuccess(form));
-  }, true);
-
-  function showKitSuccess(form) {
-    const successId = form.id === 'kitHeroForm' ? 'kitHeroSuccess' : 'kitInlineSuccess';
-    const success = document.getElementById(successId);
-    const fields  = form.querySelector('.seva-fields');
-    if (fields)  fields.style.display = 'none';
-    if (success) success.style.display = 'block';
-  }
 </script>
 </body>
 </html>
