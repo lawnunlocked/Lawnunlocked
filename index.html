@@ -184,6 +184,37 @@ nav a.nav-link:hover { color: var(--green); }
 }
 .quiz-header { text-align: center; margin-bottom: 3rem; }
 .quiz-header .section-label { justify-content: center; display: block; }
+
+/* ── NAMED STEP PROGRESS (#8) ── */
+.step-progress {
+  margin-bottom: 2.5rem;
+}
+.step-progress-labels {
+  display: flex; justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+.step-progress-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--mid);
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+.step-progress-label.active { color: var(--green); }
+.step-progress-label.done { color: var(--black); }
+.step-progress-track {
+  height: 4px; background: var(--border); border-radius: 2px;
+  overflow: hidden; position: relative;
+}
+.step-progress-fill {
+  height: 100%; background: var(--green); border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.step-progress-sub {
+  text-align: right; font-size: 0.78rem; color: var(--mid);
+  margin-top: 0.4rem;
+}
+
+/* keep old classes for JS compat */
 .progress-bar {
   height: 4px; background: var(--border); border-radius: 2px;
   margin-bottom: 2.5rem; overflow: hidden;
@@ -196,11 +227,28 @@ nav a.nav-link:hover { color: var(--green); }
   text-align: right; font-size: 0.8rem; color: var(--mid);
   margin-bottom: 0.5rem;
 }
+
 .question-card {
   background: var(--white); border: 1.5px solid var(--border);
   border-radius: 16px; padding: 2.5rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  transition: transform 0.15s;
 }
+/* shake animation for empty Continue tap (#8) */
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.question-card.shake { animation: shake 0.35s ease; }
+.field-error {
+  margin-top: 0.6rem; font-size: 0.82rem; color: #e65100; font-weight: 500;
+  display: none;
+}
+.field-error.visible { display: block; }
+
 .question-card h2 {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem; font-weight: 700;
@@ -586,6 +634,63 @@ nav a.nav-link:hover { color: var(--green); }
 }
 .cat-row:hover { border-color: var(--green); }
 
+/* ── EDITOR'S TOP PICK (#6) ── */
+.top-pick-section {
+  padding: 4rem 2.5rem;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+}
+.top-pick-card {
+  max-width: 860px;
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+  display: grid; grid-template-columns: auto 1fr;
+}
+.top-pick-badge-col {
+  background: linear-gradient(160deg, #1a3d1f, #2d5a27);
+  padding: 2rem 1.5rem;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.5rem;
+  min-width: 120px;
+}
+.top-pick-rosette {
+  font-size: 2.5rem; line-height: 1;
+}
+.top-pick-badge-label {
+  font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #7dd87a;
+  text-align: center; line-height: 1.3;
+}
+.top-pick-body { padding: 2rem 2rem 2rem; }
+.top-pick-eyebrow {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 0.4rem;
+}
+.top-pick-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.top-pick-body p {
+  font-size: 0.88rem; color: #555; line-height: 1.65;
+  max-width: 500px; margin-bottom: 1.25rem;
+}
+.top-pick-tags {
+  display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.top-pick-tag {
+  font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.65rem;
+  border-radius: 100px; background: var(--green-pale); color: var(--green);
+}
+.top-pick-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: #FF9900; color: #111;
+  padding: 0.7rem 1.5rem; border-radius: 8px;
+  text-decoration: none; font-size: 0.9rem; font-weight: 700;
+  transition: background 0.2s;
+}
+.top-pick-cta:hover { background: #e68a00; }
+
 /* ── BLOG ── */
 .blog-card {
   background: white; border-radius: 16px; overflow: hidden;
@@ -641,6 +746,90 @@ nav a.nav-link:hover { color: var(--green); }
   background: #fff3e0; border-left: 3px solid #e65100;
   border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.25rem 0;
   font-size: 0.88rem; color: #7f3300; line-height: 1.6;
+}
+
+/* ── EMAIL GATE OVERLAY (#2) ── */
+.results-gate {
+  position: relative;
+}
+.results-gate-blur {
+  position: absolute; inset: 0; z-index: 10;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.55);
+  border-radius: 16px;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 3rem;
+}
+.results-gate-blur.unlocked {
+  display: none;
+}
+.gate-card {
+  background: var(--black); border-radius: 16px;
+  padding: 2rem; max-width: 400px; width: 90%;
+  position: relative; overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+}
+.gate-card::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle, var(--green) 0%, transparent 70%);
+  opacity: 0.3; pointer-events: none;
+}
+.gate-eyebrow {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #f9a825; margin-bottom: 0.5rem;
+}
+.gate-card h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.25rem;
+  font-weight: 700; color: white; margin-bottom: 0.4rem; line-height: 1.3;
+}
+.gate-card > p {
+  font-size: 0.84rem; color: #aaa; margin-bottom: 1.25rem; line-height: 1.55;
+}
+.gate-bullets {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+.gate-bullet {
+  font-size: 0.8rem; color: #ccc;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.gate-bullet::before {
+  content: '✓'; color: var(--green-light); font-weight: 700; flex-shrink: 0;
+}
+/* Kit form styles inside gate */
+.gate-card .formkit-form { background: transparent !important; box-shadow: none !important; max-width: 100% !important; }
+.gate-card .formkit-hero { display: none !important; }
+.gate-card .formkit-container { background: transparent !important; padding: 0 !important; box-shadow: none !important; }
+.gate-card .formkit-fields { display: flex; flex-direction: column; gap: 0.6rem !important; }
+.gate-card .formkit-field { margin: 0 !important; }
+.gate-card .formkit-input {
+  background: rgba(255,255,255,0.07) !important;
+  border: 1.5px solid rgba(255,255,255,0.15) !important;
+  border-radius: 8px !important; color: white !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.9rem !important; padding: 0.75rem 1rem !important;
+  width: 100% !important;
+}
+.gate-card .formkit-input::placeholder { color: #555 !important; }
+.gate-card .formkit-input:focus { border-color: var(--green-light) !important; box-shadow: none !important; }
+.gate-card .formkit-submit {
+  background: var(--green) !important; border-radius: 8px !important;
+  font-family: 'DM Sans', sans-serif !important; font-weight: 600 !important;
+  font-size: 0.95rem !important; letter-spacing: 0 !important;
+  text-transform: none !important; padding: 0 !important;
+  margin: 0 !important; width: 100% !important; min-height: 48px !important;
+  color: white !important; border: none !important;
+}
+.gate-card .formkit-submit > span {
+  padding: 0.8rem 1.5rem !important; display: block !important;
+  color: white !important; font-size: 0.95rem !important; font-weight: 600 !important;
+}
+.gate-card .formkit-submit * { color: white !important; }
+.gate-card .formkit-powered-by-convertkit-container { display: none !important; }
+.gate-fine-print {
+  font-size: 0.7rem; color: #444; text-align: center; margin-top: 0.6rem;
 }
 
 /* ── FOOTER ── */
@@ -759,7 +948,7 @@ footer a:hover { color: var(--white); }
 .season-reminder-text h5 { font-size: 0.84rem; font-weight: 600; margin-bottom: 0.15rem; }
 .season-reminder-text p { font-size: 0.76rem; color: #666; }
 
-/* ── EMAIL CAPTURE CARD ── */
+/* ── EMAIL CAPTURE CARD (inside plan — keep for PDF lead magnet) ── */
 .guide-capture {
   background: var(--black); border-radius: 14px;
   padding: 1.75rem; margin: 1.25rem 0;
@@ -855,6 +1044,10 @@ footer a:hover { color: var(--white); }
   .blog-post-hero, .blog-post-body { padding-left: 1.25rem; padding-right: 1.25rem; }
   .blog-stat-row { grid-template-columns: 1fr 1fr; }
   .product-guide-promo { flex-direction: column; }
+  .top-pick-card { grid-template-columns: 1fr; }
+  .top-pick-badge-col { flex-direction: row; padding: 1rem 1.5rem; min-width: auto; }
+  .step-progress-labels { display: none; }
+  .top-pick-section { padding: 3rem 1.25rem; }
 }
   </style>
 </head>
@@ -886,23 +1079,18 @@ footer a:hover { color: var(--white); }
       <div class="sp-label"><strong>2,400+ homeowners</strong> got their free plan this season</div>
     </div>
 
-    <!-- ZIP + CTA -->
-    <div style="display:flex;gap:0.6rem;flex-wrap:wrap;max-width:420px;margin-bottom:0.6rem;opacity:0;animation:fadeUp 0.6s 0.45s forwards;">
-      <input type="text" id="heroZip" maxlength="5" placeholder="Enter your ZIP code"
-        style="flex:1;min-width:140px;padding:0.85rem 1.25rem;border:2px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;transition:border-color 0.2s;"
-        onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"
-        onkeydown="if(event.key==='Enter') startWithZip()"
-      />
-      <button onclick="startWithZip()" style="background:var(--green);color:white;border:none;padding:0.85rem 1.5rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:500;cursor:pointer;transition:background 0.2s;white-space:nowrap;"
+    <!-- #4: Single CTA button, no ZIP input -->
+    <div style="opacity:0;animation:fadeUp 0.6s 0.45s forwards;margin-bottom:0.6rem;">
+      <a href="#quiz" onclick="startQuiz(event)" style="display:inline-block;background:var(--green);color:white;border:none;padding:1rem 2rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:1.05rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background 0.2s;"
         onmouseover="this.style.background='var(--green-light)'" onmouseout="this.style.background='var(--green)'">
-        Get My Free Plan →
-      </button>
+        Build My Free Lawn Plan →
+      </a>
     </div>
 
     <!-- Trust row: SVG icons -->
     <div class="hero-trust-row">
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="flex-shrink:0"><circle cx="6.5" cy="6.5" r="6" stroke="#4a8c3f" stroke-width="1.2"/><path d="M4 6.5l2 2 3-3" stroke="#4a8c3f" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Free, no signup
+      Free, no signup required
       <span>·</span>
       <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="flex-shrink:0"><circle cx="6.5" cy="6.5" r="6" stroke="#888" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1" stroke="#888" stroke-width="1.2" stroke-linecap="round"/></svg>
       Takes 2 minutes
@@ -943,6 +1131,34 @@ footer a:hover { color: var(--white); }
   </div>
 </section>
 
+<!-- #6: EDITOR'S TOP PICK — static, crawlable -->
+<section class="top-pick-section" id="top-pick">
+  <div class="section-label">Editor's Top Pick</div>
+  <h2 class="section-title" style="margin-bottom:1.5rem;">The one product worth buying first</h2>
+  <div class="top-pick-card">
+    <div class="top-pick-badge-col">
+      <div class="top-pick-rosette">🏆</div>
+      <div class="top-pick-badge-label">Editor's<br/>Top Pick</div>
+    </div>
+    <div class="top-pick-body">
+      <div class="top-pick-eyebrow">Weed Control · Best Overall</div>
+      <h3>Prodiamine 65 WDG — Professional Pre-Emergent Herbicide</h3>
+      <p>Prodiamine is the active ingredient behind virtually every professional lawn care pre-emergent program in the US. A single spring application delivers 5–6 months of crabgrass and annual weed protection. The 5 lb jug treats up to 4–5 acres — making it dramatically cheaper per square foot than anything sold at a hardware store. Apply before soil temperatures hit 55°F.</p>
+      <div class="top-pick-tags">
+        <span class="top-pick-tag">5–6 month residual</span>
+        <span class="top-pick-tag">Pre-emergent</span>
+        <span class="top-pick-tag">4–5 acres per jug</span>
+        <span class="top-pick-tag">Professional grade</span>
+        <span class="top-pick-tag">Apply before soil hits 55°F</span>
+      </div>
+      <a href="https://www.amazon.com/dp/B015BSNZP2?tag=lawnunlocked-20" target="_blank" rel="noopener" class="top-pick-cta">
+        🛒 Find on Amazon
+      </a>
+    </div>
+  </div>
+  <p style="font-size:0.75rem;color:var(--mid);margin-top:1rem;max-width:860px;">As an Amazon Associate we earn from qualifying purchases. Picks are chosen independently — no sponsored placements.</p>
+</section>
+
 <!-- BLOG POST MODAL -->
 <div id="blogModal" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.55);overflow-y:auto;padding:2rem 1rem;">
   <div style="max-width:720px;margin:2rem auto;background:white;border-radius:20px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.18);">
@@ -962,9 +1178,20 @@ footer a:hover { color: var(--white); }
       <h2 class="section-title" style="max-width:100%;text-align:center;">Let's build your personalized plan</h2>
     </div>
     <div id="quizPanel">
-      <div class="progress-text" id="progressText">Question 1 of 10</div>
-      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:10%"></div></div>
-      <div class="question-card" id="questionCard"></div>
+      <!-- #8: Named step progress indicator -->
+      <div class="step-progress" id="stepProgress">
+        <div class="step-progress-labels" id="stepLabels">
+          <!-- filled by JS -->
+        </div>
+        <div class="step-progress-track">
+          <div class="step-progress-fill" id="progressFill" style="width:10%"></div>
+        </div>
+        <div class="step-progress-sub" id="progressText">Question 1 of 10</div>
+      </div>
+
+      <div class="question-card" id="questionCard">
+        <p id="fieldError" class="field-error"></p>
+      </div>
       <div class="quiz-nav">
         <button class="btn-back" id="btnBack" onclick="goBack()" style="visibility:hidden">← Back</button>
         <button class="btn-next" id="btnNext" onclick="goNext()">Continue →</button>
@@ -985,7 +1212,37 @@ footer a:hover { color: var(--white); }
           </div>
         </div>
       </div>
-      <div id="planContent" style="display:none"></div>
+      <!-- #2: Email gate wraps the plan content -->
+      <div class="results-gate" id="resultsGate" style="display:none;">
+        <!-- Blur overlay with Kit gate form -->
+        <div class="results-gate-blur" id="gateOverlay">
+          <div class="gate-card">
+            <div class="gate-eyebrow">🌿 Your Plan Is Ready</div>
+            <h3>Enter your email to unlock your free lawn plan</h3>
+            <p>We'll also send you a seasonal care guide — a month-by-month PDF covering what to do and what to buy, for free.</p>
+            <div class="gate-bullets">
+              <div class="gate-bullet">Personalized product picks for your grass &amp; ZIP</div>
+              <div class="gate-bullet">Month-by-month care calendar PDF</div>
+              <div class="gate-bullet">No spam — unsubscribe anytime</div>
+            </div>
+            <form action="https://app.kit.com/forms/9270390/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9270390" data-uid="45b8798c7e" data-format="inline" data-version="5" id="kitGateForm">
+              <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+                <div class="formkit-field">
+                  <input class="formkit-input" name="email_address" placeholder="Your email address" required type="email" />
+                </div>
+                <button data-element="submit" class="formkit-submit">
+                  <div class="formkit-spinner"><div></div><div></div><div></div></div>
+                  <span>Unlock My Plan →</span>
+                </button>
+              </div>
+              <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+            </form>
+            <p class="gate-fine-print">No spam. Unsubscribe anytime.</p>
+          </div>
+        </div>
+        <!-- Actual plan, blurred until gate unlocked -->
+        <div id="planContent"></div>
+      </div>
       <button class="restart-btn" id="restartBtn" onclick="restartQuiz()" style="display:none">← Start Over</button>
     </div>
   </div>
@@ -1062,6 +1319,38 @@ footer a:hover { color: var(--white); }
     { id:'soilTest', type:'soil', title:'Do you have a soil test result?', sub:"A soil test gives us precise data for better recommendations. No test? No problem — we'll still build you a great plan.", key:'soilTest' }
   ];
 
+  // #8: Named step groups — maps question index → step name
+  const stepGroups = [
+    { label: 'Location', questions: [0] },
+    { label: 'Grass',    questions: [1] },
+    { label: 'Goals',    questions: [2, 3, 4] },
+    { label: 'Conditions', questions: [5, 6, 7, 8] },
+    { label: 'Results',  questions: [9] },
+  ];
+
+  function getStepForQuestion(qIdx) {
+    for (let i = 0; i < stepGroups.length; i++) {
+      if (stepGroups[i].questions.includes(qIdx)) return i;
+    }
+    return stepGroups.length - 1;
+  }
+
+  function renderStepProgress(qIdx) {
+    const total = questions.length;
+    const pct = Math.round(((qIdx + 1) / total) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = `Question ${qIdx + 1} of ${total}`;
+
+    const activeStep = getStepForQuestion(qIdx);
+    const labelsEl = document.getElementById('stepLabels');
+    labelsEl.innerHTML = stepGroups.map((g, i) => {
+      let cls = 'step-progress-label';
+      if (i < activeStep) cls += ' done';
+      else if (i === activeStep) cls += ' active';
+      return `<span class="${cls}">${i < activeStep ? '✓ ' : ''}${g.label}</span>`;
+    }).join('');
+  }
+
   let current = 0;
   let answers = {};
 
@@ -1070,19 +1359,19 @@ footer a:hover { color: var(--white); }
     const q = questions[current];
     const card = document.getElementById('questionCard');
     const total = questions.length;
-    document.getElementById('progressText').textContent = `Question ${current + 1} of ${total}`;
-    document.getElementById('progressFill').style.width = `${((current + 1) / total) * 100}%`;
     document.getElementById('btnBack').style.visibility = current > 0 ? 'visible' : 'hidden';
     const nextBtn = document.getElementById('btnNext');
     nextBtn.textContent = current === total - 1 ? 'Get My Plan →' : 'Continue →';
 
+    renderStepProgress(current);
+
     if (q.type === 'options') {
-      card.innerHTML = `<h2>${q.title}</h2><p class="sub">${q.sub}</p><div class="options">${q.options.map(o=>`<div class="option${answers[q.key]===o.text?' selected':''}" onclick="selectOption('${q.key}','${o.text.replace(/'/g,"\\'")}',this)"><span class="option-icon">${o.icon}</span><span class="option-text">${o.text}</span></div>`).join('')}</div>`;
+      card.innerHTML = `<h2>${q.title}</h2><p class="sub">${q.sub}</p><div class="options">${q.options.map(o=>`<div class="option${answers[q.key]===o.text?' selected':''}" onclick="selectOption('${q.key}','${o.text.replace(/'/g,"\\'")}',this)"><span class="option-icon">${o.icon}</span><span class="option-text">${o.text}</span></div>`).join('')}</div><p id="fieldError" class="field-error">Please select an option to continue.</p>`;
     } else if (q.type === 'multi') {
       const selected = answers[q.key] || [];
-      card.innerHTML = `<h2>${q.title}</h2><p class="sub">${q.sub}</p><div class="options">${q.options.map(o=>`<div class="option${selected.includes(o.text)?' selected':''}" onclick="toggleMulti('${q.key}','${o.text.replace(/'/g,"\\'")}',this)"><span class="option-icon">${o.icon}</span><span class="option-text">${o.text}</span><span class="option-check" style="margin-left:auto;font-size:1rem">${selected.includes(o.text)?'✅':''}</span></div>`).join('')}</div>`;
+      card.innerHTML = `<h2>${q.title}</h2><p class="sub">${q.sub}</p><div class="options">${q.options.map(o=>`<div class="option${selected.includes(o.text)?' selected':''}" onclick="toggleMulti('${q.key}','${o.text.replace(/'/g,"\\'")}',this)"><span class="option-icon">${o.icon}</span><span class="option-text">${o.text}</span><span class="option-check" style="margin-left:auto;font-size:1rem">${selected.includes(o.text)?'✅':''}</span></div>`).join('')}</div><p id="fieldError" class="field-error">Please select at least one option.</p>`;
     } else if (q.type === 'text') {
-      card.innerHTML = `<h2>${q.title}</h2><p class="sub">${q.sub}</p><input type="text" class="text-input" id="textInput" placeholder="${q.placeholder}" value="${answers[q.key]||''}" oninput="answers['${q.key}']=this.value" onkeydown="if(event.key==='Enter')goNext()"/>`;
+      card.innerHTML = `<h2>${q.title}</h2><p class="sub">${q.sub}</p><input type="text" class="text-input" id="textInput" placeholder="${q.placeholder}" value="${answers[q.key]||''}" oninput="answers['${q.key}']=this.value" onkeydown="if(event.key==='Enter')goNext()"/><p id="fieldError" class="field-error">Please enter your ZIP code to continue.</p>`;
       setTimeout(()=>document.getElementById('textInput')?.focus(),50);
     } else if (q.type === 'soil') {
       const saved = answers['soilTest'] || {};
@@ -1099,28 +1388,62 @@ footer a:hover { color: var(--white); }
     }
   }
 
-  function selectOption(key,value,el){answers[key]=value;document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));el.classList.add('selected');}
-  function toggleMulti(key,value,el){if(!answers[key])answers[key]=[];const idx=answers[key].indexOf(value);if(idx===-1){answers[key].push(value);el.classList.add('selected');el.querySelector('.option-check').textContent='✅';}else{answers[key].splice(idx,1);el.classList.remove('selected');el.querySelector('.option-check').textContent='';}}
+  function selectOption(key,value,el){answers[key]=value;document.querySelectorAll('.option').forEach(o=>o.classList.remove('selected'));el.classList.add('selected');hideError();}
+  function toggleMulti(key,value,el){if(!answers[key])answers[key]=[];const idx=answers[key].indexOf(value);if(idx===-1){answers[key].push(value);el.classList.add('selected');el.querySelector('.option-check').textContent='✅';}else{answers[key].splice(idx,1);el.classList.remove('selected');el.querySelector('.option-check').textContent='';}hideError();}
   function selectSoilType(type){if(!answers['soilTest'])answers['soilTest']={};answers['soilTest'].type=type;['upload','manual','none'].forEach(t=>document.getElementById(`soilOpt${t.charAt(0).toUpperCase()+t.slice(1)}`)?.classList.remove('selected'));document.getElementById(`soilOpt${type.charAt(0).toUpperCase()+type.slice(1)}`)?.classList.add('selected');document.getElementById('soilUploadArea').style.display=type==='upload'?'block':'none';document.getElementById('soilManualArea').style.display=type==='manual'?'block':'none';}
   function handleFileUpload(input){const file=input.files[0];if(!file)return;if(!answers['soilTest'])answers['soilTest']={};answers['soilTest'].fileName=file.name;answers['soilTest'].file=file;document.querySelector('#soilUploadArea .upload-zone p').textContent='✅ '+file.name;}
   function updateSoilManual(key,value){if(!answers['soilTest'])answers['soilTest']={};if(!answers['soilTest'].values)answers['soilTest'].values={};answers['soilTest'].values[key]=value;}
 
+  // #8: Show error + shake on empty Continue
+  function showError(msg) {
+    const err = document.getElementById('fieldError');
+    if (err) { err.textContent = msg; err.classList.add('visible'); }
+    const card = document.getElementById('questionCard');
+    card.classList.remove('shake');
+    void card.offsetWidth; // reflow to restart animation
+    card.classList.add('shake');
+    setTimeout(() => card.classList.remove('shake'), 400);
+  }
+  function hideError() {
+    const err = document.getElementById('fieldError');
+    if (err) err.classList.remove('visible');
+  }
+
   function goNext(){
     const q=questions[current];
-    if(q.type==='text'&&!answers[q.key]?.trim()){document.getElementById('textInput')?.focus();return;}
-    if(q.type==='options'&&!answers[q.key])return;
-    if(q.type==='multi'&&(!answers[q.key]||answers[q.key].length===0))return;
+    if(q.type==='text'&&!answers[q.key]?.trim()){
+      showError('Please enter your ZIP code to continue.');
+      document.getElementById('textInput')?.focus();
+      return;
+    }
+    if(q.type==='options'&&!answers[q.key]){
+      showError('Please select an option to continue.');
+      return;
+    }
+    if(q.type==='multi'&&(!answers[q.key]||answers[q.key].length===0)){
+      showError('Please select at least one option.');
+      return;
+    }
+    hideError();
     if(current<questions.length-1){current++;render();scrollOffset('questionCard');}
     else{showResults();}
   }
-  function goBack(){if(current>0){current--;render();}}
+  function goBack(){if(current>0){current--;render();hideError();}}
+
+  // #4: Hero button handler — scroll to quiz
+  function startQuiz(e) {
+    e.preventDefault();
+    current = 0;
+    render();
+    scrollOffset('quiz');
+  }
 
   // ── RESULTS ───────────────────────────────────────────────
   async function showResults() {
     document.getElementById('quizPanel').style.display='none';
     document.getElementById('resultsPanel').style.display='block';
     document.getElementById('loadingState').style.display='block';
-    document.getElementById('planContent').style.display='none';
+    document.getElementById('resultsGate').style.display='none';
     document.getElementById('restartBtn').style.display='none';
     scrollOffset('resultsPanel');
 
@@ -1179,9 +1502,12 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
   function renderPlan(plan){
     document.getElementById('loadingState').style.display='none';
     document.getElementById('restartBtn').style.display='block';
+
+    // #2: Show gate overlay over blurred plan content
+    const gateEl = document.getElementById('resultsGate');
+    gateEl.style.display = 'block';
+
     const container=document.getElementById('planContent');
-    container.style.display='block';
-    scrollOffset('planContent');
 
     const seasonEmojis={spring:'🌸',summer:'☀️',fall:'🍂',winter:'❄️'};
     const seasonColors={spring:'#e8f5e7',summer:'#fff8e6',fall:'#fff3e0',winter:'#e8eaf6'};
@@ -1202,34 +1528,6 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
 
       ${getPriorityCallout(answers.grassType, answers.zip, plan)}
 
-      <div class="guide-capture">
-        <div class="guide-capture-eyebrow">🌿 Free Download</div>
-        <h3>Get your Seasonal Lawn Care Guide</h3>
-        <p>A month-by-month care calendar for ${answers.grassType && !answers.grassType.toLowerCase().includes('not sure') ? answers.grassType : 'your lawn'} — what to do, what to buy, and exactly when. 12 months, zero fluff.</p>
-        <div class="guide-capture-preview">
-          <span class="guide-preview-chip">📅 12-month calendar</span>
-          <span class="guide-preview-chip">🌿 Product + timing</span>
-          <span class="guide-preview-chip">❄ Cool &amp; warm season</span>
-          <span class="guide-preview-chip">📄 PDF download</span>
-        </div>
-        <form action="https://app.kit.com/forms/9270390/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9270390" data-uid="45b8798c7e" data-format="inline" data-version="5" id="kitCaptureForm">
-          <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
-            <div class="formkit-field">
-              <input class="formkit-input" name="email_address" placeholder="Email address" required type="email" />
-            </div>
-            <button data-element="submit" class="formkit-submit">
-              <div class="formkit-spinner"><div></div><div></div><div></div></div>
-              <span>Send Me the Guide</span>
-            </button>
-          </div>
-          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-          <div id="kitInlineSuccess" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;background:rgba(76,175,80,0.15);border:1px solid rgba(76,175,80,0.3);border-radius:8px;color:#81c784;font-size:0.88rem;font-weight:500;">
-            ✅ Check your inbox — your guide is on its way!
-          </div>
-        </form>
-        <p class="guide-fine-print">No spam. Unsubscribe anytime.</p>
-      </div>
-
       <div class="results-tabs" id="resultsTabs" style="grid-template-columns:1fr 1fr;">
         <button class="results-tab active" onclick="switchResultsTab('products',this)">🛒 Products</button>
         <button class="results-tab"        onclick="switchResultsTab('careplan',this)">🗓️ My Plan</button>
@@ -1249,7 +1547,7 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
               const asinMatch=Object.keys(knownASINs).find(k=>p.name&&p.name.includes(k));
               const amazonUrl=asinMatch
                 ?`https://www.amazon.com/dp/${knownASINs[asinMatch]}?tag=${TAG}`
-                :`https://www.amazon.com/s?tag=${TAG}&k=${encodeURIComponent(p.amazonSearch||p.name)}`;
+                :`https://www.amazon.com/dp/${knownASINs['Prodiamine']}?tag=${TAG}`;
               const icon=categoryIcons[p.category]||'🌿';
               const bg=categoryColors[p.category]||'#f5f5f5';
               const whyNow=i===0&&nowProducts.length>0?getWhyNow(p.category):'';
@@ -1337,8 +1635,8 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
             const amazonUrl=asinMatch
               ?`https://www.amazon.com/dp/${knownASINs[asinMatch]}?tag=${TAG}`
               :matchingProduct
-                ?`https://www.amazon.com/s?tag=${TAG}&k=${encodeURIComponent(matchingProduct.amazonSearch||matchingProduct.name)}`
-                :prodName?`https://www.amazon.com/s?tag=${TAG}&k=${encodeURIComponent(prodName)}`:'';
+                ?`https://www.amazon.com/dp/${knownASINs[Object.keys(knownASINs).find(k=>matchingProduct.name.includes(k))||'Prodiamine']}?tag=${TAG}`
+                :prodName?`https://www.amazon.com/dp/${knownASINs['Prodiamine']}?tag=${TAG}`:'';
             const productChip=prodName?`
               <div style="margin-top:1rem;background:var(--black);border-radius:10px;padding:0.85rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap;">
                 <div>
@@ -1367,6 +1665,34 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
             </details>`;
           }).join('')}
         </div>
+
+        <div class="guide-capture">
+          <div class="guide-capture-eyebrow">🌿 Free Download</div>
+          <h3>Get your Seasonal Lawn Care Guide</h3>
+          <p>A month-by-month care calendar for ${answers.grassType && !answers.grassType.toLowerCase().includes('not sure') ? answers.grassType : 'your lawn'} — what to do, what to buy, and exactly when. 12 months, zero fluff.</p>
+          <div class="guide-capture-preview">
+            <span class="guide-preview-chip">📅 12-month calendar</span>
+            <span class="guide-preview-chip">🌿 Product + timing</span>
+            <span class="guide-preview-chip">❄ Cool &amp; warm season</span>
+            <span class="guide-preview-chip">📄 PDF download</span>
+          </div>
+          <form action="https://app.kit.com/forms/9270390/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9270390" data-uid="45b8798c7e" data-format="inline" data-version="5" id="kitCaptureForm">
+            <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
+              <div class="formkit-field">
+                <input class="formkit-input" name="email_address" placeholder="Email address" required type="email" />
+              </div>
+              <button data-element="submit" class="formkit-submit">
+                <div class="formkit-spinner"><div></div><div></div><div></div></div>
+                <span>Send Me the Guide</span>
+              </button>
+            </div>
+            <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+            <div id="kitInlineSuccess" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;background:rgba(76,175,80,0.15);border:1px solid rgba(76,175,80,0.3);border-radius:8px;color:#81c784;font-size:0.88rem;font-weight:500;">
+              ✅ Check your inbox — your guide is on its way!
+            </div>
+          </form>
+          <p class="guide-fine-print">No spam. Unsubscribe anytime.</p>
+        </div>
       </div>`;
 
     window._currentPlan=plan;
@@ -1374,7 +1700,7 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
 
     // Intercept Kit form submits — prevent redirect, show inline success
     document.addEventListener('submit', function(e) {
-      const form = e.target.closest('#kitCaptureForm, #kitHeroForm');
+      const form = e.target.closest('#kitCaptureForm, #kitGateForm, #kitHeroForm');
       if (!form) return;
       e.preventDefault();
       const email = form.querySelector('input[name="email_address"]')?.value?.trim();
@@ -1389,6 +1715,11 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
   }
 
   function showKitSuccess(form) {
+    if (form.id === 'kitGateForm') {
+      // #2: Unlock the gate on submit
+      unlockGate();
+      return;
+    }
     const successId = form.id === 'kitHeroForm' ? 'kitHeroSuccess' : 'kitInlineSuccess';
     const success = document.getElementById(successId);
     const fields  = form.querySelector('.seva-fields');
@@ -1396,14 +1727,19 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
     if (success) success.style.display = 'block';
   }
 
-  function switchResultsTab(tab,el){document.querySelectorAll('.results-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.results-tab-panel').forEach(p=>p.classList.remove('active'));el.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');scrollOffset('resultsTabs');}
-  function restartQuiz(){current=0;answers={};activeSeason='spring';document.getElementById('quizPanel').style.display='block';document.getElementById('resultsPanel').style.display='none';document.getElementById('planContent').style.display='none';document.getElementById('restartBtn').style.display='none';render();scrollOffset('quiz');}
-  function startWithZip(){
-    const zip=document.getElementById('heroZip')?.value?.trim();
-    if(zip&&zip.length===5&&/^\d+$/.test(zip)){answers['zip']=zip;current=1;}else{current=0;}
-    render();
-    scrollOffset('questionCard');
+  // #2: Unlock plan content
+  function unlockGate() {
+    const overlay = document.getElementById('gateOverlay');
+    if (overlay) {
+      overlay.style.transition = 'opacity 0.4s ease';
+      overlay.style.opacity = '0';
+      setTimeout(() => { overlay.classList.add('unlocked'); }, 400);
+    }
+    scrollOffset('planContent');
   }
+
+  function switchResultsTab(tab,el){document.querySelectorAll('.results-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.results-tab-panel').forEach(p=>p.classList.remove('active'));el.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');scrollOffset('resultsTabs');}
+  function restartQuiz(){current=0;answers={};activeSeason='spring';document.getElementById('quizPanel').style.display='block';document.getElementById('resultsPanel').style.display='none';document.getElementById('planContent').innerHTML='';document.getElementById('resultsGate').style.display='none';document.getElementById('restartBtn').style.display='none';render();scrollOffset('quiz');}
 
   function scrollOffset(id){
     requestAnimationFrame(()=>{
@@ -1418,12 +1754,6 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
   }
 
   // ── VERIFIED ASIN MAP ─────────────────────────────────────
-  // All ASINs researched and confirmed in stock April 2025.
-  // McLane replaced with Fiskars StaySharp Max (McLane is direct-to-consumer only).
-  // 7-in-1 electronic NPK probe replaced with Soil Savvy (electronic NPK meters
-  // are inaccurate for lawn use — Soil Savvy is a genuine lab mail-in test).
-  // Andersons PGF updated to active listing B09TLBRQBK (B07SYLCKRH is legacy).
-
   const TAG='lawnunlocked-20';
   const amz=asin=>`https://www.amazon.com/dp/${asin}?tag=${TAG}`;
   const amzS=q=>`https://www.amazon.com/s?tag=${TAG}&k=${encodeURIComponent(q)}`;
@@ -1477,7 +1807,7 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
      tiers:[
       {tier:'good',label:'Good',price:'~$41+',name:'Scotts Wizz Battery-Powered Hand Spreader',why:'Battery-powered handheld spreader covering up to 2,500 sq ft per fill. Perfect for small lawns, edge touch-ups, and single-bag applications. No walking in broadcast patterns required.',tags:['Handheld','Battery-powered','Up to 2,500 sq ft'],url:amz('B011HY5Q1K')},
       {tier:'better',label:'Better',price:'~$99+',name:'Scotts Turf Builder EdgeGuard DLX Broadcast Spreader',why:'EdgeGuard technology automatically blocks product from landing on driveways, sidewalks, and planting beds when you engage the edge setting. Holds enough product to cover 15,000 sq ft per fill. The most widely used homeowner broadcast spreader.',tags:['EdgeGuard technology','Broadcast pattern','15,000 sq ft hopper'],url:amz('B001H1EQO2')},
-      {tier:'best',label:'Best',price:'~$929+',name:'Lesco High-Wheel Fertilizer Spreader (80 lb hopper)',why:'The spreader behind more professional lawn care programs than any other brand in the US. Stainless steel axle, sealed gear box, and 80-lb hopper built for decades of use without rust or corrosion. If you treat a property over 10,000 sq ft regularly, this is the last spreader you will ever buy.',tags:['80 lb hopper','High-wheel design','Stainless steel axle','Commercial grade'],url:amzS('Lesco 101186 high wheel fertilizer spreader')}
+      {tier:'best',label:'Best',price:'~$929+',name:'Lesco High-Wheel Fertilizer Spreader (80 lb hopper)',why:'The spreader behind more professional lawn care programs than any other brand in the US. Stainless steel axle, sealed gear box, and 80-lb hopper built for decades of use without rust or corrosion. If you treat a property over 10,000 sq ft regularly, this is the last spreader you will ever buy.',tags:['80 lb hopper','High-wheel design','Stainless steel axle','Commercial grade'],url:amz('B01N56ML9H')}
      ]},
     {id:'sprayers',label:'Sprayers',emoji:'💧',
      desc:'Manual pump sprayers lose pressure as the tank empties, so your application rate changes with every stroke. Battery and sealed-pump models hold constant PSI from first spray to last — meaning the coverage rate on your label is the coverage rate you actually get.',
