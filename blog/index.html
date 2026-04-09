@@ -1,175 +1,107 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lawn Care Guides — LawnUnlocked</title>
-  <meta name="description" content="Deep-dive lawn care guides on niche topics — new construction soil, smart irrigation, seeding vs sod, dog urine spots, slopes, renters, and more. Real numbers, honest advice." />
+  <meta name="description" content="In-depth lawn care guides covering soil improvement, irrigation, seeding, fertilizing, and grass-specific care plans. Real numbers, honest advice, no filler." />
+  <link rel="canonical" href="https://lawnunlocked.com/blog/index.html" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Lawn Care Guides","description":"In-depth lawn care guides and grass-specific care plans from LawnUnlocked.","url":"https://lawnunlocked.com/blog/index.html","publisher":{"@type":"Organization","name":"LawnUnlocked","url":"https://lawnunlocked.com"}}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    :root{--green:#3d7a3a;--green-light:#52a34e;--green-pale:#e8f5e7;--black:#111;--white:#fff;--border:#e0e0dc;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{background:#ffffff !important;}
-    body{font-family:'DM Sans',sans-serif;color:#111;background:#ffffff !important;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
-    .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:#111;text-decoration:none;letter-spacing:-0.03em;}
-    .logo span{color:var(--green);}
-    .nav-links{display:flex;align-items:center;gap:2rem;}
-    nav a.nav-link{color:#111;text-decoration:none;font-weight:500;font-size:0.9rem;}
-    nav a.nav-link:hover{color:var(--green);}
-    nav a.cta-nav{color:var(--green);text-decoration:none;font-weight:600;font-size:0.88rem;}
-    @media(max-width:480px){.nav-hide-mobile{display:none;}}
-    .hero{padding:9rem 2.5rem 4rem;max-width:800px;margin:0 auto;text-align:center;}
-    .hero-tag{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:0.3rem 0.8rem;border-radius:100px;margin-bottom:1.25rem;}
-    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:1rem;}
-    .hero p{font-size:1rem;color:#555;max-width:520px;margin:0 auto;}
-    .posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;padding:2rem 2.5rem 5rem;}
-    .post-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;text-decoration:none;color:#111;transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column;}
-    .post-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.1);transform:translateY(-3px);}
-    .post-card-img{height:110px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
-    .post-card-body{padding:1.25rem;flex:1;display:flex;flex-direction:column;}
-    .post-tag{display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.6rem;}
-    .post-card-body h2{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:0.4rem;line-height:1.35;}
-    .post-card-body p{font-size:0.82rem;color:#666;line-height:1.6;flex:1;margin-bottom:0.75rem;}
-    .post-read{font-size:0.82rem;font-weight:600;color:var(--green);}
-    footer{background:#111;color:#aaa;padding:3rem 2.5rem;text-align:center;}
-    footer p{font-size:0.82rem;margin-top:1rem;}
-    footer a{color:#aaa;text-decoration:none;}
-    footer a:hover{color:#fff;}
-    @media(max-width:600px){.posts-grid{grid-template-columns:1fr;padding:1.5rem;}.hero{padding:8rem 1.5rem 2rem;}}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--green:#3d7a3a;--green-light:#52a34e;--green-pale:#e8f5e7;--black:#111;--white:#fff;--gray:#f5f5f3;--mid:#888;--border:#e0e0dc}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--black);font-size:16px;line-height:1.6}nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;background:rgba(255,255,255,0.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}.logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--black);text-decoration:none;letter-spacing:-.03em}.logo span{color:var(--green)}.nav-links{display:flex;align-items:center;gap:2rem}.nav-link{color:#111;text-decoration:none;font-weight:500;font-size:.9rem}.cta-nav{color:var(--green);text-decoration:none;font-weight:600;font-size:.88rem}.page-header{padding:7rem 2rem 3rem;text-align:center;max-width:740px;margin:0 auto}.page-label{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:.75rem}.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-.03em;margin-bottom:.75rem}.page-header p{color:#555;font-size:.98rem;max-width:520px;margin:0 auto}.content-wrap{max-width:940px;margin:0 auto;padding:1rem 2rem 4rem}.section-label{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin:2.5rem 0 1rem}.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin-bottom:2rem}.blog-card{background:white;border-radius:14px;border:1.5px solid var(--border);overflow:hidden;transition:box-shadow .2s,transform .2s;text-decoration:none;color:var(--black);display:block}.blog-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.1);transform:translateY(-2px)}.card-img{height:100px;display:flex;align-items:center;justify-content:center;font-size:2.2rem}.card-body{padding:1.25rem}.card-tag{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:.18rem .55rem;border-radius:100px;margin-bottom:.5rem;display:inline-block}.card-body h2{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:.4rem;line-height:1.3}.card-body p{font-size:.82rem;color:#666;line-height:1.55;margin-bottom:.6rem}.card-read{font-size:.82rem;font-weight:600;color:var(--green)}.grass-card{background:white;border-radius:14px;border:1.5px solid var(--border);padding:1.25rem;transition:border-color .2s,box-shadow .2s;text-decoration:none;color:var(--black);display:flex;align-items:center;justify-content:space-between;gap:.75rem}.grass-card:hover{border-color:var(--green);box-shadow:0 4px 16px rgba(0,0,0,.07)}.grass-card-left h3{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:700;margin-bottom:.25rem}.grass-card-left .type-tag{font-size:.7rem;font-weight:600;padding:.15rem .55rem;border-radius:100px}.grass-card-arrow{font-size:1.1rem;color:var(--green);flex-shrink:0}footer{background:var(--black);color:#aaa;padding:2.5rem;text-align:center;margin-top:4rem}footer a{color:#aaa;text-decoration:none;font-size:.82rem}footer p{font-size:.82rem;margin-top:.75rem}@media(max-width:600px){nav{padding:1rem 1.25rem}.card-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-
 <nav>
-  <a href="/index.html" class="logo">Lawn<span>Unlocked</span></a>
+  <a href="/" class="logo">Lawn<span>Unlocked</span></a>
   <div class="nav-links">
-    <a href="/blog/index.html" class="nav-link nav-hide-mobile">Guides</a>
-    <a href="/index.html#quiz" class="cta-nav">Get My Plan →</a>
+    <a href="/blog/index.html" class="nav-link">Guides</a>
+    <a href="/#quiz" class="cta-nav">Get My Plan &rarr;</a>
   </div>
 </nav>
-
-<div class="hero">
-  <span class="hero-tag">Deep Dive Guides</span>
+<div class="page-header">
+  <div class="page-label">Deep Dive Guides</div>
   <h1>The Stuff Nobody Tells You</h1>
-  <p>Niche topics, real numbers, and honest comparisons — for homeowners who want to go deeper than basic lawn tips.</p>
+  <p>Niche topics, real numbers, and honest comparisons &mdash; for homeowners who want to go deeper than basic lawn tips.</p>
 </div>
+<div class="content-wrap">
+  <div class="section-label">Guides &amp; Comparisons</div>
+  <div class="card-grid">
+    <a href="/blog/new-construction-lawn.html" class="blog-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);">&#127959;&#65039;</div>
+      <div class="card-body">
+        <div class="card-tag">Soil &amp; Site</div>
+        <h2>Managing a Lawn in New Construction Soil</h2>
+        <p>Builder fill dirt is not real topsoil. Here is what you are actually dealing with &mdash; and how to fix it without wasting money.</p>
+        <div class="card-read">Read Guide &rarr;</div>
+      </div>
+    </a>
+    <a href="/blog/smart-irrigation.html" class="blog-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e3f2fd,#81d4fa);">&#128167;</div>
+      <div class="card-body">
+        <div class="card-tag">Irrigation</div>
+        <h2>Smart Irrigation for a Small Yard: Is It Worth the Cost?</h2>
+        <p>A full cost-benefit breakdown of smart controllers, drip systems, and basic timers &mdash; with real payback estimates.</p>
+        <div class="card-read">Read Guide &rarr;</div>
+      </div>
+    </a>
+    <a href="/blog/hydroseeding-vs-sod-vs-seed.html" class="blog-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);">&#9878;&#65039;</div>
+      <div class="card-body">
+        <div class="card-tag">Cost Comparison</div>
+        <h2>Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?</h2>
+        <p>Upfront cost is only part of the story. We ran the real 3-year numbers so you do not have to guess.</p>
+        <div class="card-read">Read Guide &rarr;</div>
+      </div>
+    </a>
+  </div>
 
-<div class="posts-grid">
-
-  <a href="/blog/lawn-dies-driveway-edge.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#f5f5f0,#e8e0d5);">🛣️</div>
-    <div class="post-card-body">
-      <div class="post-tag">Lawn Problems</div>
-      <h2>Why Your Lawn Dies Every Year Along the Driveway Edge</h2>
-      <p>Three things are happening simultaneously — and fixing just one of them is why most people fail.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
-  <a href="/blog/dog-urine-spots-grass.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">🐶</div>
-    <div class="post-card-body">
-      <div class="post-tag">Lawn Problems</div>
-      <h2>How to Fix Dog Urine Spots on Grass Permanently</h2>
-      <p>Most advice online is wrong. Here's what actually works — based on why urine actually kills grass.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
-  <a href="/blog/lawn-care-renters.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);">🏠</div>
-    <div class="post-card-body">
-      <div class="post-tag">Renter's Guide</div>
-      <h2>Lawn Care for Renters: What You're Actually Responsible For</h2>
-      <p>Most lawn advice is written for homeowners. This one is for renters — what's yours, what's the landlord's, and what to buy.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
-  <a href="/blog/overseed-without-killing-existing-grass.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#e8f5e7,#b2dfdb);">🌱</div>
-    <div class="post-card-body">
-      <div class="post-tag">Overseeding</div>
-      <h2>How to Overseed a Lawn Without Killing the Existing Grass</h2>
-      <p>Done right, overseeding doesn't hurt what's already there. Here's the exact sequence that works.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
-  <a href="/blog/lawn-compacted-party-event.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#fff8e1,#ffecb3);">🎉</div>
-    <div class="post-card-body">
-      <div class="post-tag">Lawn Recovery</div>
-      <h2>What to Do When Your Lawn Gets Compacted by a Party or Event</h2>
-      <p>Most of the damage looks worse than it is. Here's how to assess it and bring the lawn back fast.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
-  <a href="/blog/lawn-care-slope.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#e8f5e7,#dcedc8);">⛰️</div>
-    <div class="post-card-body">
-      <div class="post-tag">Slopes & Grades</div>
-      <h2>Lawn Care on a Slope: What Works and What's a Waste of Money</h2>
-      <p>Flat-lawn advice doesn't apply on a hill. Here's what actually works for erosion, watering, and mowing on a grade.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
-  <a href="/blog/lazy-lawn-minimum-effort.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);">😴</div>
-    <div class="post-card-body">
-      <div class="post-tag">Low Effort</div>
-      <h2>The Lazy Lawn: Minimum Effort Maintenance for People Who Hate Yard Work</h2>
-      <p>You don't have to love lawn care to have a decent lawn. Here's the absolute minimum — and the tools that do the work for you.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
-  <a href="/blog/new-construction-soil.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);">🏗️</div>
-    <div class="post-card-body">
-      <div class="post-tag">Soil & Site</div>
-      <h2>Managing a Lawn in New Construction Soil</h2>
-      <p>Builder fill dirt is not real topsoil. Here's what you're actually dealing with — and how to fix it without wasting money.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
-  <a href="/blog/smart-irrigation-cost-benefit.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">💧</div>
-    <div class="post-card-body">
-      <div class="post-tag">Irrigation</div>
-      <h2>Smart Irrigation for a Small Yard: Is It Worth the Cost?</h2>
-      <p>A full cost-benefit breakdown with real payback estimates — so you know if it's actually worth it for your yard.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
-  <a href="/blog/hydroseeding-vs-sod-vs-seed.html" class="post-card">
-    <div class="post-card-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);">⚖️</div>
-    <div class="post-card-body">
-      <div class="post-tag">Cost Comparison</div>
-      <h2>Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?</h2>
-      <p>Upfront cost is only part of the story. We ran the real 3-year numbers so you don't have to guess.</p>
-      <span class="post-read">Read Guide →</span>
-    </div>
-  </a>
-
+  <div class="section-label">Grass Type Care Plans</div>
+  <div class="card-grid">
+    <a href="/bermuda-lawn-care-plan.html" class="grass-card">
+      <div class="grass-card-left">
+        <h3>Bermuda Grass</h3>
+        <span class="type-tag" style="background:#e8f5e7;color:var(--green);">Warm-Season</span>
+      </div>
+      <div class="grass-card-arrow">&rarr;</div>
+    </a>
+    <a href="/fescue-lawn-care-plan.html" class="grass-card">
+      <div class="grass-card-left">
+        <h3>Fescue (Tall &amp; Fine)</h3>
+        <span class="type-tag" style="background:#e8eaf6;color:#3949ab;">Cool-Season</span>
+      </div>
+      <div class="grass-card-arrow">&rarr;</div>
+    </a>
+    <a href="/zoysia-lawn-care-plan.html" class="grass-card">
+      <div class="grass-card-left">
+        <h3>Zoysia</h3>
+        <span class="type-tag" style="background:#e8f5e7;color:var(--green);">Warm-Season</span>
+      </div>
+      <div class="grass-card-arrow">&rarr;</div>
+    </a>
+    <a href="/st-augustine-lawn-care-plan.html" class="grass-card">
+      <div class="grass-card-left">
+        <h3>St. Augustine</h3>
+        <span class="type-tag" style="background:#e8f5e7;color:var(--green);">Warm-Season</span>
+      </div>
+      <div class="grass-card-arrow">&rarr;</div>
+    </a>
+    <a href="/kentucky-bluegrass-lawn-care-plan.html" class="grass-card">
+      <div class="grass-card-left">
+        <h3>Kentucky Bluegrass</h3>
+        <span class="type-tag" style="background:#e8eaf6;color:#3949ab;">Cool-Season</span>
+      </div>
+      <div class="grass-card-arrow">&rarr;</div>
+    </a>
+  </div>
 </div>
-
 <footer>
-  <a href="/index.html" class="logo">Lawn<span style="color:var(--green)">Unlocked</span></a>
-  <p style="margin-bottom:1rem;">
-    <a href="/blog/index.html">Guides</a> ·
-    <a href="/index.html#shop">Gear Shop</a> ·
-    <a href="/index.html#quiz">Get My Plan</a>
-  </p>
-  <p>Honest lawn advice. No nonsense. No markups.</p>
-  <p style="margin-top:1.5rem;font-size:0.75rem">© 2026 LawnUnlocked. As an Amazon Associate we earn from qualifying purchases.</p>
+  <a href="/" style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:white;text-decoration:none;letter-spacing:-.03em;">Lawn<span style="color:var(--green)">Unlocked</span></a>
+  <p><a href="/blog/index.html">Guides</a> &middot; <a href="/products.html">Products</a> &middot; <a href="/#quiz">Get My Plan</a></p>
+  <p>&copy; 2026 LawnUnlocked. As an Amazon Associate we earn from qualifying purchases. <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>.</p>
 </footer>
-
 </body>
 </html>
