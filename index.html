@@ -840,21 +840,30 @@ nav a.nav-link:hover { color: var(--green); }
   font-size: 0.88rem; color: #7f3300; line-height: 1.6;
 }
 
-/* ── EMAIL GATE OVERLAY (#2) ── */
+/* ── EMAIL GATE (#2) — spec: gate card above, plan blurred below ── */
 .results-gate {
   position: relative;
 }
-.results-gate-blur {
-  position: absolute; inset: 0; z-index: 10;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  background: rgba(255,255,255,0.55);
-  border-radius: 16px;
-  display: flex; align-items: flex-start; justify-content: center;
-  padding-top: 3rem;
+/* The gate card sits in normal flow above the blurred content */
+.gate-wrapper {
+  margin-bottom: 1.5rem;
 }
-.results-gate-blur.unlocked {
+.gate-wrapper.unlocked {
   display: none;
+}
+/* The plan content is blurred and non-interactive until unlocked */
+.plan-blur-wrap {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: filter 0.4s ease;
+}
+.plan-blur-wrap.unlocked {
+  filter: none;
+  pointer-events: auto;
+  user-select: auto;
+  -webkit-user-select: auto;
 }
 .gate-card {
   background: var(--black); border-radius: 16px;
@@ -1190,6 +1199,37 @@ footer a:hover { color: var(--white); }
     <h2 class="section-title">Good. Better. Best.</h2>
     <p style="font-size:0.95rem;color:#555;max-width:520px;">One honest pick per tier across every major category — from budget-friendly options that get the job done to the professional-grade gear that landscapers actually use.</p>
   </div>
+  <!-- Editor's Top Pick: between shop intro and tiers card — static, crawlable -->
+  <div style="margin-bottom:3rem;" id="top-pick">
+    <div class="section-label">Editor's Top Pick</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:1.5rem;">Our Top-Rated Lawn Fertilizer for 2026</h2>
+    <div class="top-pick-card">
+      <div class="top-pick-badge-col">
+        <div class="top-pick-rosette">🏆</div>
+        <div class="top-pick-badge-label">Editor's<br/>Top Pick</div>
+      </div>
+      <div class="top-pick-body">
+        <div class="top-pick-eyebrow">Fertilizer · Best Overall · ~$35+</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:0.6rem;line-height:1.3;">The Andersons PGF Complete 16-4-8 with Humic DG</h3>
+        <p style="font-size:0.88rem;color:#555;line-height:1.7;margin-bottom:1rem;">After testing every mainstream fertilizer on the market, this is the one we recommend to every homeowner regardless of grass type. The 16-4-8 NPK ratio matches the agronomist-recommended 4-1-2 formula for general lawn maintenance — enough nitrogen for visible color response, a full phosphorus charge for root development, and potassium for drought and disease resistance. What separates it from comparable fertilizers at the same price point is the patented DG Technology particle size. Standard granules are 2–4mm. The Andersons DG particles are ten times smaller, which means they disperse twice as evenly across the turf surface and move directly into the root zone with the first irrigation cycle instead of sitting on the soil surface waiting to dissolve. The result is more consistent greening, fewer application stripes, and no hot spots. One bag covers 5,000 sq ft. Feeds for up to 8 weeks.</p>
+        <div class="top-pick-tags">
+          <span class="top-pick-tag">NPK 16-4-8</span>
+          <span class="top-pick-tag">Agronomist-recommended ratio</span>
+          <span class="top-pick-tag">Humic DG Technology</span>
+          <span class="top-pick-tag">Iron + micronutrients</span>
+          <span class="top-pick-tag">5,000 sq ft · 8-week feed</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.1rem;">
+          <a href="https://www.amazon.com/dp/B09TLBRQBK?tag=lawnunlocked-20" target="_blank" rel="noopener" class="top-pick-cta">
+            🛒 Find on Amazon
+          </a>
+          <span style="font-size:0.82rem;color:var(--mid);">~$35+ · prices vary by bag size</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.75rem;color:var(--mid);margin-top:1rem;max-width:860px;">As an Amazon Associate we earn from qualifying purchases at no extra cost to you. Picks are chosen independently — no sponsored placements.</p>
+  </div>
+
   <div class="tiers-promo-card">
     <div class="tiers-promo-left">
       <h3>Every product, every budget.</h3>
@@ -1211,34 +1251,6 @@ footer a:hover { color: var(--white); }
       <a href="products.html#tools" class="cat-row">🔧 Aeration &amp; Tools</a>
     </div>
   </div>
-</section>
-
-<!-- #6: EDITOR'S TOP PICK — static, crawlable -->
-<section class="top-pick-section" id="top-pick">
-  <div class="section-label">Editor's Top Pick</div>
-  <h2 class="section-title" style="margin-bottom:1.5rem;">The one product worth buying first</h2>
-  <div class="top-pick-card">
-    <div class="top-pick-badge-col">
-      <div class="top-pick-rosette">🏆</div>
-      <div class="top-pick-badge-label">Editor's<br/>Top Pick</div>
-    </div>
-    <div class="top-pick-body">
-      <div class="top-pick-eyebrow">Weed Control · Best Overall</div>
-      <h3>Prodiamine 65 WDG — Professional Pre-Emergent Herbicide</h3>
-      <p>Prodiamine is the active ingredient behind virtually every professional lawn care pre-emergent program in the US. A single spring application delivers 5–6 months of crabgrass and annual weed protection. The 5 lb jug treats up to 4–5 acres — making it dramatically cheaper per square foot than anything sold at a hardware store. Apply before soil temperatures hit 55°F.</p>
-      <div class="top-pick-tags">
-        <span class="top-pick-tag">5–6 month residual</span>
-        <span class="top-pick-tag">Pre-emergent</span>
-        <span class="top-pick-tag">4–5 acres per jug</span>
-        <span class="top-pick-tag">Professional grade</span>
-        <span class="top-pick-tag">Apply before soil hits 55°F</span>
-      </div>
-      <a href="https://www.amazon.com/dp/B015BSNZP2?tag=lawnunlocked-20" target="_blank" rel="noopener" class="top-pick-cta">
-        🛒 Find on Amazon
-      </a>
-    </div>
-  </div>
-  <p style="font-size:0.75rem;color:var(--mid);margin-top:1rem;max-width:860px;">As an Amazon Associate we earn from qualifying purchases. Picks are chosen independently — no sponsored placements.</p>
 </section>
 
 <!-- BLOG POST MODAL -->
@@ -1294,14 +1306,14 @@ footer a:hover { color: var(--white); }
           </div>
         </div>
       </div>
-      <!-- #2: Email gate wraps the plan content -->
+      <!-- #2: Gate card renders first, blurred plan content sits below -->
       <div class="results-gate" id="resultsGate" style="display:none;">
-        <!-- Blur overlay with Kit gate form -->
-        <div class="results-gate-blur" id="gateOverlay">
+        <!-- Gate card in normal flow — user sees it above the blurred plan -->
+        <div class="gate-wrapper" id="gateWrapper">
           <div class="gate-card">
             <div class="gate-eyebrow">🌿 Your Plan Is Ready</div>
-            <h3>Enter your email to unlock your free lawn plan</h3>
-            <p>We'll also send you a seasonal care guide — a month-by-month PDF covering what to do and what to buy, for free.</p>
+            <h3 id="gateHeadline">Enter your email to unlock your free lawn plan</h3>
+            <p>We'll also send you a seasonal care guide — a month-by-month PDF covering what to do and what to buy, free.</p>
             <div class="gate-bullets">
               <div class="gate-bullet">Personalized product picks for your grass &amp; ZIP</div>
               <div class="gate-bullet">Month-by-month care calendar PDF</div>
@@ -1322,8 +1334,8 @@ footer a:hover { color: var(--white); }
             <p class="gate-fine-print">No spam. Unsubscribe anytime.</p>
           </div>
         </div>
-        <!-- Actual plan, blurred until gate unlocked -->
-        <div id="planContent"></div>
+        <!-- Plan content — blurred and non-interactive until gate unlocked -->
+        <div class="plan-blur-wrap" id="planContent"></div>
       </div>
       <button class="restart-btn" id="restartBtn" onclick="restartQuiz()" style="display:none">← Start Over</button>
     </div>
@@ -1591,9 +1603,16 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
     document.getElementById('loadingState').style.display='none';
     document.getElementById('restartBtn').style.display='block';
 
-    // #2: Show gate overlay over blurred plan content
+    // #2: Show gate with personalized headline, plan content blurred below
     const gateEl = document.getElementById('resultsGate');
     gateEl.style.display = 'block';
+
+    // Personalize gate headline with grass type
+    const grass = answers.grassType && !answers.grassType.toLowerCase().includes('not sure')
+      ? answers.grassType
+      : 'Your lawn';
+    const headline = document.getElementById('gateHeadline');
+    if (headline) headline.textContent = `Your ${grass} plan is ready. Enter your email to unlock your product recommendations and seasonal calendar.`;
 
     const container=document.getElementById('planContent');
 
@@ -1815,19 +1834,34 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
     if (success) success.style.display = 'block';
   }
 
-  // #2: Unlock plan content
+  // #2: Unlock plan — hide gate card, remove blur from plan
   function unlockGate() {
-    const overlay = document.getElementById('gateOverlay');
-    if (overlay) {
-      overlay.style.transition = 'opacity 0.4s ease';
-      overlay.style.opacity = '0';
-      setTimeout(() => { overlay.classList.add('unlocked'); }, 400);
+    const wrapper = document.getElementById('gateWrapper');
+    const blurWrap = document.getElementById('planContent');
+    if (wrapper) {
+      wrapper.style.transition = 'opacity 0.35s ease';
+      wrapper.style.opacity = '0';
+      setTimeout(() => { wrapper.classList.add('unlocked'); }, 350);
     }
-    scrollOffset('planContent');
+    if (blurWrap) {
+      blurWrap.classList.add('unlocked');
+    }
+    setTimeout(() => scrollOffset('planContent'), 400);
   }
 
   function switchResultsTab(tab,el){document.querySelectorAll('.results-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.results-tab-panel').forEach(p=>p.classList.remove('active'));el.classList.add('active');document.getElementById('panel-'+tab).classList.add('active');scrollOffset('resultsTabs');}
-  function restartQuiz(){current=0;answers={};activeSeason='spring';document.getElementById('quizPanel').style.display='block';document.getElementById('resultsPanel').style.display='none';document.getElementById('planContent').innerHTML='';document.getElementById('resultsGate').style.display='none';document.getElementById('restartBtn').style.display='none';render();scrollOffset('quiz');}
+  function restartQuiz(){
+    current=0;answers={};activeSeason='spring';
+    document.getElementById('quizPanel').style.display='block';
+    document.getElementById('resultsPanel').style.display='none';
+    document.getElementById('planContent').innerHTML='';
+    document.getElementById('planContent').classList.remove('unlocked');
+    const wrapper = document.getElementById('gateWrapper');
+    if (wrapper) { wrapper.classList.remove('unlocked'); wrapper.style.opacity='1'; }
+    document.getElementById('resultsGate').style.display='none';
+    document.getElementById('restartBtn').style.display='none';
+    render();scrollOffset('quiz');
+  }
 
   function scrollOffset(id){
     requestAnimationFrame(()=>{
