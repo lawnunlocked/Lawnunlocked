@@ -128,32 +128,34 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 2.5rem;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(10px);
+  padding: 0.9rem 2rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem; font-weight: 900;
+  font-size: 1.4rem; font-weight: 900;
   color: var(--black); text-decoration: none;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.03em; flex-shrink: 0;
 }
 .logo span { color: var(--green); }
-nav a.cta-nav {
-  background: transparent; color: var(--green);
-  padding: 0; border-radius: 0;
-  text-decoration: none; font-weight: 600; font-size: 0.88rem;
-  border: none; letter-spacing: 0.01em;
-  transition: opacity 0.2s;
-}
-nav a.cta-nav:hover { opacity: 0.7; background: transparent; color: var(--green); }
 nav a.nav-link {
-  color: #111; text-decoration: none;
-  font-weight: 500; font-size: 0.9rem; transition: color 0.2s;
+  color: #555; text-decoration: none;
+  font-weight: 500; font-size: 0.88rem; transition: color 0.2s;
+  white-space: nowrap;
 }
-nav a.nav-link:hover { color: var(--green); }
-.nav-links { display: flex; align-items: center; gap: 2rem; }
+nav a.nav-link:hover { color: var(--black); }
+nav a.cta-nav {
+  display: inline-flex; align-items: center;
+  background: var(--green); color: white;
+  padding: 0.55rem 1.1rem; border-radius: 7px;
+  text-decoration: none; font-weight: 600; font-size: 0.85rem;
+  white-space: nowrap; flex-shrink: 0;
+  transition: background 0.2s;
+}
+nav a.cta-nav:hover { background: var(--green-light); }
+.nav-links { display: flex; align-items: center; gap: 1.25rem; }
 
 /* ── HERO ── */
 .hero {
@@ -1129,7 +1131,7 @@ footer a:hover { color: var(--white); }
 }
 
 @media (max-width: 600px) {
-  nav { padding: 1rem 1.25rem; }
+  nav { padding: 0.75rem 1.25rem; }
   .hero { padding: 7rem 1.25rem 4rem; }
   .hero-stats { gap: 2rem; }
   .how, .quiz-section { padding: 4rem 1.25rem; }
@@ -1157,8 +1159,8 @@ footer a:hover { color: var(--white); }
 <nav>
   <a href="#" class="logo">Lawn<span>Unlocked</span></a>
   <div class="nav-links">
-    <a href="#blog" class="nav-link">Guides</a>
-    <a href="#quiz" class="cta-nav">Get My Plan →</a>
+    <a href="products.html" class="nav-link">Products</a>
+    <a href="#quiz" onclick="startQuiz()" class="cta-nav">Free Lawn Plan →</a>
   </div>
 </nav>
 
@@ -1166,8 +1168,8 @@ footer a:hover { color: var(--white); }
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <h1>Stop guessing.<br/>Start growing <em>smarter</em>.</h1>
-    <p style="opacity:0;animation:fadeUp 0.6s 0.2s forwards;">Answer a few questions and get the exact products your lawn needs — honest advice, no markups.</p>
+    <h1>Your lawn deserves a <em>real plan</em>.</h1>
+    <p style="opacity:0;animation:fadeUp 0.6s 0.2s forwards;">Answer 10 questions. Get product picks, a seasonal care schedule, and honest advice — matched to your exact grass type and ZIP code. Free, takes 2 minutes.</p>
 
     <!-- Social proof: initials avatars -->
     <div class="sp-row">
@@ -1198,6 +1200,11 @@ footer a:hover { color: var(--white); }
     <div class="section-label">Product Guide</div>
     <h2 class="section-title">Good. Better. Best.</h2>
     <p style="font-size:0.95rem;color:#555;max-width:520px;">One honest pick per tier across every major category — from budget-friendly options that get the job done to the professional-grade gear that landscapers actually use.</p>
+  </div>
+  <!-- #12: Editorial credibility statement -->
+  <div style="max-width:860px;margin-bottom:2rem;padding:1rem 1.25rem;background:var(--gray);border-radius:10px;border:1px solid var(--border);display:flex;align-items:flex-start;gap:0.75rem;">
+    <span style="font-size:1.2rem;flex-shrink:0;margin-top:0.1rem;">📋</span>
+    <p style="font-size:0.82rem;color:#555;line-height:1.65;margin:0;"><strong style="color:var(--black);">How we pick:</strong> Every product on this page was chosen based on performance data, community reputation in serious DIY lawn care forums (r/lawncare, LawnSite), and verified Amazon reviews. No brands pay for placement. When we recommend a product, it's the one we'd buy ourselves.</p>
   </div>
   <!-- Editor's Top Pick: between shop intro and tiers card — static, crawlable -->
   <div style="margin-bottom:3rem;" id="top-pick">
@@ -1351,7 +1358,7 @@ footer a:hover { color: var(--white); }
       <p style="color:#666;font-size:0.95rem;max-width:520px;margin:0 auto;">Niche topics, real numbers, and honest comparisons — for homeowners who want to go deeper than basic lawn tips.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:1.5rem;" id="blogCards">
-      <div class="blog-card" onclick="openBlog('newconstruction')">
+      <a href="/blog/new-construction-soil.html" class="blog-card" style="text-decoration:none;color:inherit;">
         <div class="blog-card-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);"><span style="font-size:2.5rem;">🏗️</span></div>
         <div class="blog-card-body">
           <div class="blog-tag">Soil &amp; Site</div>
@@ -1359,8 +1366,8 @@ footer a:hover { color: var(--white); }
           <p>Builder fill dirt is not real topsoil. Here is what you are actually dealing with — and how to fix it without wasting money.</p>
           <span class="blog-read">Read Guide →</span>
         </div>
-      </div>
-      <div class="blog-card" onclick="openBlog('smartirrigation')">
+      </a>
+      <a href="/blog/smart-irrigation-small-yard.html" class="blog-card" style="text-decoration:none;color:inherit;">
         <div class="blog-card-img" style="background:linear-gradient(135deg,#e3f2fd,#81d4fa);"><span style="font-size:2.5rem;">💧</span></div>
         <div class="blog-card-body">
           <div class="blog-tag">Irrigation</div>
@@ -1368,8 +1375,8 @@ footer a:hover { color: var(--white); }
           <p>A full cost-benefit breakdown of smart controllers, drip systems, and basic timers — with real payback estimates.</p>
           <span class="blog-read">Read Guide →</span>
         </div>
-      </div>
-      <div class="blog-card" onclick="openBlog('seedvssod')">
+      </a>
+      <a href="/blog/hydroseeding-vs-sod-vs-seed.html" class="blog-card" style="text-decoration:none;color:inherit;">
         <div class="blog-card-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);"><span style="font-size:2.5rem;">⚖️</span></div>
         <div class="blog-card-body">
           <div class="blog-tag">Cost Comparison</div>
@@ -1377,7 +1384,7 @@ footer a:hover { color: var(--white); }
           <p>Upfront cost is only part of the story. We ran the real 3-year numbers so you do not have to guess.</p>
           <span class="blog-read">Read Guide →</span>
         </div>
-      </div>
+      </a>
     </div>
     <div style="text-align:center;margin-top:2.5rem;">
       <a href="/blog/index.html" style="display:inline-block;background:var(--green);color:white;padding:0.85rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.95rem;">View All Guides →</a>
@@ -1469,8 +1476,8 @@ footer a:hover { color: var(--white); }
       setTimeout(()=>document.getElementById('textInput')?.focus(),50);
     } else if (q.type === 'soil') {
       const saved = answers['soilTest'] || {};
-      card.innerHTML = `<h2>${q.title}</h2><p class="sub">${q.sub}</p><div class="soil-options">
-        <div style="background:var(--green-pale);border:1.5px solid #b6dcb2;border-radius:10px;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:0.25rem;"><div><p style="font-size:0.85rem;font-weight:500;color:var(--black);margin-bottom:0.2rem">🧪 No soil test yet?</p><p style="font-size:0.78rem;color:#555;">A $30 mail-in kit gives you lab-accurate results — the single highest-ROI step in lawn care.</p></div><a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" style="background:var(--green);color:white;padding:0.5rem 1.1rem;border-radius:7px;text-decoration:none;font-size:0.82rem;font-weight:500;white-space:nowrap;" onmouseover="this.style.background='#52a34e'" onmouseout="this.style.background='#3d7a3a'">Get MySoil Kit →</a></div>
+      card.innerHTML = `<div style="background:var(--green-pale);border:1.5px solid #b6dcb2;border-radius:10px;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.25rem;"><div><p style="font-size:0.85rem;font-weight:500;color:var(--black);margin-bottom:0.2rem">🧪 No soil test yet?</p><p style="font-size:0.78rem;color:#555;">A $30 mail-in kit gives you lab-accurate results — the single highest-ROI step in lawn care.</p></div><a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" style="background:var(--green);color:white;padding:0.5rem 1.1rem;border-radius:7px;text-decoration:none;font-size:0.82rem;font-weight:500;white-space:nowrap;" onmouseover="this.style.background='#52a34e'" onmouseout="this.style.background='#3d7a3a'">Get MySoil Kit →</a></div>
+        <h2>${q.title}</h2><p class="sub">${q.sub}</p><div class="soil-options">
         <div class="soil-opt${saved.type==='upload'?' selected':''}" id="soilOptUpload" onclick="selectSoilType('upload')"><h4>📄 Yes — I'll upload my soil test PDF or photo</h4><p>Get the most precise recommendations based on your actual soil data</p></div>
         <div id="soilUploadArea"><div class="upload-zone" onclick="document.getElementById('soilFileInput').click()"><div style="font-size:2rem">📎</div><p>${saved.fileName||'Click to upload your soil test (PDF, JPG, PNG)'}</p></div><input type="file" id="soilFileInput" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileUpload(this)"/></div>
         <div class="soil-opt${saved.type==='manual'?' selected':''}" id="soilOptManual" onclick="selectSoilType('manual')"><h4>🔢 Yes — I'll enter my soil test numbers manually</h4><p>Type in the key values from your soil test report</p></div>
@@ -1663,7 +1670,7 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
                 :`<span style="display:inline-block;background:#e8f5e7;color:var(--green);font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:100px;border:1px solid #b6dcb2;margin-bottom:0.5rem;">📅 Coming Up</span>`;
               const windowChip=p.windowNote?`<span class="meta-chip" style="background:#fff8e6;color:#7f5200;">⏰ ${p.windowNote}</span>`:'';
               const btnStyle=isFirstNow
-                ?`margin-top:0.75rem;display:inline-flex;background:#e65100;color:white;padding:0.7rem 1.5rem;font-size:0.95rem;font-weight:700;border-radius:8px;width:100%;justify-content:center;align-items:center;gap:0.5rem;text-decoration:none;`
+                ?`margin-top:0.9rem;display:inline-flex;background:#e65100;color:white;padding:0.9rem 1.75rem;font-size:1rem;font-weight:800;border-radius:10px;width:100%;justify-content:center;align-items:center;gap:0.6rem;text-decoration:none;letter-spacing:0.01em;box-shadow:0 4px 16px rgba(230,81,0,0.35);`
                 :`margin-top:0.75rem;display:inline-flex;align-items:center;gap:0.5rem;background:#FF9900;color:#111;padding:0.55rem 1.25rem;border-radius:7px;text-decoration:none;font-size:0.88rem;font-weight:500;`;
               const btnText=isFirstNow?'🛒 Buy This First →':'🛒 Find on Amazon';
               return`<div class="product-item" id="prod-${i}"><div class="product-item-icon" style="background:${bg}">${icon}</div><div class="product-item-body">${urgencyBadge}<h4>${p.name}</h4><p>${p.why}</p><div class="product-item-meta">${windowChip}<span class="meta-chip">📦 ${p.applicationRate||''}</span></div><a href="${amazonUrl}" target="_blank" rel="noopener" style="${btnStyle}">${btnText}</a>${whyNow}</div></div>`;
@@ -1774,14 +1781,14 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
         </div>
 
         <div class="guide-capture">
-          <div class="guide-capture-eyebrow">🌿 Free Download</div>
-          <h3>Get your Seasonal Lawn Care Guide</h3>
-          <p>A month-by-month care calendar for ${answers.grassType && !answers.grassType.toLowerCase().includes('not sure') ? answers.grassType : 'your lawn'} — what to do, what to buy, and exactly when. 12 months, zero fluff.</p>
+          <div class="guide-capture-eyebrow">📅 Free Month-by-Month Calendar</div>
+          <h3>Know exactly what to do — every month of the year</h3>
+          <p>Most lawn problems happen because of wrong timing, not wrong products. This calendar tells you what to apply, when to apply it, and what window you're working with — for your specific grass type. 12 months. Zero guessing.</p>
           <div class="guide-capture-preview">
-            <span class="guide-preview-chip">📅 12-month calendar</span>
-            <span class="guide-preview-chip">🌿 Product + timing</span>
-            <span class="guide-preview-chip">❄ Cool &amp; warm season</span>
-            <span class="guide-preview-chip">📄 PDF download</span>
+            <span class="guide-preview-chip">📅 Month-by-month timing</span>
+            <span class="guide-preview-chip">🌿 Product + application rate</span>
+            <span class="guide-preview-chip">⏰ Application windows</span>
+            <span class="guide-preview-chip">📄 PDF you can print</span>
           </div>
           <form action="https://app.kit.com/forms/9270390/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9270390" data-uid="45b8798c7e" data-format="inline" data-version="5" id="kitCaptureForm">
             <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
@@ -2053,9 +2060,14 @@ urgency must be "now" (apply within 4 weeks) or "soon" (next 4-8 weeks). windowN
 
   // ── BLOG ─────────────────────────────────────────────────────
   const blogPosts = {
-    newconstruction:{title:'Managing a Lawn in New Construction Soil',tag:'Soil & Site',tagColor:'#efebe9',hero:'linear-gradient(135deg,#efebe9,#bcaaa4)',emoji:'🏗️',stats:[{val:'4–6"',label:'Topsoil Needed'},{val:'6–18 mo',label:'Fix Timeline'},{val:'$0.10–0.30',label:'Per sq ft to amend'}],body:`<h2>Why New Construction Soil Is a Nightmare</h2><p>If you moved into a newly built home and your lawn looks patchy, compacted, and refuses to grow — you are not doing anything wrong. The soil itself is the problem.</p><p>During construction, builders strip away the original topsoil (which took decades to form) and replace it with whatever fill dirt was cheapest — often subsoil, clay, crushed rock, or a mix of all three. This "builder dirt" has almost no organic matter, poor drainage, wrong pH, and is compacted by heavy equipment. It is the worst possible medium to grow grass in.</p><div class="blog-warn">⚠️ <strong>Key insight:</strong> Most new construction homes have only 1–2 inches of actual topsoil, if any. Grass roots need at least 4–6 inches of workable soil to establish properly. Until you fix this, you are fighting a losing battle.</div><h2>Step 1: Test Before You Do Anything</h2><p>Before spending a dollar on fertilizer or seed, get a soil test. New construction soil is often wildly out of range — pH can be anywhere from 5.0 to 8.5, compaction is extreme, and nutrient levels are near zero. A $30 mail-in soil test tells you exactly what you are working with.</p><ul><li>Test pH, nitrogen, phosphorus, potassium, and organic matter percentage</li><li>Test in multiple spots — fill dirt is often inconsistent across the yard</li><li>Most university extension programs offer soil testing for under $20</li></ul><div class="blog-tip">💡 New construction soil commonly tests at less than 1% organic matter. Healthy lawn soil should be 3–5%. This single number explains most of the failure you are seeing.</div><h2>Step 2: Address Compaction First</h2><p>Heavy construction equipment compacts soil to near-concrete density in some areas. Water cannot penetrate, roots cannot grow, and fertilizer just sits on the surface. Core aerate and make 2–3 passes in different directions. Plan to aerate every year for 3–5 years until the soil structure improves.</p><h2>Step 3: Add Real Topsoil or Organic Matter</h2><p>Spread 0.25–0.5 inches of quality compost over the lawn after aeration. Repeat every fall for 3–5 years. Use aged compost, not fresh — fresh compost can burn grass and introduces weed seeds.</p><h2>Step 4: Correct pH</h2><p>Most grasses want a soil pH between 6.0 and 7.0. Apply pelletized limestone for acidic soil or elemental sulfur for alkaline soil at the rate your soil test recommends. Retest every season until pH stabilizes in the target range.</p><h2>Realistic Timeline and Expectations</h2><ul><li><strong>Year 1:</strong> Focus on soil improvement. Expect patchy results and do not judge the lawn yet.</li><li><strong>Year 2:</strong> Continue annual aeration and topdressing. Overseed thin areas.</li><li><strong>Year 3+:</strong> Organic matter builds, soil structure improves, earthworms return.</li></ul><div class="blog-tip">💡 Patience is the most important input on a new construction lawn. Homeowners who try to force thick, lush results in year one usually end up with more problems, not fewer.</div><div style="background:var(--green-pale);border:1.5px solid #b6dcb2;border-radius:12px;padding:1.25rem;margin-top:1.5rem;"><div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);margin-bottom:0.5rem;">🛒 Start Here</div><strong>MySoil Complete Soil Test Kit — ~$30</strong><br/><span style="font-size:0.85rem;color:#555;">Lab-accurate test for 13 nutrients with a custom fertilizer recommendation report. The only way to know exactly what your builder dirt is missing before spending on amendments.</span><br/><a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;background:#FF9900;color:#111;padding:0.5rem 1rem;border-radius:7px;text-decoration:none;font-size:0.85rem;font-weight:600;margin-top:0.75rem;">🛒 Buy on Amazon</a></div>`},
-    smartirrigation:{title:'Smart Irrigation for a Small Yard: Is It Worth the Cost?',tag:'Irrigation',tagColor:'#e3f2fd',hero:'linear-gradient(135deg,#e3f2fd,#81d4fa)',emoji:'💧',stats:[{val:'$150–800',label:'Smart System Cost'},{val:'20–50%',label:'Water Savings'},{val:'1–3 yrs',label:'Typical Payback'}],body:`<h2>What "Smart Irrigation" Actually Means</h2><p>Smart irrigation covers anything from a $30 hose-end timer to a $600 multi-zone Wi-Fi controller with soil sensors. For a small yard, the right setup depends heavily on your water rates and how much you currently over-water.</p><h2>Option 1: Basic Hose-End Timer ($20–60)</h2><p>A battery-powered timer that attaches to your outdoor spigot and runs a sprinkler on a schedule. No Wi-Fi, no app, no weather integration. Good for renters or supplemental watering of specific areas.</p><div class="blog-tip">💡 A basic timer running a flat schedule will often over-water in wet weeks. If your area gets regular summer rain, a basic timer without a rain sensor can actually increase your water use.</div><h2>Option 2: Smart Hose-End Controller ($50–150)</h2><p>Wi-Fi enabled timers like the Orbit B-hyve that connect to weather data and skip or adjust watering based on rainfall and temperature. No professional installation required. Water savings: 15–30% compared to a fixed schedule. Payback in 2–4 years.</p><h2>Option 3: In-Ground Smart System ($300–800 DIY)</h2><p>Multi-zone in-ground system with a smart controller. Water savings: 30–50%. Many water utilities offer $50–200 rebates for smart controller installation.</p><h2>Bottom Line Recommendation</h2><p>For most small yard homeowners, a smart hose-end controller ($80–130) is the sweet spot. No installation, saves meaningful water, and pays for itself within 2 years in most climates.</p>`},
-    seedvssod:{title:'Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?',tag:'Cost Comparison',tagColor:'#e8f5e7',hero:'linear-gradient(135deg,#e8f5e7,#a5d6a7)',emoji:'⚖️',stats:[{val:'$0.05–0.15',label:'Seed per sq ft'},{val:'$0.30–0.80',label:'Hydroseed per sq ft'},{val:'$0.90–2.00',label:'Sod per sq ft'}],body:`<h2>Why Upfront Cost Is the Wrong Comparison</h2><p>When people compare seeding, hydroseeding, and sod, they almost always look at the installation cost and stop there. The real question is: what does each method cost over 3 years when you factor in establishment inputs, failure rates, and re-do costs?</p><h2>Method 1: Seeding (DIY) — 3-Year Cost: $180–340</h2><p>Seeding is the cheapest entry point and produces the strongest long-term root system when done correctly. The trade-off is time — a seeded lawn takes 6–12 weeks to establish and requires consistent moisture during germination.</p><ul><li><strong>Pros:</strong> Lowest cost, strongest root development, wide grass type selection</li><li><strong>Cons:</strong> Slowest to establish, higher failure risk in heat or drought, no lawn use during establishment</li><li><strong>Failure rate:</strong> 20–40% of DIY seeding jobs require partial re-seeding</li></ul><div class="blog-tip">💡 The single biggest cause of seeding failure is letting the seedbed dry out during the first 3 weeks.</div><h2>Method 2: Hydroseeding — 3-Year Cost: $900–1,580</h2><p>Sprays a slurry of seed, mulch, fertilizer, and tackifier onto prepared soil. Much better germination rates than dry seed, especially on slopes. Requires professional equipment. Failure rate: 5–15%.</p><h2>Method 3: Sod — 3-Year Cost: $2,835–4,725</h2><p>Gives you an instant lawn. Most expensive upfront but eliminates establishment risk. Walkable in 2–3 weeks, roots fully anchor in 6–8 weeks.</p><div class="blog-warn">⚠️ Do not lay sod over unimproved new construction soil and expect it to survive. The roots will hit compacted fill dirt within 2 inches and stop growing. Fix the soil first.</div><h2>Which Should You Choose?</h2><ul><li><strong>Choose seed if:</strong> Tight budget, flexible timing, flat area, committed to watering daily for 3 weeks</li><li><strong>Choose hydroseeding if:</strong> Slopes, large area, previous dry seeding failures</li><li><strong>Choose sod if:</strong> Need the lawn usable quickly, high-visibility area, hot climate with narrow seeding windows</li></ul><div class="blog-tip">💡 For most homeowners on a budget, seeding in the optimal window with proper soil prep and a commitment to watering delivers the best long-term value by a wide margin.</div>`}
+    newconstruction:{title:'Managing a Lawn in New Construction Soil',tag:'Soil & Site',tagColor:'#efebe9',hero:'linear-gradient(135deg,#efebe9,#bcaaa4)',emoji:'🏗️',stats:[{val:'4–6"',label:'Topsoil Needed'},{val:'6–18 mo',label:'Fix Timeline'},{val:'$0.10–0.30',label:'Per sq ft to amend'}],body:`<h2>Why New Construction Soil Is a Nightmare</h2><p>If you moved into a newly built home and your lawn looks patchy, compacted, and refuses to grow — you are not doing anything wrong. The soil itself is the problem.</p><p>During construction, builders strip away the original topsoil (which took decades to form) and replace it with whatever fill dirt was cheapest — often subsoil, clay, crushed rock, or a mix of all three. This "builder dirt" has almost no organic matter, poor drainage, wrong pH, and is compacted by heavy equipment. It is the worst possible medium to grow grass in.</p><div class="blog-warn">⚠️ <strong>Key insight:</strong> Most new construction homes have only 1–2 inches of actual topsoil, if any. Grass roots need at least 4–6 inches of workable soil to establish properly. Until you fix this, you are fighting a losing battle.</div><h2>Step 1: Test Before You Do Anything</h2><p>Before spending a dollar on fertilizer or seed, get a soil test. New construction soil is often wildly out of range — pH can be anywhere from 5.0 to 8.5, compaction is extreme, and nutrient levels are near zero. A $30 mail-in soil test tells you exactly what you are working with.</p><ul><li>Test pH, nitrogen, phosphorus, potassium, and organic matter percentage</li><li>Test in multiple spots — fill dirt is often inconsistent across the yard</li><li>Most university extension programs offer soil testing for under $20</li></ul><div class="blog-tip">💡 New construction soil commonly tests at less than 1% organic matter. Healthy lawn soil should be 3–5%. This single number explains most of the failure you are seeing.</div>
+<div style="margin:1.5rem 0;background:#f9f9f7;border:1.5px solid var(--border);border-radius:12px;padding:1.25rem;display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap;"><div style="font-size:2rem;flex-shrink:0;">🧪</div><div style="flex:1;min-width:180px;"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);margin-bottom:0.3rem;">Recommended for this step</div><div style="font-size:0.95rem;font-weight:600;margin-bottom:0.25rem;">MySoil Complete Mail-In Soil Test Kit</div><div style="font-size:0.82rem;color:#555;margin-bottom:0.75rem;">Lab-accurate test for 13 nutrients with a custom fertilizer recommendation report. The only way to know exactly what your builder dirt is missing before spending on amendments.</div><a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;background:#FF9900;color:#111;padding:0.5rem 1rem;border-radius:7px;text-decoration:none;font-size:0.85rem;font-weight:600;">🛒 ~$30 on Amazon</a></div></div>
+<h2>Step 2: Address Compaction First</h2><p>Heavy construction equipment compacts soil to near-concrete density in some areas. Water cannot penetrate, roots cannot grow, and fertilizer just sits on the surface. Core aerate and make 2–3 passes in different directions. Plan to aerate every year for 3–5 years until the soil structure improves.</p><h2>Step 3: Add Real Topsoil or Organic Matter</h2><p>Spread 0.25–0.5 inches of quality compost over the lawn after aeration. Repeat every fall for 3–5 years. Use aged compost, not fresh — fresh compost can burn grass and introduces weed seeds.</p><h2>Step 4: Correct pH</h2><p>Most grasses want a soil pH between 6.0 and 7.0. Apply pelletized limestone for acidic soil or elemental sulfur for alkaline soil at the rate your soil test recommends. Retest every season until pH stabilizes in the target range.</p><h2>Realistic Timeline and Expectations</h2><ul><li><strong>Year 1:</strong> Focus on soil improvement. Expect patchy results and do not judge the lawn yet.</li><li><strong>Year 2:</strong> Continue annual aeration and topdressing. Overseed thin areas.</li><li><strong>Year 3+:</strong> Organic matter builds, soil structure improves, earthworms return.</li></ul><div class="blog-tip">💡 Patience is the most important input on a new construction lawn. Homeowners who try to force thick, lush results in year one usually end up with more problems, not fewer.</div><div style="background:var(--green-pale);border:1.5px solid #b6dcb2;border-radius:12px;padding:1.25rem;margin-top:1.5rem;"><div style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);margin-bottom:0.5rem;">🛒 Start Here</div><strong>MySoil Complete Soil Test Kit — ~$30</strong><br/><span style="font-size:0.85rem;color:#555;">Lab-accurate test for 13 nutrients with a custom fertilizer recommendation report. The only way to know exactly what your builder dirt is missing before spending on amendments.</span><br/><a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;background:#FF9900;color:#111;padding:0.5rem 1rem;border-radius:7px;text-decoration:none;font-size:0.85rem;font-weight:600;margin-top:0.75rem;">🛒 Buy on Amazon</a></div>`},
+    smartirrigation:{title:'Smart Irrigation for a Small Yard: Is It Worth the Cost?',tag:'Irrigation',tagColor:'#e3f2fd',hero:'linear-gradient(135deg,#e3f2fd,#81d4fa)',emoji:'💧',stats:[{val:'$150–800',label:'Smart System Cost'},{val:'20–50%',label:'Water Savings'},{val:'1–3 yrs',label:'Typical Payback'}],body:`<h2>What "Smart Irrigation" Actually Means</h2><p>Smart irrigation covers anything from a $30 hose-end timer to a $600 multi-zone Wi-Fi controller with soil sensors. For a small yard, the right setup depends heavily on your water rates and how much you currently over-water.</p><h2>Option 1: Basic Hose-End Timer ($20–60)</h2><p>A battery-powered timer that attaches to your outdoor spigot and runs a sprinkler on a schedule. No Wi-Fi, no app, no weather integration. Good for renters or supplemental watering of specific areas.</p><div class="blog-tip">💡 A basic timer running a flat schedule will often over-water in wet weeks. If your area gets regular summer rain, a basic timer without a rain sensor can actually increase your water use.</div><h2>Option 2: Smart Hose-End Controller ($50–150)</h2><p>Wi-Fi enabled timers like the Orbit B-hyve that connect to weather data and skip or adjust watering based on rainfall and temperature. No professional installation required. Water savings: 15–30% compared to a fixed schedule. Payback in 2–4 years.</p><h2>Option 3: In-Ground Smart System ($300–800 DIY)</h2><p>Multi-zone in-ground system with a smart controller. Water savings: 30–50%. Many water utilities offer $50–200 rebates for smart controller installation.</p><h2>Bottom Line Recommendation</h2><p>For most small yard homeowners, a smart hose-end controller ($80–130) is the sweet spot. No installation, saves meaningful water, and pays for itself within 2 years in most climates.</p>
+<div style="margin:1.5rem 0;background:#f9f9f7;border:1.5px solid var(--border);border-radius:12px;padding:1.25rem;display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap;"><div style="font-size:2rem;flex-shrink:0;">💧</div><div style="flex:1;min-width:180px;"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);margin-bottom:0.3rem;">Best entry-level sprayer</div><div style="font-size:0.95rem;font-weight:600;margin-bottom:0.25rem;">Chapin 1-Gallon Poly Pump Sprayer</div><div style="font-size:0.82rem;color:#555;margin-bottom:0.75rem;">Adjustable brass nozzle, pressure relief valve, and simple operation. The most reliable entry-level pump sprayer for targeted lawn applications.</div><a href="https://www.amazon.com/dp/B000E28UQU?tag=lawnunlocked-20" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;background:#FF9900;color:#111;padding:0.5rem 1rem;border-radius:7px;text-decoration:none;font-size:0.85rem;font-weight:600;">🛒 ~$15 on Amazon</a></div></div>`},
+    seedvssod:{title:'Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?',tag:'Cost Comparison',tagColor:'#e8f5e7',hero:'linear-gradient(135deg,#e8f5e7,#a5d6a7)',emoji:'⚖️',stats:[{val:'$0.05–0.15',label:'Seed per sq ft'},{val:'$0.30–0.80',label:'Hydroseed per sq ft'},{val:'$0.90–2.00',label:'Sod per sq ft'}],body:`<h2>Why Upfront Cost Is the Wrong Comparison</h2><p>When people compare seeding, hydroseeding, and sod, they almost always look at the installation cost and stop there. The real question is: what does each method cost over 3 years when you factor in establishment inputs, failure rates, and re-do costs?</p><h2>Method 1: Seeding (DIY) — 3-Year Cost: $180–340</h2><p>Seeding is the cheapest entry point and produces the strongest long-term root system when done correctly. The trade-off is time — a seeded lawn takes 6–12 weeks to establish and requires consistent moisture during germination.</p><ul><li><strong>Pros:</strong> Lowest cost, strongest root development, wide grass type selection</li><li><strong>Cons:</strong> Slowest to establish, higher failure risk in heat or drought, no lawn use during establishment</li><li><strong>Failure rate:</strong> 20–40% of DIY seeding jobs require partial re-seeding</li></ul><div class="blog-tip">💡 The single biggest cause of seeding failure is letting the seedbed dry out during the first 3 weeks.</div>
+<div style="margin:1.5rem 0;background:#f9f9f7;border:1.5px solid var(--border);border-radius:12px;padding:1.25rem;display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap;"><div style="font-size:2rem;flex-shrink:0;">🌿</div><div style="flex:1;min-width:180px;"><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);margin-bottom:0.3rem;">Best fertilizer for new seed</div><div style="font-size:0.95rem;font-weight:600;margin-bottom:0.25rem;">The Andersons PGF Complete 16-4-8 with Humic DG</div><div style="font-size:0.82rem;color:#555;margin-bottom:0.75rem;">DG particle technology moves nutrients into the root zone on first watering — critical during establishment when roots are shallow. One bag covers 5,000 sq ft for up to 8 weeks.</div><a href="https://www.amazon.com/dp/B09TLBRQBK?tag=lawnunlocked-20" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;background:#FF9900;color:#111;padding:0.5rem 1rem;border-radius:7px;text-decoration:none;font-size:0.85rem;font-weight:600;">🛒 ~$35 on Amazon</a></div></div>
+<h2>Method 2: Hydroseeding — 3-Year Cost: $900–1,580</h2><p>Sprays a slurry of seed, mulch, fertilizer, and tackifier onto prepared soil. Much better germination rates than dry seed, especially on slopes. Requires professional equipment. Failure rate: 5–15%.</p><h2>Method 3: Sod — 3-Year Cost: $2,835–4,725</h2><p>Gives you an instant lawn. Most expensive upfront but eliminates establishment risk. Walkable in 2–3 weeks, roots fully anchor in 6–8 weeks.</p><div class="blog-warn">⚠️ Do not lay sod over unimproved new construction soil and expect it to survive. The roots will hit compacted fill dirt within 2 inches and stop growing. Fix the soil first.</div><h2>Which Should You Choose?</h2><ul><li><strong>Choose seed if:</strong> Tight budget, flexible timing, flat area, committed to watering daily for 3 weeks</li><li><strong>Choose hydroseeding if:</strong> Slopes, large area, previous dry seeding failures</li><li><strong>Choose sod if:</strong> Need the lawn usable quickly, high-visibility area, hot climate with narrow seeding windows</li></ul><div class="blog-tip">💡 For most homeowners on a budget, seeding in the optimal window with proper soil prep and a commitment to watering delivers the best long-term value by a wide margin.</div>`}
   };
 
   function openBlog(id){
