@@ -1205,12 +1205,36 @@ footer a:hover { color: var(--white); }
     <h2 class="section-title">Good. Better. Best.</h2>
     <p style="font-size:0.95rem;color:#555;max-width:520px;">One honest pick per tier across every major category — from budget-friendly options that get the job done to the professional-grade gear that landscapers actually use.</p>
   </div>
-  <!-- #12: Editorial credibility statement -->
+  <!-- Editorial credibility statement -->
   <div style="max-width:860px;margin-bottom:2rem;padding:1rem 1.25rem;background:var(--gray);border-radius:10px;border:1px solid var(--border);display:flex;align-items:flex-start;gap:0.75rem;">
     <span style="font-size:1.2rem;flex-shrink:0;margin-top:0.1rem;">📋</span>
     <p style="font-size:0.82rem;color:#555;line-height:1.65;margin:0;"><strong style="color:var(--black);">How we pick:</strong> Every product on this page was chosen based on performance data, community reputation in serious DIY lawn care forums (r/lawncare, LawnSite), and verified Amazon reviews. No brands pay for placement. When we recommend a product, it's the one we'd buy ourselves.</p>
   </div>
-  <!-- Editor's Top Pick: between shop intro and tiers card — static, crawlable -->
+
+  <!-- Good / Better / Best tiers promo card — now above Editor's Top Pick -->
+  <div class="tiers-promo-card" style="margin-bottom:3rem;">
+    <div class="tiers-promo-left">
+      <h3>Every product, every budget.</h3>
+      <p>We cover fertilizers, mowers, weed control, spreaders, sprayers, soil testing, aeration, and irrigation — with a clear Good / Better / Best recommendation for each. No filler, no sponsored placements.</p>
+      <div class="tier-pill-row">
+        <div class="tier-pill-sm"><span class="tp-dot" style="background:#4ade80;"></span> Good</div>
+        <div class="tier-pill-sm"><span class="tp-dot" style="background:#f59e0b;"></span> Better</div>
+        <div class="tier-pill-sm"><span class="tp-dot" style="background:var(--green);"></span> Best / Pro</div>
+      </div>
+      <a href="products.html" class="btn-browse-tiers">Browse All Products →</a>
+    </div>
+    <div class="tiers-promo-right">
+      <a href="products.html#fertilizers" class="cat-row">🌿 Fertilizers</a>
+      <a href="products.html#weed" class="cat-row">🚫 Weed Control</a>
+      <a href="products.html#mowers" class="cat-row">✂️ Mowers</a>
+      <a href="products.html#spreaders" class="cat-row">🪣 Spreaders</a>
+      <a href="products.html#sprayers" class="cat-row">💧 Sprayers</a>
+      <a href="products.html#soil" class="cat-row">🧪 Soil &amp; Testing</a>
+      <a href="products.html#tools" class="cat-row">🔧 Aeration &amp; Tools</a>
+    </div>
+  </div>
+
+  <!-- Editor's Top Pick — now below tiers card -->
   <div style="margin-bottom:3rem;" id="top-pick">
     <div class="section-label">Editor's Top Pick</div>
     <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:1.5rem;">Our Top-Rated Lawn Fertilizer for 2026</h2>
@@ -1236,31 +1260,12 @@ footer a:hover { color: var(--white); }
           </a>
           <span style="font-size:0.82rem;color:var(--mid);">~$35+ · prices vary by bag size</span>
         </div>
+        <p style="font-size:0.75rem;color:var(--mid);margin-top:0.85rem;">
+          Read our full guide: <a href="/blog/best-lawn-fertilizer-2026.html" style="color:var(--green);font-weight:500;">Best Lawn Fertilizer 2026 — Picks by Grass Type →</a>
+        </p>
       </div>
     </div>
     <p style="font-size:0.75rem;color:var(--mid);margin-top:1rem;max-width:860px;">As an Amazon Associate we earn from qualifying purchases at no extra cost to you. Picks are chosen independently — no sponsored placements.</p>
-  </div>
-
-  <div class="tiers-promo-card">
-    <div class="tiers-promo-left">
-      <h3>Every product, every budget.</h3>
-      <p>We cover fertilizers, mowers, weed control, spreaders, sprayers, soil testing, aeration, and irrigation — with a clear Good / Better / Best recommendation for each. No filler, no sponsored placements.</p>
-      <div class="tier-pill-row">
-        <div class="tier-pill-sm"><span class="tp-dot" style="background:#4ade80;"></span> Good</div>
-        <div class="tier-pill-sm"><span class="tp-dot" style="background:#f59e0b;"></span> Better</div>
-        <div class="tier-pill-sm"><span class="tp-dot" style="background:var(--green);"></span> Best / Pro</div>
-      </div>
-      <a href="products.html" class="btn-browse-tiers">Browse All Products →</a>
-    </div>
-    <div class="tiers-promo-right">
-      <a href="products.html#fertilizers" class="cat-row">🌿 Fertilizers</a>
-      <a href="products.html#weed" class="cat-row">🚫 Weed Control</a>
-      <a href="products.html#mowers" class="cat-row">✂️ Mowers</a>
-      <a href="products.html#spreaders" class="cat-row">🪣 Spreaders</a>
-      <a href="products.html#sprayers" class="cat-row">💧 Sprayers</a>
-      <a href="products.html#soil" class="cat-row">🧪 Soil &amp; Testing</a>
-      <a href="products.html#tools" class="cat-row">🔧 Aeration &amp; Tools</a>
-    </div>
   </div>
 </section>
 
@@ -1362,6 +1367,15 @@ footer a:hover { color: var(--white); }
       <p style="color:#666;font-size:0.95rem;max-width:520px;margin:0 auto;">Niche topics, real numbers, and honest comparisons — for homeowners who want to go deeper than basic lawn tips.</p>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:1.5rem;" id="blogCards">
+      <a href="/blog/best-lawn-fertilizer-2026.html" class="blog-card" style="text-decoration:none;color:inherit;">
+        <div class="blog-card-img" style="background:linear-gradient(135deg,#e8f5e7,#66bb6a);"><span style="font-size:2.5rem;">🌿</span></div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Buyer's Guide</div>
+          <h3>Best Lawn Fertilizer 2026: Picks by Grass Type, Tested &amp; Ranked</h3>
+          <p>Not all fertilizers work on every lawn. We break down the best picks for Bermuda, Fescue, Zoysia, St. Augustine, and Bluegrass — with NPK explained.</p>
+          <span class="blog-read">Read Guide →</span>
+        </div>
+      </a>
       <a href="/blog/new-construction-soil.html" class="blog-card" style="text-decoration:none;color:inherit;">
         <div class="blog-card-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);"><span style="font-size:2.5rem;">🏗️</span></div>
         <div class="blog-card-body">
@@ -1417,6 +1431,7 @@ footer a:hover { color: var(--white); }
     </div>
     <div>
       <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#666;margin-bottom:0.85rem;">Guides</div>
+      <a href="/blog/best-lawn-fertilizer-2026.html" style="display:block;color:#aaa;text-decoration:none;font-size:0.85rem;margin-bottom:0.5rem;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aaa'">Best Fertilizer 2026</a>
       <a href="/blog/new-construction-soil.html" style="display:block;color:#aaa;text-decoration:none;font-size:0.85rem;margin-bottom:0.5rem;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aaa'">New Construction Soil</a>
       <a href="/blog/smart-irrigation-small-yard.html" style="display:block;color:#aaa;text-decoration:none;font-size:0.85rem;margin-bottom:0.5rem;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aaa'">Smart Irrigation</a>
       <a href="/blog/hydroseeding-vs-sod-vs-seed.html" style="display:block;color:#aaa;text-decoration:none;font-size:0.85rem;margin-bottom:0.5rem;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aaa'">Hydroseed vs. Sod vs. Seed</a>
