@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Is My Grass Yellow After Winter? (4 Causes Fixed) | LawnUnlocked</title>
+  <meta name="description" content="Yellow grass after winter isn't always a fertilizer fix. Diagnose the real cause — dormancy, nitrogen, iron, or fungus — and treat it correctly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #3a7d44;
+  --green-light: #e8f5eb;
+  --green-mid: #c8e6cd;
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --warn-bg: #fff8e1;
+  --warn-border: #f59e0b;
+  --tip-bg: #e8f5eb;
+  --tip-border: #3a7d44;
+  --border: #e5e7eb;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: #f9fafb;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* NAV */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+.logo span { color: var(--green); }
+.nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+.nav-cta {
+  background: transparent;
+  color: var(--green) !important;
+  font-weight: 600 !important;
+}
+
+/* LAYOUT */
+.page-wrapper {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.breadcrumb a { color: var(--green); text-decoration: none; }
+.breadcrumb span { margin: 0 6px; }
+
+/* CATEGORY BADGE */
+.category-badge {
+  display: inline-block;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+/* HERO */
+.post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 38px);
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.post-intro {
+  font-size: 17px;
+  color: #374151;
+  line-height: 1.75;
+  margin-bottom: 28px;
+  border-left: 3px solid var(--green);
+  padding-left: 16px;
+}
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--muted);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+}
+.post-meta-dot { width: 3px; height: 3px; background: var(--muted); border-radius: 50%; }
+
+/* STAT ROW */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: var(--green);
+  border-radius: 12px;
+  padding: 24px 20px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.stat-value {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label {
+  display: block;
+  font-size: 11px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.4;
+  font-weight: 500;
+}
+.stat-divider {
+  border-left: 1px solid rgba(255,255,255,0.25);
+}
+
+/* BODY CONTENT */
+.post-body h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 40px 0 14px;
+  line-height: 1.3;
+}
+.post-body p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 16px;
+}
+.post-body a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.post-body em { font-style: italic; }
+
+/* DIAGNOSIS TABLE */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 24px 0 32px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+thead {
+  background: var(--green);
+  color: white;
+}
+thead th {
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:nth-child(even) { background: #f9fafb; }
+tbody td {
+  padding: 12px 14px;
+  vertical-align: top;
+  line-height: 1.5;
+  color: #374151;
+}
+tbody td:last-child { color: var(--green); font-weight: 600; }
+
+/* CALLOUTS */
+.tip-callout, .warn-callout {
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin: 24px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.tip-callout {
+  background: var(--tip-bg);
+  border-left: 4px solid var(--tip-border);
+}
+.warn-callout {
+  background: var(--warn-bg);
+  border-left: 4px solid var(--warn-border);
+}
+.tip-callout strong { color: var(--green); }
+.warn-callout strong { color: #b45309; }
+.tip-callout a, .warn-callout a {
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 60px;
+}
+footer .footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+footer .footer-logo span { color: var(--green); }
+
+@media (max-width: 520px) {
+  .stat-row { grid-template-columns: 1fr; gap: 16px; }
+  .stat-divider { border-left: none; border-top: 1px solid rgba(255,255,255,0.25); padding-top: 16px; }
+  thead th:first-child, tbody td:first-child { min-width: 160px; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <a class="logo" href="#">Lawn<span>Unlocked</span></a>
+    <div class="nav-links">
+      <a href="#">Guides</a>
+      <a href="#" class="nav-cta">Get My Plan →</a>
+    </div>
+  </nav>
+
+  <div class="page-wrapper">
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Home</a><span>›</span>
+  <a href="#">Blog</a><span>›</span>
+  Why Is My Grass Yellow After Winter?
+</div>
+
+<!-- CATEGORY -->
+<div class="category-badge">Lawn Diagnosis</div>
+
+<!-- TITLE -->
+<h1 class="post-title">Why Is My Grass Yellow After Winter? (4 Causes, Each With a Fix)</h1>
+
+<!-- INTRO -->
+<p class="post-intro">Your lawn survived the winter — but it doesn't look like it. Yellow grass in April usually has one of four causes, and treating the wrong one wastes both time and money. Here's how to tell them apart and exactly what to apply for each.</p>
+
+<!-- META -->
+<div class="post-meta">
+  <span>LawnUnlocked Staff</span>
+  <span class="post-meta-dot"></span>
+  <span>April 2026</span>
+  <span class="post-meta-dot"></span>
+  <span>8 min read</span>
+</div>
+
+<!-- STAT ROW -->
+<div class="stat-row">
+  <div>
+    <span class="stat-value">4</span>
+    <span class="stat-label">Distinct causes of post-winter yellowing</span>
+  </div>
+  <div class="stat-divider">
+    <span class="stat-value">2–3 wks</span>
+    <span class="stat-label">To green-up once correctly treated</span>
+  </div>
+  <div class="stat-divider">
+    <span class="stat-value">0.5 lb</span>
+    <span class="stat-label">N per 1,000 sq ft for first spring feeding</span>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="post-body">
+
+  <h2>Quick Diagnosis: Which Yellow Are You Dealing With?</h2>
+  <p>Before spending anything, identify your pattern. Pull up a handful of grass and look closely at where the yellow starts on the blade.</p>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>What you see</th>
+          <th>Most likely cause</th>
+          <th>Fix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Uniform pale yellow across the entire lawn, no dead patches</td>
+          <td>Dormancy lag or nitrogen deficiency</td>
+          <td>Slow-release nitrogen fertilizer</td>
+        </tr>
+        <tr>
+          <td>Yellow blades with green veins still visible</td>
+          <td>Iron chlorosis</td>
+          <td>Chelated iron supplement</td>
+        </tr>
+        <tr>
+          <td>Circular tan or straw-colored patches, matted blades</td>
+          <td>Winter fungal damage (snow mold)</td>
+          <td>Rake + fungicide, not fertilizer</td>
+        </tr>
+        <tr>
+          <td>Yellow at blade tips only, lower blades still green</td>
+          <td>Cold desiccation or light frost burn</td>
+          <td>Wait + water; self-corrects</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Cause 1: Your Grass Is Still Coming Out of Dormancy</h2>
+  <p>Cool-season grasses like tall fescue and Kentucky bluegrass can look washed-out yellow-green through early April, especially if soil temperatures are still below 50°F. This isn't a deficiency — the grass is simply warming up. Applying heavy nitrogen now pushes leaf growth before roots are ready and leaves your lawn more vulnerable to summer stress.</p>
+  <p>Check your soil temperature at a 2-inch depth before doing anything. If it's below 50°F, wait. If it's between 50–55°F and the yellow is uniform across the whole lawn with no dead or matted areas, a light application of slow-release nitrogen is appropriate — aim for 0.5 lb of actual nitrogen per 1,000 sq ft.</p>
+
+  <div class="tip-callout">
+    <strong>💡 Tip:</strong> A soil thermometer removes all the guesswork from spring timing. <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=soil+thermometer+lawn" target="_blank" rel="nofollow">A basic soil thermometer runs under $15 on Amazon</a> and tells you exactly when your turf is ready to respond to inputs — it's the single most useful tool in a spring lawn program.
+  </div>
+
+  <h2>Cause 2: Nitrogen Deficiency</h2>
+  <p>If soil temps are at or above 55°F and the lawn is still uniformly pale, nitrogen deficiency is the most likely culprit. This is especially common after a wet winter, when rainfall leaches soluble nitrogen out of the root zone faster than the grass can absorb it.</p>
+  <p>For cool-season lawns, apply a slow-release nitrogen fertilizer at 0.5–1 lb of actual nitrogen per 1,000 sq ft. Slow-release formulations — look for polymer-coated urea or IBDU on the ingredient list — feed over 6–8 weeks instead of producing a single green surge that fades in two. That sustained release matches how cool-season roots actually uptake nutrients in spring.</p>
+  <p>Look for a high-nitrogen, low-phosphorus formulation — something in the 32-0-6 range — with at least 50% slow-release nitrogen listed in the guaranteed analysis. <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=slow+release+nitrogen+fertilizer+lawn+spring" target="_blank" rel="nofollow">Browse slow-release spring lawn fertilizers on Amazon</a> and check the guaranteed analysis panel before buying.</p>
+
+  <div class="tip-callout">
+    <strong>💡 Tip:</strong> If you haven't done a soil test in two years, do one before fertilizing. A test tells you your actual nitrogen, phosphorus, potassium, and pH — so you're not adding nutrients the soil already has. <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+soil+test+kit" target="_blank" rel="nofollow">Mail-in soil test kits on Amazon</a> run $20–$30 and return results with specific amendment recommendations.
+  </div>
+
+  <h2>Cause 3: Iron Chlorosis (Yellow Blades, Green Veins)</h2>
+  <p>Iron chlorosis is the most misdiagnosed yellowing problem in spring lawns. The tell is distinctive: the blade turns yellow but the veins running through it stay green. You'll see this most often on St. Augustine, tall fescue, or Kentucky bluegrass growing in soil with a pH above 7.0. At high pH, iron is present in the soil but locked in a form roots can't absorb.</p>
+  <p>The fix is not more fertilizer — it's chelated iron applied as a foliar spray or granular soil drench. Chelated iron (iron-EDTA or iron-DTPA) stays plant-available across a wider pH range than iron sulfate. Most formulations are applied at 2–3 oz per 1,000 sq ft; always follow the label rate for your specific product. Color response typically appears within 5–7 days.</p>
+
+  <div class="warn-callout">
+    <strong>⚠️ Warning:</strong> Iron stains concrete, pavers, and driveways immediately and permanently. Apply on a calm day, keep the spreader or sprayer off hardscape, and rinse any overspray off surfaces within minutes.
+  </div>
+
+  <p>For foliar application, <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=chelated+iron+lawn+spray" target="_blank" rel="nofollow">chelated iron spray concentrates on Amazon</a> let you mix to the exact label rate and cover large areas efficiently. If high pH is a recurring issue, also apply elemental sulfur to bring pH down over time — that's the long-term iron chlorosis solution.</p>
+
+  <h2>Cause 4: Winter Fungal Damage</h2>
+  <p>Gray snow mold (<em>Typhula</em> spp.) and pink snow mold (<em>Microdochium nivale</em>) are the two fungal diseases most likely to cause post-winter yellowing that doesn't self-correct. Unlike the other causes, these don't affect the entire lawn evenly. Look for circular or irregular patches — usually 3–12 inches across — where the blades are matted flat and tan or bleached. A grayish-white or pinkish mycelium ring at the patch edge is the confirming sign, visible just after snow melt or during wet spring weather.</p>
+  <p>Fertilizing over active fungal damage makes it worse by pushing succulent new growth the pathogen colonizes easily. Rake affected areas first to break up matted thatch and improve air circulation. For patches larger than 6 inches, apply a systemic fungicide containing azoxystrobin or propiconazole — both are labeled for snow mold and cool-season turf diseases.</p>
+  <p><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=azoxystrobin+lawn+fungicide" target="_blank" rel="nofollow">Azoxystrobin-based fungicides on Amazon</a> are available in liquid concentrate and granular forms; liquid provides faster uptake when disease is active. Once new growth is emerging clean, thin patches can be spot-seeded — but wait until you've confirmed fungal activity has stopped.</p>
+
+  <h2>What About Warm-Season Grasses?</h2>
+  <p>If you have Bermuda, Zoysia, or St. Augustine and it's still yellow in late April, check soil temperature first. Bermuda won't break dormancy until soil temps consistently exceed 65°F at a 4-inch depth — pushing nitrogen before that delays root development. Zoysia is even slower, sometimes looking straw-yellow into May in transitional-zone climates.</p>
+  <p>If soil temps are above 65°F and the lawn still isn't greening up, apply a light dose of a balanced fertilizer in the 15-0-15 or 16-4-8 range to encourage both shoot and root development. <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=warm+season+grass+spring+fertilizer" target="_blank" rel="nofollow">Spring fertilizers formulated for warm-season grasses on Amazon</a> are widely available in this NPK range.</p>
+
+  <h2>The One Mistake That Sets Lawns Back Two Months</h2>
+  <p>Applying high-nitrogen fertilizer to a lawn that's yellow from fungal damage or dormancy is the most common spring lawn mistake. Nitrogen forces fast, weak top growth at the expense of root development and accelerates any existing disease. Diagnose first, treat second. The pattern chart at the top of this article takes 60 seconds to work through — use it before buying anything.</p>
+  <p>If you're genuinely unsure whether you're looking at a deficiency or a disease, <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+disease+diagnostic+soil+test" target="_blank" rel="nofollow">a professional-grade lawn soil and disease test kit</a> rules out pH and nutrient issues in one submission, so you're treating a confirmed cause rather than a guess.</p>
+
+  <div class="tip-callout">
+    <strong>💡 Tip:</strong> Once your lawn is greening consistently and soil temps are stable above 55°F (cool-season) or 65°F (warm-season), shift to a regular 6–8 week fertilizer schedule. That rhythm — not heavy single applications — is what produces consistent dark green color through summer.
+  </div>
+
+</div><!-- /.post-body -->
+
+  </div><!-- /.page-wrapper -->
+
+  <footer>
+    <div class="footer-logo">Lawn<span>Unlocked</span></div>
+    <p>AI-powered lawn care plans built for your grass type, climate, and goals.</p>
+  </footer>
+
+</body>
+</html>
