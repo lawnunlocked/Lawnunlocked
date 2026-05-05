@@ -104,7 +104,7 @@
     }
     .drawer {
       position: fixed; top: 0; left: 0; bottom: 0; z-index: 500;
-      width: 300px;
+      width: 280px;
       background: var(--white);
       transform: translateX(-100%);
       transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
@@ -114,51 +114,38 @@
     .drawer.open { transform: translateX(0); }
     .drawer-header {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 1.25rem;
+      padding: 1.1rem 1.5rem;
       border-bottom: 1px solid var(--border);
       flex-shrink: 0;
     }
     .drawer-logo {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem; color: var(--ink); text-decoration: none;
+      font-size: 1.15rem; color: var(--ink); text-decoration: none;
       display: flex; align-items: center; gap: 0.35rem;
     }
     .drawer-close {
       width: 32px; height: 32px; border: none; background: none;
-      cursor: pointer; font-size: 1.1rem; color: var(--mid);
-      border-radius: 6px; display: flex; align-items: center; justify-content: center;
-      transition: background 0.15s;
+      cursor: pointer; font-size: 1.3rem; color: var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      transition: color 0.15s; line-height: 1;
     }
-    .drawer-close:hover { background: var(--gray); color: var(--ink); }
-    .drawer-body { flex: 1; padding: 1rem 0; }
+    .drawer-close:hover { color: var(--green); }
+    .drawer-body { flex: 1; padding: 0.5rem 0 1.5rem; }
     .drawer-section-label {
-      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.12em;
+      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.13em;
       text-transform: uppercase; color: var(--mid);
-      padding: 0.75rem 1.25rem 0.35rem;
+      padding: 1.4rem 1.5rem 0.5rem;
     }
     .drawer-link {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.7rem 1.25rem;
-      font-size: 0.9rem; font-weight: 500; color: var(--ink);
+      display: block;
+      padding: 0.72rem 1.5rem;
+      font-size: 1rem; font-weight: 700; color: var(--ink);
       text-decoration: none;
-      transition: background 0.15s;
-      border-radius: 0;
+      transition: color 0.15s;
+      letter-spacing: -0.01em;
     }
-    .drawer-link:hover { background: var(--green-pale); color: var(--green); }
-    .drawer-link-icon { font-size: 1.05rem; width: 1.4rem; text-align: center; flex-shrink: 0; }
-    .drawer-link-sub { font-size: 0.72rem; color: var(--mid); display: block; margin-top: 0.05rem; font-weight: 400; }
-    .drawer-divider { height: 1px; background: var(--border); margin: 0.75rem 1.25rem; }
-    .drawer-cta-wrap { padding: 1rem 1.25rem 1.5rem; flex-shrink: 0; border-top: 1px solid var(--border); }
-    .drawer-cta {
-      display: block; text-align: center;
-      background: var(--green); color: white;
-      padding: 0.85rem 1.25rem; border-radius: 9px;
-      font-weight: 700; font-size: 0.9rem;
-      text-decoration: none; transition: background 0.2s;
-      margin-bottom: 0.5rem;
-    }
-    .drawer-cta:hover { background: var(--green-light); }
-    .drawer-cta-sub { font-size: 0.72rem; color: var(--mid); text-align: center; }
+    .drawer-link:hover { color: var(--green); }
+    .drawer-divider { height: 1px; background: var(--border); margin: 0.6rem 1.5rem; }
 
     /* ── PAGE BODY ── */
     .page-body { padding-top: var(--nav-h); }
@@ -178,7 +165,7 @@
     .featured-story-img {
       width: 100%; aspect-ratio: 16/9;
       border-radius: 14px; overflow: hidden;
-      background: linear-gradient(145deg, #1a3d1f 0%, #2d5a27 50%, #3d7a3a 100%);
+      background: #1a3d1f;
       display: flex; align-items: flex-end;
       position: relative; margin-bottom: 1.1rem;
     }
@@ -261,8 +248,10 @@
     .secondary-story:hover .ss-title { color: var(--green); }
     .ss-img {
       width: 76px; height: 64px; border-radius: 8px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1.55rem;
+      overflow: hidden; position: relative;
+      background: #ccc;
     }
+    .ss-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
     .ss-body { flex: 1; min-width: 0; }
     .ss-tag { font-size: 0.61rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); margin-bottom: 0.22rem; }
     .ss-title {
@@ -361,8 +350,10 @@
     .article-list-item:hover .ali-title { color: var(--green); }
     .ali-img {
       width: 130px; height: 95px; border-radius: 9px;
-      display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;
+      overflow: hidden; position: relative; flex-shrink: 0;
+      background: #ccc;
     }
+    .ali-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
     .ali-tag { display: inline-block; font-size: 0.61rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); background: var(--green-pale); padding: 0.16rem 0.52rem; border-radius: 100px; margin-bottom: 0.4rem; }
     .ali-title {
       font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700;
@@ -409,7 +400,8 @@
       overflow: hidden; display: flex; flex-direction: column;
       opacity: 0.9;
     }
-    .hi-img { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 2.6rem; position: relative; }
+    .hi-img { height: 120px; overflow: hidden; position: relative; background: #ccc; }
+    .hi-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
     .hi-body { padding: 1rem 1.1rem 1.15rem; flex: 1; display: flex; flex-direction: column; }
     .hi-coming { display: inline-block; font-size: 0.61rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #888; background: var(--gray); border: 1px solid var(--border); padding: 0.16rem 0.52rem; border-radius: 100px; margin-bottom: 0.45rem; }
     .hi-title { font-family: 'Playfair Display', serif; font-size: 0.94rem; font-weight: 700; line-height: 1.32; color: var(--ink); flex: 1; margin-bottom: 0.5rem; }
@@ -719,85 +711,34 @@
 
 <div class="drawer" id="siteDrawer">
   <div class="drawer-header">
-    <a href="#" class="drawer-logo"><span style="color:var(--green)">🌿</span> LawnUnlocked</a>
+    <a href="/" class="drawer-logo"><span style="color:var(--green)">🌿</span> LawnUnlocked</a>
     <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
   </div>
   <div class="drawer-body">
 
 <div class="drawer-section-label">Lawn Care</div>
-<a href="/blog/best-lawn-fertilizer-2026.html" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">🌿</span>
-  <span>Fertilizers<span class="drawer-link-sub">Best picks by grass type, tested</span></span>
-</a>
-<a href="/blog/when-to-apply-pre-emergent-zone-7.html" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">🚫</span>
-  <span>Weed Control<span class="drawer-link-sub">Pre-emergent timing & product guides</span></span>
-</a>
-<a href="/blog/best-battery-mower-under-500.html" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">✂️</span>
-  <span>Mowers<span class="drawer-link-sub">Reel, battery & rotary comparisons</span></span>
-</a>
-<a href="/blog/index.html" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">🧪</span>
-  <span>Soil & Testing<span class="drawer-link-sub">Test kits, amendments & pH guides</span></span>
-</a>
-<a href="/blog/index.html" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">🔧</span>
-  <span>Aeration & Overseeding<span class="drawer-link-sub">When, how, and what equipment</span></span>
-</a>
-<a href="/blog/smart-irrigation-small-yard.html" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">💧</span>
-  <span>Irrigation<span class="drawer-link-sub">Smart controllers, drip & hose systems</span></span>
-</a>
+<a href="/blog/category-fertilizers.html" class="drawer-link" onclick="closeDrawer()">Fertilizers</a>
+<a href="/blog/category-weed-control.html" class="drawer-link" onclick="closeDrawer()">Weed Control</a>
+<a href="/blog/category-mowers.html" class="drawer-link" onclick="closeDrawer()">Mowers</a>
+<a href="/blog/category-soil-testing.html" class="drawer-link" onclick="closeDrawer()">Soil & Testing</a>
+<a href="/blog/category-aeration.html" class="drawer-link" onclick="closeDrawer()">Aeration & Overseeding</a>
+<a href="/blog/category-irrigation.html" class="drawer-link" onclick="closeDrawer()">Irrigation</a>
 
 <div class="drawer-divider"></div>
 
 <div class="drawer-section-label">Home Improvement</div>
-<a href="#home-improvement" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">⚡</span>
-  <span>Outdoor Power Tools<span class="drawer-link-sub">Leaf blowers, trimmers & more</span></span>
-</a>
-<a href="#home-improvement" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">🏡</span>
-  <span>Landscaping & Curb Appeal<span class="drawer-link-sub">Edging, beds & front yard design</span></span>
-</a>
-<a href="#home-improvement" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">🪴</span>
-  <span>Outdoor Living<span class="drawer-link-sub">Patios, lighting & outdoor kitchens</span></span>
-</a>
-<a href="#home-improvement" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">🛠️</span>
-  <span>DIY & Tools<span class="drawer-link-sub">Tool reviews & project guides</span></span>
-</a>
-<a href="#home-improvement" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">🌊</span>
-  <span>Drainage & Grading<span class="drawer-link-sub">Fix yard drainage problems</span></span>
-</a>
+<a href="/blog/category-power-tools.html" class="drawer-link" onclick="closeDrawer()">Outdoor Power Tools</a>
+<a href="/blog/category-landscaping.html" class="drawer-link" onclick="closeDrawer()">Landscaping & Curb Appeal</a>
+<a href="/blog/category-outdoor-living.html" class="drawer-link" onclick="closeDrawer()">Outdoor Living</a>
+<a href="/blog/category-diy.html" class="drawer-link" onclick="closeDrawer()">DIY & Tools</a>
 
 <div class="drawer-divider"></div>
 
 <div class="drawer-section-label">Resources</div>
-<a href="products.html" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">⭐</span>
-  <span>Product Guide — Good/Better/Best<span class="drawer-link-sub">Every category, every budget</span></span>
-</a>
-<a href="/blog/index.html" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">📄</span>
-  <span>All Guides<span class="drawer-link-sub">Browse every article we've published</span></span>
-</a>
-<a href="#email-capture" class="drawer-link" onclick="closeDrawer()">
-  <span class="drawer-link-icon">📅</span>
-  <span>Free Seasonal PDF<span class="drawer-link-sub">Month-by-month care calendar</span></span>
-</a>
-<a href="https://lawnunlocked.github.io/Lawnunlocked/LawnUnlocked_Seasonal_Guide.pdf" class="drawer-link" target="_blank" rel="noopener">
-  <span class="drawer-link-icon">⬇️</span>
-  <span>Download Guide PDF<span class="drawer-link-sub">Direct link to the seasonal guide</span></span>
-</a>
+<a href="/products.html" class="drawer-link" onclick="closeDrawer()">Product Guide</a>
+<a href="/blog/index.html" class="drawer-link" onclick="closeDrawer()">All Guides</a>
+<a href="https://lawnunlocked.github.io/Lawnunlocked/LawnUnlocked_Seasonal_Guide.pdf" class="drawer-link" target="_blank" rel="noopener">Free Seasonal PDF</a>
 
-  </div>
-  <div class="drawer-cta-wrap">
-    <a href="#quiz-section" class="drawer-cta" onclick="closeDrawer()">🌿 Get My Free Lawn Plan →</a>
-    <div class="drawer-cta-sub">Personalized to your grass type & ZIP — takes 2 min</div>
   </div>
 </div>
 
@@ -823,9 +764,9 @@
     <!-- FEATURED STORY -->
     <div class="featured-story fade-up">
       <a href="/blog/best-lawn-fertilizer-2026.html" style="text-decoration:none;display:block;">
-        <div class="featured-story-img">
+        <div class="featured-story-img" style="background:none;">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&fit=crop" alt="Lush green fertilized lawn" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;" loading="eager" />
           <div class="featured-story-img-overlay"></div>
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5.5rem;opacity:0.22;">🌿</div>
           <div class="featured-story-img-content">
             <div class="featured-badge">★ Editor's Pick</div>
             <h2>Best Lawn Fertilizer 2026: Picks by Grass Type, Tested & Ranked</h2>
@@ -855,9 +796,10 @@
     </div>
 
 <!-- SECONDARY STORIES -->
+
 <div class="secondary-stack fade-up delay-1">
   <a href="/blog/when-to-apply-pre-emergent-zone-7.html" class="secondary-story">
-    <div class="ss-img" style="background:linear-gradient(135deg,#fff3e0,#ffb74d);">🗓️</div>
+    <div class="ss-img"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=200&q=80&fit=crop" alt="Lawn weed control" loading="lazy" /></div>
     <div class="ss-body">
       <div class="ss-tag">Weed Control</div>
       <div class="ss-title">When to Apply Pre-Emergent in Zone 7 (2026 Calendar)</div>
@@ -865,7 +807,7 @@
     </div>
   </a>
   <a href="/blog/best-battery-mower-under-500.html" class="secondary-story">
-    <div class="ss-img" style="background:linear-gradient(135deg,#e3f2fd,#4fc3f7);">⚡</div>
+    <div class="ss-img"><img src="https://images.unsplash.com/photo-1592496431122-2349e0fbc666?w=200&q=80&fit=crop" alt="Battery lawn mower" loading="lazy" /></div>
     <div class="ss-body">
       <div class="ss-tag">Mowers</div>
       <div class="ss-title">Best Battery Mowers Under $500 — EGO, Greenworks & Ryobi Tested</div>
@@ -873,7 +815,7 @@
     </div>
   </a>
   <a href="/blog/hydroseeding-vs-sod-vs-seed.html" class="secondary-story">
-    <div class="ss-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);">⚖️</div>
+    <div class="ss-img"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=200&q=80&fit=crop" alt="Sod installation lawn" loading="lazy" /></div>
     <div class="ss-body">
       <div class="ss-tag">Cost Comparison</div>
       <div class="ss-title">Hydroseeding vs. Sod vs. Seed: Real 3-Year Cost Breakdown</div>
@@ -881,7 +823,7 @@
     </div>
   </a>
   <a href="/blog/new-construction-soil.html" class="secondary-story">
-    <div class="ss-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);">🏗️</div>
+    <div class="ss-img"><img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=200&q=80&fit=crop" alt="Soil and dirt yard" loading="lazy" /></div>
     <div class="ss-body">
       <div class="ss-tag">Soil & Site</div>
       <div class="ss-title">Managing a Lawn in New Construction Soil</div>
@@ -889,7 +831,7 @@
     </div>
   </a>
   <a href="/blog/smart-irrigation-small-yard.html" class="secondary-story" style="border-bottom:none;">
-    <div class="ss-img" style="background:linear-gradient(135deg,#e3f2fd,#81d4fa);">💧</div>
+    <div class="ss-img"><img src="https://images.unsplash.com/photo-1558618047-f4e60cac3b05?w=200&q=80&fit=crop" alt="Lawn sprinkler irrigation" loading="lazy" /></div>
     <div class="ss-body">
       <div class="ss-tag">Irrigation</div>
       <div class="ss-title">Smart Irrigation for a Small Yard: Is It Worth the Cost?</div>
@@ -985,233 +927,235 @@
     <div class="content-sidebar-layout">
 
   <!-- MAIN CONTENT -->
+
   <div class="content-col">
 
-    <!-- LAWN CARE GUIDES -->
-    <div class="section-label-row" style="padding-top:2rem;">
-      <div>
-        <div class="section-label-group" style="margin-bottom:0.3rem;">
-          <div class="section-label-line"></div>
-          <div class="section-label-text">Latest Guides</div>
-        </div>
-        <div class="section-title">Lawn Care</div>
-      </div>
-      <a href="/blog/index.html" class="view-all-link">View all guides →</a>
+<!-- LAWN CARE GUIDES -->
+<div class="section-label-row" style="padding-top:2rem;">
+  <div>
+    <div class="section-label-group" style="margin-bottom:0.3rem;">
+      <div class="section-label-line"></div>
+      <div class="section-label-text">Latest Guides</div>
     </div>
+    <div class="section-title">Lawn Care</div>
+  </div>
+  <a href="/blog/index.html" class="view-all-link">View all guides →</a>
+</div>
 
-    <div class="article-list">
-      <a href="/blog/best-lawn-fertilizer-2026.html" class="article-list-item">
-        <div class="ali-img" style="background:linear-gradient(135deg,#e8f5e7,#66bb6a);">🌿</div>
-        <div class="ali-body">
-          <span class="ali-tag">Buyer's Guide</span>
-          <div class="ali-title">Best Lawn Fertilizer 2026: Picks by Grass Type, Tested & Ranked</div>
-          <div class="ali-excerpt">We break down the best picks for Bermuda, Fescue, Zoysia, St. Augustine, and Bluegrass — with real community validation and application data.</div>
-          <div class="ali-meta">
-            <span class="ali-meta-time">8 min read</span>
-            <span class="ali-product">📦 Andersons PGF 16-4-8 · ~$35+</span>
-            <span class="ali-cta">Read →</span>
-          </div>
-        </div>
-      </a>
-      <a href="/blog/when-to-apply-pre-emergent-zone-7.html" class="article-list-item">
-        <div class="ali-img" style="background:linear-gradient(135deg,#fff3e0,#ffb74d);">🗓️</div>
-        <div class="ali-body">
-          <span class="ali-tag">Weed Control</span>
-          <div class="ali-title">When to Apply Pre-Emergent Herbicide in Zone 7 (2026 Calendar)</div>
-          <div class="ali-excerpt">The window is narrower than you think. Soil temperature triggers, month-by-month timing, and the product landscapers in Zone 7 actually use.</div>
-          <div class="ali-meta">
-            <span class="ali-meta-time">6 min read</span>
-            <span class="ali-product">📦 Prodiamine 65 WDG · ~$40+</span>
-            <span class="ali-cta">Read →</span>
-          </div>
-        </div>
-      </a>
-      <a href="/blog/best-battery-mower-under-500.html" class="article-list-item">
-        <div class="ali-img" style="background:linear-gradient(135deg,#e3f2fd,#4fc3f7);">⚡</div>
-        <div class="ali-body">
-          <span class="ali-tag">Mowers · Buyer's Guide</span>
-          <div class="ali-title">Best Battery-Powered Lawn Mowers Under $500 in 2026</div>
-          <div class="ali-excerpt">EGO, Greenworks, and Ryobi tested head-to-head on runtime, cut quality, and long-term value. One clear winner at this price point.</div>
-          <div class="ali-meta">
-            <span class="ali-meta-time">7 min read</span>
-            <span class="ali-product">📦 EGO LM2135SP · ~$399+</span>
-            <span class="ali-cta">Read →</span>
-          </div>
-        </div>
-      </a>
-      <a href="/blog/hydroseeding-vs-sod-vs-seed.html" class="article-list-item">
-        <div class="ali-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);">⚖️</div>
-        <div class="ali-body">
-          <span class="ali-tag">Cost Comparison</span>
-          <div class="ali-title">Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?</div>
-          <div class="ali-excerpt">Upfront cost is only part of the story. We ran the real 3-year numbers — including re-do costs and failure rates — so you don't have to guess.</div>
-          <div class="ali-meta">
-            <span class="ali-meta-time">7 min read</span>
-            <span class="ali-product">📦 MySoil Soil Test · ~$30+</span>
-            <span class="ali-cta">Read →</span>
-          </div>
-        </div>
-      </a>
-      <a href="/blog/new-construction-soil.html" class="article-list-item">
-        <div class="ali-img" style="background:linear-gradient(135deg,#efebe9,#bcaaa4);">🏗️</div>
-        <div class="ali-body">
-          <span class="ali-tag">Soil & Site</span>
-          <div class="ali-title">Managing a Lawn in New Construction Soil</div>
-          <div class="ali-excerpt">Builder fill dirt is not real topsoil. Here's what you're actually dealing with and how to fix it without wasting money.</div>
-          <div class="ali-meta">
-            <span class="ali-meta-time">5 min read</span>
-            <span class="ali-product">📦 MySoil Kit — do this first</span>
-            <span class="ali-cta">Read →</span>
-          </div>
-        </div>
-      </a>
-      <a href="/blog/smart-irrigation-small-yard.html" class="article-list-item" style="border-bottom:none;">
-        <div class="ali-img" style="background:linear-gradient(135deg,#e3f2fd,#81d4fa);">💧</div>
-        <div class="ali-body">
-          <span class="ali-tag">Irrigation</span>
-          <div class="ali-title">Smart Irrigation for a Small Yard: Is It Worth the Cost?</div>
-          <div class="ali-excerpt">Full cost-benefit breakdown of smart controllers, drip systems, and basic timers — with real payback estimates for yards under 5,000 sq ft.</div>
-          <div class="ali-meta">
-            <span class="ali-meta-time">6 min read</span>
-            <span class="ali-product">📦 $150–800 range covered</span>
-            <span class="ali-cta">Read →</span>
-          </div>
-        </div>
-      </a>
+<div class="article-list">
+  <a href="/blog/best-lawn-fertilizer-2026.html" class="article-list-item">
+    <div class="ali-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=80&fit=crop" alt="Green fertilized lawn" loading="lazy" /></div>
+    <div class="ali-body">
+      <span class="ali-tag">Buyer's Guide</span>
+      <div class="ali-title">Best Lawn Fertilizer 2026: Picks by Grass Type, Tested & Ranked</div>
+      <div class="ali-excerpt">We break down the best picks for Bermuda, Fescue, Zoysia, St. Augustine, and Bluegrass — with real community validation and application data.</div>
+      <div class="ali-meta">
+        <span class="ali-meta-time">8 min read</span>
+        <span class="ali-product">📦 Andersons PGF 16-4-8 · ~$35+</span>
+        <span class="ali-cta">Read →</span>
+      </div>
     </div>
+  </a>
+  <a href="/blog/when-to-apply-pre-emergent-zone-7.html" class="article-list-item">
+    <div class="ali-img"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=300&q=80&fit=crop" alt="Lawn weed prevention" loading="lazy" /></div>
+    <div class="ali-body">
+      <span class="ali-tag">Weed Control</span>
+      <div class="ali-title">When to Apply Pre-Emergent Herbicide in Zone 7 (2026 Calendar)</div>
+      <div class="ali-excerpt">The window is narrower than you think. Soil temperature triggers, month-by-month timing, and the product landscapers in Zone 7 actually use.</div>
+      <div class="ali-meta">
+        <span class="ali-meta-time">6 min read</span>
+        <span class="ali-product">📦 Prodiamine 65 WDG · ~$40+</span>
+        <span class="ali-cta">Read →</span>
+      </div>
+    </div>
+  </a>
+  <a href="/blog/best-battery-mower-under-500.html" class="article-list-item">
+    <div class="ali-img"><img src="https://images.unsplash.com/photo-1592496431122-2349e0fbc666?w=300&q=80&fit=crop" alt="Electric lawn mower" loading="lazy" /></div>
+    <div class="ali-body">
+      <span class="ali-tag">Mowers · Buyer's Guide</span>
+      <div class="ali-title">Best Battery-Powered Lawn Mowers Under $500 in 2026</div>
+      <div class="ali-excerpt">EGO, Greenworks, and Ryobi tested head-to-head on runtime, cut quality, and long-term value. One clear winner at this price point.</div>
+      <div class="ali-meta">
+        <span class="ali-meta-time">7 min read</span>
+        <span class="ali-product">📦 EGO LM2135SP · ~$399+</span>
+        <span class="ali-cta">Read →</span>
+      </div>
+    </div>
+  </a>
+  <a href="/blog/hydroseeding-vs-sod-vs-seed.html" class="article-list-item">
+    <div class="ali-img"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=300&q=80&fit=crop" alt="Sod installation" loading="lazy" /></div>
+    <div class="ali-body">
+      <span class="ali-tag">Cost Comparison</span>
+      <div class="ali-title">Hydroseeding vs. Sod vs. Seed: Which Is Actually Cheaper Over 3 Years?</div>
+      <div class="ali-excerpt">Upfront cost is only part of the story. We ran the real 3-year numbers — including re-do costs and failure rates — so you don't have to guess.</div>
+      <div class="ali-meta">
+        <span class="ali-meta-time">7 min read</span>
+        <span class="ali-product">📦 MySoil Soil Test · ~$30+</span>
+        <span class="ali-cta">Read →</span>
+      </div>
+    </div>
+  </a>
+  <a href="/blog/new-construction-soil.html" class="article-list-item">
+    <div class="ali-img"><img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=300&q=80&fit=crop" alt="Construction soil yard" loading="lazy" /></div>
+    <div class="ali-body">
+      <span class="ali-tag">Soil & Site</span>
+      <div class="ali-title">Managing a Lawn in New Construction Soil</div>
+      <div class="ali-excerpt">Builder fill dirt is not real topsoil. Here's what you're actually dealing with and how to fix it without wasting money.</div>
+      <div class="ali-meta">
+        <span class="ali-meta-time">5 min read</span>
+        <span class="ali-product">📦 MySoil Kit — do this first</span>
+        <span class="ali-cta">Read →</span>
+      </div>
+    </div>
+  </a>
+  <a href="/blog/smart-irrigation-small-yard.html" class="article-list-item" style="border-bottom:none;">
+    <div class="ali-img"><img src="https://images.unsplash.com/photo-1558618047-f4e60cac3b05?w=300&q=80&fit=crop" alt="Garden sprinkler system" loading="lazy" /></div>
+    <div class="ali-body">
+      <span class="ali-tag">Irrigation</span>
+      <div class="ali-title">Smart Irrigation for a Small Yard: Is It Worth the Cost?</div>
+      <div class="ali-excerpt">Full cost-benefit breakdown of smart controllers, drip systems, and basic timers — with real payback estimates for yards under 5,000 sq ft.</div>
+      <div class="ali-meta">
+        <span class="ali-meta-time">6 min read</span>
+        <span class="ali-product">📦 $150–800 range covered</span>
+        <span class="ali-cta">Read →</span>
+      </div>
+    </div>
+  </a>
+</div>
 
-    <!-- HOME IMPROVEMENT SECTION -->
-    <div class="section-label-row" id="home-improvement" style="margin-top:0.75rem;">
-      <div>
-        <div class="section-label-group" style="margin-bottom:0.3rem;">
-          <div class="section-label-line" style="background:#7c3aed;"></div>
-          <div class="section-label-text" style="color:#7c3aed;">Expanding Now</div>
-        </div>
-        <div class="section-title">Home Improvement & Outdoor</div>
-      </div>
-      <a href="/blog/index.html" class="view-all-link">View all →</a>
+<!-- HOME IMPROVEMENT SECTION -->
+<div class="section-label-row" id="home-improvement" style="margin-top:0.75rem;">
+  <div>
+    <div class="section-label-group" style="margin-bottom:0.3rem;">
+      <div class="section-label-line" style="background:#7c3aed;"></div>
+      <div class="section-label-text" style="color:#7c3aed;">Expanding Now</div>
     </div>
+    <div class="section-title">Home Improvement & Outdoor</div>
+  </div>
+  <a href="/blog/index.html" class="view-all-link">View all →</a>
+</div>
 
-    <!-- Coming soon 2x2 grid -->
-    <div class="article-grid-2" style="margin-bottom:1.25rem;">
-      <div class="hi-card">
-        <div class="hi-img" style="background:linear-gradient(135deg,#ede7f6,#b39ddb);">
-          <span>🔌</span>
-          <span class="ac-badge">Coming Soon</span>
-        </div>
-        <div class="hi-body">
-          <span class="hi-coming">Outdoor Power Tools</span>
-          <div class="hi-title">Best Cordless Leaf Blowers 2026: Battery Life, CFM & Runtime Tested</div>
-          <div class="hi-footer">
-            <span style="font-size:0.72rem;color:var(--mid);">EGO, Greenworks, Milwaukee</span>
-            <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
-          </div>
-        </div>
-      </div>
-      <div class="hi-card">
-        <div class="hi-img" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);">
-          <span>🏡</span>
-          <span class="ac-badge">Coming Soon</span>
-        </div>
-        <div class="hi-body">
-          <span class="hi-coming">Curb Appeal</span>
-          <div class="hi-title">How to Design a Low-Maintenance Front Yard That Actually Looks Good</div>
-          <div class="hi-footer">
-            <span style="font-size:0.72rem;color:var(--mid);">Landscaping guide</span>
-            <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
-          </div>
-        </div>
-      </div>
-      <div class="hi-card">
-        <div class="hi-img" style="background:linear-gradient(135deg,#e8eaf6,#9fa8da);">
-          <span>🛠️</span>
-          <span class="ac-badge">Coming Soon</span>
-        </div>
-        <div class="hi-body">
-          <span class="hi-coming">DIY & Tools</span>
-          <div class="hi-title">EGO vs. DeWalt vs. Milwaukee: Which Outdoor Battery Platform Wins in 2026?</div>
-          <div class="hi-footer">
-            <span style="font-size:0.72rem;color:var(--mid);">Platform comparison</span>
-            <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
-          </div>
-        </div>
-      </div>
-      <div class="hi-card">
-        <div class="hi-img" style="background:linear-gradient(135deg,#e0f7fa,#80deea);">
-          <span>🌊</span>
-          <span class="ac-badge">Coming Soon</span>
-        </div>
-        <div class="hi-body">
-          <span class="hi-coming">Drainage & Grading</span>
-          <div class="hi-title">Yard Drainage Problems: The Complete Fix Guide (French Drains, Grading & More)</div>
-          <div class="hi-footer">
-            <span style="font-size:0.72rem;color:var(--mid);">DIY guide</span>
-            <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
-          </div>
-        </div>
-      </div>
-      <div class="hi-card">
-        <div class="hi-img" style="background:linear-gradient(135deg,#fff8e1,#ffe082);">
-          <span>💡</span>
-          <span class="ac-badge">Coming Soon</span>
-        </div>
-        <div class="hi-body">
-          <span class="hi-coming">Outdoor Living</span>
-          <div class="hi-title">Best Outdoor String Lights 2026: Weatherproof Picks for Patios & Pergolas</div>
-          <div class="hi-footer">
-            <span style="font-size:0.72rem;color:var(--mid);">Product review</span>
-            <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
-          </div>
-        </div>
-      </div>
-      <div class="hi-card">
-        <div class="hi-img" style="background:linear-gradient(135deg,#f9fbe7,#c5e1a5);">
-          <span>🪴</span>
-          <span class="ac-badge">Coming Soon</span>
-        </div>
-        <div class="hi-body">
-          <span class="hi-coming">Garden & Landscaping</span>
-          <div class="hi-title">Best Raised Garden Bed Kits 2026: Cedar vs. Metal vs. Composite Compared</div>
-          <div class="hi-footer">
-            <span style="font-size:0.72rem;color:var(--mid);">Buyer's guide</span>
-            <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
-          </div>
-        </div>
+<!-- Coming soon 2x2 grid -->
+<div class="article-grid-2" style="margin-bottom:1.25rem;">
+  <div class="hi-card">
+    <div class="hi-img">
+      <img src="https://images.unsplash.com/photo-1504147-fe61c44870f5?w=400&q=80&fit=crop" alt="Cordless leaf blower" loading="lazy" />
+      <span class="ac-badge">Coming Soon</span>
+    </div>
+    <div class="hi-body">
+      <span class="hi-coming">Outdoor Power Tools</span>
+      <div class="hi-title">Best Cordless Leaf Blowers 2026: Battery Life, CFM & Runtime Tested</div>
+      <div class="hi-footer">
+        <span style="font-size:0.72rem;color:var(--mid);">EGO, Greenworks, Milwaukee</span>
+        <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
       </div>
     </div>
+  </div>
+  <div class="hi-card">
+    <div class="hi-img">
+      <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=400&q=80&fit=crop" alt="Front yard landscaping" loading="lazy" />
+      <span class="ac-badge">Coming Soon</span>
+    </div>
+    <div class="hi-body">
+      <span class="hi-coming">Curb Appeal</span>
+      <div class="hi-title">How to Design a Low-Maintenance Front Yard That Actually Looks Good</div>
+      <div class="hi-footer">
+        <span style="font-size:0.72rem;color:var(--mid);">Landscaping guide</span>
+        <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
+      </div>
+    </div>
+  </div>
+  <div class="hi-card">
+    <div class="hi-img">
+      <img src="https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&q=80&fit=crop" alt="Power tools outdoor" loading="lazy" />
+      <span class="ac-badge">Coming Soon</span>
+    </div>
+    <div class="hi-body">
+      <span class="hi-coming">DIY & Tools</span>
+      <div class="hi-title">EGO vs. DeWalt vs. Milwaukee: Which Outdoor Battery Platform Wins in 2026?</div>
+      <div class="hi-footer">
+        <span style="font-size:0.72rem;color:var(--mid);">Platform comparison</span>
+        <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
+      </div>
+    </div>
+  </div>
+  <div class="hi-card">
+    <div class="hi-img">
+      <img src="https://images.unsplash.com/photo-1624397640148-949b1732bb0a?w=400&q=80&fit=crop" alt="Yard drainage french drain" loading="lazy" />
+      <span class="ac-badge">Coming Soon</span>
+    </div>
+    <div class="hi-body">
+      <span class="hi-coming">Drainage & Grading</span>
+      <div class="hi-title">Yard Drainage Problems: The Complete Fix Guide (French Drains, Grading & More)</div>
+      <div class="hi-footer">
+        <span style="font-size:0.72rem;color:var(--mid);">DIY guide</span>
+        <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
+      </div>
+    </div>
+  </div>
+  <div class="hi-card">
+    <div class="hi-img">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80&fit=crop" alt="Outdoor patio string lights" loading="lazy" />
+      <span class="ac-badge">Coming Soon</span>
+    </div>
+    <div class="hi-body">
+      <span class="hi-coming">Outdoor Living</span>
+      <div class="hi-title">Best Outdoor String Lights 2026: Weatherproof Picks for Patios & Pergolas</div>
+      <div class="hi-footer">
+        <span style="font-size:0.72rem;color:var(--mid);">Product review</span>
+        <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
+      </div>
+    </div>
+  </div>
+  <div class="hi-card">
+    <div class="hi-img">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80&fit=crop" alt="Raised garden beds" loading="lazy" />
+      <span class="ac-badge">Coming Soon</span>
+    </div>
+    <div class="hi-body">
+      <span class="hi-coming">Garden & Landscaping</span>
+      <div class="hi-title">Best Raised Garden Bed Kits 2026: Cedar vs. Metal vs. Composite Compared</div>
+      <div class="hi-footer">
+        <span style="font-size:0.72rem;color:var(--mid);">Buyer's guide</span>
+        <button class="hi-notify" onclick="notifyMe(this)">Notify Me</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Good/Better/Best promo -->
-    <div style="background:var(--white);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem;">
-      <div style="padding:1.5rem 1.5rem 0;">
-        <div style="display:flex;align-items:center;gap:0.55rem;margin-bottom:0.55rem;">
-          <div class="section-label-line"></div>
-          <span class="section-label-text">Product Guide</span>
-        </div>
-        <div class="section-title" style="font-size:1.35rem;margin-bottom:0.45rem;">Good. Better. Best.</div>
-        <p style="font-size:0.83rem;color:#555;line-height:1.65;max-width:460px;margin-bottom:1.1rem;">One honest pick per tier across every major category — from budget-friendly options that get the job done to professional-grade gear.</p>
-      </div>
-      <div style="padding:0 1.5rem 1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;">
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.78rem;font-weight:600;padding:0.28rem 0.8rem;border-radius:100px;border:1.5px solid var(--border);">
-          <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;"></span> Good
-        </span>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.78rem;font-weight:600;padding:0.28rem 0.8rem;border-radius:100px;border:1.5px solid var(--border);">
-          <span style="width:6px;height:6px;border-radius:50%;background:#f59e0b;"></span> Better
-        </span>
-        <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.78rem;font-weight:600;padding:0.28rem 0.8rem;border-radius:100px;border:1.5px solid var(--border);">
-          <span style="width:6px;height:6px;border-radius:50%;background:var(--green);"></span> Best / Pro
-        </span>
-        <a href="products.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:0.4rem;background:var(--green);color:white;padding:0.65rem 1.35rem;border-radius:8px;text-decoration:none;font-size:0.83rem;font-weight:600;">Browse All Products →</a>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);">
-        <a href="products.html#fertilizers" style="display:flex;align-items:center;gap:0.45rem;padding:0.8rem 1.1rem;font-size:0.81rem;font-weight:500;color:#444;text-decoration:none;border-right:1px solid var(--border);transition:background 0.15s;" onmouseover="this.style.background='var(--green-pale)'" onmouseout="this.style.background='transparent'">🌿 Fertilizers</a>
-        <a href="products.html#weed" style="display:flex;align-items:center;gap:0.45rem;padding:0.8rem 1.1rem;font-size:0.81rem;font-weight:500;color:#444;text-decoration:none;border-right:1px solid var(--border);transition:background 0.15s;" onmouseover="this.style.background='var(--green-pale)'" onmouseout="this.style.background='transparent'">🚫 Weed Control</a>
-        <a href="products.html#mowers" style="display:flex;align-items:center;gap:0.45rem;padding:0.8rem 1.1rem;font-size:0.81rem;font-weight:500;color:#444;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='var(--green-pale)'" onmouseout="this.style.background='transparent'">✂️ Mowers</a>
-      </div>
+<!-- Good/Better/Best promo -->
+<div style="background:var(--white);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem;">
+  <div style="padding:1.5rem 1.5rem 0;">
+    <div style="display:flex;align-items:center;gap:0.55rem;margin-bottom:0.55rem;">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">Product Guide</span>
     </div>
+    <div class="section-title" style="font-size:1.35rem;margin-bottom:0.45rem;">Good. Better. Best.</div>
+    <p style="font-size:0.83rem;color:#555;line-height:1.65;max-width:460px;margin-bottom:1.1rem;">One honest pick per tier across every major category — from budget-friendly options that get the job done to professional-grade gear.</p>
+  </div>
+  <div style="padding:0 1.5rem 1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;">
+    <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.78rem;font-weight:600;padding:0.28rem 0.8rem;border-radius:100px;border:1.5px solid var(--border);">
+      <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;"></span> Good
+    </span>
+    <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.78rem;font-weight:600;padding:0.28rem 0.8rem;border-radius:100px;border:1.5px solid var(--border);">
+      <span style="width:6px;height:6px;border-radius:50%;background:#f59e0b;"></span> Better
+    </span>
+    <span style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.78rem;font-weight:600;padding:0.28rem 0.8rem;border-radius:100px;border:1.5px solid var(--border);">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--green);"></span> Best / Pro
+    </span>
+    <a href="products.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:0.4rem;background:var(--green);color:white;padding:0.65rem 1.35rem;border-radius:8px;text-decoration:none;font-size:0.83rem;font-weight:600;">Browse All Products →</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);">
+    <a href="products.html#fertilizers" style="display:flex;align-items:center;gap:0.45rem;padding:0.8rem 1.1rem;font-size:0.81rem;font-weight:500;color:#444;text-decoration:none;border-right:1px solid var(--border);transition:background 0.15s;" onmouseover="this.style.background='var(--green-pale)'" onmouseout="this.style.background='transparent'">🌿 Fertilizers</a>
+    <a href="products.html#weed" style="display:flex;align-items:center;gap:0.45rem;padding:0.8rem 1.1rem;font-size:0.81rem;font-weight:500;color:#444;text-decoration:none;border-right:1px solid var(--border);transition:background 0.15s;" onmouseover="this.style.background='var(--green-pale)'" onmouseout="this.style.background='transparent'">🚫 Weed Control</a>
+    <a href="products.html#mowers" style="display:flex;align-items:center;gap:0.45rem;padding:0.8rem 1.1rem;font-size:0.81rem;font-weight:500;color:#444;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='var(--green-pale)'" onmouseout="this.style.background='transparent'">✂️ Mowers</a>
+  </div>
+</div>
 
   </div><!-- /content-col -->
 
   <!-- SIDEBAR -->
+
   <aside class="sidebar">
     <!-- Quiz CTA -->
     <div class="sidebar-widget">
@@ -1229,94 +1173,95 @@
       </div>
     </div>
 
-    <!-- Newsletter -->
-    <div class="sidebar-widget">
-      <div class="sw-header"><span>📄</span><span class="sw-label">Free Download</span></div>
-      <div class="sw-body">
-        <div class="sw-title">Seasonal Lawn Care PDF Guide</div>
-        <div class="sw-desc">Month-by-month calendar — what to apply, when, and what window you're working with. 9 pages, free.</div>
-        <form id="sidebarNewsletterForm" onsubmit="handleSidebarNewsletter(event)">
-          <input class="sw-newsletter-input" type="email" placeholder="Your email address" required id="sidebarEmail" />
-          <button class="btn-newsletter" type="submit">Send Me the PDF →</button>
-        </form>
-        <div id="sidebarSuccess" style="display:none;margin-top:0.6rem;padding:0.6rem 0.8rem;background:var(--green-pale);border:1px solid #b6dcb2;border-radius:7px;color:#2d5a27;font-size:0.8rem;font-weight:600;">✅ Check your inbox!</div>
-        <p class="sw-fine">No spam. Unsubscribe anytime.</p>
-      </div>
-    </div>
+<!-- Newsletter -->
+<div class="sidebar-widget">
+  <div class="sw-header"><span>📄</span><span class="sw-label">Free Download</span></div>
+  <div class="sw-body">
+    <div class="sw-title">Seasonal Lawn Care PDF Guide</div>
+    <div class="sw-desc">Month-by-month calendar — what to apply, when, and what window you're working with. 9 pages, free.</div>
+    <form id="sidebarNewsletterForm" onsubmit="handleSidebarNewsletter(event)">
+      <input class="sw-newsletter-input" type="email" placeholder="Your email address" required id="sidebarEmail" />
+      <button class="btn-newsletter" type="submit">Send Me the PDF →</button>
+    </form>
+    <div id="sidebarSuccess" style="display:none;margin-top:0.6rem;padding:0.6rem 0.8rem;background:var(--green-pale);border:1px solid #b6dcb2;border-radius:7px;color:#2d5a27;font-size:0.8rem;font-weight:600;">✅ Check your inbox!</div>
+    <p class="sw-fine">No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
 
-    <!-- Top Picks -->
-    <div class="sidebar-widget">
-      <div class="sw-header"><span>🏆</span><span class="sw-label">Top Picks Right Now</span></div>
-      <div class="sw-body" style="padding-top:0.2rem;">
-        <div class="sw-pick">
-          <div class="sw-pick-num">01</div>
-          <div>
-            <div class="sw-pick-name">Andersons PGF Complete 16-4-8</div>
-            <div class="sw-pick-cat">Fertilizer · Best Overall</div>
-            <a href="https://www.amazon.com/dp/B07SYLCKRH?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">🛒 ~$35+</a>
-          </div>
-        </div>
-        <div class="sw-pick">
-          <div class="sw-pick-num">02</div>
-          <div>
-            <div class="sw-pick-name">Prodiamine 65 WDG</div>
-            <div class="sw-pick-cat">Pre-Emergent · Pro Grade</div>
-            <a href="https://www.amazon.com/dp/B015BSNZP2?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">🛒 ~$40+</a>
-          </div>
-        </div>
-        <div class="sw-pick">
-          <div class="sw-pick-num">03</div>
-          <div>
-            <div class="sw-pick-name">MySoil Complete Soil Test</div>
-            <div class="sw-pick-cat">Soil Testing · Highest ROI</div>
-            <a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">🛒 ~$30+</a>
-          </div>
-        </div>
-        <div class="sw-pick">
-          <div class="sw-pick-num">04</div>
-          <div>
-            <div class="sw-pick-name">Scotts EdgeGuard DLX Spreader</div>
-            <div class="sw-pick-cat">Spreader · Best Value</div>
-            <a href="https://www.amazon.com/dp/B001H1EQO2?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">🛒 ~$65+</a>
-          </div>
-        </div>
+<!-- Top Picks -->
+<div class="sidebar-widget">
+  <div class="sw-header"><span>🏆</span><span class="sw-label">Top Picks Right Now</span></div>
+  <div class="sw-body" style="padding-top:0.2rem;">
+    <div class="sw-pick">
+      <div class="sw-pick-num">01</div>
+      <div>
+        <div class="sw-pick-name">Andersons PGF Complete 16-4-8</div>
+        <div class="sw-pick-cat">Fertilizer · Best Overall</div>
+        <a href="https://www.amazon.com/dp/B07SYLCKRH?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">🛒 ~$35+</a>
       </div>
     </div>
+    <div class="sw-pick">
+      <div class="sw-pick-num">02</div>
+      <div>
+        <div class="sw-pick-name">Prodiamine 65 WDG</div>
+        <div class="sw-pick-cat">Pre-Emergent · Pro Grade</div>
+        <a href="https://www.amazon.com/dp/B015BSNZP2?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">🛒 ~$40+</a>
+      </div>
+    </div>
+    <div class="sw-pick">
+      <div class="sw-pick-num">03</div>
+      <div>
+        <div class="sw-pick-name">MySoil Complete Soil Test</div>
+        <div class="sw-pick-cat">Soil Testing · Highest ROI</div>
+        <a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">🛒 ~$30+</a>
+      </div>
+    </div>
+    <div class="sw-pick">
+      <div class="sw-pick-num">04</div>
+      <div>
+        <div class="sw-pick-name">Scotts EdgeGuard DLX Spreader</div>
+        <div class="sw-pick-cat">Spreader · Best Value</div>
+        <a href="https://www.amazon.com/dp/B001H1EQO2?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">🛒 ~$65+</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Popular Posts -->
-    <div class="sidebar-widget">
-      <div class="sw-header"><span>🔥</span><span class="sw-label">Most Read This Week</span></div>
-      <div class="sw-body" style="padding-top:0.2rem;">
-        <a href="/blog/best-lawn-fertilizer-2026.html" class="sw-popular">
-          <div class="sw-popular-img" style="background:linear-gradient(135deg,#e8f5e7,#66bb6a);">🌿</div>
-          <div>
-            <div class="sw-popular-title">Best Lawn Fertilizer 2026: Tested & Ranked</div>
-            <div class="sw-popular-meta">Buyer's Guide · 8 min</div>
-          </div>
-        </a>
-        <a href="/blog/when-to-apply-pre-emergent-zone-7.html" class="sw-popular">
-          <div class="sw-popular-img" style="background:linear-gradient(135deg,#fff3e0,#ffb74d);">🗓️</div>
-          <div>
-            <div class="sw-popular-title">Pre-Emergent Timing: Zone 7 Calendar</div>
-            <div class="sw-popular-meta">Weed Control · 6 min</div>
-          </div>
-        </a>
-        <a href="/blog/best-battery-mower-under-500.html" class="sw-popular">
-          <div class="sw-popular-img" style="background:linear-gradient(135deg,#e3f2fd,#4fc3f7);">⚡</div>
-          <div>
-            <div class="sw-popular-title">Best Battery Mowers Under $500</div>
-            <div class="sw-popular-meta">Mowers · 7 min</div>
-          </div>
-        </a>
-        <a href="/blog/hydroseeding-vs-sod-vs-seed.html" class="sw-popular" style="border-bottom:none;">
-          <div class="sw-popular-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);">⚖️</div>
-          <div>
-            <div class="sw-popular-title">Hydroseeding vs. Sod vs. Seed</div>
-            <div class="sw-popular-meta">Cost Comparison · 7 min</div>
-          </div>
-        </a>
+<!-- Popular Posts -->
+<div class="sidebar-widget">
+  <div class="sw-header"><span>🔥</span><span class="sw-label">Most Read This Week</span></div>
+  <div class="sw-body" style="padding-top:0.2rem;">
+    <a href="/blog/best-lawn-fertilizer-2026.html" class="sw-popular">
+      <div class="sw-popular-img" style="background:linear-gradient(135deg,#e8f5e7,#66bb6a);">🌿</div>
+      <div>
+        <div class="sw-popular-title">Best Lawn Fertilizer 2026: Tested & Ranked</div>
+        <div class="sw-popular-meta">Buyer's Guide · 8 min</div>
       </div>
-    </div>
+    </a>
+    <a href="/blog/when-to-apply-pre-emergent-zone-7.html" class="sw-popular">
+      <div class="sw-popular-img" style="background:linear-gradient(135deg,#fff3e0,#ffb74d);">🗓️</div>
+      <div>
+        <div class="sw-popular-title">Pre-Emergent Timing: Zone 7 Calendar</div>
+        <div class="sw-popular-meta">Weed Control · 6 min</div>
+      </div>
+    </a>
+    <a href="/blog/best-battery-mower-under-500.html" class="sw-popular">
+      <div class="sw-popular-img" style="background:linear-gradient(135deg,#e3f2fd,#4fc3f7);">⚡</div>
+      <div>
+        <div class="sw-popular-title">Best Battery Mowers Under $500</div>
+        <div class="sw-popular-meta">Mowers · 7 min</div>
+      </div>
+    </a>
+    <a href="/blog/hydroseeding-vs-sod-vs-seed.html" class="sw-popular" style="border-bottom:none;">
+      <div class="sw-popular-img" style="background:linear-gradient(135deg,#e8f5e7,#a5d6a7);">⚖️</div>
+      <div>
+        <div class="sw-popular-title">Hydroseeding vs. Sod vs. Seed</div>
+        <div class="sw-popular-meta">Cost Comparison · 7 min</div>
+      </div>
+    </a>
+  </div>
+</div>
+
   </aside>
 </div>
 
