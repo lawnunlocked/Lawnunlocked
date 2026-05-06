@@ -20,7 +20,10 @@
     nav a.nav-link{color:#111;text-decoration:none;font-weight:500;font-size:0.9rem;}
     nav a.nav-link:hover{color:var(--green);}
     nav a.cta-nav{color:var(--green);text-decoration:none;font-weight:600;font-size:0.88rem;}
-    .post-hero{padding:7rem 2.5rem 3rem;text-align:center;max-width:800px;margin:0 auto;color:#111;}
+    .hero-photo { width:100%; height:320px; overflow:hidden; margin-top:0; }
+    .hero-photo img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+    @media(max-width:600px){ .hero-photo { height:200px; } }
+    .post-hero{padding:3rem 2.5rem 3rem;text-align:center;max-width:800px;margin:0 auto;color:#111;}
     .post-tag{display:inline-block;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#3d7a3a;background:#e8f5e7;padding:0.3rem 0.8rem;border-radius:100px;margin-bottom:1rem;}
     .post-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-0.03em;line-height:1.2;margin-bottom:1rem;color:#111;}
     .post-hero .byline{font-size:0.82rem;color:#666;margin-bottom:2rem;}
@@ -50,7 +53,7 @@
     footer p{font-size:0.82rem;margin-top:1rem;}
     footer a{color:#aaa;text-decoration:none;}
     footer a:hover{color:white;}
-    @media(max-width:600px){nav{padding:1rem 1.25rem;}.post-hero{padding:6rem 1.25rem 2rem;}.post-body{padding:1.5rem 1.25rem 3rem;}.stat-row{grid-template-columns:1fr 1fr;}}
+    @media(max-width:600px){nav{padding:1rem 1.25rem;}.post-hero{padding:2rem 1.25rem 2rem;}.post-body{padding:1.5rem 1.25rem 3rem;}.stat-row{grid-template-columns:1fr 1fr;}}
   </style>
 </head>
 <body>
@@ -62,8 +65,11 @@
   </div>
 </nav>
 
-<div class="post-hero" style="background:linear-gradient(135deg,#e8f5e7,#b2dfdb);">
-  <div style="font-size:3rem;margin-bottom:0.75rem;">🌱</div>
+<div class="hero-photo" style="margin-top:60px;">
+  <img src="https://images.unsplash.com/photo-1619545257962-62d2a1a7a98e?w=1400&q=80&fit=crop" alt="Grass seed being spread over existing lawn" loading="eager" />
+</div>
+
+<div class="post-hero">
   <div class="post-tag">Overseeding</div>
   <h1>How to Overseed a Lawn Without Killing the Existing Grass</h1>
   <div class="byline">LawnUnlocked · March 2026 · 8 min read</div>
@@ -90,49 +96,49 @@
   <div class="warn">⚠️ Do not apply pre-emergent weed preventer in the 8 weeks before overseeding. Pre-emergent prevents ALL seed germination — including your new grass seed. This is the most common overseeding mistake.</div>
 
   <h2>Step 1: Mow Low and Dethatch</h2>
-  <p>Before seeding, mow your existing lawn shorter than normal — down to about 1.5–2 inches. This reduces competition for light that new seedlings will face. Then remove excess thatch (the layer of dead organic matter above the soil) so seed can reach the soil surface.</p>
+  <p>Before seeding, mow your existing lawn shorter than normal — down to about 1.5–2 inches. This reduces competition for light that new seedlings will face. Then remove excess thatch so seed can reach the soil surface.</p>
   <ul>
     <li>If thatch is under 0.5 inches, a firm raking is enough</li>
-    <li>If thatch is over 0.5 inches, rent a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+dethatcher+rental+electric" target="_blank" rel="noopener" class="aff">power dethatcher</a> — it looks aggressive but does not harm a healthy lawn</li>
+    <li>If thatch is over 0.5 inches, rent a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+dethatcher+rental+electric" target="_blank" rel="noopener" class="aff">power dethatcher</a></li>
     <li>Bag and remove all clippings and thatch debris before seeding</li>
   </ul>
 
   <h2>Step 2: Aerate Before Seeding</h2>
-  <p>Core aeration before overseeding dramatically improves germination rates. The holes created by the aerator give seeds direct soil contact, moisture retention, and protection from birds. This step alone can double your germination success.</p>
+  <p>Core aeration before overseeding dramatically improves germination rates. The holes give seeds direct soil contact, moisture retention, and protection from birds. This step alone can double your germination success.</p>
   <ul>
-    <li>Rent a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=core+aerator+lawn+rental" target="_blank" rel="noopener" class="aff">core aerator</a> from a hardware store — for most lawns this is a half-day rental</li>
+    <li>Rent a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=core+aerator+lawn+rental" target="_blank" rel="noopener" class="aff">core aerator</a> — for most lawns this is a half-day rental</li>
     <li>Make two passes in perpendicular directions for maximum coverage</li>
-    <li>Leave the soil plugs on the surface — they break down and return nutrients to the lawn</li>
+    <li>Leave the soil plugs on the surface — they break down and return nutrients</li>
   </ul>
 
   <h2>Step 3: Apply Seed at the Right Rate</h2>
-  <p>Overseeding uses half the seeding rate of a new lawn installation. Too much seed creates overcrowding and competition — the seedlings choke each other out. Too little and you get sparse coverage.</p>
+  <p>Overseeding uses half the seeding rate of a new lawn installation. Too much seed creates overcrowding. Too little gives sparse coverage.</p>
   <ul>
-    <li>Use a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=broadcast+seed+spreader+lawn" target="_blank" rel="noopener" class="aff">broadcast spreader</a> for even coverage — hand-throwing seed leads to patchy results</li>
-    <li>Apply half the seed in one direction, the other half perpendicular — this prevents streaking</li>
-    <li>Choose a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=turf+type+tall+fescue+grass+seed" target="_blank" rel="noopener" class="aff">quality turf-type seed blend</a> that matches your existing grass variety</li>
+    <li>Use a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=broadcast+seed+spreader+lawn" target="_blank" rel="noopener" class="aff">broadcast spreader</a> for even coverage</li>
+    <li>Apply half the seed in one direction, the other half perpendicular</li>
+    <li>Choose a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=turf+type+tall+fescue+grass+seed" target="_blank" rel="noopener" class="aff">quality turf-type seed blend</a> that matches your existing grass</li>
   </ul>
-  <div class="tip">💡 Matching your seed variety to your existing lawn matters more than most people realize. Mixing cool-season and warm-season grass types creates a lawn that looks patchy year-round because the two types go dormant at different times.</div>
+  <div class="tip">💡 Matching your seed variety to your existing lawn matters more than most people realize. Mixing cool-season and warm-season grass types creates a lawn that looks patchy year-round.</div>
 
-  <h2>Step 4: Apply Starter Fertilizer — Not Regular Fertilizer</h2>
-  <p>New seedlings need phosphorus most — for root development. Regular lawn fertilizer is high in nitrogen for top growth, which is the wrong priority for seedlings. Apply a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+starter+fertilizer+phosphorus" target="_blank" rel="noopener" class="aff">starter fertilizer</a> specifically formulated for new seed — look for a higher middle number on the NPK ratio (e.g. 10-18-6).</p>
+  <h2>Step 4: Apply Starter Fertilizer</h2>
+  <p>New seedlings need phosphorus most — for root development. Apply a <a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+starter+fertilizer+phosphorus" target="_blank" rel="noopener" class="aff">starter fertilizer</a> specifically formulated for new seed — look for a higher middle number on the NPK ratio (e.g. 10-18-6).</p>
 
   <h2>Step 5: Water Correctly for 3 Weeks</h2>
-  <p>This is where most overseeding projects succeed or fail. New seed needs consistent moisture — the top inch of soil should never dry out completely during germination. But you also can't flood the lawn and wash seed away.</p>
+  <p>New seed needs consistent moisture — the top inch of soil should never dry out completely during germination. But you also can't flood the lawn and wash seed away.</p>
   <ul>
     <li>Water lightly 2–3 times daily for the first 2 weeks — short cycles, not deep soaking</li>
-    <li>Once seedlings are visible and 1 inch tall, shift to deeper, less frequent watering to encourage root growth</li>
-    <li>Don't mow until new grass reaches 3–4 inches — first mow should be light, removing no more than 1/3 of the blade height</li>
+    <li>Once seedlings are 1 inch tall, shift to deeper, less frequent watering</li>
+    <li>Don't mow until new grass reaches 3–4 inches</li>
   </ul>
 
   <div class="product-box">
     <h4>What You Need to Overseed Successfully</h4>
     <ul>
-      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=core+aerator+lawn+rental" target="_blank" rel="noopener" class="aff">Core aerator</a> — rent before seeding for dramatically better germination</li>
-      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=turf+type+tall+fescue+grass+seed" target="_blank" rel="noopener" class="aff">Quality turf-type seed blend</a> — match to your existing grass</li>
-      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=broadcast+seed+spreader+lawn" target="_blank" rel="noopener" class="aff">Broadcast spreader</a> — even coverage, no hand-throwing</li>
-      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+starter+fertilizer+phosphorus" target="_blank" rel="noopener" class="aff">Starter fertilizer</a> — phosphorus-forward for root development</li>
-      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+dethatcher+rental+electric" target="_blank" rel="noopener" class="aff">Power dethatcher</a> — rent if thatch is over 0.5 inches thick</li>
+      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=core+aerator+lawn+rental" target="_blank" rel="noopener" class="aff">Core aerator</a> — rent before seeding</li>
+      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=turf+type+tall+fescue+grass+seed" target="_blank" rel="noopener" class="aff">Quality turf-type seed blend</a></li>
+      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=broadcast+seed+spreader+lawn" target="_blank" rel="noopener" class="aff">Broadcast spreader</a></li>
+      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+starter+fertilizer+phosphorus" target="_blank" rel="noopener" class="aff">Starter fertilizer</a></li>
+      <li><a href="https://www.amazon.com/s?tag=lawnunlocked-20&k=lawn+dethatcher+rental+electric" target="_blank" rel="noopener" class="aff">Power dethatcher</a> — if thatch is over 0.5 inches</li>
     </ul>
   </div>
 
