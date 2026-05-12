@@ -131,18 +131,65 @@
     }
     .drawer-close:hover { color: var(--green); }
     .drawer-body { flex: 1; padding: 0.5rem 0 1.5rem; }
+    /* ── ACCORDION DRAWER ── */
+    .drawer-accordion { border-bottom: 1px solid var(--border); }
+    .drawer-accordion-btn {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; padding: 1rem 1.5rem;
+      background: none; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--ink);
+      letter-spacing: -0.01em; text-align: left;
+      transition: color 0.15s;
+    }
+    .drawer-accordion-btn:hover { color: var(--green); }
+    .drawer-accordion-btn.open { color: var(--green); }
+    .drawer-accordion-chevron {
+      width: 18px; height: 18px; flex-shrink: 0;
+      transition: transform 0.25s ease;
+      color: var(--mid);
+    }
+    .drawer-accordion-btn.open .drawer-accordion-chevron { transform: rotate(180deg); color: var(--green); }
+    .drawer-accordion-panel {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: var(--gray);
+    }
+    .drawer-accordion-panel.open { max-height: 400px; }
+    .drawer-sub-link {
+      display: block; padding: 0.65rem 1.5rem 0.65rem 1.75rem;
+      font-size: 0.88rem; font-weight: 500; color: #444;
+      text-decoration: none; border-left: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .drawer-sub-link:hover { color: var(--green); border-left-color: var(--green); }
+    .drawer-sub-link:last-child { padding-bottom: 0.85rem; }
+    .drawer-plain-link {
+      display: block; padding: 0.85rem 1.5rem;
+      font-size: 0.9rem; font-weight: 600; color: #555;
+      text-decoration: none; border-bottom: 1px solid var(--border);
+      transition: color 0.15s;
+    }
+    .drawer-plain-link:hover { color: var(--green); }
+    .drawer-cta-wrap { padding: 1.25rem 1.5rem; }
+    .drawer-cta-btn {
+      display: block; text-align: center;
+      background: var(--green); color: white;
+      padding: 0.78rem 1rem; border-radius: 9px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .drawer-cta-btn:hover { background: var(--green-light); }
+    /* legacy - keep for any remaining uses */
     .drawer-section-label {
       font-size: 0.6rem; font-weight: 800; letter-spacing: 0.13em;
       text-transform: uppercase; color: var(--mid);
       padding: 1.4rem 1.5rem 0.5rem;
     }
     .drawer-link {
-      display: block;
-      padding: 0.72rem 1.5rem;
+      display: block; padding: 0.72rem 1.5rem;
       font-size: 1rem; font-weight: 700; color: var(--ink);
-      text-decoration: none;
-      transition: color 0.15s;
-      letter-spacing: -0.01em;
+      text-decoration: none; transition: color 0.15s; letter-spacing: -0.01em;
     }
     .drawer-link:hover { color: var(--green); }
     .drawer-divider { height: 1px; background: var(--border); margin: 0.6rem 1.5rem; }
@@ -716,28 +763,59 @@
   </div>
   <div class="drawer-body">
 
-<div class="drawer-section-label">Lawn Care</div>
-<a href="/blog/category-fertilizers.html" class="drawer-link" onclick="closeDrawer()">Fertilizers</a>
-<a href="/blog/category-weed-control.html" class="drawer-link" onclick="closeDrawer()">Weed Control</a>
-<a href="/blog/category-mowers.html" class="drawer-link" onclick="closeDrawer()">Mowers</a>
-<a href="/blog/category-soil-testing.html" class="drawer-link" onclick="closeDrawer()">Soil & Testing</a>
-<a href="/blog/category-aeration.html" class="drawer-link" onclick="closeDrawer()">Aeration & Overseeding</a>
-<a href="/blog/category-irrigation.html" class="drawer-link" onclick="closeDrawer()">Irrigation</a>
+<!-- Lawn Care accordion -->
+<div class="drawer-accordion">
+  <button class="drawer-accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+    Lawn Care
+    <svg class="drawer-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="drawer-accordion-panel">
+    <a href="/blog/category-fertilizers.html" class="drawer-sub-link" onclick="closeDrawer()">Fertilizers</a>
+    <a href="/blog/category-weed-control.html" class="drawer-sub-link" onclick="closeDrawer()">Weed Control</a>
+    <a href="/blog/category-mowers.html" class="drawer-sub-link" onclick="closeDrawer()">Mowers</a>
+    <a href="/blog/category-soil-testing.html" class="drawer-sub-link" onclick="closeDrawer()">Soil &amp; Testing</a>
+    <a href="/blog/category-aeration.html" class="drawer-sub-link" onclick="closeDrawer()">Aeration &amp; Overseeding</a>
+    <a href="/blog/category-irrigation.html" class="drawer-sub-link" onclick="closeDrawer()">Irrigation</a>
+  </div>
+</div>
 
-<div class="drawer-divider"></div>
+<!-- Home Improvement accordion -->
+<div class="drawer-accordion">
+  <button class="drawer-accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+    Home Improvement
+    <svg class="drawer-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="drawer-accordion-panel">
+    <a href="/blog/category-power-tools.html" class="drawer-sub-link" onclick="closeDrawer()">Outdoor Power Tools</a>
+    <a href="/blog/category-landscaping.html" class="drawer-sub-link" onclick="closeDrawer()">Landscaping &amp; Curb Appeal</a>
+    <a href="/blog/category-outdoor-living.html" class="drawer-sub-link" onclick="closeDrawer()">Outdoor Living</a>
+    <a href="/blog/category-diy.html" class="drawer-sub-link" onclick="closeDrawer()">DIY &amp; Tools</a>
+  </div>
+</div>
 
-<div class="drawer-section-label">Home Improvement</div>
-<a href="/blog/category-power-tools.html" class="drawer-link" onclick="closeDrawer()">Outdoor Power Tools</a>
-<a href="/blog/category-landscaping.html" class="drawer-link" onclick="closeDrawer()">Landscaping & Curb Appeal</a>
-<a href="/blog/category-outdoor-living.html" class="drawer-link" onclick="closeDrawer()">Outdoor Living</a>
-<a href="/blog/category-diy.html" class="drawer-link" onclick="closeDrawer()">DIY & Tools</a>
+<!-- Grass Types accordion -->
+<div class="drawer-accordion">
+  <button class="drawer-accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">
+    Grass Types
+    <svg class="drawer-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+  <div class="drawer-accordion-panel">
+    <a href="/bermuda-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">Bermuda</a>
+    <a href="/fescue-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">Fescue</a>
+    <a href="/zoysia-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">Zoysia</a>
+    <a href="/st-augustine-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">St. Augustine</a>
+    <a href="/kentucky-bluegrass-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">Kentucky Bluegrass</a>
+  </div>
+</div>
 
-<div class="drawer-divider"></div>
+<!-- Flat links -->
+<a href="/blog/index.html" class="drawer-plain-link" onclick="closeDrawer()">All Guides</a>
+<a href="/products.html" class="drawer-plain-link" onclick="closeDrawer()">Product Guide</a>
+<a href="https://lawnunlocked.github.io/Lawnunlocked/LawnUnlocked_Seasonal_Guide.pdf" class="drawer-plain-link" target="_blank" rel="noopener">Free Seasonal PDF ↗</a>
 
-<div class="drawer-section-label">Resources</div>
-<a href="/products.html" class="drawer-link" onclick="closeDrawer()">Product Guide</a>
-<a href="/blog/index.html" class="drawer-link" onclick="closeDrawer()">All Guides</a>
-<a href="https://lawnunlocked.github.io/Lawnunlocked/LawnUnlocked_Seasonal_Guide.pdf" class="drawer-link" target="_blank" rel="noopener">Free Seasonal PDF</a>
+<div class="drawer-cta-wrap">
+  <a href="#quiz-section" class="drawer-cta-btn" onclick="closeDrawer()">Get My Free Lawn Plan →</a>
+</div>
 
   </div>
 </div>
@@ -1535,6 +1613,23 @@
     document.getElementById('drawerOverlay').classList.remove('open');
     document.getElementById('hamburgerBtn').classList.remove('open');
     document.body.style.overflow = '';
+  }
+
+  function toggleAccordion(btn) {
+    const panel = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // Close all other open panels first
+    document.querySelectorAll('.drawer-accordion-btn.open').forEach(b => {
+      if (b !== btn) {
+        b.classList.remove('open');
+        b.setAttribute('aria-expanded','false');
+        b.nextElementSibling.classList.remove('open');
+      }
+    });
+    // Toggle this one
+    btn.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    panel.classList.toggle('open', !isOpen);
   }
 
   // ── NOTIFY ME ──
