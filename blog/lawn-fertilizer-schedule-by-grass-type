@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lawn Fertilizer Schedule by Grass Type: When to Feed Bermuda, Fescue, Zoysia &amp; More | LawnUnlocked</title>
+  <meta name="description" content="A month-by-month fertilizer schedule for every major grass type &mdash; Bermuda, Tall Fescue, Zoysia, St. Augustine, and Kentucky Bluegrass. Exact timing, rates, and product picks by season." />
+  <link rel="canonical" href="https://lawnunlocked.com/blog/lawn-fertilizer-schedule-by-grass-type.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Lawn Fertilizer Schedule by Grass Type | LawnUnlocked" />
+  <meta property="og:description" content="Month-by-month fertilizer timing for Bermuda, Fescue, Zoysia, St. Augustine, and Bluegrass. Stop guessing when to fertilize." />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Lawn Fertilizer Schedule by Grass Type: When to Feed Bermuda, Fescue, Zoysia & More","description":"A month-by-month fertilizer schedule for every major grass type.","url":"https://lawnunlocked.com/blog/lawn-fertilizer-schedule-by-grass-type.html","datePublished":"2026-05-18","dateModified":"2026-05-18","author":{"@type":"Organization","name":"LawnUnlocked"},"publisher":{"@type":"Organization","name":"LawnUnlocked","url":"https://lawnunlocked.com"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When should I first fertilize my lawn in spring?","acceptedAnswer":{"@type":"Answer","text":"For warm-season grasses, wait until soil temperature hits 65F consistently. For cool-season grasses, a light application is acceptable when soil reaches 50-55F, but fall feeding is far more important."}},{"@type":"Question","name":"How many times per year should I fertilize my lawn?","acceptedAnswer":{"@type":"Answer","text":"Warm-season grasses need 4-6 applications during active growing season. Cool-season grasses do best with 2-4, with fall being most critical."}},{"@type":"Question","name":"Can I fertilize cool-season grass in summer?","acceptedAnswer":{"@type":"Answer","text":"Avoid synthetic nitrogen on cool-season grasses during summer heat. If needed, use Milorganite at half-rate only during cooler stretches."}},{"@type":"Question","name":"What fertilizer should I use for Bermuda grass?","acceptedAnswer":{"@type":"Answer","text":"Bermuda performs best with high-nitrogen fertilizer. Apply every 6-8 weeks from late spring through mid-August. Never after Labor Day."}},{"@type":"Question","name":"What is the best time of year to fertilize Zoysia?","acceptedAnswer":{"@type":"Answer","text":"Zoysia's prime feeding window runs late May through August. Do not fertilize after Labor Day."}}]}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <script src="https://f.convertkit.com/ckjs/ck.5.js" defer></script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--green:#3d7a3a;--green-light:#52a34e;--green-pale:#e8f5e7;--black:#111;--white:#fff;--gray:#f7f7f5;--mid:#777;--border:#e2e2de;--cream:#faf9f7;--ink:#1a1a1a;--nav-h:62px}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);font-size:16px;line-height:1.7}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);background:rgba(250,249,247,0.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center}
+    .nav-inner{max-width:1160px;margin:0 auto;width:100%;padding:0 1.5rem;display:flex;align-items:center;gap:1rem}
+    .hamburger{width:40px;height:40px;border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0;border-radius:8px;transition:background 0.15s;padding:0}
+    .hamburger:hover{background:rgba(0,0,0,0.06)}
+    .hamburger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.25s ease;transform-origin:center}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .logo{font-family:'DM Serif Display',serif;font-size:1.45rem;color:var(--ink);text-decoration:none;letter-spacing:-0.02em;display:flex;align-items:center;gap:0.4rem;flex:1;justify-content:center}
+    .nav-right{display:flex;align-items:center;gap:0.6rem;flex-shrink:0}
+    .nav-cta{display:inline-flex;align-items:center;background:var(--green);color:white;padding:0.5rem 1.1rem;border-radius:7px;text-decoration:none;font-weight:600;font-size:0.82rem;white-space:nowrap;transition:background 0.2s}
+    .nav-cta:hover{background:var(--green-light)}
+
+    /* DRAWER */
+    .drawer-overlay{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,0);pointer-events:none;transition:background 0.3s}
+    .drawer-overlay.open{background:rgba(0,0,0,0.45);pointer-events:auto}
+    .drawer{position:fixed;top:0;left:0;bottom:0;z-index:500;width:280px;background:var(--white);transform:translateX(-100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;display:flex;flex-direction:column}
+    .drawer.open{transform:translateX(0)}
+    .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;border-bottom:1px solid var(--border);flex-shrink:0}
+    .drawer-logo{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:0.35rem}
+    .drawer-close{width:32px;height:32px;border:none;background:none;cursor:pointer;font-size:1.3rem;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:color 0.15s}
+    .drawer-close:hover{color:var(--green)}
+    .drawer-body{flex:1;padding:0.5rem 0 1.5rem}
+    .drawer-accordion{border-bottom:1px solid var(--border)}
+    .drawer-accordion-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:1rem 1.5rem;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;color:var(--ink);text-align:left;transition:color 0.15s}
+    .drawer-accordion-btn:hover,.drawer-accordion-btn.open{color:var(--green)}
+    .drawer-accordion-chevron{width:18px;height:18px;flex-shrink:0;transition:transform 0.25s ease;color:var(--mid)}
+    .drawer-accordion-btn.open .drawer-accordion-chevron{transform:rotate(180deg);color:var(--green)}
+    .drawer-accordion-panel{max-height:0;overflow:hidden;transition:max-height 0.3s ease;background:var(--gray)}
+    .drawer-accordion-panel.open{max-height:400px}
+    .drawer-sub-link{display:block;padding:0.65rem 1.5rem 0.65rem 1.75rem;font-size:0.88rem;font-weight:500;color:#444;text-decoration:none;border-left:2px solid transparent;transition:color 0.15s,border-color 0.15s}
+    .drawer-sub-link:hover,.drawer-sub-link.active{color:var(--green);border-left-color:var(--green);font-weight:600}
+    .drawer-sub-link:last-child{padding-bottom:0.85rem}
+    .drawer-plain-link{display:block;padding:0.85rem 1.5rem;font-size:0.9rem;font-weight:600;color:#555;text-decoration:none;border-bottom:1px solid var(--border);transition:color 0.15s}
+    .drawer-plain-link:hover{color:var(--green)}
+    .drawer-cta-wrap{padding:1.25rem 1.5rem}
+    .drawer-cta-btn{display:block;text-align:center;background:var(--green);color:white;padding:0.78rem 1rem;border-radius:9px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:background 0.2s}
+    .drawer-cta-btn:hover{background:var(--green-light)}
+
+    /* LAYOUT */
+    .page-body{padding-top:var(--nav-h)}
+    .article-wrap{max-width:1160px;margin:0 auto;padding:2.5rem 2rem 4rem;display:grid;grid-template-columns:1fr 300px;gap:3.5rem;align-items:start}
+    .article-sidebar{position:sticky;top:calc(var(--nav-h) + 1.5rem)}
+
+    /* BREADCRUMB */
+    .breadcrumb{display:flex;align-items:center;gap:0.4rem;font-size:0.73rem;color:var(--mid);margin-bottom:1.35rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--mid);text-decoration:none;transition:color 0.15s}
+    .breadcrumb a:hover{color:var(--green)}
+    .breadcrumb-sep{color:var(--border)}
+
+    /* ARTICLE HEADER */
+    .article-eyebrow{display:flex;align-items:center;gap:0.55rem;margin-bottom:0.75rem}
+    .article-eyebrow-line{width:22px;height:2.5px;background:var(--green);border-radius:2px}
+    .article-eyebrow-text{font-size:0.65rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--green)}
+    .article-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.75rem);font-weight:900;color:var(--ink);line-height:1.1;letter-spacing:-0.03em;margin-bottom:1rem}
+    .article-meta{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .article-meta-item{font-size:0.76rem;color:var(--mid)}
+    .article-meta-dot{color:var(--border)}
+    .article-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);background:var(--green-pale);padding:0.18rem 0.6rem;border-radius:100px;text-decoration:none}
+    .article-hero{width:100%;aspect-ratio:16/7;border-radius:14px;overflow:hidden;margin-bottom:1.75rem;background:linear-gradient(135deg,#1a3d1f 0%,#3d7a3a 50%,#52a34e 100%);display:flex;align-items:center;justify-content:center;font-size:5rem}
+
+    /* TOC */
+    .toc-box{background:var(--gray);border:1.5px solid var(--border);border-radius:12px;padding:1.25rem 1.35rem;margin-bottom:2rem}
+    .toc-label{font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-bottom:0.75rem}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:0.35rem}
+    .toc-list li{font-size:0.84rem}
+    .toc-list a{color:var(--green);text-decoration:none;font-weight:500}
+    .toc-list a:hover{text-decoration:underline}
+
+    /* ARTICLE BODY */
+    .article-body{font-size:1rem;line-height:1.75;color:#2a2a2a}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:clamp(1.35rem,2.5vw,1.75rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin:2.5rem 0 0.9rem;padding-top:0.5rem}
+    .article-body p{margin-bottom:1.1rem}
+    .article-body a{color:var(--green)}
+    .article-body strong{color:var(--ink);font-weight:600}
+
+    /* CALLOUTS */
+    .callout{border-radius:11px;padding:1.1rem 1.25rem;margin:1.5rem 0}
+    .callout-key{background:var(--green-pale);border-left:4px solid var(--green)}
+    .callout-key .callout-head{font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:0.4rem}
+    .callout-warning{background:#fff8e6;border-left:4px solid #f9a825}
+    .callout-warning .callout-head{font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#c67f00;margin-bottom:0.4rem}
+    .callout p{margin-bottom:0;font-size:0.9rem;line-height:1.65}
+
+    /* GRASS CARDS */
+    .grass-section{background:var(--white);border:1.5px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:2rem}
+    .grass-header{padding:1.1rem 1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:0.75rem}
+    .grass-badge{display:inline-block;font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.18rem 0.6rem;border-radius:100px;flex-shrink:0;margin-top:0.25rem}
+    .badge-warm{background:#fff3e0;color:#e65100}
+    .badge-cool{background:#e3f2fd;color:#1565c0}
+    .grass-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ink)}
+    .grass-tagline{font-size:0.79rem;color:var(--mid);margin-top:0.18rem}
+    .schedule-table{width:100%;border-collapse:collapse;font-size:0.84rem}
+    .schedule-table thead tr{background:var(--gray)}
+    .schedule-table th{padding:0.65rem 0.85rem;text-align:left;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);border-bottom:1px solid var(--border)}
+    .schedule-table td{padding:0.7rem 0.85rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+    .schedule-table tr:last-child td{border-bottom:none}
+    .schedule-table tr:nth-child(even) td{background:rgba(0,0,0,0.015)}
+    .sched-month{font-weight:600;white-space:nowrap;width:80px}
+    .sched-action{color:var(--green);font-weight:600;font-size:0.8rem;width:130px}
+    .sched-skip{color:var(--mid);font-style:italic;font-size:0.8rem;width:130px}
+    .grass-footer{padding:0.85rem 1.4rem;background:var(--gray);display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap}
+    .grass-footer-product strong{display:block;font-size:0.82rem;color:var(--ink);margin-bottom:0.08rem}
+    .grass-footer-product span{font-size:0.79rem;color:var(--mid)}
+    .btn-amz{display:inline-flex;align-items:center;gap:0.3rem;background:#FF9900;color:#111;padding:0.4rem 0.85rem;border-radius:6px;text-decoration:none;font-size:0.75rem;font-weight:700;white-space:nowrap;transition:background 0.15s}
+    .btn-amz:hover{background:#e68a00}
+
+    /* COMPARISON TABLE */
+    .compare-table-wrap{overflow-x:auto;margin:1.5rem 0 2rem;border:1.5px solid var(--border);border-radius:12px}
+    .compare-table{width:100%;border-collapse:collapse;font-size:0.85rem;min-width:520px}
+    .compare-table th{background:var(--ink);color:white;padding:0.75rem 0.9rem;text-align:left;font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase}
+    .compare-table td{padding:0.65rem 0.9rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+    .compare-table tr:last-child td{border-bottom:none}
+    .compare-table tr:nth-child(even) td{background:var(--gray)}
+    .compare-table td:first-child{font-weight:600;color:var(--ink)}
+
+    /* PRODUCT CALLOUT */
+    .product-callout{background:var(--ink);border-radius:12px;padding:1.25rem 1.4rem;margin:1.75rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .product-callout-eyebrow{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green-light);margin-bottom:0.28rem}
+    .product-callout-name{font-size:0.95rem;font-weight:600;color:white;margin-bottom:0.18rem}
+    .product-callout-why{font-size:0.78rem;color:#aaa;line-height:1.5;max-width:400px}
+
+    /* MID CTA */
+    .mid-quiz-cta{background:linear-gradient(135deg,#1a3d1f,#2d5a27);border-radius:13px;padding:1.75rem;margin:2.5rem 0;text-align:center}
+    .mid-quiz-cta h3{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:white;margin-bottom:0.45rem}
+    .mid-quiz-cta p{font-size:0.85rem;color:rgba(255,255,255,0.65);margin-bottom:1.1rem;line-height:1.6}
+    .btn-quiz-mid{display:inline-flex;align-items:center;gap:0.4rem;background:var(--green-light);color:white;padding:0.78rem 1.5rem;border-radius:9px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:background 0.2s}
+    .btn-quiz-mid:hover{background:#5cb858}
+
+    /* FAQ */
+    .faq-section{margin-top:2.5rem}
+    .faq-item{border-bottom:1px solid var(--border);padding:1.1rem 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:0.45rem}
+    .faq-a{font-size:0.88rem;color:#444;line-height:1.7}
+    .faq-a a{color:var(--green)}
+
+    /* SIDEBAR */
+    .sidebar-widget{background:var(--white);border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:1.25rem}
+    .sw-header{padding:0.85rem 1.1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.55rem}
+    .sw-label{font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--green)}
+    .sw-body{padding:1.1rem}
+    .sw-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:0.45rem}
+    .sw-desc{font-size:0.78rem;color:#555;line-height:1.6;margin-bottom:0.85rem}
+    .sw-checklist{display:flex;flex-direction:column;gap:0.28rem;margin-bottom:0.85rem}
+    .sw-check{font-size:0.75rem;color:#444;display:flex;align-items:flex-start;gap:0.4rem;line-height:1.4}
+    .sw-check::before{content:'\2713';color:var(--green-light);font-weight:700;flex-shrink:0}
+    .btn-quiz-cta{display:block;text-align:center;background:var(--green);color:white;padding:0.75rem 1.1rem;border-radius:8px;font-weight:600;font-size:0.85rem;text-decoration:none;transition:background 0.2s}
+    .btn-quiz-cta:hover{background:var(--green-light)}
+    .sw-newsletter-input{width:100%;padding:0.65rem 0.85rem;border:1.5px solid var(--border);border-radius:7px;font-family:'DM Sans',sans-serif;font-size:0.83rem;outline:none;background:var(--gray);margin-bottom:0.45rem;transition:border-color 0.2s}
+    .sw-newsletter-input:focus{border-color:var(--green);background:white}
+    .btn-newsletter{display:block;width:100%;text-align:center;background:var(--ink);color:white;padding:0.7rem;border-radius:7px;font-weight:600;font-size:0.83rem;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+    .btn-newsletter:hover{background:#333}
+    .sw-fine{font-size:0.66rem;color:var(--mid);text-align:center;margin-top:0.45rem}
+    .sw-pick{display:flex;gap:0.7rem;align-items:flex-start;padding:0.8rem 0;border-bottom:1px solid var(--border)}
+    .sw-pick:last-child{border-bottom:none;padding-bottom:0}
+    .sw-pick-num{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--green-pale);line-height:1;flex-shrink:0;width:26px}
+    .sw-pick-name{font-size:0.79rem;font-weight:600;color:var(--ink);margin-bottom:0.12rem;line-height:1.35}
+    .sw-pick-cat{font-size:0.67rem;color:var(--mid)}
+    .sw-pick-link{display:inline-flex;align-items:center;gap:0.22rem;background:#FF9900;color:#111;padding:0.25rem 0.6rem;border-radius:5px;text-decoration:none;font-size:0.67rem;font-weight:700;margin-top:0.3rem}
+    .sw-toc-link{display:block;font-size:0.82rem;color:#444;text-decoration:none;padding:0.38rem 0;border-bottom:1px solid var(--border);transition:color 0.15s}
+    .sw-toc-link:last-child{border-bottom:none}
+    .sw-toc-link:hover{color:var(--green)}
+    .sw-toc-link::before{content:'\2192\00a0';color:var(--green);font-size:0.7rem}
+
+    /* RELATED */
+    .related-section{margin-top:3rem;padding-top:2rem;border-top:2px solid var(--border)}
+    .related-label{font-size:0.65rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+    .related-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    .related-card{background:var(--white);border:1.5px solid var(--border);border-radius:11px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow 0.2s,transform 0.2s}
+    .related-card:hover{box-shadow:0 6px 22px rgba(0,0,0,0.08);transform:translateY(-2px)}
+    .related-card-top{height:80px;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+    .related-card-body{padding:0.9rem}
+    .related-card-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--green);margin-bottom:0.3rem}
+    .related-card-title{font-family:'Playfair Display',serif;font-size:0.88rem;font-weight:700;color:var(--ink);line-height:1.3}
+
+    /* FOOTER */
+    footer{background:var(--ink);color:#aaa;padding:3.5rem 0 2.25rem;margin-top:3rem}
+    .footer-inner{max-width:1160px;margin:0 auto;padding:0 2rem}
+    .footer-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid #222}
+    .footer-brand .logo{color:white;font-size:1.2rem}
+    .footer-brand p{font-size:0.78rem;color:#555;line-height:1.6;margin-top:0.65rem;max-width:210px}
+    .footer-col h4{font-size:0.67rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#444;margin-bottom:0.9rem}
+    .footer-col a{display:block;color:#666;text-decoration:none;font-size:0.78rem;margin-bottom:0.48rem;transition:color 0.2s}
+    .footer-col a:hover{color:white}
+    .footer-bottom{max-width:1160px;margin:1.75rem auto 0;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem}
+    .footer-bottom p{font-size:0.73rem;color:#333}
+    .footer-bottom a{color:#444;text-decoration:none;transition:color 0.2s}
+    .footer-bottom a:hover{color:#aaa}
+
+    /* RESPONSIVE */
+    @media(max-width:1000px){.article-wrap{grid-template-columns:1fr}.article-sidebar{position:static}.related-grid{grid-template-columns:1fr 1fr}.footer-top{grid-template-columns:1fr 1fr;gap:1.75rem}}
+    @media(max-width:600px){:root{--nav-h:56px}.nav-inner{padding:0 0.75rem}.article-wrap{padding:1.5rem 1rem 3rem}.related-grid{grid-template-columns:1fr}.footer-inner,.footer-bottom{padding:0 1rem}.footer-top{grid-template-columns:1fr;gap:1.5rem}.schedule-table{font-size:0.78rem}.schedule-table td,.schedule-table th{padding:0.55rem 0.65rem}.product-callout{flex-direction:column}}
+  </style>
+</head>
+<body>
+
+<div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="siteDrawer">
+  <div class="drawer-header">
+    <a href="/" class="drawer-logo"><span style="color:var(--green)">&#127807;</span> LawnUnlocked</a>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">&#10005;</button>
+  </div>
+  <div class="drawer-body">
+    <div class="drawer-accordion">
+      <button class="drawer-accordion-btn open" onclick="toggleAccordion(this)" aria-expanded="true">Lawn Care
+        <svg class="drawer-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="drawer-accordion-panel open">
+        <a href="/blog/category-fertilizers.html" class="drawer-sub-link active" onclick="closeDrawer()">Fertilizers</a>
+        <a href="/blog/category-weed-control.html" class="drawer-sub-link" onclick="closeDrawer()">Weed Control</a>
+        <a href="/blog/category-mowers.html" class="drawer-sub-link" onclick="closeDrawer()">Mowers</a>
+        <a href="/blog/category-soil-testing.html" class="drawer-sub-link" onclick="closeDrawer()">Soil &amp; Testing</a>
+        <a href="/blog/category-aeration.html" class="drawer-sub-link" onclick="closeDrawer()">Aeration &amp; Overseeding</a>
+        <a href="/blog/category-irrigation.html" class="drawer-sub-link" onclick="closeDrawer()">Irrigation</a>
+      </div>
+    </div>
+    <div class="drawer-accordion">
+      <button class="drawer-accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">Home Improvement
+        <svg class="drawer-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="drawer-accordion-panel">
+        <a href="/blog/category-power-tools.html" class="drawer-sub-link" onclick="closeDrawer()">Outdoor Power Tools</a>
+        <a href="/blog/category-landscaping.html" class="drawer-sub-link" onclick="closeDrawer()">Landscaping &amp; Curb Appeal</a>
+        <a href="/blog/category-outdoor-living.html" class="drawer-sub-link" onclick="closeDrawer()">Outdoor Living</a>
+        <a href="/blog/category-diy.html" class="drawer-sub-link" onclick="closeDrawer()">DIY &amp; Tools</a>
+      </div>
+    </div>
+    <div class="drawer-accordion">
+      <button class="drawer-accordion-btn" onclick="toggleAccordion(this)" aria-expanded="false">Grass Types
+        <svg class="drawer-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="drawer-accordion-panel">
+        <a href="/bermuda-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">Bermuda</a>
+        <a href="/fescue-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">Fescue</a>
+        <a href="/zoysia-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">Zoysia</a>
+        <a href="/st-augustine-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">St. Augustine</a>
+        <a href="/kentucky-bluegrass-lawn-care-plan.html" class="drawer-sub-link" onclick="closeDrawer()">Kentucky Bluegrass</a>
+      </div>
+    </div>
+    <a href="/blog/index.html" class="drawer-plain-link" onclick="closeDrawer()">All Guides</a>
+    <a href="/products.html" class="drawer-plain-link" onclick="closeDrawer()">Product Guide</a>
+    <a href="https://lawnunlocked.github.io/Lawnunlocked/LawnUnlocked_Seasonal_Guide.pdf" class="drawer-plain-link" target="_blank" rel="noopener">Free Seasonal PDF &#8599;</a>
+    <div class="drawer-cta-wrap">
+      <a href="/#quiz-section" class="drawer-cta-btn" onclick="closeDrawer()">Get My Free Lawn Plan &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="/" class="logo"><span style="color:var(--green)">&#127807;</span> LawnUnlocked</a>
+    <div class="nav-right">
+      <a href="/#quiz-section" class="nav-cta">Free Lawn Plan &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-body">
+<div class="article-wrap">
+
+<main class="article-main">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a><span class="breadcrumb-sep">&#8250;</span>
+    <a href="/blog/index.html">Guides</a><span class="breadcrumb-sep">&#8250;</span>
+    <a href="/blog/category-fertilizers.html">Fertilizers</a><span class="breadcrumb-sep">&#8250;</span>
+    <span>Fertilizer Schedule by Grass Type</span>
+  </nav>
+
+  <div class="article-eyebrow">
+    <div class="article-eyebrow-line"></div>
+    <span class="article-eyebrow-text">Fertilizer Basics</span>
+  </div>
+
+  <h1 class="article-title">Lawn Fertilizer Schedule by Grass Type: When to Feed Bermuda, Fescue, Zoysia &amp; More</h1>
+
+  <div class="article-meta">
+    <span class="article-meta-item">&#128336; 9 min read</span>
+    <span class="article-meta-dot">&middot;</span>
+    <span class="article-meta-item">Updated May 2026</span>
+    <span class="article-meta-dot">&middot;</span>
+    <a href="/blog/category-fertilizers.html" class="article-tag">Fertilizer Basics</a>
+  </div>
+
+  <div class="article-hero">&#128197;</div>
+
+  <div class="toc-box">
+    <div class="toc-label">In This Guide</div>
+    <ul class="toc-list">
+      <li><a href="#why-timing">Why Timing Matters More Than Product</a></li>
+      <li><a href="#bermuda">Bermuda Grass Schedule</a></li>
+      <li><a href="#fescue">Tall Fescue Schedule</a></li>
+      <li><a href="#zoysia">Zoysia Schedule</a></li>
+      <li><a href="#staugustine">St. Augustine Schedule</a></li>
+      <li><a href="#bluegrass">Kentucky Bluegrass Schedule</a></li>
+      <li><a href="#comparison">Quick Comparison Table</a></li>
+      <li><a href="#products">The Products That Work</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+
+  <div class="article-body">
+
+    <p>The most common fertilizer mistake isn&rsquo;t buying the wrong product &mdash; it&rsquo;s applying the right product at the wrong time. Fertilizing a warm-season grass in October, or pushing nitrogen on a cool-season lawn in July, causes more damage than help.</p>
+
+    <p>This guide gives you a month-by-month fertilizer schedule for every major grass type: Bermuda, Tall Fescue, Zoysia, St. Augustine, and Kentucky Bluegrass. No guessing. No generic &ldquo;fertilize in spring and fall&rdquo; advice that could mean anything.</p>
+
+    <div class="callout callout-key">
+      <div class="callout-head">&#9889; The One Rule That Overrides Everything</div>
+      <p>Fertilize when the grass is <strong>actively growing</strong> and <strong>not heat-stressed</strong>. Warm-season grasses grow in summer, cool-season grasses grow in fall and spring. Every schedule below is built on this principle.</p>
+    </div>
+
+    <h2 id="why-timing">Why Timing Matters More Than Product</h2>
+
+    <p>Nitrogen applied to dormant or stressed turf doesn&rsquo;t feed the lawn &mdash; it feeds weeds and fungus, or just leaches away. The &ldquo;best fertilizer&rdquo; is the right NPK ratio applied during the right growth window for your specific grass variety.</p>
+
+    <p>Two factors control your fertilizer calendar: <strong>soil temperature</strong> and <strong>grass type</strong>. Soil temperature is the trigger. Grass type determines which windows to target. Use a cheap soil thermometer or check your local cooperative extension service for real-time soil temps &mdash; they beat any generic calendar date.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-head">&#9888;&#65039; Never Fertilize a Stressed Lawn</div>
+      <p>Drought stress, heat stress, or active disease makes nitrogen fertilizer dangerous. When temps exceed 90&deg;F and your lawn is struggling, skip the feed. Slow-release organics like Milorganite are the only exception &mdash; they can go on at half-rate during mild summer stress on warm-season turf.</p>
+    </div>
+
+    <h2 id="bermuda">Bermuda Grass</h2>
+
+    <p>Bermuda is the most nitrogen-hungry common grass. It grows hard and fast during warm weather and goes fully dormant in winter. Its active season runs late April through September in most zones (USDA 7&ndash;10). The goal is to front-load nitrogen during peak growth without pushing late-season flush that winter-kills.</p>
+
+    <div class="grass-section">
+      <div class="grass-header">
+        <div>
+          <div class="grass-name">Bermuda Grass</div>
+          <div class="grass-tagline">4&ndash;6 applications/year &middot; High nitrogen demand &middot; Active May&ndash;September</div>
+        </div>
+        <span class="grass-badge badge-warm">Warm-Season</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr><th>Month</th><th>Action</th><th>Product / Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="sched-month">Jan&ndash;Mar</td><td class="sched-skip">Skip</td><td>Dormant. No fertilizer. Apply pre-emergent (Prodiamine) when soil hits 50&deg;F &mdash; typically late February in Zone 7&ndash;8, early March in Zone 6.</td></tr>
+          <tr><td class="sched-month">April</td><td class="sched-action">&#10003; First Feed</td><td>Wait until soil temp reaches 65&deg;F consistently. Apply balanced fertilizer (16-4-8). 0.5&ndash;1 lb N/1,000 sq ft. Don&rsquo;t rush &mdash; feeding too early feeds weeds, not Bermuda.</td></tr>
+          <tr><td class="sched-month">May&ndash;June</td><td class="sched-action">&#10003; Peak Season</td><td>Apply high-nitrogen fertilizer every 6&ndash;8 weeks. 1 lb N/1,000 sq ft per application. Scotts Southern Lawn Food (32-0-10) or Andersons PGF 16-4-8.</td></tr>
+          <tr><td class="sched-month">July</td><td class="sched-action">&#10003; Summer Feed</td><td>Continue nitrogen. Switch to slow-release Milorganite during extreme heat stretches (90&deg;F+). Maintain color and density through the dog days.</td></tr>
+          <tr><td class="sched-month">August</td><td class="sched-action">&#10003; Late Summer</td><td>Last major nitrogen application of the season. Use a balanced formula &mdash; stop pushing pure N after mid-August in most zones.</td></tr>
+          <tr><td class="sched-month">September</td><td class="sched-skip">Caution</td><td>No nitrogen after Labor Day in zones 6&ndash;8. If needed, apply potassium-only to harden turf for winter. Zone 9&ndash;10 can continue lightly.</td></tr>
+          <tr><td class="sched-month">Oct&ndash;Dec</td><td class="sched-skip">Skip</td><td>Dormant. Do not fertilize. Maintain mower height, avoid heavy traffic on dormant turf.</td></tr>
+        </tbody>
+      </table>
+      <div class="grass-footer">
+        <div class="grass-footer-product">
+          <strong>Top Pick: Scotts Southern Lawn Food (32-0-10)</strong>
+          <span>High nitrogen for Bermuda&rsquo;s peak growth windows &middot; ~$28+</span>
+        </div>
+        <a href="https://www.amazon.com/dp/B000FBMI36?tag=lawnunlocked-20" target="_blank" rel="noopener" class="btn-amz">&#128722; Amazon</a>
+      </div>
+    </div>
+
+    <h2 id="fescue">Tall Fescue</h2>
+
+    <p>Tall Fescue thrives in fall and spring, goes semi-dormant and stressed through summer heat, and doesn&rsquo;t tolerate nitrogen push during July and August. The most important feed of the entire year is <strong>fall</strong> &mdash; not spring. Most homeowners over-fertilize Fescue in spring and under-fertilize in fall. The reverse is what actually works.</p>
+
+    <div class="grass-section">
+      <div class="grass-header">
+        <div>
+          <div class="grass-name">Tall Fescue</div>
+          <div class="grass-tagline">2&ndash;4 applications/year &middot; Fall is the priority season &middot; Never fertilize in summer heat</div>
+        </div>
+        <span class="grass-badge badge-cool">Cool-Season</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr><th>Month</th><th>Action</th><th>Product / Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="sched-month">Jan&ndash;Feb</td><td class="sched-skip">Skip</td><td>Dormant or very slow growth. No fertilizer. Apply pre-emergent for winter annuals if not done in fall.</td></tr>
+          <tr><td class="sched-month">March</td><td class="sched-action">&#10003; Light Spring</td><td>Optional light application (0.5 lb N/1,000 sq ft) as soil hits 50&deg;F. Slow-release only. Less is more here &mdash; you&rsquo;re waking the lawn, not pushing it.</td></tr>
+          <tr><td class="sched-month">April</td><td class="sched-action">&#10003; Spring Feed</td><td>Balanced fertilizer before temps climb above 80&deg;F daytime. Andersons PGF 16-4-8 at full rate. Last nitrogen push before summer &mdash; make it count.</td></tr>
+          <tr><td class="sched-month">May&ndash;Aug</td><td class="sched-skip">Skip</td><td>No synthetic nitrogen during summer heat. If color fades badly, apply Milorganite at half-rate only during cooler stretches (under 85&deg;F highs).</td></tr>
+          <tr><td class="sched-month">September</td><td class="sched-action">&#10003; #1 Feed of Year</td><td>As temps cool below 80&deg;F, apply 1 lb N/1,000 sq ft. Feeds recovery from summer stress. Pair with core aeration and overseeding for maximum impact.</td></tr>
+          <tr><td class="sched-month">October</td><td class="sched-action">&#10003; Second Fall Feed</td><td>Apply balanced or potassium-heavy fertilizer. Builds root mass before winter dormancy. 1 lb N/1,000 sq ft.</td></tr>
+          <tr><td class="sched-month">Nov&ndash;Dec</td><td class="sched-skip">Wrap Up</td><td>Optional &ldquo;winterizer&rdquo; in early November if still actively growing. Use slow-release low-N/high-K formula. Skip if ground is already hard.</td></tr>
+        </tbody>
+      </table>
+      <div class="grass-footer">
+        <div class="grass-footer-product">
+          <strong>Top Pick: Andersons PGF Complete 16-4-8 with Humic DG</strong>
+          <span>Balanced ratio for fall recovery and spring green-up &middot; ~$35+</span>
+        </div>
+        <a href="https://www.amazon.com/dp/B09TLBRQBK?tag=lawnunlocked-20" target="_blank" rel="noopener" class="btn-amz">&#128722; Amazon</a>
+      </div>
+    </div>
+
+    <div class="mid-quiz-cta">
+      <h3>Not Sure What Your Lawn Needs This Month?</h3>
+      <p>Answer 10 questions and get a month-by-month plan specific to your grass type, ZIP code, and goals &mdash; free.</p>
+      <a href="/#quiz-section" class="btn-quiz-mid">Get My Free Lawn Plan &rarr;</a>
+    </div>
+
+    <h2 id="zoysia">Zoysia</h2>
+
+    <p>Zoysia is a slow-growing, dense warm-season grass. It has a shorter active season than Bermuda and is more sensitive to late-season nitrogen. It also takes longer to green up in spring &mdash; don&rsquo;t get impatient and fertilize too early.</p>
+
+    <div class="grass-section">
+      <div class="grass-header">
+        <div>
+          <div class="grass-name">Zoysia</div>
+          <div class="grass-tagline">3&ndash;4 applications/year &middot; Slower spring green-up &middot; Hard stop at Labor Day</div>
+        </div>
+        <span class="grass-badge badge-warm">Warm-Season</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr><th>Month</th><th>Action</th><th>Product / Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="sched-month">Jan&ndash;Apr</td><td class="sched-skip">Skip</td><td>Dormant. Do not fertilize. Apply pre-emergent (Prodiamine) when soil hits 50&ndash;55&deg;F &mdash; typically late February to early April depending on zone.</td></tr>
+          <tr><td class="sched-month">May</td><td class="sched-action">&#10003; First Feed</td><td>Wait for consistent 65&deg;F soil temp. Apply balanced fertilizer (16-4-8). 0.5 lb N/1,000 sq ft. Patience here prevents pushing weeds instead of grass.</td></tr>
+          <tr><td class="sched-month">June&ndash;July</td><td class="sched-action">&#10003; Peak Season</td><td>One application per month during active growth. 0.75&ndash;1 lb N/1,000 sq ft. Scotts Southern or Milorganite both work. Avoid pushing excessive nitrogen &mdash; Zoysia doesn&rsquo;t need it like Bermuda does.</td></tr>
+          <tr><td class="sched-month">August</td><td class="sched-action">&#10003; Final Summer</td><td>Last nitrogen application for the season. Apply by mid-August maximum. Use balanced formula &mdash; not high-N only at this stage.</td></tr>
+          <tr><td class="sched-month">Sep&ndash;Dec</td><td class="sched-skip">Skip</td><td>No nitrogen after Labor Day. Zoysia is very susceptible to winter kill from late-season soft growth. Potassium-only applications acceptable in early September.</td></tr>
+        </tbody>
+      </table>
+      <div class="grass-footer">
+        <div class="grass-footer-product">
+          <strong>Top Pick: Scotts Southern Lawn Food (32-0-10)</strong>
+          <span>High N with potassium support for warm-season density &middot; ~$28+</span>
+        </div>
+        <a href="https://www.amazon.com/dp/B000FBMI36?tag=lawnunlocked-20" target="_blank" rel="noopener" class="btn-amz">&#128722; Amazon</a>
+      </div>
+    </div>
+
+    <h2 id="staugustine">St. Augustine</h2>
+
+    <p>St. Augustine is dominant in the Gulf Coast, Florida, and deep South (USDA zones 8&ndash;10). It has one unique fertilizer concern: extreme sensitivity to <strong>iron deficiency</strong>, which shows up as yellow-green color even when nitrogen levels are adequate. An iron supplement in summer can solve what more nitrogen never will.</p>
+
+    <div class="grass-section">
+      <div class="grass-header">
+        <div>
+          <div class="grass-name">St. Augustine</div>
+          <div class="grass-tagline">4&ndash;6 applications/year &middot; Iron-sensitive &middot; Near year-round in zones 9&ndash;10</div>
+        </div>
+        <span class="grass-badge badge-warm">Warm-Season</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr><th>Month</th><th>Action</th><th>Product / Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="sched-month">Jan&ndash;Feb</td><td class="sched-skip">Skip / Minimal</td><td>Zones 8&ndash;9: skip. Zone 10 with year-round growth: light slow-release is acceptable. No quick-release nitrogen in winter.</td></tr>
+          <tr><td class="sched-month">March</td><td class="sched-action">&#10003; First Feed</td><td>When soil hits 65&deg;F. Apply balanced fertilizer at 1 lb N/1,000 sq ft. Add iron supplement if color is pale green &mdash; iron chlorosis is common in early spring.</td></tr>
+          <tr><td class="sched-month">Apr&ndash;May</td><td class="sched-action">&#10003; Active Feed</td><td>Every 6&ndash;8 weeks during peak growth. Milorganite (includes iron) or balanced granular. Watch for chinch bugs &mdash; peak damage season.</td></tr>
+          <tr><td class="sched-month">Jun&ndash;Jul</td><td class="sched-action">&#10003; Summer Feed</td><td>Continue slow-release during heat. Add chelated iron if yellowing appears (common in alkaline soils). Do not apply quick-release N when temps are above 90&deg;F.</td></tr>
+          <tr><td class="sched-month">August</td><td class="sched-action">&#10003; Late Summer</td><td>Apply balanced fertilizer. Last heavy nitrogen push before fall slowdown in most zones.</td></tr>
+          <tr><td class="sched-month">September</td><td class="sched-skip">Taper Off</td><td>Light application only in Zone 9&ndash;10. Zone 8: stop nitrogen completely. Potassium supplement acceptable to harden for winter.</td></tr>
+          <tr><td class="sched-month">Oct&ndash;Dec</td><td class="sched-skip">Skip</td><td>No nitrogen in Zones 8&ndash;9. Zone 10 may continue light slow-release through mild winters only.</td></tr>
+        </tbody>
+      </table>
+      <div class="grass-footer">
+        <div class="grass-footer-product">
+          <strong>Top Pick: Milorganite Organic Nitrogen 6-4-0 (32 lb)</strong>
+          <span>Contains iron &mdash; addresses St. Augustine&rsquo;s #1 deficiency &middot; ~$30+</span>
+        </div>
+        <a href="https://www.amazon.com/dp/B08TM3ZCVL?tag=lawnunlocked-20" target="_blank" rel="noopener" class="btn-amz">&#128722; Amazon</a>
+      </div>
+    </div>
+
+    <h2 id="bluegrass">Kentucky Bluegrass</h2>
+
+    <p>Kentucky Bluegrass is the premium cool-season grass &mdash; dense and beautiful in its season, but demanding. Like Fescue, its prime growing periods are spring and fall. It&rsquo;s more susceptible to summer patch disease than Fescue under nitrogen push, and it tends to thin badly if over-fertilized the previous spring.</p>
+
+    <div class="grass-section">
+      <div class="grass-header">
+        <div>
+          <div class="grass-name">Kentucky Bluegrass</div>
+          <div class="grass-tagline">3&ndash;5 applications/year &middot; Fall is critical &middot; Summer nitrogen causes disease</div>
+        </div>
+        <span class="grass-badge badge-cool">Cool-Season</span>
+      </div>
+      <table class="schedule-table">
+        <thead><tr><th>Month</th><th>Action</th><th>Product / Notes</th></tr></thead>
+        <tbody>
+          <tr><td class="sched-month">Jan&ndash;Feb</td><td class="sched-skip">Skip</td><td>Dormant. No fertilizer. Apply pre-emergent for crabgrass in late February as soil approaches 50&deg;F.</td></tr>
+          <tr><td class="sched-month">Mar&ndash;Apr</td><td class="sched-action">&#10003; Spring Feed</td><td>Apply 0.5&ndash;1 lb N/1,000 sq ft as growth begins. Use slow-release to avoid flush growth that leads to summer burnout and disease. Andersons PGF 16-4-8 is ideal.</td></tr>
+          <tr><td class="sched-month">May</td><td class="sched-skip">Optional Light</td><td>Light potassium-only application to support summer stress tolerance. Avoid heavy nitrogen &mdash; heat season is approaching.</td></tr>
+          <tr><td class="sched-month">Jun&ndash;Aug</td><td class="sched-skip">Skip</td><td>No synthetic nitrogen during summer. Bluegrass is prone to summer patch disease when pushed with nitrogen during heat. Irrigate deeply instead of feeding.</td></tr>
+          <tr><td class="sched-month">September</td><td class="sched-action">&#10003; Most Important</td><td>The year&rsquo;s most critical application. 1 lb N/1,000 sq ft as temps drop below 80&deg;F. Core aerate first if you can. Seed thin areas immediately after.</td></tr>
+          <tr><td class="sched-month">October</td><td class="sched-action">&#10003; Second Fall Feed</td><td>Apply balanced or high-K fertilizer. Builds root mass before dormancy. Critical for winter survival and strong early spring green-up.</td></tr>
+          <tr><td class="sched-month">November</td><td class="sched-action">&#10003; Winterizer</td><td>Optional late-season application before hard freeze. Use high-potassium formula to boost cold hardiness. Skip if temps already below 40&deg;F consistently.</td></tr>
+          <tr><td class="sched-month">December</td><td class="sched-skip">Skip</td><td>Dormant. No fertilizer.</td></tr>
+        </tbody>
+      </table>
+      <div class="grass-footer">
+        <div class="grass-footer-product">
+          <strong>Top Pick: Andersons PGF Complete 16-4-8 with Humic DG</strong>
+          <span>Balanced ratio ideal for fall recovery and root development &middot; ~$35+</span>
+        </div>
+        <a href="https://www.amazon.com/dp/B09TLBRQBK?tag=lawnunlocked-20" target="_blank" rel="noopener" class="btn-amz">&#128722; Amazon</a>
+      </div>
+    </div>
+
+    <h2 id="comparison">Quick Comparison: All Grass Types</h2>
+
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Grass Type</th><th>Season</th><th>Feeds/Year</th><th>Peak Window</th><th>Never Fertilize</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Bermuda</td><td>Warm</td><td>4&ndash;6</td><td>May&ndash;August</td><td>After Labor Day</td></tr>
+          <tr><td>Tall Fescue</td><td>Cool</td><td>2&ndash;4</td><td>Sep&ndash;Oct (primary)</td><td>June&ndash;August</td></tr>
+          <tr><td>Zoysia</td><td>Warm</td><td>3&ndash;4</td><td>May&ndash;August</td><td>After Labor Day</td></tr>
+          <tr><td>St. Augustine</td><td>Warm</td><td>4&ndash;6</td><td>March&ndash;August</td><td>After first frost</td></tr>
+          <tr><td>Kentucky Bluegrass</td><td>Cool</td><td>3&ndash;5</td><td>Sep&ndash;Nov (critical)</td><td>June&ndash;August</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="products">The Products That Work</h2>
+
+    <p>Two fertilizers cover almost every scenario in this guide. One is a professional-grade synthetic with superior delivery technology, the other is an organic slow-release that&rsquo;s impossible to misapply.</p>
+
+    <div class="product-callout">
+      <div>
+        <div class="product-callout-eyebrow">&#129351; Best Overall &middot; All Grass Types</div>
+        <div class="product-callout-name">Andersons PGF Complete 16-4-8 with Humic DG</div>
+        <div class="product-callout-why">The 16-4-8 ratio matches the agronomist-recommended 4-1-2 NPK formula. Patented DG Technology moves nutrients directly into the root zone in one watering &mdash; no hot spots, consistent green-up. Use this for primary feeding windows on any grass type: spring Fescue and Bluegrass feeds, peak summer Bermuda, and all critical fall applications.</div>
+      </div>
+      <a href="https://www.amazon.com/dp/B09TLBRQBK?tag=lawnunlocked-20" target="_blank" rel="noopener" class="btn-amz">&#128722; ~$35+</a>
+    </div>
+
+    <div class="product-callout" style="margin-top:1rem;">
+      <div>
+        <div class="product-callout-eyebrow">&#127807; Best Slow-Release &middot; Summer Safety</div>
+        <div class="product-callout-name">Milorganite Organic Nitrogen 6-4-0 (32 lb)</div>
+        <div class="product-callout-why">Milorganite feeds soil biology and releases nutrients slowly &mdash; it literally cannot burn. Use this whenever conditions are risky: summer heat on St. Augustine, marginal timing on Fescue, or any application where you&rsquo;re uncertain. The 6-4-0 formula also includes iron, which St. Augustine and lawns on alkaline soil frequently need.</div>
+      </div>
+      <a href="https://www.amazon.com/dp/B08TM3ZCVL?tag=lawnunlocked-20" target="_blank" rel="noopener" class="btn-amz">&#128722; ~$30+</a>
+    </div>
+
+    <p style="margin-top:1.5rem;">For Bermuda and St. Augustine during peak season, <a href="https://www.amazon.com/dp/B000FBMI36?tag=lawnunlocked-20" target="_blank" rel="noopener">Scotts Southern Lawn Food (32-0-10)</a> delivers high nitrogen quickly for fast green-up. Use it in May&ndash;July only. And before buying anything, run a <a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener">MySoil Complete soil test</a> &mdash; phosphorus or potassium deficiencies won&rsquo;t respond to nitrogen no matter how much you apply.</p>
+
+    <h2 id="faq">Frequently Asked Questions</h2>
+
+    <div class="faq-section">
+      <div class="faq-item">
+        <div class="faq-q">When should I first fertilize my lawn in spring?</div>
+        <div class="faq-a">For warm-season grasses (Bermuda, Zoysia, St. Augustine), wait until soil temperature hits 65&deg;F consistently &mdash; typically late April to May in most zones. For cool-season grasses (Fescue, Bluegrass), a light application is acceptable when soil reaches 50&ndash;55&deg;F in March or April, but the fall feeding is far more important. Don&rsquo;t rush the spring feed on cool-season turf.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How many times per year should I fertilize my lawn?</div>
+        <div class="faq-a">Warm-season grasses typically need 4&ndash;6 applications during their active growing season. Cool-season grasses do best with 2&ndash;4 applications, with fall being the most critical window. Over-fertilizing is a more common mistake than under-fertilizing &mdash; stick to the schedules above.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I fertilize cool-season grass in summer?</div>
+        <div class="faq-a">Avoid synthetic nitrogen on cool-season grasses (Fescue, Bluegrass) during summer heat stress. If you must feed, use Milorganite at half-rate only during a cooler stretch below 85&deg;F highs. Excess nitrogen in summer causes heat stress, fungal disease, and turf burnout that takes months to recover from.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What fertilizer should I use for Bermuda grass?</div>
+        <div class="faq-a">Bermuda is nitrogen-hungry and performs best with a high-nitrogen fertilizer. <a href="https://www.amazon.com/dp/B000FBMI36?tag=lawnunlocked-20" target="_blank" rel="noopener">Scotts Southern Lawn Food (32-0-10)</a> provides fast nitrogen for peak season growth. For a more balanced approach across the full season, Andersons PGF 16-4-8 works well. Apply every 6&ndash;8 weeks from late spring through mid-August &mdash; never after Labor Day.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What is the best time of year to fertilize Zoysia?</div>
+        <div class="faq-a">Zoysia&rsquo;s prime feeding window runs late May through August. First application when soil temps hit 65&deg;F, then every 6&ndash;8 weeks through summer. Do not fertilize after Labor Day in most regions &mdash; late nitrogen promotes soft growth that winter-kills easily.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I know if I need a soil test before fertilizing?</div>
+        <div class="faq-a">If you&rsquo;ve never tested your soil, do it before this season. A soil test tells you your actual pH, phosphorus, potassium, and micronutrient levels &mdash; and gives you a targeted fertilizer recommendation. Without it, you&rsquo;re guessing. A <a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener">MySoil Complete Kit</a> runs about $30 and is the highest-ROI step you can take before spending anything else on product.</div>
+      </div>
+    </div>
+
+  </div><!-- /article-body -->
+
+  <div class="related-section">
+    <div class="related-label">Related Guides</div>
+    <div class="related-grid">
+      <a href="/blog/best-lawn-fertilizer-2026.html" class="related-card">
+        <div class="related-card-top" style="background:linear-gradient(135deg,#e8f5e7,#66bb6a);">&#127807;</div>
+        <div class="related-card-body">
+          <div class="related-card-tag">Buyer&rsquo;s Guide</div>
+          <div class="related-card-title">Best Lawn Fertilizer 2026: Picks by Grass Type, Tested &amp; Ranked</div>
+        </div>
+      </a>
+      <a href="/blog/npk-ratios-explained.html" class="related-card">
+        <div class="related-card-top" style="background:linear-gradient(135deg,#1a3d1f,#4a9e4d);">&#128290;</div>
+        <div class="related-card-body">
+          <div class="related-card-tag">Fertilizer Basics</div>
+          <div class="related-card-title">NPK Ratios Explained: What the Numbers on Your Bag Actually Mean</div>
+        </div>
+      </a>
+      <a href="/blog/slow-release-vs-fast-release-fertilizer.html" class="related-card">
+        <div class="related-card-top" style="background:linear-gradient(135deg,#e3f2fd,#4fc3f7);">&#9203;</div>
+        <div class="related-card-body">
+          <div class="related-card-tag">Fertilizer Basics</div>
+          <div class="related-card-title">Slow-Release vs. Fast-Release Fertilizer: Which One Does Your Lawn Need?</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<aside class="article-sidebar">
+  <div class="sidebar-widget">
+    <div class="sw-header"><span>&#127807;</span><span class="sw-label">Free Tool</span></div>
+    <div class="sw-body">
+      <div class="sw-title">Get a Personalized Lawn Plan</div>
+      <div class="sw-desc">10 questions. Specific product picks, a seasonal schedule, and honest advice matched to your grass &amp; ZIP.</div>
+      <div class="sw-checklist">
+        <div class="sw-check">Personalized fertilizer picks</div>
+        <div class="sw-check">Month-by-month care calendar</div>
+        <div class="sw-check">Matched to your grass &amp; region</div>
+        <div class="sw-check">Free &mdash; 2 minutes</div>
+      </div>
+      <a href="/#quiz-section" class="btn-quiz-cta">Build My Free Lawn Plan &rarr;</a>
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+    <div class="sw-header"><span>&#128203;</span><span class="sw-label">Jump To</span></div>
+    <div class="sw-body" style="padding:0.6rem 0.8rem;">
+      <a href="#bermuda" class="sw-toc-link">Bermuda Schedule</a>
+      <a href="#fescue" class="sw-toc-link">Tall Fescue Schedule</a>
+      <a href="#zoysia" class="sw-toc-link">Zoysia Schedule</a>
+      <a href="#staugustine" class="sw-toc-link">St. Augustine Schedule</a>
+      <a href="#bluegrass" class="sw-toc-link">Kentucky Bluegrass</a>
+      <a href="#comparison" class="sw-toc-link">Quick Comparison</a>
+      <a href="#products" class="sw-toc-link">Product Picks</a>
+      <a href="#faq" class="sw-toc-link">FAQ</a>
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+    <div class="sw-header"><span>&#128196;</span><span class="sw-label">Free Download</span></div>
+    <div class="sw-body">
+      <div class="sw-title">Seasonal Lawn Care PDF Guide</div>
+      <div class="sw-desc">Month-by-month calendar for cool and warm-season grasses. 9 pages, free.</div>
+      <form id="sidebarNewsletterForm" onsubmit="handleSidebarNewsletter(event)">
+        <input class="sw-newsletter-input" type="email" placeholder="Your email address" required id="sidebarEmail" />
+        <button class="btn-newsletter" type="submit">Send Me the PDF &rarr;</button>
+      </form>
+      <div id="sidebarSuccess" style="display:none;margin-top:0.6rem;padding:0.6rem 0.8rem;background:var(--green-pale);border:1px solid #b6dcb2;border-radius:7px;color:#2d5a27;font-size:0.8rem;font-weight:600;">&#10003; Check your inbox!</div>
+      <p class="sw-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+
+  <div class="sidebar-widget">
+    <div class="sw-header"><span>&#127942;</span><span class="sw-label">Top Fertilizer Picks</span></div>
+    <div class="sw-body" style="padding-top:0.2rem;">
+      <div class="sw-pick">
+        <div class="sw-pick-num">01</div>
+        <div>
+          <div class="sw-pick-name">Andersons PGF Complete 16-4-8</div>
+          <div class="sw-pick-cat">Best Overall &middot; All Grass Types</div>
+          <a href="https://www.amazon.com/dp/B09TLBRQBK?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">&#128722; ~$35+</a>
+        </div>
+      </div>
+      <div class="sw-pick">
+        <div class="sw-pick-num">02</div>
+        <div>
+          <div class="sw-pick-name">Milorganite 32 lb</div>
+          <div class="sw-pick-cat">Slow-Release &middot; Best Organic</div>
+          <a href="https://www.amazon.com/dp/B08TM3ZCVL?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">&#128722; ~$30+</a>
+        </div>
+      </div>
+      <div class="sw-pick">
+        <div class="sw-pick-num">03</div>
+        <div>
+          <div class="sw-pick-name">Scotts Southern Lawn Food</div>
+          <div class="sw-pick-cat">Warm-Season &middot; Bermuda &amp; Zoysia</div>
+          <a href="https://www.amazon.com/dp/B000FBMI36?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">&#128722; ~$28+</a>
+        </div>
+      </div>
+      <div class="sw-pick">
+        <div class="sw-pick-num">04</div>
+        <div>
+          <div class="sw-pick-name">MySoil Complete Soil Test</div>
+          <div class="sw-pick-cat">Do This Before Anything Else</div>
+          <a href="https://www.amazon.com/dp/B084TSNR79?tag=lawnunlocked-20" target="_blank" rel="noopener" class="sw-pick-link">&#128722; ~$30+</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+</div><!-- /article-wrap -->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span style="color:var(--green)">&#127807;</span> LawnUnlocked</a>
+        <p>Expert lawn care guides and honest product reviews for homeowners who want the right answer, not just a generic tip.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Lawn Care</h4>
+        <a href="/blog/best-lawn-fertilizer-2026.html">Best Fertilizers 2026</a>
+        <a href="/blog/lawn-fertilizer-schedule-by-grass-type.html">Fertilizer Schedule</a>
+        <a href="/blog/npk-ratios-explained.html">NPK Ratios Explained</a>
+        <a href="/blog/when-to-apply-pre-emergent-zone-7.html">Pre-Emergent Timing</a>
+        <a href="/blog/best-battery-mower-under-500.html">Best Battery Mowers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <a href="/blog/category-fertilizers.html">Fertilizers</a>
+        <a href="/blog/category-weed-control.html">Weed Control</a>
+        <a href="/blog/category-mowers.html">Mowers</a>
+        <a href="/blog/category-soil-testing.html">Soil &amp; Testing</a>
+        <a href="/blog/category-aeration.html">Aeration</a>
+        <a href="/blog/category-irrigation.html">Irrigation</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/products.html">Product Guide</a>
+        <a href="/blog/index.html">All Guides</a>
+        <a href="/#quiz-section">Free Lawn Plan Quiz</a>
+        <a href="https://lawnunlocked.github.io/Lawnunlocked/LawnUnlocked_Seasonal_Guide.pdf" target="_blank" rel="noopener">Download Seasonal PDF</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 LawnUnlocked. <a href="#">Affiliate Disclosure</a> &middot; <a href="#">Privacy</a></p>
+      <p style="font-size:0.7rem;color:#2a2a2a;">As an Amazon Associate we earn from qualifying purchases at no additional cost to you.</p>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-body -->
+
+<script>
+  function toggleDrawer(){const d=document.getElementById('siteDrawer'),o=document.getElementById('drawerOverlay'),b=document.getElementById('hamburgerBtn');if(d.classList.contains('open')){closeDrawer();}else{d.classList.add('open');o.classList.add('open');b.classList.add('open');document.body.style.overflow='hidden';}}
+  function closeDrawer(){document.getElementById('siteDrawer').classList.remove('open');document.getElementById('drawerOverlay').classList.remove('open');document.getElementById('hamburgerBtn').classList.remove('open');document.body.style.overflow='';}
+  function toggleAccordion(btn){const panel=btn.nextElementSibling,isOpen=btn.classList.contains('open');document.querySelectorAll('.drawer-accordion-btn.open').forEach(b=>{if(b!==btn){b.classList.remove('open');b.setAttribute('aria-expanded','false');b.nextElementSibling.classList.remove('open');}});btn.classList.toggle('open',!isOpen);btn.setAttribute('aria-expanded',String(!isOpen));panel.classList.toggle('open',!isOpen);}
+  function handleSidebarNewsletter(e){e.preventDefault();const email=document.getElementById('sidebarEmail').value;if(!email)return;const fd=new FormData();fd.append('email_address',email);fetch('https://app.kit.com/forms/9270390/subscriptions',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).catch(()=>{});document.getElementById('sidebarNewsletterForm').style.display='none';document.getElementById('sidebarSuccess').style.display='block';}
+</script>
+</body>
+</html>
