@@ -169,5 +169,12 @@
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
+
+<url>
+  <loc>https://lawnunlocked.com/blog/lawn-fertilizer-schedule-by-grass-type</loc>
+  <lastmod>2026-05-19</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
   
 </urlset>
